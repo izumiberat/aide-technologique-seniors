@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Izumi - Aide Technologique pour Séniors</title>
     <style>
+        /* Base Styles */
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
@@ -14,110 +15,150 @@
             padding: 20px;
             background-color: #f9f9f9;
         }
-        @media print {
-            body {
-                background-color: white;
-                padding: 0;
-                font-size: 12pt;
-            }
-            .no-print { display: none; }
-            .page-break { page-break-after: always; }
-        }
-        .logo {
+        
+        /* Header */
+        .header {
             text-align: center;
-            margin-bottom: 20px;
+            padding: 20px 0;
+            margin-bottom: 30px;
         }
-        .logo svg {
-            width: 120px;
-            height: 120px;
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
         }
+        
         h1 {
             color: #2c3e50;
-            text-align: center;
+            margin: 0;
             font-size: 28px;
-            margin-bottom: 10px;
         }
-        .highlight {
-            background-color: #e8f4fc;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
+        
+        .tagline {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 5px;
         }
+        
+        /* Services */
         .services {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .service-card {
-            flex: 1 1 200px;
-            background: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .cta {
-            text-align: center;
-            background-color: #3498db;
-            color: white;
-            padding: 15px;
-            border-radius: 5px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin: 30px 0;
-            font-weight: bold;
         }
-        /* Contact Form Styles */
-        .contact-form {
+        
+        .service-card {
             background: white;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            color: #3498db;
+            margin-top: 0;
+            border-bottom: 1px dashed #3498db;
+            padding-bottom: 5px;
+        }
+        
+        /* Payment Note */
+        .payment-nature {
+            background: #f8f4e8;
+            border-left: 4px solid #f0c674;
+            padding: 15px;
             margin: 30px 0;
+            display: flex;
+            align-items: center;
+            border-radius: 0 8px 8px 0;
         }
+        
+        .payment-icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        /* Signature Quote */
+        .signature-quote {
+            text-align: right;
+            margin-top: 40px;
+            font-family: 'Georgia', serif;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
-        label {
+        
+        .form-group label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: bold;
         }
-        input, textarea, select {
+        
+        .form-control {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            box-sizing: border-box;
         }
-        button {
-            background-color: #3498db;
+        
+        .submit-btn {
+            background: #3498db;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
         }
-        button:hover {
-            background-color: #2980b9;
+        
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #3498db;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <div class="logo">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Header -->
+    <header class="header">
+        <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <rect x="20" y="30" width="60" height="40" rx="5" fill="none" stroke="#3498db" stroke-width="3"/>
             <circle cx="50" cy="50" r="15" fill="none" stroke="#e74c3c" stroke-width="3"/>
             <path d="M35,65 Q50,75 65,65" fill="none" stroke="#2ecc71" stroke-width="3"/>
-            <text x="50" y="90" text-anchor="middle" font-family="Arial" font-size="10" fill="#3498db">Izumi Tech Aid</text>
         </svg>
         <h1>Aide Technologique pour Séniors & Familles</h1>
-    </div>
+        <p class="tagline">Vos proches connectés en toute sérénité</p>
+    </header>
 
-    <div class="highlight">
+    <!-- Introduction -->
+    <div>
         <p>Vos parents ou proches ont du mal avec la technologie ?<br>
         Je les aide à maîtriser leurs appareils et à rester connectés avec vous.</p>
     </div>
 
+    <!-- Services -->
     <h2>Mes Services</h2>
     <div class="services">
         <div class="service-card">
@@ -146,57 +187,75 @@
         </div>
     </div>
 
+    <!-- About Me -->
     <h2>Qui Suis-Je ?</h2>
     <p><strong>🛰️ → ❤️ Ingénieur dans le spatial de formation, reconverti dans l'accompagnement humain.</strong></p>
     <p>Passionné par la technologie et les relations intergénérationnelles, je mets mes compétences au service des séniors pour leur donner autonomie et confiance.</p>
 
     <!-- Contact Form -->
-    <div class="contact-form no-print">
+    <div class="contact-form">
         <h2>Contactez-moi</h2>
-        <form id="techAidForm" action="https://formspree.io/f/your-form-id" method="POST">
+        <form id="techAidForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <div class="form-group">
-                <label for="name">Votre nom *</label>
-                <input type="text" id="name" name="name" required>
+                <label for="name">Nom complet *</label>
+                <input type="text" id="name" name="name" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="email">Email *</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="phone">Téléphone</label>
-                <input type="tel" id="phone" name="phone">
+                <input type="tel" id="phone" name="phone" class="form-control">
             </div>
             <div class="form-group">
                 <label for="service">Service intéressé</label>
-                <select id="service" name="service">
+                <select id="service" name="service" class="form-control">
                     <option value="">-- Sélectionnez --</option>
                     <option value="installation">Installation/Configuration</option>
                     <option value="learning">Apprentissage</option>
                     <option value="security">Sécurité</option>
-                    <option value="other">Autre</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="message">Message *</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
+                <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
             </div>
-            <button type="submit">Envoyer</button>
+            <button type="submit" class="submit-btn">Envoyer la demande</button>
         </form>
     </div>
 
-    <div class="cta">
-        Première consultation offerte !<br>
-        Contactez-moi :<br>
-        📞 07.84.52.99.22 | 📧 izumib@gmail.com
+    <!-- Payment Note -->
+    <div class="payment-nature">
+        <div class="payment-icon">🍯</div>
+        <p>J'accepte avec plaisir les paiements en nature <em>(miel, confitures, légumes du jardin)</em>.</p>
     </div>
 
-    <p class="payment-note">J'accepte avec plaisir les paiements en nature (miel, confitures, légumes du jardin).</p>
-
-    <div class="signature">
-        "Grâce à la technologie, vos proches restent indépendants... et vous, tranquilles."
+    <!-- Signature Quote -->
+    <div class="signature-quote">
+        <blockquote>
+            <p>«&nbsp;Grâce à la technologie, vos proches restent indépendants…<br>et vous, tranquilles.&nbsp;»</p>
+        </blockquote>
     </div>
 
-    <!-- Form handling script -->
+    <!-- Footer -->
+    <div class="footer">
+        <div>
+            <h3>Contact direct</h3>
+            <p>📞 07.84.52.99.22<br>
+            📧 izumib@gmail.com</p>
+        </div>
+        <div>
+            <h3>Réseau professionnel</h3>
+            <a href="https://www.linkedin.com/in/izumi-bérat-a08a8425/" class="social-link" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#0077B5">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                LinkedIn
+            </a>
+        </div>
+    </div>
+
     <script>
         const form = document.getElementById('techAidForm');
         form.addEventListener('submit', function(e) {
