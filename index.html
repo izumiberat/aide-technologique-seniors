@@ -3,104 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aide Technologique pour Séniors & Familles</title>
+    <title>Izumi - Aide Technologique pour Séniors</title>
     <style>
         body {
-            font-family: sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
             color: #333;
-        }
-        header {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #fff;
-        }
-        header img {
-            max-width: 200px;
-            height: auto;
-        }
-        section {
-            background-color: #fff;
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
+            background-color: #f9f9f9;
+        }
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                font-size: 12pt;
+            }
+            .no-print { display: none; }
+            .page-break { page-break-after: always; }
+        }
+        .logo {
+            text-align: center;
             margin-bottom: 20px;
-            border-radius: 5px;
         }
-        h2 {
-            color: #007bff;
+        .logo svg {
+            width: 120px;
+            height: 120px;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 28px;
             margin-bottom: 10px;
         }
-        .contact-info {
+        .highlight {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .service-card {
+            flex: 1 1 200px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .cta {
             text-align: center;
-            margin-top: 30px;
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 30px 0;
+            font-weight: bold;
         }
-        .contact-info a {
-            color: #007bff;
-            text-decoration: none;
+        /* Contact Form Styles */
+        .contact-form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 30px 0;
         }
-        .contact-info a:hover {
-            text-decoration: underline;
+        .form-group {
+            margin-bottom: 15px;
         }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: #fff;
-            font-size: 0.8em;
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <img src="http://googleusercontent.com/image_generation_content/1" alt="Logo: Technology and Care">
+    <div class="logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="30" width="60" height="40" rx="5" fill="none" stroke="#3498db" stroke-width="3"/>
+            <circle cx="50" cy="50" r="15" fill="none" stroke="#e74c3c" stroke-width="3"/>
+            <path d="M35,65 Q50,75 65,65" fill="none" stroke="#2ecc71" stroke-width="3"/>
+            <text x="50" y="90" text-anchor="middle" font-family="Arial" font-size="10" fill="#3498db">Izumi Tech Aid</text>
+        </svg>
         <h1>Aide Technologique pour Séniors & Familles</h1>
-    </header>
+    </div>
 
-    <section>
-        <h2>Vos parents ou proches ont du mal avec la technologie ?</h2>
-        <p>Je les aide à maîtriser leurs appareils et à rester connectés avec vous grâce à :</p>
-        <h2>✅ Installation & Configuration :</h2>
-        <ul>
-            <li>📱 Smartphones, tablettes, ordinateurs</li>
-            <li>🏠 Appareils connectés (Alexa, Google Home, caméras de sécurité)</li>
-            <li>📹 Appels vidéo (WhatsApp, Zoom, FaceTime)</li>
-        </ul>
-        <h2>✅ Apprentissage Personnalisé :</h2>
-        <ul>
-            <li>Envoyer des messages/photos</li>
-            <li>Utiliser les réseaux sociaux (Facebook, Instagram)</li>
-            <li>Conseil sur le choix des technologies à adopter</li>
-        </ul>
-        <h2>✅ Sécurité & Assistance Continue :</h2>
-        <ul>
-            <li>Éviter les arnaques en ligne</li>
-            <li>Protéger leurs données personnelles</li>
-            <li>Vérification mensuelle (option) pour s’assurer que tout fonctionne</li>
-        </ul>
-        <p>💡 Service à domicile (Artigat et alentours) ou aide à distance pour les familles éloignées.</p>
-        <p>✨ Première consultation offerte ! Tarifs adaptés aux besoins.</p>
-    </section>
+    <div class="highlight">
+        <p>Vos parents ou proches ont du mal avec la technologie ?<br>
+        Je les aide à maîtriser leurs appareils et à rester connectés avec vous.</p>
+    </div>
 
-    <section class="contact-info">
-        <h2>📞 Contactez-moi pour plus de sérénité :</h2>
-        <p>Izumi (au Fustié) – 07.84.52.99.22</p>
-        <p>📧 <a href="mailto:izumib@gmail.com">izumib@gmail.com</a></p>
-        <p>"Grâce à la technologie, vos proches restent indépendants… et vous, tranquilles."</p>
-        <p>Ingénieur dans le spatial de formation, reconverti dans l’accompagenemnt humain, j’accepte avec plaisir les paiments en nature (miel, confitures, légumes du jardin, …).</p>
-    </section>
+    <h2>Mes Services</h2>
+    <div class="services">
+        <div class="service-card">
+            <h3>Installation & Configuration</h3>
+            <ul>
+                <li>Smartphones, tablettes, ordinateurs</li>
+                <li>Appareils connectés (Alexa, caméras)</li>
+                <li>Appels vidéo (WhatsApp, Zoom)</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <h3>Apprentissage Personnalisé</h3>
+            <ul>
+                <li>Messages et photos</li>
+                <li>Réseaux sociaux</li>
+                <li>Conseils technologiques</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <h3>Sécurité & Assistance</h3>
+            <ul>
+                <li>Éviter les arnaques</li>
+                <li>Protection des données</li>
+                <li>Vérification mensuelle</li>
+            </ul>
+        </div>
+    </div>
 
-    <footer>
-        &copy; 2025 Izumi - Aide Technologique
-    </footer>
+    <h2>Qui Suis-Je ?</h2>
+    <p><strong>🛰️ → ❤️ Ingénieur dans le spatial de formation, reconverti dans l'accompagnement humain.</strong></p>
+    <p>Passionné par la technologie et les relations intergénérationnelles, je mets mes compétences au service des séniors pour leur donner autonomie et confiance.</p>
 
+    <!-- Contact Form -->
+    <div class="contact-form no-print">
+        <h2>Contactez-moi</h2>
+        <form id="techAidForm" action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="form-group">
+                <label for="name">Votre nom *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="service">Service intéressé</label>
+                <select id="service" name="service">
+                    <option value="">-- Sélectionnez --</option>
+                    <option value="installation">Installation/Configuration</option>
+                    <option value="learning">Apprentissage</option>
+                    <option value="security">Sécurité</option>
+                    <option value="other">Autre</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+
+    <div class="cta">
+        Première consultation offerte !<br>
+        Contactez-moi :<br>
+        📞 07.84.52.99.22 | 📧 izumib@gmail.com
+    </div>
+
+    <p class="payment-note">J'accepte avec plaisir les paiements en nature (miel, confitures, légumes du jardin).</p>
+
+    <div class="signature">
+        "Grâce à la technologie, vos proches restent indépendants... et vous, tranquilles."
+    </div>
+
+    <!-- Form handling script -->
+    <script>
+        const form = document.getElementById('techAidForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert('Message envoyé ! Je vous répondrai rapidement.');
+                    form.reset();
+                } else {
+                    throw new Error('Erreur réseau');
+                }
+            }).catch(error => {
+                alert('Une erreur est survenue. Vous pouvez m\'appeler directement au 07.84.52.99.22');
+            });
+        });
+    </script>
 </body>
 </html>
