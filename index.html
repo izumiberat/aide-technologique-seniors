@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%233498db'/><path d='M30,40 L50,60 L70,40' stroke='white' stroke-width='8' fill='none'/><circle cx='50' cy='35' r='10' fill='white'/></svg>">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDXV73PSZM"></script>
     <script>
@@ -51,6 +50,14 @@
             margin-top: 5px;
         }
         
+        /* Highlight Box */
+        .highlight {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
         /* Services */
         .services {
             display: grid;
@@ -71,6 +78,28 @@
             margin-top: 0;
             border-bottom: 1px dashed #3498db;
             padding-bottom: 5px;
+        }
+        
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 40px 0;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .cta br {
+            display: none;
+        }
+        
+        @media (min-width: 600px) {
+            .cta br {
+                display: inline;
+            }
         }
         
         /* Payment Note */
@@ -134,11 +163,10 @@
         
         /* Footer */
         .footer {
-            display: flex;
-            justify-content: space-between;
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid #eee;
+            text-align: center;
         }
         
         .social-link {
@@ -147,6 +175,7 @@
             gap: 5px;
             color: #3498db;
             text-decoration: none;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -163,7 +192,7 @@
     </header>
 
     <!-- Introduction -->
-    <div>
+    <div class="highlight">
         <p>Vos parents ou proches ont du mal avec la technologie ?<br>
         Je les aide à maîtriser leurs appareils et à rester connectés avec vous.</p>
     </div>
@@ -201,6 +230,13 @@
     <h2>Qui Suis-Je ?</h2>
     <p><strong>🛰️ → ❤️ Ingénieur dans le spatial de formation, reconverti dans l'accompagnement humain.</strong></p>
     <p>Passionné par la technologie et les relations intergénérationnelles, je mets mes compétences au service des séniors pour leur donner autonomie et confiance.</p>
+
+    <!-- CTA Section -->
+    <div class="cta">
+        Première consultation offerte !<br>
+        Contactez-moi :<br>
+        📞 07.84.52.99.22 | 📧 aidetechnologique.seniors@gmail.com
+    </div>
 
     <!-- Contact Form -->
     <div class="contact-form">
@@ -254,9 +290,6 @@
             <h3>Contact direct</h3>
             <p>📞 07.84.52.99.22<br>
             📧 aidetechnologique.seniors@gmail.com</p>
-        </div>
-        <div>
-            <h3>Réseau professionnel</h3>
             <a href="https://www.linkedin.com/in/izumi-bérat-a08a8425/" class="social-link" target="_blank">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="#0077B5">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
