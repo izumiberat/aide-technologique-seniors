@@ -335,16 +335,19 @@
             justify-content: center;
             gap: 1.5rem;
             margin-top: 1rem;
+            width: 100%;
         }
         
-        .contact-item {
-            display: flex;
+        .contact-item  {
+            display: inline-flex; /* Changed from flex to inline-flex */
             align-items: center;
-            justify-content: center;
+            justify-content: center; /* Ensure content is centered */
             gap: 0.5rem;
             background: rgba(255,255,255,0.2);
             padding: 0.5rem 1rem;
             border-radius: 50px;
+            text-align: center; 
+            min-width: max-content; /* Prevent wrapping */
         }
         /* Make email links look like other contact items */
         .contact-item[href^="mailto:"] {
@@ -541,6 +544,7 @@
             .contact-item {
                 width: 100%;
                 justify-content: center;
+                box-sizing: border-box; /* Include padding in width */
             }
 
             .contact-item svg {
@@ -732,12 +736,12 @@
                 <h2>Première consultation gratuite</h2>
                 <p>Discutons des besoins spécifiques de vos proches sans engagement</p>
                 <div class="contact-info">
-                    <div class="contact-item">
+                    <a href="tel:0784529922" class="contact-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
                         <span>07.84.52.99.22</span>
-                    </div>
+                    </a>
                     <a href="mailto:aidetechsenior@gmail.com?subject=Demande%20d'assistance%20technologique&body=Bonjour%20Izumi,%0D%0A%0D%0AJe%20vous%20contacte%20au%20sujet%20de...%0D%0A%0D%0ANom%20du%20bénéficiaire%20:%0D%0A%0D%0AÂge%20du%20bénéficiaire%20:%0D%0A%0D%0AAppareil(s)%20concerné(s)%20:%0D%0A%0D%0AProblème%20rencontré%20:%0D%0A%0D%0AMerci%20!" class="contact-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
