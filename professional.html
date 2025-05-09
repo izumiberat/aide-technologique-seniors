@@ -1062,6 +1062,7 @@
                 observer.observe(card);
             });
         });
+        
         // Ebook download count
         let downloads = 0; // Start with your baseline number
 
@@ -1078,7 +1079,12 @@
               origin: { y: 0.6 }
             });
           }
-          
+        // Logs downloads in GA4
+        function downloadEbook() {
+          gtag('event', 'download', {
+            'event_category': 'ebook',
+            'event_label': 'senior_tech_guide_v1'
+          });
           // 3. Start download
           const link = document.createElement('a');
           link.href = 'chemin/vers/votre-ebook.pdf';
