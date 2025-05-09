@@ -338,16 +338,24 @@
             width: 100%;
         }
         
-        .contact-item  {
-            display: inline-flex; /* Changed from flex to inline-flex */
+        .contact-item {
+            color: white !important;
+            text-decoration: none;
+            display: inline-flex;
             align-items: center;
-            justify-content: center; /* Ensure content is centered */
+            justify-content: center;
             gap: 0.5rem;
             background: rgba(255,255,255,0.2);
             padding: 0.5rem 1rem;
             border-radius: 50px;
-            text-align: center; 
-            min-width: max-content; /* Prevent wrapping */
+            min-width: max-content;
+        }
+        .contact-item:hover {
+            background: rgba(255,255,255,0.3);
+            color: white !important;
+        }
+        .contact-item svg {
+            flex-shrink: 0;
         }
         /* Make email links look like other contact items */
         .contact-item[href^="mailto:"] {
@@ -545,6 +553,7 @@
                     width: 100%; /* Take full width to stack */
                     justify-content: center; /* Center content within the item */
                     box-sizing: border-box; /* Include padding in width */
+                    text-align: center;
                 }
 
                 .contact-item svg {
@@ -554,7 +563,6 @@
                 }
 
                 /* Style for phone link to match email link */
-                /* Replace your current tel: rules with this: */
                 contact-item[href^="tel:"] {
                     color: white !important; /* Force white color */
                     text-decoration: none;
