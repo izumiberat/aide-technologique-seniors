@@ -345,6 +345,22 @@
             padding: 0.5rem 1rem;
             border-radius: 50px;
         }
+        /* Make email links look like other contact items */
+        .contact-item[href^="mailto:"] {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+        }
+        
+        /* Hover effect for email links */
+        .contact-item[href^="mailto:"]:hover {
+            background: rgba(255,255,255,0.3);
+        }
         
         /* Payment Note */
         .payment-nature {
