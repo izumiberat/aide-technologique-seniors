@@ -521,7 +521,30 @@
             font-size: 0.9rem;
             color: var(--dark-gray);
         }
+        /* Video Section */
+        .video-container {
+            margin: 3rem 0;
+            text-align: center;
+        }
         
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 1.5rem auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .container {
@@ -566,7 +589,9 @@
                 margin-left: 0;
                 align-self: flex-end;
             }
-            
+            .video-container {
+                margin: 2rem 0;
+            }  
             /* Footer contact items */
             .footer .contact-info {
                 flex-direction: column;
@@ -801,7 +826,7 @@
         </div>
 
         <!-- Services -->
-        <h2>Mes Services Professionnels</h2>
+        <h2>Mes Services</h2>
         <div class="services">
             <div class="service-card">
                 <h3>Installation & Configuration</h3>
@@ -845,7 +870,19 @@
                 <p>«&nbsp;Grâce à la technologie, vos proches restent indépendants… et vous, tranquilles.»&nbsp;»</p>
             </blockquote>
         </div>
-
+        <!-- New Video Section -->
+        <div class="video-container">
+            <h2>Faites ma connaissance en vidéo</h2>
+            <div class="video-wrapper">
+                <iframe width="560" height="315" 
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                        title="Présentation d'Izumi Bérat - Assistance Technologique pour Séniors" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <p>Découvrez mon approche bienveillante de l'assistance technologique</p>
+        </div>
         <!-- Footer -->
         <div class="footer">
             <div>
