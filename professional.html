@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Izumi - Assistance technologique personnalisée pour séniors. Installation, formation et sécurité des appareils électroniques.">
+    <meta name="description" content="Izumi - Assistance technologique personnalisée pour séniors. Tarifs transparents avec des exemples concrets comme l'installation d'Alexa ou de caméras.">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDXV73PSZM"></script>
@@ -14,7 +14,7 @@
       gtag('config', 'G-GDXV73PSZM');
     </script>
     
-    <title>Izumi | Assistance Technologique Professionnelle pour Séniors</title>
+    <title>Izumi | Assistance Technologique pour Séniors - Tarifs Clairs</title>
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%233498db'/><path d='M30,40 L50,60 L70,40' stroke='white' stroke-width='8' fill='none'/><circle cx='50' cy='35' r='10' fill='white'/></svg>">
@@ -30,11 +30,11 @@
             --primary-dark: #2980b9;
             --secondary-color: #2c3e50;
             --accent-color: #e74c3c;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
             --light-gray: #f8f9fa;
             --medium-gray: #e9ecef;
             --dark-gray: #495057;
-            --success-color: #2ecc71;
-            --warning-color: #f39c12;
             --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --border-radius: 8px;
         }
@@ -149,19 +149,143 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
-        .service-card h3 {
-            margin-top: 0;
+        /* Service Examples */
+        .service-examples {
+            margin: 3rem 0;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .example-category {
+            margin-bottom: 2rem;
+        }
+        
+        .example-category h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--medium-gray);
+            padding-bottom: 0.5rem;
             margin-bottom: 1rem;
         }
         
-        .service-card ul {
-            padding-left: 1.2rem;
+        .example-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed var(--medium-gray);
         }
         
-        .service-card li {
-            margin-bottom: 0.5rem;
+        .example-item:last-child {
+            border-bottom: none;
+        }
+        
+        .example-name {
+            font-weight: 600;
+        }
+        
+        .example-price {
+            background: var(--light-gray);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-left: 1rem;
+        }
+        
+        /* Pricing Section */
+        .pricing-section {
+            margin: 3rem 0;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card.highlight {
+            border: 2px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card.highlight::after {
+            content: "Populaire";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.2rem 2rem;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pricing-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .pricing-title {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+        
+        .pricing-price {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        .pricing-duration {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .pricing-features {
+            padding: 1.5rem;
+        }
+        
+        .pricing-features ul {
+            padding-left: 1.2rem;
+            margin: 0;
+        }
+        
+        .pricing-features li {
+            margin-bottom: 0.8rem;
             position: relative;
             left: 5px;
+        }
+        
+        .pricing-notes {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+        
+        .pricing-cta {
+            text-align: center;
+            margin-top: 2rem;
         }
         
         /* CTA Section */
@@ -386,7 +510,7 @@
                 font-size: 1.5rem;
             }
             
-            .services {
+            .services, .pricing-cards {
                 grid-template-columns: 1fr;
             }
             
@@ -394,6 +518,16 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
+            }
+            
+            .example-item {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            
+            .example-price {
+                margin-left: 0;
+                align-self: flex-end;
             }
         }
     </style>
@@ -417,35 +551,138 @@
             Je propose un accompagnement personnalisé pour leur permettre de maîtriser leurs appareils et de rester connectés avec leurs proches en toute confiance.</p>
         </div>
 
-        <!-- Services -->
-        <h2>Mes Services Professionnels</h2>
-        <div class="services">
-            <div class="service-card">
-                <h3>Installation & Configuration</h3>
-                <ul>
-                    <li>Smartphones, tablettes et ordinateurs</li>
-                    <li>Objets connectés (assistants vocaux, caméras de surveillance)</li>
-                    <li>Configuration d'appels vidéo (WhatsApp, FaceTime, Zoom)</li>
-                    <li>Mise en place de messageries électroniques</li>
-                </ul>
+        <!-- Service Examples -->
+        <div class="service-examples">
+            <h2>Services et Tarifs à la Carte</h2>
+            <p>Des prix fixes et transparents pour les besoins les plus courants :</p>
+            
+            <div class="example-category">
+                <h3>📱 Smartphones & Tablettes</h3>
+                <div class="example-item">
+                    <span class="example-name">Configuration d'un nouveau smartphone (transfert de contacts, photos, etc.)</span>
+                    <span class="example-price">35€</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-name">Apprendre à utiliser WhatsApp (installation + formation de base)</span>
+                    <span class="example-price">30€</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-name">Création et sécurisation d'un compte email</span>
+                    <span class="example-price">25€</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-name">Sauvegarde des photos sur le cloud</span>
+                    <span class="example-price">25€</span>
+                </div>
             </div>
-            <div class="service-card">
-                <h3>Formation Personnalisée</h3>
-                <ul>
-                    <li>Gestion des messages et partage de photos</li>
-                    <li>Utilisation des réseaux sociaux adaptée</li>
-                    <li>Conseils technologiques sur mesure</li>
-                    <li>Création de guides personnalisés</li>
-                </ul>
+            
+            <div class="example-category">
+                <h3>🏡 Maison Connectée</h3>
+                <div class="example-item">
+                    <span class="example-name">Installation et configuration d'Amazon Alexa/Google Home</span>
+                    <span class="example-price">40€</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-name">Mise en place d'une caméra de surveillance (1 appareil)</span>
+                    <span class="example-price">45€</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-name">Configuration d'une sonnette vidéo (type Ring)</span>
+                    <span class="example-price">40€</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-name">Connexion d'appareils domotiques (thermostats, etc.)</span>
+                    <span class="example-price">35€</span>
+                </div>
             </div>
-            <div class="service-card">
-                <h3>Sécurité & Assistance Continue</h3>
-                <ul>
-                    <li>Protection contre les arnaques en ligne</li>
-                    <li>Sécurisation des données personnelles</li>
-                    <li>Maintenance préventive mensuelle</li>
-                    <li>Assistance à distance disponible</li>
-                </ul>
+            
+            <div class="example-category">
+                <h3>💻 Ordinateurs & Sécurité</h3>
+                <div class="example-item">
+                    <span class="example-name">Nettoyage et optimisation d'un ordinateur lent</span>
+                    <span class="example-price">40€</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-name">Installation d'un antivirus et sécurisation</span>
+                    <span class="example-price">30€</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-name">Configuration d'appels vidéo (Skype/Zoom)</span>
+                    <span class="example-price">25€</span>
+                </div>
+                <div class="example-item">
+                    <span class="example-name">Récupération de photos/messages perdus</span>
+                    <span class="example-price">35€</span>
+                </div>
+            </div>
+            
+            <div class="pricing-notes" style="margin-top: 2rem;">
+                <p><strong>Tarifs adaptés :</strong> Réduction de 10% pour les plus de 70 ans. Forfaits famille disponibles.</p>
+                <p><strong>Durée :</strong> La plupart de ces services prennent entre 1h et 1h30. Aucun supplément si cela prend plus de temps.</p>
+                <p><strong>Déplacement :</strong> Gratuit dans un rayon de 15km, puis 0,50€/km supplémentaire.</p>
+            </div>
+        </div>
+
+        <!-- Pricing Section -->
+        <div class="pricing-section">
+            <h2>Forfaits d'Accompagnement</h2>
+            <p>Pour un soutien régulier, ces options offrent le meilleur rapport qualité-prix :</p>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">À la Carte</h3>
+                        <div class="pricing-price">30€</div>
+                        <div class="pricing-duration">/ séance (1h)</div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>Payez seulement ce dont vous avez besoin</li>
+                            <li>Parfait pour les problèmes ponctuels</li>
+                            <li>À domicile ou en visio</li>
+                            <li>Horaires flexibles</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="pricing-card highlight">
+                    <div class="pricing-header" style="background: var(--primary-dark)">
+                        <h3 class="pricing-title">Forfait Sérénité</h3>
+                        <div class="pricing-price">75€</div>
+                        <div class="pricing-duration">/ mois</div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>2 séances de 1h incluses</li>
+                            <li>Accès téléphonique illimité</li>
+                            <li>Réduction de 20% sur services supplémentaires</li>
+                            <li>Vérification de sécurité mensuelle</li>
+                            <li>Idéal pour un accompagnement régulier</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header" style="background: var(--secondary-color)">
+                        <h3 class="pricing-title">Forfait Famille</h3>
+                        <div class="pricing-price">120€</div>
+                        <div class="pricing-duration">/ mois</div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>4 séances de 1h utilisables par plusieurs personnes</li>
+                            <li>Jusqu'à 3 membres de la famille</li>
+                            <li>Assistance prioritaire</li>
+                            <li>Intervention à domicile incluse</li>
+                            <li>Économisez jusqu'à 40%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-notes">
+                <p><strong>Engagement flexible :</strong> Tous les forfaits sont sans engagement et peuvent être annulés à tout moment.</p>
+                <p><strong>Paiement en nature :</strong> Nous acceptons des paiements sous forme de produits locaux (miel, confitures, légumes).</p>
             </div>
         </div>
 
@@ -487,8 +724,8 @@
 
         <!-- Contact Form -->
         <div class="contact-form">
-            <h2>Demande de Contact</h2>
-            <form id="techAidForm" action="https://formspree.io/f/xvgaqgwv" method="POST">
+            <h2>Contactez-moi</h2>
+            <form id="techAidForm" action="https://formspree.io/f/xvgaryyv" method="POST">
                 <div class="form-group">
                     <label for="name">Nom complet *</label>
                     <input type="text" id="name" name="name" class="form-control" required>
@@ -519,6 +756,38 @@
             </form>
         </div>
 
+        <!-- Services -->
+        <h2>Mes Services Professionnels</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>Installation & Configuration</h3>
+                <ul>
+                    <li>Smartphones, tablettes et ordinateurs</li>
+                    <li>Objets connectés (assistants vocaux, caméras de surveillance)</li>
+                    <li>Configuration d'appels vidéo (WhatsApp, FaceTime, Zoom)</li>
+                    <li>Mise en place de messageries électroniques</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Formation Personnalisée</h3>
+                <ul>
+                    <li>Gestion des messages et partage de photos</li>
+                    <li>Utilisation des réseaux sociaux adaptée</li>
+                    <li>Conseils technologiques sur mesure</li>
+                    <li>Création de guides personnalisés</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Sécurité & Assistance Continue</h3>
+                <ul>
+                    <li>Protection contre les arnaques en ligne</li>
+                    <li>Sécurisation des données personnelles</li>
+                    <li>Maintenance préventive mensuelle</li>
+                    <li>Assistance à distance disponible</li>
+                </ul>
+            </div>
+        </div>
+        
         <!-- Payment Note -->
         <div class="payment-nature">
             <div class="payment-icon">🍯</div>
@@ -627,7 +896,7 @@
             });
             
             // Add subtle animations to service cards on scroll
-            const serviceCards = document.querySelectorAll('.service-card');
+            const serviceCards = document.querySelectorAll('.service-card, .pricing-card');
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
