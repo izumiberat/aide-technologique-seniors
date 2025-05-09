@@ -1064,27 +1064,26 @@
         });
         
         // Ebook download count
-        // Persistent download counter using localStorage
-        let downloads = localStorage.getItem('ebookDownloads') || 0; // Start with your baseline or stored value
-        
-        // Initialize counter display
+        // Initialize counter from localStorage or use your starting value (1243)
         document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('download-count').textContent = downloads.toLocaleString();
+        // Get stored downloads or use initial value
+        let downloads = localStorage.getItem('ebookDownloads');
+        if (!downloads) downloads = 0; // Your starting number
+        
+        // Display the current count
+        document.getElementById('download-count').textContent = 
+            parseInt(downloads).toLocaleString();
+        });
 
         function downloadEbook() {
-          // 1. Track download
-        downloads++;
-        localStorage.setItem('ebookDownloads', downloads);
-        document.getElementById('download-count').textContent = downloads.toLocaleString();
-          
-          // 2. Trigger confetti if available
-        if (typeof confetti === 'function') {
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
-        }
+        // 1. Get current count
+        let currentCount = localStorage.getItem('ebookDownloads') || 0;
+        currentCount = parseInt(currentCount) + 1;
+        
+        // 2. Update storage and display
+        localStorage.setItem('ebookDownloads', currentCount);
+        document.getElementById('download-count').textContent = 
+            currentCount.toLocaleString();
         
         // 3. Track in GA4
         if (typeof gtag === 'function') {
@@ -1096,13 +1095,17 @@
         
         // 4. Start download
         const link = document.createElement('a');
-        link.href = 'chemin/vers/votre-ebook.pdf';
+        link.href = 'path/to/your-ebook.pdf';
         link.download = 'Guide-Technologie-Seniors-Izumi.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-          }
-      }
+        
+        // 5. Optional: Add confetti
+        if (typeof confetti === 'function') {
+            confetti({ particleCount: 100, spread: 70 });
+        }
+    }
     </script>
 </body>
 </html>
