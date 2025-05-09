@@ -1064,43 +1064,45 @@
         });
         
         // Ebook download count
-        let downloads = 0; // Start with your baseline number
+        // Persistent download counter using localStorage
+        let downloads = localStorage.getItem('ebookDownloads') || 0; // Start with your baseline or stored value
+        
+        // Initialize counter display
+        document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('download-count').textContent = downloads.toLocaleString();
 
         function downloadEbook() {
           // 1. Track download
-          downloads++;
-          document.getElementById('download-count').textContent = downloads.toLocaleString();
+        downloads++;
+        localStorage.setItem('ebookDownloads', downloads);
+        document.getElementById('download-count').textContent = downloads.toLocaleString();
           
-          // 2. Trigger confetti (optional)
-          if (typeof confetti === 'function') {
+          // 2. Trigger confetti if available
+        if (typeof confetti === 'function') {
             confetti({
-              particleCount: 100,
-              spread: 70,
-              origin: { y: 0.6 }
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
             });
-          }
-        // Logs downloads in GA4
-        function downloadEbook() {
-          gtag('event', 'download', {
-            'event_category': 'ebook',
-            'event_label': 'senior_tech_guide_v1'
-          });
-          // 3. Start download
-          const link = document.createElement('a');
-          link.href = 'chemin/vers/votre-ebook.pdf';
-          link.download = 'Guide-Technologie-Seniors-Izumi.pdf';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          
-          // 4. (Optional) Send data to your analytics
-          if (typeof gtag === 'function') {
-            gtag('event', 'download', {
-              'event_category': 'ebook',
-              'event_label': 'senior_tech_guide'
-            });
-          }
         }
+        
+        // 3. Track in GA4
+        if (typeof gtag === 'function') {
+            gtag('event', 'download', {
+                'event_category': 'ebook',
+                'event_label': 'senior_tech_guide_v1'
+            });
+        }
+        
+        // 4. Start download
+        const link = document.createElement('a');
+        link.href = 'chemin/vers/votre-ebook.pdf';
+        link.download = 'Guide-Technologie-Seniors-Izumi.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+          }
+      }
     </script>
 </body>
 </html>
