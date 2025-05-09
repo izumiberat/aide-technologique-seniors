@@ -288,7 +288,7 @@
             margin-top: 2rem;
         }
         
-        /* CTA Section */
+        /* CTA Section - Updated with white text enforcement */
         .cta {
             text-align: center;
             background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
@@ -329,16 +329,18 @@
             margin-bottom: 1.5rem;
         }
         
-        .contact-info {
+        /* CTA-specific contact items with white text */
+        .cta .contact-info {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 1.5rem;
             margin-top: 1rem;
-            width: 100%;
         }
         
-        .contact-item {
+        .cta .contact-item,
+        .cta .contact-item[href^="tel:"],
+        .cta .contact-item[href^="mailto:"] {
             color: white !important;
             text-decoration: none;
             display: inline-flex;
@@ -348,29 +350,10 @@
             background: rgba(255,255,255,0.2);
             padding: 0.5rem 1rem;
             border-radius: 50px;
-            min-width: max-content;
-        }
-        .contact-item:hover {
-            background: rgba(255,255,255,0.3);
-            color: white !important;
-        }
-        .contact-item svg {
-            flex-shrink: 0;
-        }
-        /* Make email links look like other contact items */
-        .contact-item[href^="mailto:"] {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
+            transition: background-color 0.3s ease;
         }
         
-        /* Hover effect for email links */
-        .contact-item[href^="mailto:"]:hover {
+        .cta .contact-item:hover {
             background: rgba(255,255,255,0.3);
         }
         
@@ -490,6 +473,21 @@
             margin-bottom: 1rem;
         }
         
+        .footer .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
         .social-links {
             display: flex;
             justify-content: center;
@@ -526,70 +524,52 @@
         
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-        .container {
-                    padding: 1.5rem;
-                }
-                
-                h1 {
-                    font-size: 1.8rem;
-                }
-                
-                h2 {
-                    font-size: 1.5rem;
-                }
-                
-                .services, .pricing-cards {
-                    grid-template-columns: 1fr;
-                }
-                
-                .contact-info {
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 1rem;
-                    width: 100%; /* Ensure full width for centering */
-                }
-                
-                .contact-item {
-                    width: 100%; /* Take full width to stack */
-                    justify-content: center; /* Center content within the item */
-                    box-sizing: border-box; /* Include padding in width */
-                    text-align: center;
-                }
-
-                .contact-item svg {
-                    width: 20px;
-                    height: 20px;
-                    flex-shrink: 0;
-                }
-
-                /* Style for phone link to match email link */
-                contact-item[href^="tel:"] {
-                    color: white !important; /* Force white color */
-                    text-decoration: none;
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 0.5rem;
-                    background: rgba(255,255,255,0.2);
-                    padding: 0.5rem 1rem;
-                    border-radius: 50px;
-                    min-width: max-content;
-                }
-                
-                contact-item[href^="tel:"]:hover {
-                    background: rgba(255,255,255,0.3);
-                    color: white !important; /* Maintain white on hover */
-                }                                                                                                                                         
-                
-                .example-item {
-                    flex-direction: column;
-                    gap: 0.3rem;
-                }
-                
-                .example-price {
-                    margin-left: 0;
-                    align-self: flex-end;
-                }
+            .container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .services, .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            /* CTA mobile adjustments */
+            .cta .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta .contact-item {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .example-item {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            
+            .example-price {
+                margin-left: 0;
+                align-self: flex-end;
+            }
+            
+            /* Footer contact items */
+            .footer .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer .contact-item {
+                justify-content: center;
+            }
         }
     </style>
 </head>
