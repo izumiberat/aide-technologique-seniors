@@ -545,6 +545,46 @@
             width: 100%;
             height: 100%;
         }
+        /* Ebook Section */
+        .ebook-section {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .ebook-container {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .ebook-cover {
+            width: 200px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        /* Ebook download count button */
+        .fun-btn {
+          background: #3498db;
+          color: white;
+          border: none;
+          padding: 12px 24px;
+          border-radius: 50px;
+          font-size: 1.1rem;
+          cursor: pointer;
+          transition: all 0.3s;
+          box-shadow: 0 4px 0 #2980b9;
+        }
+        .fun-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 0 #2980b9;
+        }
+        .fun-btn:active {
+          transform: translateY(1px);
+          box-shadow: 0 2px 0 #2980b9;
+        }
+        
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .container {
@@ -563,6 +603,12 @@
                 grid-template-columns: 1fr;
             }
             
+            .ebook-container {
+                flex-direction: column;
+            }
+            .ebook-form input {
+                width: 100%;
+            }
             /* CTA mobile adjustments */
             .cta .contact-info {
                 flex-direction: column;
@@ -769,6 +815,24 @@
             <li>Une attention particulière à la sécurité</li>
         </ul>
 
+        <!-- E-book section -->
+        <section class="ebook-section">
+            <h2>Guide Offert : La Technologie pour l'Autonomie des Séniors</h2>
+            <div class="ebook-container">
+                <img src="ebook-cover.png" alt="Couverture du livre 'Technologie et Autonomie'" class="ebook-cover">
+                <div class="ebook-content">
+                    <p><strong>Téléchargez gratuitement mon guide complet (65 pages) :</strong></p>
+                    <ul>
+                        <li>✅ Choisir le bon smartphone/tablette adapté à l'âge</li>
+                        <li>✅ Protéger vos parents des arnaques en ligne</li>
+                        <li>✅ Mes comparatifs d'appareils (Doro, LiNote, Facilotab...)</li>
+                        <li>✅ Des exercices pratiques pour évaluer leurs besoins</li>
+                    </ul>
+                    <p><small>Déjà téléchargé <span id="download-count">1,243</span> fois !</small></p>
+                     <button onclick="downloadEbook()" class="fun-btn">Télécharger Maintenant 🎉</button>
+                </div>
+            </div>
+        </section>
         <!-- CTA Section -->
         <div class="cta">
             <div class="cta-content">
@@ -998,6 +1062,39 @@
                 observer.observe(card);
             });
         });
+        // Ebook download count
+        let downloads = 0; // Start with your baseline number
+
+        function downloadEbook() {
+          // 1. Track download
+          downloads++;
+          document.getElementById('download-count').textContent = downloads.toLocaleString();
+          
+          // 2. Trigger confetti (optional)
+          if (typeof confetti === 'function') {
+            confetti({
+              particleCount: 100,
+              spread: 70,
+              origin: { y: 0.6 }
+            });
+          }
+          
+          // 3. Start download
+          const link = document.createElement('a');
+          link.href = 'chemin/vers/votre-ebook.pdf';
+          link.download = 'Guide-Technologie-Seniors-Izumi.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          
+          // 4. (Optional) Send data to your analytics
+          if (typeof gtag === 'function') {
+            gtag('event', 'download', {
+              'event_category': 'ebook',
+              'event_label': 'senior_tech_guide'
+            });
+          }
+        }
     </script>
 </body>
 </html>
