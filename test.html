@@ -1320,43 +1320,34 @@
             updateFlag(lang);
             localStorage.setItem('preferredLanguage', lang);
 
-            const attemptChange = () => {
-                const select = document.querySelector('.goog-te-combo');
-                if (select) {
-                    try {
-                        select.value = lang;
-                        const event = new Event('change', { bubbles: true, cancelable: true });
-                        select.dispatchEvent(event);
-                        console.log('Language changed to', lang);
-                        return true; // Success
-                    } catch (e) {
-                        console.error('Error changing language:', e);
-                        return false; // Failure
+            const observer = new MutationObserver(mutationsList => {
+                for (const mutation of mutationsList) {
+                    if (mutation.type === 'childList') {
+                        const select = document.querySelector('.goog-te-combo');
+                        if (select) {
+                            observer.disconnect(); // Stop observing
+                            try {
+                                select.value = lang;
+                                const event = new Event('change', { bubbles: true, cancelable: true });
+                                select.dispatchEvent(event);
+                                console.log('Language changed to', lang);
+                            } catch (e) {
+                                console.error('Error changing language:', e);
+                            }
+                            return;
+                        }
                     }
                 }
-                return false; // Not found
-            };
+            });
 
-            if (attemptChange()) {
-                return; // Language changed successfully
-            }
+            observer.observe(document.body, { childList: true, subtree: true });
 
-            // If the first few attempts fail, start polling more persistently
-            let attempts = 0;
-            const maxPollAttempts = 60; // Try for about 30 seconds (0.5s interval)
-            const pollInterval = 500;
-
-            const pollForCombo = setInterval(() => {
-                attempts++;
-                if (attemptChange() || attempts >= maxPollAttempts) {
-                    clearInterval(pollForCombo);
-                    if (attempts >= maxPollAttempts) {
-                        console.warn('Google Translate dropdown not found after persistent polling.');
-                        // Last resort fallback: reload with language parameter?
-                        // window.location.href = window.location.pathname + '?lang=' + lang;
-                    }
-                }
-            }, pollInterval);
+            // Optional timeout if the observer doesn't find the element in a while
+            setTimeout(() => {
+                observer.disconnect();
+                console.warn('Google Translate dropdown not found via MutationObserver.');
+                // Fallback?
+            }, 10000); // 10 seconds
         }
 
         updateFlag(lang);
