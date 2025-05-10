@@ -1210,7 +1210,7 @@
     }
     </script>
     <!-- Google Translate Widget -->
-    <!-- Compact Flag Language Selector -->
+    <!-- Language Switcher -->
         <div class="language-switcher">
           <div class="selected-language" onclick="toggleLanguageMenu()">
             <img src="https://flagcdn.com/w20/fr.png" alt="French" id="current-flag">
@@ -1223,6 +1223,9 @@
         </div>
         
         <script>
+        // Global variable to track Google Translate readiness
+        let googleTranslateReady = false;
+        
         // Initialize Google Translate
         function googleTranslateElementInit() {
           new google.translate.TranslateElement({
@@ -1230,25 +1233,54 @@
             includedLanguages: 'en,nl',
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE
           }, 'google_translate_element');
+          googleTranslateReady = true;
+        }
+        
+        // Load Google Translate script
+        function loadGoogleTranslate() {
+          const script = document.createElement('script');
+          script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+          document.body.appendChild(script);
         }
         
         // Custom language switcher functions
         function toggleLanguageMenu() {
-          document.getElementById('languageMenu').classList.toggle('show');
+          const menu = document.getElementById('languageMenu');
+          if (menu) menu.classList.toggle('show');
         }
         
         function changeLanguage(lang) {
+          if (!googleTranslateReady) {
+            loadGoogleTranslate();
+            setTimeout(() => changeLanguage(lang), 500); // Retry after load
+            return;
+          }
+        
           const select = document.querySelector('.goog-te-combo');
-          select.value = lang;
-          select.dispatchEvent(new Event('change'));
-          
-          // Update flag
-          document.getElementById('current-flag').src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
+          if (select) {
+            select.value = lang;
+            select.dispatchEvent(new Event('change'));
+            
+            // Update flag
+            const flagImg = document.getElementById('current-flag');
+            if (flagImg) {
+              flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
+            }
+          } else {
+            console.error('Google Translate dropdown not found');
+          }
           
           // Close menu
-          document.getElementById('languageMenu').classList.remove('show');
+          const menu = document.getElementById('languageMenu');
+          if (menu) menu.classList.remove('show');
         }
-        </script>
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+          loadGoogleTranslate();
+          
         <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        });
+        </script>
 </body>
 </html>
