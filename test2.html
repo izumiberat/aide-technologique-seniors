@@ -776,29 +776,27 @@
                 left: 0 !important;
                 z-index: 99999 !important;
                 margin: 0 !important;
-                padding: 0 !important;
-                background: white !important;
-                box-shadow: 0 -2px 5px rgba(0,0,0,0.1) !important;
+                padding: 10px !important;
+                box-sizing: border-box !important;
             }
             
             .goog-te-banner {
                 display: flex !important;
-                flex-wrap: wrap !important;
+                flex-direction: column !important;
                 align-items: center !important;
-                justify-content: space-between !important;
-                padding: 8px 10px !important;
-                width: 100% !important;
-                box-sizing: border-box !important;
             }
             
             .goog-te-button {
-                padding: 8px 12px !important;
-                font-size: 14px !important;
-                margin: 0 !important;
-                min-width: 80px !important;
-                background: #f8f8f8 !important;
-                border: 1px solid #ddd !important;
-                border-radius: 4px !important;
+                padding: 12px 24px !important;
+                margin: 8px 0 !important;
+                width: auto !important;
+                min-width: 120px !important;
+                font-size: 16px !important;
+            }
+            
+            /* Make sure the close button is visible */
+            .goog-te-button span {
+                display: inline !important;
             }
             
             /* Hide all unnecessary Google elements */
@@ -1273,60 +1271,129 @@
         if (downloadCountElement) {
             downloadCountElement.textContent = parseInt(downloads).toLocaleString();
         }
+
+        // Initialize Google Translate
+        loadGoogleTranslate();
+
+        // Set up language switcher events
+        const selectedLanguage = document.querySelector('.selected-language');
+        const languageMenu = document.getElementById('languageMenu');
+        
+        if (selectedLanguage && languageMenu) {
+            // Toggle menu when clicking the flag
+            selectedLanguage.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageMenu.classList.toggle('show');
+            });
+
+            // Handle language selection
+            document.querySelectorAll('#languageMenu div').forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const lang = this.getAttribute('data-lang') || 
+                                 this.textContent.match(/fr|en|nl/i)?.[0].toLowerCase();
+                    if (lang) {
+                        changeLanguage(lang);
+                        languageMenu.classList.remove('show');
+                    }
+                });
+            });
+
+            // Close menu when clicking elsewhere
+            document.addEventListener('click', function() {
+                languageMenu.classList.remove('show');
+            });
+
+            // Prevent menu from closing when clicking inside it
+            languageMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
     });
+
+    // Google Translate Functions
+    var googleTranslateInit = false;
     
-    // Language Switching Functions
+    function loadGoogleTranslate() {
+        if (googleTranslateInit) return;
+        googleTranslateInit = true;
+        
+        // Add mobile-friendly styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @media (max-width: 768px) {
+                .goog-te-banner-frame {
+                    max-width: 100% !important;
+                    left: 0 !important;
+                }
+                .goog-te-button {
+                    padding: 12px !important;
+                    font-size: 16px !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    
+        const script = document.createElement('script');
+        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        script.async = true;
+        document.body.appendChild(script);
+    }
+    
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'fr',
+            includedLanguages: 'en,nl',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+        
+        // Set saved language if exists
+        const savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang && savedLang !== 'fr') {
+            setTimeout(() => changeLanguage(savedLang), 500);
+        }
+    }
+    
     function changeLanguage(lang) {
-      // Set cookie for Google Translate
-      document.cookie = `googtrans=/fr/${lang}; path=/; max-age=31536000`; // 1 year expiry
-      
-      // Update UI immediately
-      updateFlag(lang);
-      localStorage.setItem('preferredLanguage', lang);
-      
-      // Reload to apply translation
-      setTimeout(() => window.location.reload(), 100);
+        if (!lang) return;
+        
+        updateFlag(lang);
+        localStorage.setItem('preferredLanguage', lang);
+        
+        // Try both methods
+        try {
+            // Method 1: Via dropdown
+            const select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = lang;
+                select.dispatchEvent(new Event('change'));
+                return;
+            }
+            
+            // Method 2: Via cookie fallback
+            document.cookie = `googtrans=/fr/${lang}; path=/; max-age=31536000`;
+            setTimeout(() => window.location.reload(), 100);
+            
+        } catch (e) {
+            console.error("Language change error:", e);
+        }
     }
     
     function updateFlag(lang) {
-      const flags = {
-        'fr': 'https://flagcdn.com/w20/fr.png',
-        'en': 'https://flagcdn.com/w20/gb.png', 
-        'nl': 'https://flagcdn.com/w20/nl.png'
-      };
-      const flagImg = document.getElementById('current-flag');
-      if (flagImg && flags[lang]) flagImg.src = flags[lang];
-    }
+        const flagImg = document.getElementById('current-flag');
+        if (!flagImg) return;
     
-    // Initialize
-    document.addEventListener('DOMContentLoaded', function() {
-      // 1. Hide Google UI completely
-      const style = document.createElement('style');
-      style.textContent = `
-        .goog-te-banner-frame, .skiptranslate { 
-          display: none !important; 
+        const flags = {
+            'fr': 'https://flagcdn.com/w20/fr.png',
+            'en': 'https://flagcdn.com/w20/gb.png',
+            'nl': 'https://flagcdn.com/w20/nl.png'
+        };
+        
+        if (flags[lang]) {
+            flagImg.src = flags[lang];
+            flagImg.alt = lang.toUpperCase();
         }
-        body { top: 0 !important; }
-      `;
-      document.head.appendChild(style);
-    
-      // 2. Set up flag click handlers
-      document.querySelector('.selected-language')?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        document.getElementById('languageMenu').classList.toggle('show');
-      });
-    
-      // 3. Handle language selection
-      document.querySelectorAll('#languageMenu div').forEach(div => {
-        div.addEventListener('click', () => {
-          const lang = div.dataset.lang || div.textContent.match(/fr|en|nl/i)?.[0].toLowerCase();
-          if (lang) changeLanguage(lang);
-        });
-      });
-    
-      // 4. Apply saved language
-      updateFlag(localStorage.getItem('preferredLanguage') || 'fr');
-    });
+    }
 </script>
 
 </body>
