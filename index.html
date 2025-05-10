@@ -553,10 +553,11 @@
               height: 15px;
               object-fit: cover;
             }
-            
-            /* Hide Google's default widget */
-            .goog-te-combo, #google_translate_element {
-              display: none !important;
+            #google_translate_element {
+              position: fixed !important;
+              left: -9999px !important;
+              opacity: 0 !important;
+              pointer-events: none !important;
             }
         
         /* Footer */
