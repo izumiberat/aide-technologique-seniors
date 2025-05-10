@@ -1218,9 +1218,8 @@
     </script>
     <!-- Google Translate Widget -->
         <div id="google_translate_element"></div>
-    <!-- Language Switcher -->
         <div class="language-switcher">
-          <div class="selected-language" onclick="toggleLanguageMenu()">
+          <div class="selected-language" onclick="toggleLanguageMenu(event)">
             <img src="https://flagcdn.com/w20/fr.png" alt="French" id="current-flag">
           </div>
           <div class="language-menu" id="languageMenu">
@@ -1229,13 +1228,15 @@
             <div onclick="changeLanguage('nl')"><img src="https://flagcdn.com/w20/nl.png" alt="Dutch"> Nederlands</div>
           </div>
         </div>
+        
         <script>
         // Google Translate state management
         let googleTranslateInitialized = false;
         let googleTranslateElement;
+        let languageChangeInProgress = false;
         
         function initializeGoogleTranslate() {
-          if (window.google && google.translate) {
+          if (window.google && google.translate && !googleTranslateInitialized) {
             googleTranslateElement = new google.translate.TranslateElement({
               pageLanguage: 'fr',
               includedLanguages: 'en,nl',
@@ -1247,16 +1248,14 @@
             const style = document.createElement('style');
             style.innerHTML = `
               .goog-te-gadget-icon, 
-              .goog-te-banner-frame, 
-              .goog-te-gadget-simple .goog-te-menu-value span {
+              .goog-te-banner-frame,
+              .goog-te-gadget-simple .goog-te-menu-value span,
+              .goog-te-combo {
                 display: none !important;
               }
               .goog-te-gadget-simple {
                 background: transparent !important;
                 border: none !important;
-              }
-              .goog-te-combo {
-                display: none !important;
               }
               .skiptranslate {
                 display: none !important;
@@ -1268,7 +1267,7 @@
             
             // Restore language preference if exists
             const savedLang = localStorage.getItem('preferredLanguage');
-            if (savedLang) {
+            if (savedLang && savedLang !== 'fr') {
               changeLanguage(savedLang);
             }
           }
@@ -1280,7 +1279,6 @@
             script.src = '//translate.google.com/translate_a/element.js?cb=initializeGoogleTranslate';
             script.onerror = () => {
               console.error('Failed to load Google Translate');
-              // Fallback: Show message or basic language links
               document.getElementById('languageMenu').querySelectorAll('div').forEach(item => {
                 item.style.cursor = 'default';
                 item.onclick = null;
@@ -1292,22 +1290,33 @@
           }
         }
         
-        function toggleLanguageMenu() {
+        function toggleLanguageMenu(event) {
+          event.stopPropagation(); // Prevent immediate closing
           const menu = document.getElementById('languageMenu');
           if (menu) menu.classList.toggle('show');
         }
         
         function changeLanguage(lang) {
+          if (languageChangeInProgress) return;
+          languageChangeInProgress = true;
+          
           if (!googleTranslateInitialized) {
             loadGoogleTranslate();
-            setTimeout(() => changeLanguage(lang), 300);
+            setTimeout(() => {
+              languageChangeInProgress = false;
+              changeLanguage(lang);
+            }, 300);
             return;
           }
         
           const select = document.querySelector('.goog-te-combo');
           if (select) {
             select.value = lang;
-            select.dispatchEvent(new Event('change'));
+            
+            // Create and dispatch the change event properly
+            const event = document.createEvent('HTMLEvents');
+            event.initEvent('change', true, false);
+            select.dispatchEvent(event);
             
             // Update flag
             const flagImg = document.getElementById('current-flag');
@@ -1317,14 +1326,20 @@
             }
             
             localStorage.setItem('preferredLanguage', lang);
+            
+            // Close menu after a short delay
+            setTimeout(() => {
+              const menu = document.getElementById('languageMenu');
+              if (menu) menu.classList.remove('show');
+              languageChangeInProgress = false;
+            }, 300);
           } else {
-            // Fallback in case select isn't ready yet
-            setTimeout(() => changeLanguage(lang), 100);
+            // Retry if select isn't ready
+            setTimeout(() => {
+              languageChangeInProgress = false;
+              changeLanguage(lang);
+            }, 100);
           }
-          
-          // Close menu
-          const menu = document.getElementById('languageMenu');
-          if (menu) menu.classList.remove('show');
         }
         
         // Initialize on DOM ready
@@ -1332,15 +1347,17 @@
           loadGoogleTranslate();
         
           // Handle clicks outside language menu
-          document.addEventListener('click', function(e) {
+          document.addEventListener('click', function() {
             const menu = document.getElementById('languageMenu');
-            const switcher = document.querySelector('.language-switcher');
-        
-            if (menu && switcher && !switcher.contains(e.target)) {
-              menu.classList.remove('show');
-            }
+            if (menu) menu.classList.remove('show');
           });
         });
+        
+        // Prevent menu from closing when clicking inside it
+        document.getElementById('languageMenu')?.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
         </script>
+
 </body>
 </html>
