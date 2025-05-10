@@ -1317,28 +1317,26 @@
         }
 
         function changeLanguage(lang) {
-            updateFlag(lang);
-            localStorage.setItem('preferredLanguage', lang);
-
-            const observer = new MutationObserver(mutationsList => {
-                for (const mutation of mutationsList) {
-                    if (mutation.type === 'childList') {
-                        const select = document.querySelector('.goog-te-combo');
-                        if (select) {
-                            observer.disconnect(); // Stop observing
-                            try {
-                                select.value = lang;
-                                const event = new Event('change', { bubbles: true, cancelable: true });
-                                select.dispatchEvent(event);
-                                console.log('Language changed to', lang);
-                            } catch (e) {
-                                console.error('Error changing language:', e);
-                            }
-                            return;
-                        }
+                updateFlag(lang);
+                localStorage.setItem('preferredLanguage', lang);
+    
+                const select = document.querySelector('.goog-te-combo');
+    
+                if (select) {
+                    try {
+                        select.value = lang;
+                        const event = new Event('change', { bubbles: true, cancelable: true });
+                        select.dispatchEvent(event);
+                        console.log('Language changed to', lang);
+                    } catch (e) {
+                        console.error('Error changing language:', e);
                     }
+                } else {
+                    console.warn('Google Translate dropdown still not found when trying to change language.');
+                    // As a last resort, maybe try reloading the page?
+                    // window.location.reload();
                 }
-            });
+            }
 
             observer.observe(document.body, { childList: true, subtree: true });
 
