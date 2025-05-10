@@ -776,7 +776,7 @@
 </head>
 <body>
     <!-- Google Translate Element (hidden) -->
-    <div id="google_translate_element" style="display:none;"></div>
+    <div id="google_translate_element" style="position:absolute; left:-9999px;"></div>
     
     <!-- Language Switcher -->
     <div class="language-switcher">
@@ -1285,34 +1285,37 @@
         }
         
         function changeLanguage(lang) {
-            if (!window.google || !google.translate) {
-                loadGoogleTranslate();
-                setTimeout(() => changeLanguage(lang), 300);
-                return;
-            }
-            
-            const select = document.querySelector('.goog-te-combo');
-            if (select) {
-                select.value = lang;
-                
-                // Create and dispatch the change event
-                const event = new Event('change', {
-                    bubbles: true,
-                    cancelable: true
-                });
-                select.dispatchEvent(event);
-                
-                // Update flag
-                const flagImg = document.getElementById('current-flag');
-                if (flagImg) {
-                    flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
-                    flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
-                }
-                
-                localStorage.setItem('preferredLanguage', lang);
-            } else {
-                setTimeout(() => changeLanguage(lang), 100);
-            }
+            function tryChangeLanguage(retries = 10) {
+                const select = document.querySelector('.goog-te-combo');
+        
+                if (select) {
+                    select.value = lang;
+        
+                    // Dispatch the change event
+                    const event = new Event('change', {
+                        bubbles: true,
+                        cancelable: true
+                    });
+                    select.dispatchEvent(event);
+        
+                    // Update the flag image
+                    const flagImg = document.getElementById('current-flag');
+                    if (flagImg) {
+                        flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
+                        flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
+                    }
+        
+                    // Save language preference
+                    localStorage.setItem('preferredLanguage', lang);
+                } else if (retries > 0) {
+                    // Try again after a delay
+                    setTimeout(() => tryChangeLanguage(retries - 1), 300);
+                } else {
+                    console.warn('Google Translate dropdown not found.');
+                }
+            }
+        
+            tryChangeLanguage();
         }
         
         function toggleLanguageMenu(event) {
