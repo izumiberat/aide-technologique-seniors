@@ -1312,11 +1312,7 @@
                 console.error('Error initializing Google Translate:', e);
             }
         }
-        function toggleLanguageMenu(event) {
-            event.stopPropagation();
-            const menu = document.getElementById('languageMenu');
-            if (menu) menu.classList.toggle('show');
-        }
+    
         function changeLanguage(lang) {
         // Fallback if Google Translate isn't working
         if (!window.google || !google.translate || !document.querySelector('.goog-te-combo')) {
@@ -1329,7 +1325,62 @@
             return;
         }
         
-        // Rest of the Google Translate code...
+        updateFlag(lang);
+        localStorage.setItem('preferredLanguage', lang);
+    
+        const select = document.querySelector('.goog-te-combo');
+        if (select) {
+            try {
+                select.value = lang;
+                const event = new Event('change', { bubbles: true, cancelable: true });
+                select.dispatchEvent(event);
+                console.log('Language changed to', lang);
+            } catch (e) {
+                console.error('Error changing language:', e);
+            }
+        } else {
+            console.warn('Google Translate dropdown not found when trying to change language.');
+            // Fallback - you might want to reconsider this if the dropdown is consistently appearing
+            // Perhaps a more aggressive retry or a page reload?
+            // window.location.reload();
+        }
+    }
+    
+    function updateFlag(lang) {
+        const flagImg = document.getElementById('current-flag');
+        if (!flagImg) return;
+    
+        const flags = {
+            'fr': { src: 'https://flagcdn.com/w20/fr.png', alt: 'French' },
+            'en': { src: 'https://flagcdn.com/w20/gb.png', alt: 'English' },
+            'nl': { src: 'https://flagcdn.com/w20/nl.png', alt: 'Dutch' }
+        };
+    
+        if (flags[lang]) {
+            flagImg.src = flags[lang].src;
+            flagImg.alt = flags[lang].alt;
+        }
+    }
+    
+    function toggleLanguageMenu(event) {
+        event.stopPropagation();
+        const menu = document.getElementById('languageMenu');
+        if (menu) menu.classList.toggle('show');
+    }
+    
+    // Initialize on DOM ready
+    document.addEventListener('DOMContentLoaded', function() {
+        loadGoogleTranslate();
+    
+        document.addEventListener('click', function() {
+            const menu = document.getElementById('languageMenu');
+            if (menu) menu.classList.remove('show');
+        });
+    
+        document.getElementById('languageMenu')?.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
     }
     </script>
 </body>
