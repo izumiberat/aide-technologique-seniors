@@ -1312,7 +1312,11 @@
                 console.error('Error initializing Google Translate:', e);
             }
         }
-        
+        function toggleLanguageMenu(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('languageMenu');
+            if (menu) menu.classList.toggle('show');
+        }
         function changeLanguage(lang) {
         // Fallback if Google Translate isn't working
         if (!window.google || !google.translate || !document.querySelector('.goog-te-combo')) {
