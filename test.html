@@ -1314,72 +1314,19 @@
         }
         
         function changeLanguage(lang) {
+        // Fallback if Google Translate isn't working
+        if (!window.google || !google.translate || !document.querySelector('.goog-te-combo')) {
+            console.warn('Using fallback language change');
             updateFlag(lang);
             localStorage.setItem('preferredLanguage', lang);
-        
-            if (!window.google || !google.translate || !document.querySelector('.goog-te-combo')) {
-                console.warn('Using fallback language change');
-                // Optionally reload with language parameter
-                // window.location.search = '?lang=' + lang;
-                return;
-            }
-        
-            const select = document.querySelector('.goog-te-combo');
-            if (select) {
-                try {
-                    select.value = lang;
-                    const event = new Event('change', { bubbles: true, cancelable: true });
-                    select.dispatchEvent(event);
-                    console.log('Language changed to', lang);
-                } catch (e) {
-                    console.error('Error changing language:', e);
-                }
-            }
+            
+            // Optionally reload the page with a language parameter
+            // window.location.search = '?lang=' + lang;
+            return;
         }
         
-        function updateFlag(lang) {
-            const flagImg = document.getElementById('current-flag');
-            if (!flagImg) return;
-        
-            const flags = {
-                'fr': { src: 'https://flagcdn.com/w20/fr.png', alt: 'French' },
-                'en': { src: 'https://flagcdn.com/w20/gb.png', alt: 'English' },
-                'nl': { src: 'https://flagcdn.com/w20/nl.png', alt: 'Dutch' }
-            };
-        
-            if (flags[lang]) {
-                flagImg.src = flags[lang].src;
-                flagImg.alt = flags[lang].alt;
-            }
-        }
-        
-        function toggleLanguageMenu(event) {
-            event.stopPropagation();
-            const menu = document.getElementById('languageMenu');
-            if (menu) menu.classList.toggle('show');
-        }
-        
-        // Initialize on DOM ready
-        document.addEventListener('DOMContentLoaded', function() {
-            loadGoogleTranslate();
-        
-            // Handle clicks outside language menu
-            document.addEventListener('click', function() {
-                const menu = document.getElementById('languageMenu');
-                if (menu) menu.classList.remove('show');
-            });
-        
-            // Prevent menu from closing when clicking inside it
-            document.getElementById('languageMenu')?.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-        });
-        
-        function toggleLanguageMenu(event) {
-            event.stopPropagation();
-            const menu = document.getElementById('languageMenu');
-            if (menu) menu.classList.toggle('show');
-        }
+        // Rest of the Google Translate code...
+    }
     </script>
 </body>
 </html>
