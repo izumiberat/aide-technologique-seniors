@@ -1254,173 +1254,66 @@
 
     // Google Translate Functions
     var googleTranslateInit = false;
-    var googleTranslateLoaded = false;
-    var languageChangeAttempts = 0;
     
     function loadGoogleTranslate() {
         if (googleTranslateInit) return;
         googleTranslateInit = true;
     
-        if (window.google && google.translate) {
-            googleTranslateLoaded = true;
-            initGoogleTranslate();
-            return;
-        }
+        // Add mobile-friendly close button styling
+        const style = document.createElement('style');
+        style.textContent = `
+            /* Make close button accessible on mobile */
+            .goog-te-banner .goog-te-button {
+                padding: 12px 16px !important;
+                margin: 8px !important;
+                font-size: 16px !important;
+                min-width: 80px !important;
+            }
+            
+            /* Ensure banner fits on mobile */
+            .goog-te-banner-frame {
+                max-width: 100% !important;
+                left: 0 !important;
+                right: 0 !important;
+            }
+            
+            /* Make banner more compact on mobile */
+            .goog-te-banner {
+                padding: 8px !important;
+            }
+            
+            /* Position the close button properly */
+            .goog-te-button {
+                position: relative !important;
+                right: auto !important;
+            }
+        `;
+        document.head.appendChild(style);
     
         const script = document.createElement('script');
         script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
         script.async = true;
-        script.onerror = function() {
-            console.error('Failed to load Google Translate script');
-            googleTranslateLoaded = false;
-        };
         document.body.appendChild(script);
     }
     
     function googleTranslateElementInit() {
-        if (!window.google || !google.translate) {
-            console.error('Google Translate API not available');
-            return;
-        }
-        googleTranslateLoaded = true;
-        initGoogleTranslate();
+        new google.translate.TranslateElement({
+            pageLanguage: 'fr',
+            includedLanguages: 'en,nl',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
     }
     
-    function initGoogleTranslate() {
-        try {
-            new google.translate.TranslateElement({
-                pageLanguage: 'fr',
-                includedLanguages: 'en,nl',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-    
-            // Add mobile-friendly close button styling
-            const style = document.createElement('style');
-            style.textContent = `
-                /* Make close button accessible on mobile */
-                .goog-te-banner .goog-te-button {
-                    padding: 8px 12px !important;
-                    margin: 4px !important;
-                }
-                
-                /* Ensure banner doesn't overflow on mobile */
-                .goog-te-banner-frame {
-                    max-width: 100% !important;
-                    width: 100% !important;
-                    left: 0 !important;
-                }
-                
-                /* Make close button larger on mobile */
-                @media (max-width: 768px) {
-                    .goog-te-banner .goog-te-button {
-                        padding: 12px 16px !important;
-                        font-size: 16px !important;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
-    
-            // Check for the select element periodically
-            const checkInterval = setInterval(() => {
-                const select = document.querySelector('.goog-te-combo');
-                if (select) {
-                    clearInterval(checkInterval);
-                    console.log('Google Translate elements created.');
-                    const savedLang = localStorage.getItem('preferredLanguage');
-                    if (savedLang && savedLang !== 'fr') {
-                        changeLanguage(savedLang);
-                    }
-                }
-            }, 500);
-    
-        } catch (e) {
-            console.error('Error initializing Google Translate:', e);
-        }
-    }
-    
-    function changeLanguage(lang) {
-        if (!lang) return;
-        
-        updateFlag(lang);
-        localStorage.setItem('preferredLanguage', lang);
-    
-        if (!googleTranslateLoaded) {
-            loadGoogleTranslate();
-            return;
-        }
-    
-        const select = document.querySelector('.goog-te-combo');
-        if (select) {
-            try {
-                select.value = lang;
-                const event = new Event('change', { bubbles: true, cancelable: true });
-                select.dispatchEvent(event);
-                return;
-            } catch (e) {
-                console.error('Error changing language via dropdown:', e);
-            }
-        }
-    
-        // Fallback method
-        console.log('Using cookie fallback for language change');
-        const expiryDate = new Date();
-        expiryDate.setFullYear(expiryDate.getFullYear() + 1);
-        document.cookie = `googtrans=/fr/${lang}; expires=${expiryDate.toUTCString()}; path=/`;
-        
-        setTimeout(() => {
-            window.location.reload();
-        }, 100);
-    }
-    
-    function updateFlag(lang) {
-        const flagImg = document.getElementById('current-flag');
-        if (!flagImg) return;
-    
-        const flags = {
-            'fr': { src: 'https://flagcdn.com/w20/fr.png', alt: 'French' },
-            'en': { src: 'https://flagcdn.com/w20/gb.png', alt: 'English' },
-            'nl': { src: 'https://flagcdn.com/w20/nl.png', alt: 'Dutch' }
-        };
-    
-        if (flags[lang]) {
-            flagImg.src = flags[lang].src;
-            flagImg.alt = flags[lang].alt;
-        }
-    }
-    
-    // Initialize on page load
+    // Set up flag click handler
     document.addEventListener('DOMContentLoaded', function() {
-        loadGoogleTranslate();
-    
-        // Set up language switcher events
-        const selectedLanguage = document.querySelector('.selected-language');
-        const languageMenu = document.getElementById('languageMenu');
-        
-        if (selectedLanguage && languageMenu) {
-            selectedLanguage.addEventListener('click', function(e) {
-                e.stopPropagation();
-                languageMenu.classList.toggle('show');
-            });
-    
-            document.querySelectorAll('#languageMenu div').forEach(option => {
-                option.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const lang = this.getAttribute('data-lang') || 
-                                 this.textContent.match(/fr|en|nl/i)?.[0].toLowerCase();
-                    if (lang) {
-                        changeLanguage(lang);
-                        languageMenu.classList.remove('show');
-                    }
-                });
-            });
-    
-            document.addEventListener('click', function() {
-                languageMenu.classList.remove('show');
-            });
-    
-            languageMenu.addEventListener('click', function(e) {
-                e.stopPropagation();
+        const flag = document.querySelector('.selected-language');
+        if (flag) {
+            flag.addEventListener('click', function() {
+                // Trigger Google Translate dropdown
+                const translateButton = document.querySelector('.goog-te-menu-value span');
+                if (translateButton) {
+                    translateButton.click();
+                }
             });
         }
     });
