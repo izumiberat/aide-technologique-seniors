@@ -1255,6 +1255,7 @@
     // Google Translate Functions
     var googleTranslateInit = false;
     var googleTranslateLoaded = false;
+    var languageChangeAttempts = 0;
     
     function loadGoogleTranslate() {
         if (googleTranslateInit) return;
@@ -1272,8 +1273,6 @@
         script.onerror = function() {
             console.error('Failed to load Google Translate script');
             googleTranslateLoaded = false;
-            // Fallback: Show language options directly
-            document.querySelector('.language-switcher').style.display = 'block';
         };
         document.body.appendChild(script);
     }
@@ -1296,14 +1295,18 @@
                 autoDisplay: false
             }, 'google_translate_element');
     
-            // Check for the select element periodically
+            // Check for the select element periodically with a maximum of 5 attempts
+            const maxAttempts = 5;
             const checkInterval = setInterval(() => {
                 const select = document.querySelector('.goog-te-combo');
-                if (select) {
+                if (select || ++languageChangeAttempts >= maxAttempts) {
                     clearInterval(checkInterval);
-                    const savedLang = localStorage.getItem('preferredLanguage');
-                    if (savedLang && savedLang !== 'fr') {
-                        changeLanguage(savedLang);
+                    if (select) {
+                        console.log('Google Translate elements created.');
+                        const savedLang = localStorage.getItem('preferredLanguage');
+                        if (savedLang && savedLang !== 'fr') {
+                            changeLanguage(savedLang);
+                        }
                     }
                 }
             }, 500);
@@ -1324,20 +1327,29 @@
             return;
         }
     
+        // Method 1: Try using the Google Translate dropdown
         const select = document.querySelector('.goog-te-combo');
         if (select) {
             try {
                 select.value = lang;
                 const event = new Event('change', { bubbles: true, cancelable: true });
                 select.dispatchEvent(event);
+                return;
             } catch (e) {
-                console.error('Error changing language:', e);
-                setTimeout(() => window.location.reload(), 500);
+                console.error('Error changing language via dropdown:', e);
             }
-        } else {
-            console.warn('Google Translate dropdown not found');
-            loadGoogleTranslate();
         }
+    
+        // Method 2: Fallback - use Google Translate cookie method
+        console.log('Using cookie fallback for language change');
+        const expiryDate = new Date();
+        expiryDate.setFullYear(expiryDate.getFullYear() + 1);
+        document.cookie = `googtrans=/fr/${lang}; expires=${expiryDate.toUTCString()}; path=/`;
+        
+        // Reload the page to apply translation
+        setTimeout(() => {
+            window.location.reload();
+        }, 100);
     }
     
     function updateFlag(lang) {
