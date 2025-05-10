@@ -1252,19 +1252,19 @@
         var googleTranslateInit = false;
         var googleTranslateLoaded = false;
         var translateElement; // To hold the TranslateElement instance
-        
+
         function loadGoogleTranslate() {
             if (googleTranslateInit) return;
-        
+
             googleTranslateInit = true;
-        
+
             // Check if already loaded
             if (window.google && google.translate) {
                 googleTranslateLoaded = true;
                 initGoogleTranslate();
                 return;
             }
-        
+
             const script = document.createElement('script');
             script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
             script.async = true;
@@ -1274,17 +1274,17 @@
             };
             document.body.appendChild(script);
         }
-        
+
         function googleTranslateElementInit() {
             if (!window.google || !google.translate) {
                 console.error('Google Translate API not available');
                 return;
             }
-        
+
             googleTranslateLoaded = true;
             initGoogleTranslate();
         }
-        
+
         function initGoogleTranslate() {
             try {
                 translateElement = new google.translate.TranslateElement({
@@ -1293,41 +1293,44 @@
                     layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
                     autoDisplay: false
                 }, 'google_translate_element');
-        
-                // Periodically check if the dropdown exists
-                const checkInterval = setInterval(() => {
-                    if (document.querySelector('.goog-te-combo')) {
-                        clearInterval(checkInterval);
-                        console.log('Google Translate elements created.');
-                        // Restore preferred language after elements are present
-                        const savedLang = localStorage.getItem('preferredLanguage');
-                        if (savedLang && savedLang !== 'fr') {
-                            changeLanguage(savedLang);
+
+                // Wait a bit longer initially before checking
+                setTimeout(() => {
+                    const checkInterval = setInterval(() => {
+                        const select = document.querySelector('.goog-te-combo');
+                        if (select) {
+                            clearInterval(checkInterval);
+                            console.log('Google Translate elements created.');
+                            const savedLang = localStorage.getItem('preferredLanguage');
+                            if (savedLang && savedLang !== 'fr') {
+                                changeLanguage(savedLang);
+                            }
+                        } else {
+                            console.warn('Google Translate elements not yet created...');
                         }
-                    } else {
-                        console.warn('Google Translate elements not yet created...');
-                    }
-                }, 500); // Check every 500ms
+                    }, 500); // Check every 500ms
+                }, 1500); // Initial delay of 1.5 seconds
+
             } catch (e) {
                 console.error('Error initializing Google Translate:', e);
             }
         }
-    
+
         function changeLanguage(lang) {
         // Fallback if Google Translate isn't working
         if (!window.google || !google.translate || !document.querySelector('.goog-te-combo')) {
             console.warn('Using fallback language change');
             updateFlag(lang);
             localStorage.setItem('preferredLanguage', lang);
-            
+
             // Optionally reload the page with a language parameter
             // window.location.search = '?lang=' + lang;
             return;
         }
-        
+
         updateFlag(lang);
         localStorage.setItem('preferredLanguage', lang);
-    
+
         const select = document.querySelector('.goog-te-combo');
         if (select) {
             try {
@@ -1345,42 +1348,42 @@
             // window.location.reload();
         }
     }
-    
-    function updateFlag(lang) {
-        const flagImg = document.getElementById('current-flag');
-        if (!flagImg) return;
-    
-        const flags = {
-            'fr': { src: 'https://flagcdn.com/w20/fr.png', alt: 'French' },
-            'en': { src: 'https://flagcdn.com/w20/gb.png', alt: 'English' },
-            'nl': { src: 'https://flagcdn.com/w20/nl.png', alt: 'Dutch' }
-        };
-    
-        if (flags[lang]) {
-            flagImg.src = flags[lang].src;
-            flagImg.alt = flags[lang].alt;
+
+        function updateFlag(lang) {
+            const flagImg = document.getElementById('current-flag');
+            if (!flagImg) return;
+
+            const flags = {
+                'fr': { src: 'https://flagcdn.com/w20/fr.png', alt: 'French' },
+                'en': { src: 'https://flagcdn.com/w20/gb.png', alt: 'English' },
+                'nl': { src: 'https://flagcdn.com/w20/nl.png', alt: 'Dutch' }
+            };
+
+            if (flags[lang]) {
+                flagImg.src = flags[lang].src;
+                flagImg.alt = flags[lang].alt;
+            }
         }
-    }
-    
-    function toggleLanguageMenu(event) {
-        event.stopPropagation();
-        const menu = document.getElementById('languageMenu');
-        if (menu) menu.classList.toggle('show');
-    }
-    
-    // Initialize on DOM ready
-    document.addEventListener('DOMContentLoaded', function() {
-        loadGoogleTranslate();
-    
-        document.addEventListener('click', function() {
+
+        function toggleLanguageMenu(event) {
+            event.stopPropagation();
             const menu = document.getElementById('languageMenu');
-            if (menu) menu.classList.remove('show');
+            if (menu) menu.classList.toggle('show');
+        }
+
+        // Initialize on DOM ready
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGoogleTranslate();
+
+            document.addEventListener('click', function() {
+                const menu = document.getElementById('languageMenu');
+                if (menu) menu.classList.remove('show');
+            });
+
+            document.getElementById('languageMenu')?.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
         });
-    
-        document.getElementById('languageMenu')?.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-    });
     </script>
 </body>
 </html>
