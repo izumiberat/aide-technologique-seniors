@@ -460,17 +460,23 @@
         }
         /* Google Translate Widget Styling */
             #google_translate_element {
-              position: fixed;
-              bottom: 20px;
-              right: 20px;
-              z-index: 9999;
-              background: white;
-              padding: 8px 12px;
-              border-radius: 5px;
-              box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-              border: 1px solid var(--primary-color);
+              position: fixed !important;
+              left: -9999px !important;
+              opacity: 0 !important;
+              pointer-events: none !important;
+              height: 0 !important;
+              width: 0 !important;
+              overflow: hidden !important;
             }
             
+            .skiptranslate {
+              display: none !important;
+            }
+            
+            .goog-te-banner-frame {
+              display: none !important;
+            }
+                        
             /* Dropdown styling */
             .goog-te-combo {
               padding: 6px 10px !important;
@@ -1211,6 +1217,7 @@
     }
     </script>
     <!-- Google Translate Widget -->
+        <div id="google_translate_element"></div>
     <!-- Language Switcher -->
         <div class="language-switcher">
           <div class="selected-language" onclick="toggleLanguageMenu()">
@@ -1224,13 +1231,12 @@
         </div>
         <script>
         // Google Translate state management
-          // Google Translate state management
         let googleTranslateInitialized = false;
-        let googleTranslateElement; // To hold the TranslateElement instance
-
+        let googleTranslateElement;
+        
         function initializeGoogleTranslate() {
           if (window.google && google.translate) {
-            new google.translate.TranslateElement({
+            googleTranslateElement = new google.translate.TranslateElement({
               pageLanguage: 'fr',
               includedLanguages: 'en,nl',
               layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
@@ -1249,6 +1255,12 @@
                 background: transparent !important;
                 border: none !important;
               }
+              .goog-te-combo {
+                display: none !important;
+              }
+              .skiptranslate {
+                display: none !important;
+              }
             `;
             document.head.appendChild(style);
             
@@ -1261,7 +1273,7 @@
             }
           }
         }
-
+        
         function loadGoogleTranslate() {
           if (!document.querySelector('script[src*="translate.google.com"]')) {
             const script = document.createElement('script');
@@ -1269,71 +1281,58 @@
             script.onerror = () => console.error('Failed to load Google Translate');
             document.body.appendChild(script);
           } else if (window.google && google.translate && !googleTranslateInitialized) {
-            // If the script was already loaded but not initialized
             initializeGoogleTranslate();
           }
         }
-
+        
         function toggleLanguageMenu() {
           const menu = document.getElementById('languageMenu');
           if (menu) menu.classList.toggle('show');
         }
-
+        
         function changeLanguage(lang) {
           if (!googleTranslateInitialized) {
             loadGoogleTranslate();
-            const checkInterval = setInterval(() => {
-              if (googleTranslateInitialized) {
-                clearInterval(checkInterval);
-                changeLanguage(lang);
-              }
-            }, 100);
+            setTimeout(() => changeLanguage(lang), 300);
             return;
           }
         
-          // Wait for Google Translate to fully initialize
-          const findSelect = setInterval(() => {
-            const select = document.querySelector('.goog-te-combo');
-            if (select) {
-              clearInterval(findSelect);
-              select.value = lang;
-              select.dispatchEvent(new Event('change'));
-              
-              const flagImg = document.getElementById('current-flag');
-              if (flagImg) {
-                flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
-                flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
-              }
-              
-              localStorage.setItem('preferredLanguage', lang);
+          const select = document.querySelector('.goog-te-combo');
+          if (select) {
+            select.value = lang;
+            select.dispatchEvent(new Event('change'));
+            
+            // Update flag
+            const flagImg = document.getElementById('current-flag');
+            if (flagImg) {
+              flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
+              flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
             }
-          }, 100);
+            
+            localStorage.setItem('preferredLanguage', lang);
+          } else {
+            // Fallback in case select isn't ready yet
+            setTimeout(() => changeLanguage(lang), 100);
+          }
           
+          // Close menu
           const menu = document.getElementById('languageMenu');
           if (menu) menu.classList.remove('show');
         }
-        // Single DOMContentLoaded listener
+        
+        // Initialize on DOM ready
         document.addEventListener('DOMContentLoaded', function() {
-          // Translation initialization
           loadGoogleTranslate();
-
+        
           // Handle clicks outside language menu
           document.addEventListener('click', function(e) {
             const menu = document.getElementById('languageMenu');
             const switcher = document.querySelector('.language-switcher');
-
+        
             if (menu && switcher && !switcher.contains(e.target)) {
               menu.classList.remove('show');
             }
           });
-
-          // Ebook download counter (keep this)
-          let downloads = localStorage.getItem('ebookDownloads');
-          if (!downloads) downloads = 0;
-          const countElement = document.getElementById('download-count');
-          if (countElement) {
-            countElement.textContent = parseInt(downloads).toLocaleString();
-          }
         });
         </script>
 </body>
