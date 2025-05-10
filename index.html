@@ -1222,7 +1222,6 @@
             <div onclick="changeLanguage('nl')"><img src="https://flagcdn.com/w20/nl.png" alt="Dutch"> Nederlands</div>
           </div>
         </div>
-        <div id="google_translate_element" style="display: none;"></div>
         <script>
         // Google Translate state management
           // Google Translate state management
@@ -1231,15 +1230,31 @@
 
         function initializeGoogleTranslate() {
           if (window.google && google.translate) {
-            googleTranslateElement = new google.translate.TranslateElement({
+            new google.translate.TranslateElement({
               pageLanguage: 'fr',
               includedLanguages: 'en,nl',
               layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
               autoDisplay: false
             }, 'google_translate_element');
+            
+            // Hide Google branding
+            const style = document.createElement('style');
+            style.innerHTML = `
+              .goog-te-gadget-icon, 
+              .goog-te-banner-frame, 
+              .goog-te-gadget-simple .goog-te-menu-value span {
+                display: none !important;
+              }
+              .goog-te-gadget-simple {
+                background: transparent !important;
+                border: none !important;
+              }
+            `;
+            document.head.appendChild(style);
+            
             googleTranslateInitialized = true;
-
-            // Restore language preference if exists (moved here after initialization)
+            
+            // Restore language preference if exists
             const savedLang = localStorage.getItem('preferredLanguage');
             if (savedLang) {
               changeLanguage(savedLang);
@@ -1270,33 +1285,33 @@
             const checkInterval = setInterval(() => {
               if (googleTranslateInitialized) {
                 clearInterval(checkInterval);
-                changeLanguage(lang); // Try again after initialization
+                changeLanguage(lang);
               }
             }, 100);
             return;
           }
-
-          const select = document.querySelector('.goog-te-combo');
-          if (select) {
-            select.value = lang;
-            select.dispatchEvent(new Event('change'));
-
-            const flagImg = document.getElementById('current-flag');
-            if (flagImg) {
-              flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
-              flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
+        
+          // Wait for Google Translate to fully initialize
+          const findSelect = setInterval(() => {
+            const select = document.querySelector('.goog-te-combo');
+            if (select) {
+              clearInterval(findSelect);
+              select.value = lang;
+              select.dispatchEvent(new Event('change'));
+              
+              const flagImg = document.getElementById('current-flag');
+              if (flagImg) {
+                flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
+                flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
+              }
+              
+              localStorage.setItem('preferredLanguage', lang);
             }
-
-            localStorage.setItem('preferredLanguage', lang);
-          }
-
+          }, 100);
+          
           const menu = document.getElementById('languageMenu');
           if (menu) menu.classList.remove('show');
-
-          // Optional: Force a page reload after translation for more reliable results
-          // window.location.reload();
         }
-
         // Single DOMContentLoaded listener
         document.addEventListener('DOMContentLoaded', function() {
           // Translation initialization
