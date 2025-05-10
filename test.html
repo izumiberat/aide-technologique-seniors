@@ -1285,37 +1285,57 @@
         }
         
         function changeLanguage(lang) {
-            function tryChangeLanguage(retries = 10) {
-                const select = document.querySelector('.goog-te-combo');
+            // Load Google Translate if not already loaded
+            loadGoogleTranslate();
+            
+            let attempts = 0;
+            const maxAttempts = 10;
+            const interval = 300; // ms between attempts
+            
+            const tryToChange = () => {
+                attempts++;
+                const select = document.querySelector('.goog-te-combo');
+                
+                if (select) {
+                    // Update the language dropdown
+                    select.value = lang;
+                    
+                    // Trigger change event
+                    const event = new Event('change', {
+                        bubbles: true,
+                        cancelable: true
+                    });
+                    select.dispatchEvent(event);
+                    
+                    // Update the flag
+                    updateFlag(lang);
+                    
+                    // Save preference
+                    localStorage.setItem('preferredLanguage', lang);
+                } else if (attempts < maxAttempts) {
+                    setTimeout(tryToChange, interval);
+                } else {
+                    console.warn('Google Translate not available after multiple attempts');
+                }
+            };
+            
+            tryToChange();
+        }
         
-                if (select) {
-                    select.value = lang;
-        
-                    // Dispatch the change event
-                    const event = new Event('change', {
-                        bubbles: true,
-                        cancelable: true
-                    });
-                    select.dispatchEvent(event);
-        
-                    // Update the flag image
-                    const flagImg = document.getElementById('current-flag');
-                    if (flagImg) {
-                        flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
-                        flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
-                    }
-        
-                    // Save language preference
-                    localStorage.setItem('preferredLanguage', lang);
-                } else if (retries > 0) {
-                    // Try again after a delay
-                    setTimeout(() => tryChangeLanguage(retries - 1), 300);
-                } else {
-                    console.warn('Google Translate dropdown not found.');
-                }
-            }
-        
-            tryChangeLanguage();
+        function updateFlag(lang) {
+            const flagImg = document.getElementById('current-flag');
+            if (!flagImg) return;
+            
+            const flags = {
+                'fr': { src: 'https://flagcdn.com/w20/fr.png', alt: 'French' },
+                'en': { src: 'https://flagcdn.com/w20/gb.png', alt: 'English' },
+                'nl': { src: 'https://flagcdn.com/w20/nl.png', alt: 'Dutch' }
+            };
+            
+            if (flags[lang]) {
+                flagImg.src = flags[lang].src;
+                flagImg.alt = flags[lang].alt;
+            }
         }
         
         function toggleLanguageMenu(event) {
