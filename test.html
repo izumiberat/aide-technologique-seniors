@@ -1309,6 +1309,17 @@
         }
         
         function changeLanguage(lang) {
+            // Fallback if Google Translate isn't working
+            if (!window.google || !google.translate || !document.querySelector('.goog-te-combo')) {
+                console.warn('Using fallback language change');
+                updateFlag(lang);
+                localStorage.setItem('preferredLanguage', lang);
+                
+                // Optionally reload the page with a language parameter
+                // window.location.search = '?lang=' + lang;
+                return;
+            }
+            
             // First update the UI immediately
             updateFlag(lang);
             localStorage.setItem('preferredLanguage', lang);
