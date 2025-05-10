@@ -1278,7 +1278,14 @@
           if (!document.querySelector('script[src*="translate.google.com"]')) {
             const script = document.createElement('script');
             script.src = '//translate.google.com/translate_a/element.js?cb=initializeGoogleTranslate';
-            script.onerror = () => console.error('Failed to load Google Translate');
+            script.onerror = () => {
+              console.error('Failed to load Google Translate');
+              // Fallback: Show message or basic language links
+              document.getElementById('languageMenu').querySelectorAll('div').forEach(item => {
+                item.style.cursor = 'default';
+                item.onclick = null;
+              });
+            };
             document.body.appendChild(script);
           } else if (window.google && google.translate && !googleTranslateInitialized) {
             initializeGoogleTranslate();
