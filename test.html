@@ -774,8 +774,8 @@
     </style>
 </head>
 <body>
-    <!-- Google Translate Widget -->
-    <div id="google_translate_element"></div>
+    <!-- Google Translate Element (hidden) -->
+    <div id="google_translate_element" style="display:none;"></div>
     
     <!-- Language Switcher -->
     <div class="language-switcher">
@@ -783,9 +783,9 @@
             <img src="https://flagcdn.com/w20/fr.png" alt="French" id="current-flag">
         </div>
         <div class="language-menu" id="languageMenu">
-            <div onclick="changeLanguage('fr')"><img src="https://flagcdn.com/w20/fr.png" alt="French"> Français</div>
-            <div onclick="changeLanguage('en')"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</div>
-            <div onclick="changeLanguage('nl')"><img src="https://flagcdn.com/w20/nl.png" alt="Dutch"> Nederlands</div>
+            <div onclick="doGTranslate('fr|fr')"><img src="https://flagcdn.com/w20/fr.png" alt="French"> Français</div>
+            <div onclick="doGTranslate('fr|en')"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</div>
+            <div onclick="doGTranslate('fr|nl')"><img src="https://flagcdn.com/w20/nl.png" alt="Dutch"> Nederlands</div>
         </div>
     </div>
 
@@ -1250,86 +1250,88 @@
         
         // Google Translate Functions
         function loadGoogleTranslate() {
-            if (!window.google || !google.translate) {
-                const script = document.createElement('script');
-                script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-                document.body.appendChild(script);
-            } else {
-                googleTranslateElementInit();
-            }
-        }
-        
-        function googleTranslateElementInit() {
-            if (window.google && google.translate) {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'fr',
-                    includedLanguages: 'en,nl',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                    autoDisplay: false
-                }, 'google_translate_element');
-                
-                // Restore language preference if exists
-                const savedLang = localStorage.getItem('preferredLanguage');
-                if (savedLang && savedLang !== 'fr') {
-                    changeLanguage(savedLang);
+                // Create script element if not already loaded
+                if (!document.querySelector('script[src*="translate.google.com"]')) {
+                    const script = document.createElement('script');
+                    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                    script.onerror = () => console.error('Failed to load Google Translate');
+                    document.body.appendChild(script);
                 }
             }
-        }
-        
-        function toggleLanguageMenu(event) {
-            event.stopPropagation(); // Prevent immediate closing
-            const menu = document.getElementById('languageMenu');
-            if (menu) menu.classList.toggle('show');
-        }
-        
-        function changeLanguage(lang) {
-            if (!window.google || !google.translate) {
+    
+            function googleTranslateElementInit() {
+                if (window.google && google.translate) {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'fr',
+                        includedLanguages: 'en,nl',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                        autoDisplay: false
+                    }, 'google_translate_element');
+                }
+            }
+    
+            // Direct translation function
+            function doGTranslate(langPair) {
+                if (!langPair) return;
+                
+                // Load Google Translate if not already loaded
+                if (!window.google || !google.translate) {
+                    loadGoogleTranslate();
+                    setTimeout(() => doGTranslate(langPair), 300);
+                    return;
+                }
+                
+                const lang = langPair.split('|')[1];
+                if (google.translate.TranslateElement) {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'fr',
+                        includedLanguages: 'en,nl',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                        autoDisplay: false
+                    }, 'google_translate_element');
+                }
+                
+                // Change the language
+                const select = document.querySelector('.goog-te-combo');
+                if (select) {
+                    select.value = lang;
+                    select.dispatchEvent(new Event('change'));
+                    
+                    // Update flag
+                    const flagImg = document.getElementById('current-flag');
+                    if (flagImg) {
+                        flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
+                        flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
+                    }
+                    
+                    localStorage.setItem('preferredLanguage', lang);
+                } else {
+                    setTimeout(() => doGTranslate(langPair), 100);
+                }
+            }
+    
+            function toggleLanguageMenu(event) {
+                event.stopPropagation();
+                const menu = document.getElementById('languageMenu');
+                if (menu) menu.classList.toggle('show');
+            }
+    
+            // Initialize on DOM ready
+            document.addEventListener('DOMContentLoaded', function() {
                 loadGoogleTranslate();
-                setTimeout(() => changeLanguage(lang), 300);
-                return;
-            }
-            
-            const select = document.querySelector('.goog-te-combo');
-            if (select) {
-                select.value = lang;
                 
-                // Create and dispatch the change event properly
-                const event = new Event('change', {
-                    bubbles: true,
-                    cancelable: true
-                });
-                select.dispatchEvent(event);
-                
-                // Update flag
-                const flagImg = document.getElementById('current-flag');
-                if (flagImg) {
-                    flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
-                    flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
-                }
-                
-                localStorage.setItem('preferredLanguage', lang);
-                
-                // Close menu after a short delay
-                setTimeout(() => {
+                // Handle clicks outside language menu
+                document.addEventListener('click', function() {
                     const menu = document.getElementById('languageMenu');
                     if (menu) menu.classList.remove('show');
-                }, 300);
-            } else {
-                // Retry if select isn't ready
-                setTimeout(() => changeLanguage(lang), 100);
-            }
-        }
-        
-        // Initialize on DOM ready
-        document.addEventListener('DOMContentLoaded', function() {
-            loadGoogleTranslate();
-            
-            // Handle clicks outside language menu
-            document.addEventListener('click', function() {
-                const menu = document.getElementById('languageMenu');
-                if (menu) menu.classList.remove('show');
+                });
+                
+                // Restore preferred language
+                const savedLang = localStorage.getItem('preferredLanguage');
+                if (savedLang && savedLang !== 'fr') {
+                    doGTranslate(`fr|${savedLang}`);
+                }
             });
-            
             // Prevent menu from closing when clicking inside it
             document.getElementById('languageMenu')?.addEventListener('click', function(e) {
                 e.stopPropagation();
