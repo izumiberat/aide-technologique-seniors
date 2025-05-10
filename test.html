@@ -774,6 +774,21 @@
     </style>
 </head>
 <body>
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element"></div>
+    
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <div class="selected-language" onclick="toggleLanguageMenu(event)">
+            <img src="https://flagcdn.com/w20/fr.png" alt="French" id="current-flag">
+        </div>
+        <div class="language-menu" id="languageMenu">
+            <div onclick="changeLanguage('fr')"><img src="https://flagcdn.com/w20/fr.png" alt="French"> Français</div>
+            <div onclick="changeLanguage('en')"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</div>
+            <div onclick="changeLanguage('nl')"><img src="https://flagcdn.com/w20/nl.png" alt="Dutch"> Nederlands</div>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Header -->
         <header class="header">
@@ -987,6 +1002,7 @@
                 </div>
             </div>
         </section>
+        
         <!-- CTA Section -->
         <div class="cta">
             <div class="cta-content">
@@ -1009,6 +1025,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Contact Form -->
         <div class="contact-form">
             <h2>Contactez-moi</h2>
@@ -1056,6 +1073,7 @@
                 <p>«&nbsp;Grâce à la technologie, vos proches restent indépendants… et vous, tranquilles.»&nbsp;»</p>
             </blockquote>
         </div>
+        
         <!-- New Video Section -->
         <div class="video-container">
             <h2>Faites ma connaissance en vidéo</h2>
@@ -1069,6 +1087,7 @@
             </div>
             <p>Découvrez mon approche bienveillante de l'assistance technologique</p>
         </div>
+        
         <!-- Footer -->
         <div class="footer">
             <div>
@@ -1188,189 +1207,134 @@
         // Ebook download count
         // Initialize counter from localStorage or use your starting value (1243)
         document.addEventListener('DOMContentLoaded', function() {
-        // Get stored downloads or use initial value
-        let downloads = localStorage.getItem('ebookDownloads');
-        if (!downloads) downloads = 0; // Your starting number
-        
-        // Display the current count
-        document.getElementById('download-count').textContent = 
-            parseInt(downloads).toLocaleString();
+            // Get stored downloads or use initial value
+            let downloads = localStorage.getItem('ebookDownloads');
+            if (!downloads) downloads = 0; // Your starting number
+            
+            // Display the current count
+            document.getElementById('download-count').textContent = 
+                parseInt(downloads).toLocaleString();
         });
 
         function downloadEbook() {
-        // 1. Get current count
-        let currentCount = localStorage.getItem('ebookDownloads') || 0;
-        currentCount = parseInt(currentCount) + 1;
-        
-        // 2. Update storage and display
-        localStorage.setItem('ebookDownloads', currentCount);
-        document.getElementById('download-count').textContent = 
-            currentCount.toLocaleString();
-        
-        // 3. Track in GA4
-        if (typeof gtag === 'function') {
-            gtag('event', 'download', {
-                'event_category': 'ebook',
-                'event_label': 'senior_tech_guide_v1'
-            });
-        }
-        
-        // 4. Start download
-        const link = document.createElement('a');
-        link.href = 'path/to/your-ebook.pdf';
-        link.download = 'Guide-Technologie-Seniors-Izumi.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        // 5. Optional: Add confetti
-        if (typeof confetti === 'function') {
-            confetti({ particleCount: 100, spread: 70 });
-        }
-    }
-    </script>
-    <!-- Google Translate Widget -->
-        <div id="google_translate_element"></div>
-        <div class="language-switcher">
-          <div class="selected-language" onclick="toggleLanguageMenu(event)">
-            <img src="https://flagcdn.com/w20/fr.png" alt="French" id="current-flag">
-          </div>
-          <div class="language-menu" id="languageMenu">
-            <div onclick="changeLanguage('fr')"><img src="https://flagcdn.com/w20/fr.png" alt="French"> Français</div>
-            <div onclick="changeLanguage('en')"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</div>
-            <div onclick="changeLanguage('nl')"><img src="https://flagcdn.com/w20/nl.png" alt="Dutch"> Nederlands</div>
-          </div>
-        </div>
-        
-        <script>
-        // Google Translate state management
-        let googleTranslateInitialized = false;
-        let googleTranslateElement;
-        let languageChangeInProgress = false;
-        
-        function initializeGoogleTranslate() {
-          if (window.google && google.translate && !googleTranslateInitialized) {
-            googleTranslateElement = new google.translate.TranslateElement({
-              pageLanguage: 'fr',
-              includedLanguages: 'en,nl',
-              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-              autoDisplay: false
-            }, 'google_translate_element');
+            // 1. Get current count
+            let currentCount = localStorage.getItem('ebookDownloads') || 0;
+            currentCount = parseInt(currentCount) + 1;
             
-            // Hide Google branding
-            const style = document.createElement('style');
-            style.innerHTML = `
-              .goog-te-gadget-icon, 
-              .goog-te-banner-frame,
-              .goog-te-gadget-simple .goog-te-menu-value span,
-              .goog-te-combo {
-                display: none !important;
-              }
-              .goog-te-gadget-simple {
-                background: transparent !important;
-                border: none !important;
-              }
-              .skiptranslate {
-                display: none !important;
-              }
-            `;
-            document.head.appendChild(style);
+            // 2. Update storage and display
+            localStorage.setItem('ebookDownloads', currentCount);
+            document.getElementById('download-count').textContent = 
+                currentCount.toLocaleString();
             
-            googleTranslateInitialized = true;
-            
-            // Restore language preference if exists
-            const savedLang = localStorage.getItem('preferredLanguage');
-            if (savedLang && savedLang !== 'fr') {
-              changeLanguage(savedLang);
+            // 3. Track in GA4
+            if (typeof gtag === 'function') {
+                gtag('event', 'download', {
+                    'event_category': 'ebook',
+                    'event_label': 'senior_tech_guide_v1'
+                });
             }
-          }
+            
+            // 4. Start download
+            const link = document.createElement('a');
+            link.href = 'path/to/your-ebook.pdf';
+            link.download = 'Guide-Technologie-Seniors-Izumi.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // 5. Optional: Add confetti
+            if (typeof confetti === 'function') {
+                confetti({ particleCount: 100, spread: 70 });
+            }
         }
         
+        // Google Translate Functions
         function loadGoogleTranslate() {
-          if (!document.querySelector('script[src*="translate.google.com"]')) {
-            const script = document.createElement('script');
-            script.src = '//translate.google.com/translate_a/element.js?cb=initializeGoogleTranslate';
-            script.onerror = () => {
-              console.error('Failed to load Google Translate');
-              document.getElementById('languageMenu').querySelectorAll('div').forEach(item => {
-                item.style.cursor = 'default';
-                item.onclick = null;
-              });
-            };
-            document.body.appendChild(script);
-          } else if (window.google && google.translate && !googleTranslateInitialized) {
-            initializeGoogleTranslate();
-          }
+            if (!window.google || !google.translate) {
+                const script = document.createElement('script');
+                script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                document.body.appendChild(script);
+            } else {
+                googleTranslateElementInit();
+            }
+        }
+        
+        function googleTranslateElementInit() {
+            if (window.google && google.translate) {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'fr',
+                    includedLanguages: 'en,nl',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false
+                }, 'google_translate_element');
+                
+                // Restore language preference if exists
+                const savedLang = localStorage.getItem('preferredLanguage');
+                if (savedLang && savedLang !== 'fr') {
+                    changeLanguage(savedLang);
+                }
+            }
         }
         
         function toggleLanguageMenu(event) {
-          event.stopPropagation(); // Prevent immediate closing
-          const menu = document.getElementById('languageMenu');
-          if (menu) menu.classList.toggle('show');
+            event.stopPropagation(); // Prevent immediate closing
+            const menu = document.getElementById('languageMenu');
+            if (menu) menu.classList.toggle('show');
         }
         
         function changeLanguage(lang) {
-          if (languageChangeInProgress) return;
-          languageChangeInProgress = true;
-          
-          if (!googleTranslateInitialized) {
-            loadGoogleTranslate();
-            setTimeout(() => {
-              languageChangeInProgress = false;
-              changeLanguage(lang);
-            }, 300);
-            return;
-          }
-        
-          const select = document.querySelector('.goog-te-combo');
-          if (select) {
-            select.value = lang;
-            
-            // Create and dispatch the change event properly
-            const event = document.createEvent('HTMLEvents');
-            event.initEvent('change', true, false);
-            select.dispatchEvent(event);
-            
-            // Update flag
-            const flagImg = document.getElementById('current-flag');
-            if (flagImg) {
-              flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
-              flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
+            if (!window.google || !google.translate) {
+                loadGoogleTranslate();
+                setTimeout(() => changeLanguage(lang), 300);
+                return;
             }
             
-            localStorage.setItem('preferredLanguage', lang);
-            
-            // Close menu after a short delay
-            setTimeout(() => {
-              const menu = document.getElementById('languageMenu');
-              if (menu) menu.classList.remove('show');
-              languageChangeInProgress = false;
-            }, 300);
-          } else {
-            // Retry if select isn't ready
-            setTimeout(() => {
-              languageChangeInProgress = false;
-              changeLanguage(lang);
-            }, 100);
-          }
+            const select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = lang;
+                
+                // Create and dispatch the change event properly
+                const event = new Event('change', {
+                    bubbles: true,
+                    cancelable: true
+                });
+                select.dispatchEvent(event);
+                
+                // Update flag
+                const flagImg = document.getElementById('current-flag');
+                if (flagImg) {
+                    flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
+                    flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
+                }
+                
+                localStorage.setItem('preferredLanguage', lang);
+                
+                // Close menu after a short delay
+                setTimeout(() => {
+                    const menu = document.getElementById('languageMenu');
+                    if (menu) menu.classList.remove('show');
+                }, 300);
+            } else {
+                // Retry if select isn't ready
+                setTimeout(() => changeLanguage(lang), 100);
+            }
         }
         
         // Initialize on DOM ready
         document.addEventListener('DOMContentLoaded', function() {
-          loadGoogleTranslate();
-        
-          // Handle clicks outside language menu
-          document.addEventListener('click', function() {
-            const menu = document.getElementById('languageMenu');
-            if (menu) menu.classList.remove('show');
-          });
+            loadGoogleTranslate();
+            
+            // Handle clicks outside language menu
+            document.addEventListener('click', function() {
+                const menu = document.getElementById('languageMenu');
+                if (menu) menu.classList.remove('show');
+            });
+            
+            // Prevent menu from closing when clicking inside it
+            document.getElementById('languageMenu')?.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
         });
-        
-        // Prevent menu from closing when clicking inside it
-        document.getElementById('languageMenu')?.addEventListener('click', function(e) {
-          e.stopPropagation();
-        });
-        </script>
-
+    </script>
 </body>
 </html>
