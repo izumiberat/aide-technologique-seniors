@@ -733,9 +733,9 @@
             }
             
             .contact-item svg {
-                width: 1em;   /* will match the font size of the parent */
+                width: 1em;
                 height: 1em;
-                flex-shrink: 0; /* Prevents icon from shrinking */
+                flex-shrink: 0;
             }
             
             .example-item {
@@ -767,7 +767,69 @@
                 top: 10px;
                 right: 10px;
             }
-        }
+            
+            /* Google Translate Mobile Fixes */
+            /* Google Translate Mobile Fixes */
+            .goog-te-banner-frame.skiptranslate {
+                position: fixed !important;
+                bottom: 0 !important;
+                width: 100% !important;
+                left: 0 !important;
+                z-index: 99999 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+                box-shadow: 0 -2px 5px rgba(0,0,0,0.1) !important;
+            }
+            
+            .goog-te-banner {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding: 8px 10px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            
+            .goog-te-button {
+                padding: 8px 12px !important;
+                font-size: 14px !important;
+                margin: 0 !important;
+                min-width: 80px !important;
+                background: #f8f8f8 !important;
+                border: 1px solid #ddd !important;
+                border-radius: 4px !important;
+            }
+            
+            /* Hide all unnecessary Google elements */
+            .goog-te-gadget-icon, 
+            .goog-te-gadget-simple img,
+            .goog-te-gadget .goog-te-combo {
+                display: none !important;
+            }
+            
+            /* Ensure page content isn't hidden by fixed toolbar */
+            body {
+                margin-bottom: 50px !important;
+            }
+            
+            /* Extra small mobile devices */
+            @media (max-width: 360px) {
+                .goog-te-banner {
+                    flex-direction: column !important;
+                    gap: 6px !important;
+                }
+                .goog-te-button {
+                    width: 100% !important;
+                }
+            }
+            
+            /* Hide Google branding */
+            .goog-te-gadget-icon, 
+            .goog-te-gadget-simple img {
+                display: none !important;
+            }
         
         body {
             margin-bottom: 50px; /* Prevents footer content from being hidden behind the fixed widget */
