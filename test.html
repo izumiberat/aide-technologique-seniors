@@ -545,14 +545,14 @@
         }
         
         /* Hide the Google Translate dropdown */
-            #google_translate_element {
-                visibility: hidden; /* This keeps the element in the DOM but makes it invisible */
-                position: absolute;
-                top: -9999px; /* Move it off-screen */
-                left: -9999px;
-                width: 1px; /* Give it minimal dimensions */
-                height: 1px;
-                overflow: hidden;
+           #google_translate_element {
+            position: absolute !important;
+            left: -9999px !important;
+            top: -9999px !important;
+            width: 0 !important;
+            height: 0 !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
             }
         
         /* Hide Google Translate banner */
@@ -776,7 +776,7 @@
 </head>
 <body>
     <!-- Google Translate Element (hidden) -->
-    <div id="google_translate_element" style="position:absolute; left:-9999px;"></div>
+    <div id="google_translate_element"></div>
     
     <!-- Language Switcher -->
     <div class="language-switcher">
