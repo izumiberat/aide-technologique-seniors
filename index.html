@@ -1221,98 +1221,104 @@
             <div onclick="changeLanguage('nl')"><img src="https://flagcdn.com/w20/nl.png" alt="Dutch"> Nederlands</div>
           </div>
         </div>
-        
+        <div id="google_translate_element" style="display: none;"></div>
         <script>
         // Google Translate state management
-            let googleTranslateInitialized = false;
-            
-            function initializeGoogleTranslate() {
-              if (window.google && google.translate) {
-                new google.translate.TranslateElement({
-                  pageLanguage: 'fr',
-                  includedLanguages: 'en,nl',
-                  layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                  autoDisplay: false
-                }, 'google_translate_element');
-                googleTranslateInitialized = true;
-                
-                // Restore language preference if exists
-                const savedLang = localStorage.getItem('preferredLanguage');
-                if (savedLang) {
-                  changeLanguage(savedLang);
-                }
-              }
+          // Google Translate state management
+        let googleTranslateInitialized = false;
+        let googleTranslateElement; // To hold the TranslateElement instance
+
+        function initializeGoogleTranslate() {
+          if (window.google && google.translate) {
+            googleTranslateElement = new google.translate.TranslateElement({
+              pageLanguage: 'fr',
+              includedLanguages: 'en,nl',
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+              autoDisplay: false
+            }, 'google_translate_element');
+            googleTranslateInitialized = true;
+
+            // Restore language preference if exists (moved here after initialization)
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+              changeLanguage(savedLang);
             }
-            
-            function loadGoogleTranslate() {
-              if (!document.querySelector('script[src*="translate.google.com"]')) {
-                const script = document.createElement('script');
-                script.src = '//translate.google.com/translate_a/element.js?cb=initializeGoogleTranslate';
-                script.onerror = () => console.error('Failed to load Google Translate');
-                document.body.appendChild(script);
+          }
+        }
+
+        function loadGoogleTranslate() {
+          if (!document.querySelector('script[src*="translate.google.com"]')) {
+            const script = document.createElement('script');
+            script.src = '//translate.google.com/translate_a/element.js?cb=initializeGoogleTranslate';
+            script.onerror = () => console.error('Failed to load Google Translate');
+            document.body.appendChild(script);
+          } else if (window.google && google.translate && !googleTranslateInitialized) {
+            // If the script was already loaded but not initialized
+            initializeGoogleTranslate();
+          }
+        }
+
+        function toggleLanguageMenu() {
+          const menu = document.getElementById('languageMenu');
+          if (menu) menu.classList.toggle('show');
+        }
+
+        function changeLanguage(lang) {
+          if (!googleTranslateInitialized) {
+            loadGoogleTranslate();
+            const checkInterval = setInterval(() => {
+              if (googleTranslateInitialized) {
+                clearInterval(checkInterval);
+                changeLanguage(lang); // Try again after initialization
               }
+            }, 100);
+            return;
+          }
+
+          const select = document.querySelector('.goog-te-combo');
+          if (select) {
+            select.value = lang;
+            select.dispatchEvent(new Event('change'));
+
+            const flagImg = document.getElementById('current-flag');
+            if (flagImg) {
+              flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
+              flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
             }
-            
-            function toggleLanguageMenu() {
-              const menu = document.getElementById('languageMenu');
-              if (menu) menu.classList.toggle('show');
+
+            localStorage.setItem('preferredLanguage', lang);
+          }
+
+          const menu = document.getElementById('languageMenu');
+          if (menu) menu.classList.remove('show');
+
+          // Optional: Force a page reload after translation for more reliable results
+          // window.location.reload();
+        }
+
+        // Single DOMContentLoaded listener
+        document.addEventListener('DOMContentLoaded', function() {
+          // Translation initialization
+          loadGoogleTranslate();
+
+          // Handle clicks outside language menu
+          document.addEventListener('click', function(e) {
+            const menu = document.getElementById('languageMenu');
+            const switcher = document.querySelector('.language-switcher');
+
+            if (menu && switcher && !switcher.contains(e.target)) {
+              menu.classList.remove('show');
             }
-            
-            function changeLanguage(lang) {
-              if (!googleTranslateInitialized) {
-                loadGoogleTranslate();
-                const checkInterval = setInterval(() => {
-                  if (googleTranslateInitialized) {
-                    clearInterval(checkInterval);
-                    changeLanguage(lang);
-                  }
-                }, 100);
-                return;
-              }
-            
-              const select = document.querySelector('.goog-te-combo');
-              if (select) {
-                select.value = lang;
-                select.dispatchEvent(new Event('change'));
-                
-                const flagImg = document.getElementById('current-flag');
-                if (flagImg) {
-                  flagImg.src = `https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang}.png`;
-                  flagImg.alt = lang === 'fr' ? 'French' : lang === 'en' ? 'English' : 'Dutch';
-                }
-                
-                localStorage.setItem('preferredLanguage', lang);
-              }
-              
-              const menu = document.getElementById('languageMenu');
-              if (menu) menu.classList.remove('show');
-            }
-            
-            // Single DOMContentLoaded listener
-            document.addEventListener('DOMContentLoaded', function() {
-              // Your existing code...
-              
-              // Translation initialization
-              loadGoogleTranslate();
-              
-              // Handle clicks outside language menu
-              document.addEventListener('click', function(e) {
-                const menu = document.getElementById('languageMenu');
-                const switcher = document.querySelector('.language-switcher');
-                
-                if (menu && switcher && !switcher.contains(e.target)) {
-                  menu.classList.remove('show');
-                }
-              });
-              
-              // Ebook download counter
-              let downloads = localStorage.getItem('ebookDownloads');
-              if (!downloads) downloads = 0;
-              const countElement = document.getElementById('download-count');
-              if (countElement) {
-                countElement.textContent = parseInt(downloads).toLocaleString();
-              }
-            });
+          });
+
+          // Ebook download counter (keep this)
+          let downloads = localStorage.getItem('ebookDownloads');
+          if (!downloads) downloads = 0;
+          const countElement = document.getElementById('download-count');
+          if (countElement) {
+            countElement.textContent = parseInt(downloads).toLocaleString();
+          }
+        });
         </script>
 </body>
 </html>
