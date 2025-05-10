@@ -1288,18 +1288,6 @@
     
     function initGoogleTranslate() {
         try {
-            // Hide the Google Translate toolbar immediately
-            const style = document.createElement('style');
-            style.textContent = `
-                .goog-te-banner-frame.skiptranslate {
-                    display: none !important;
-                }
-                body {
-                    top: 0 !important;
-                }
-            `;
-            document.head.appendChild(style);
-    
             new google.translate.TranslateElement({
                 pageLanguage: 'fr',
                 includedLanguages: 'en,nl',
@@ -1307,17 +1295,38 @@
                 autoDisplay: false
             }, 'google_translate_element');
     
+            // Add mobile-friendly close button styling
+            const style = document.createElement('style');
+            style.textContent = `
+                /* Make close button accessible on mobile */
+                .goog-te-banner .goog-te-button {
+                    padding: 8px 12px !important;
+                    margin: 4px !important;
+                }
+                
+                /* Ensure banner doesn't overflow on mobile */
+                .goog-te-banner-frame {
+                    max-width: 100% !important;
+                    width: 100% !important;
+                    left: 0 !important;
+                }
+                
+                /* Make close button larger on mobile */
+                @media (max-width: 768px) {
+                    .goog-te-banner .goog-te-button {
+                        padding: 12px 16px !important;
+                        font-size: 16px !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+    
             // Check for the select element periodically
             const checkInterval = setInterval(() => {
                 const select = document.querySelector('.goog-te-combo');
                 if (select) {
                     clearInterval(checkInterval);
                     console.log('Google Translate elements created.');
-                    
-                    // Set up observer for language changes
-                    setupLanguageObserver();
-                    
-                    // Apply saved language
                     const savedLang = localStorage.getItem('preferredLanguage');
                     if (savedLang && savedLang !== 'fr') {
                         changeLanguage(savedLang);
@@ -1330,40 +1339,9 @@
         }
     }
     
-    function setupLanguageObserver() {
-        // Observe for Google Translate frame changes
-        const observer = new MutationObserver((mutations) => {
-            const currentLang = getCurrentLanguage();
-            if (currentLang && currentLang !== localStorage.getItem('preferredLanguage')) {
-                localStorage.setItem('preferredLanguage', currentLang);
-                updateFlag(currentLang);
-            }
-        });
-    
-        const config = { attributes: true, childList: true, subtree: true };
-        const translateFrame = document.querySelector('.goog-te-menu-frame');
-        if (translateFrame) {
-            observer.observe(translateFrame, config);
-        }
-    }
-    
-    function getCurrentLanguage() {
-        const iframe = document.querySelector('.goog-te-menu-frame');
-        if (iframe) {
-            try {
-                const select = iframe.contentDocument.querySelector('.goog-te-combo');
-                return select ? select.value : null;
-            } catch (e) {
-                return null;
-            }
-        }
-        return null;
-    }
-    
     function changeLanguage(lang) {
         if (!lang) return;
         
-        // Update flag immediately
         updateFlag(lang);
         localStorage.setItem('preferredLanguage', lang);
     
@@ -1372,7 +1350,6 @@
             return;
         }
     
-        // Method 1: Try using the Google Translate dropdown
         const select = document.querySelector('.goog-te-combo');
         if (select) {
             try {
@@ -1385,13 +1362,12 @@
             }
         }
     
-        // Method 2: Fallback - use Google Translate cookie method
+        // Fallback method
         console.log('Using cookie fallback for language change');
         const expiryDate = new Date();
         expiryDate.setFullYear(expiryDate.getFullYear() + 1);
         document.cookie = `googtrans=/fr/${lang}; expires=${expiryDate.toUTCString()}; path=/`;
         
-        // Reload the page to apply translation
         setTimeout(() => {
             window.location.reload();
         }, 100);
@@ -1415,22 +1391,6 @@
     
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
-        // Hide Google Translate toolbar
-        const style = document.createElement('style');
-        style.textContent = `
-            .goog-te-banner-frame.skiptranslate {
-                display: none !important;
-            }
-            body {
-                top: 0 !important;
-            }
-            #google_translate_element {
-                display: none !important;
-            }
-        `;
-        document.head.appendChild(style);
-    
-        // Load Google Translate
         loadGoogleTranslate();
     
         // Set up language switcher events
