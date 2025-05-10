@@ -769,7 +769,7 @@
             }
             
             /* Google Translate Mobile Fixes */
-            /* Google Translate Mobile Fixes - Compact Version */
+            /* Google Translate Mobile Fixes */
             .goog-te-banner-frame.skiptranslate {
                 position: fixed !important;
                 bottom: 0 !important;
@@ -778,21 +778,18 @@
                 z-index: 99999 !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                border: none !important;
                 background: white !important;
                 box-shadow: 0 -2px 5px rgba(0,0,0,0.1) !important;
             }
             
             .goog-te-banner {
                 display: flex !important;
-                flex-direction: row !important;
+                flex-wrap: wrap !important;
                 align-items: center !important;
                 justify-content: space-between !important;
-                padding: 8px 12px !important;
+                padding: 8px 10px !important;
                 width: 100% !important;
                 box-sizing: border-box !important;
-                max-width: 100vw !important;
-                overflow: hidden !important;
             }
             
             .goog-te-button {
@@ -800,51 +797,31 @@
                 font-size: 14px !important;
                 margin: 0 !important;
                 min-width: 80px !important;
-                height: auto !important;
                 background: #f8f8f8 !important;
                 border: 1px solid #ddd !important;
                 border-radius: 4px !important;
-                white-space: nowrap !important;
             }
             
-            /* Force two-line layout on very small screens */
-            @media (max-width: 360px) {
-                .goog-te-banner {
-                    flex-direction: column !important;
-                    align-items: stretch !important;
-                    gap: 6px !important;
-                }
-                
-                .goog-te-button {
-                    width: 100% !important;
-                }
-            }
-            
-            /* Hide all extra elements */
+            /* Hide all unnecessary Google elements */
             .goog-te-gadget-icon, 
             .goog-te-gadget-simple img,
             .goog-te-gadget .goog-te-combo {
                 display: none !important;
             }
             
-            /* Make sure text fits */
-            .goog-te-banner .goog-te-gadget-simple {
-                font-size: 12px !important;
-                line-height: 1.3 !important;
-                white-space: normal !important;
-                overflow: hidden !important;
-                text-overflow: ellipsis !important;
-                max-width: 60% !important;
+            /* Ensure page content isn't hidden by fixed toolbar */
+            body {
+                margin-bottom: 50px !important;
             }
             
-            /* For landscape orientation */
-            @media (orientation: landscape) {
+            /* Extra small mobile devices */
+            @media (max-width: 360px) {
                 .goog-te-banner {
-                    padding: 6px 8px !important;
+                    flex-direction: column !important;
+                    gap: 6px !important;
                 }
-                
                 .goog-te-button {
-                    padding: 6px 10px !important;
+                    width: 100% !important;
                 }
             }
             
