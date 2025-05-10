@@ -769,32 +769,68 @@
             }
             
             /* Google Translate Mobile Fixes */
+            /* Google Translate Mobile Fixes */
             .goog-te-banner-frame.skiptranslate {
+                display: block !important;
                 position: fixed !important;
                 bottom: 0 !important;
-                width: 100% !important;
+                width: 100vw !important;
+                max-width: 100% !important;
+                left: 0 !important;
+                right: 0 !important;
                 z-index: 99999 !important;
+                transform: none !important;
+                margin: 0 !important;
             }
             
             .goog-te-banner {
-                padding: 10px !important;
+                padding: 8px 10px !important;
                 display: flex !important;
-                flex-direction: column !important;
+                flex-direction: row !important;
                 align-items: center !important;
+                justify-content: center !important;
+                flex-wrap: wrap !important;
+                gap: 8px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
             }
             
             .goog-te-button {
-                padding: 12px 24px !important;
-                font-size: 16px !important;
-                margin: 8px 0 !important;
+                padding: 10px 16px !important;
+                font-size: 14px !important;
+                margin: 0 !important;
                 width: auto !important;
-                min-width: 120px !important;
+                min-width: 100px !important;
+                height: auto !important;
+                line-height: normal !important;
+                border-radius: 4px !important;
+                order: 2 !important; /* Makes close button appear second */
             }
             
             .goog-te-button span {
                 font-size: inherit !important;
+                display: inline !important;
             }
-        }
+            
+            /* For portrait mode specifically */
+            @media (orientation: portrait) {
+                .goog-te-banner {
+                    flex-direction: column !important;
+                    padding: 12px 10px !important;
+                }
+                
+                .goog-te-button {
+                    width: 90% !important;
+                    max-width: 200px !important;
+                    margin: 4px auto !important;
+                }
+            }
+            
+            /* Hide Google branding */
+            .goog-te-gadget-icon, 
+            .goog-te-gadget-simple img {
+                display: none !important;
+            }
         
         body {
             margin-bottom: 50px; /* Prevents footer content from being hidden behind the fixed widget */
