@@ -1126,226 +1126,203 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('techAidForm');
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('techAidForm');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Show loading state
-                const submitBtn = form.querySelector('button[type="submit"]');
-                const originalBtnText = submitBtn.textContent;
-                submitBtn.textContent = 'Envoi en cours...';
-                submitBtn.disabled = true;
-                
-                fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        // Success message with animation
-                        submitBtn.textContent = '✓ Message envoyé';
-                        submitBtn.style.backgroundColor = 'var(--success-color)';
-                        
-                        // Reset form after delay
-                        setTimeout(() => {
-                            form.reset();
-                            submitBtn.textContent = originalBtnText;
-                            submitBtn.style.backgroundColor = '';
-                            submitBtn.disabled = false;
-                            
-                            // Scroll to thank you message
-                            const thankYou = document.createElement('div');
-                            thankYou.innerHTML = '<p style="color: var(--success-color); font-weight: bold; text-align: center; margin-top: 1rem;">Merci pour votre message ! Je vous répondrai dans les plus brefs délais.</p>';
-                            form.appendChild(thankYou);
-                            thankYou.scrollIntoView({ behavior: 'smooth' });
-                            
-                            // Remove after 5 seconds
-                            setTimeout(() => thankYou.remove(), 5000);
-                        }, 1500);
-                    } else {
-                        throw new Error('Erreur réseau');
-                    }
-                }).catch(error => {
-                    submitBtn.textContent = 'Erreur - Réessayer';
-                    submitBtn.style.backgroundColor = 'var(--accent-color)';
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Success message with animation
+                    submitBtn.textContent = '✓ Message envoyé';
+                    submitBtn.style.backgroundColor = 'var(--success-color)';
+                    
+                    // Reset form after delay
                     setTimeout(() => {
+                        form.reset();
                         submitBtn.textContent = originalBtnText;
                         submitBtn.style.backgroundColor = '';
                         submitBtn.disabled = false;
-                    }, 2000);
-                    
-                    alert('Une erreur est survenue. Vous pouvez m\'appeler directement au 07.84.52.99.22');
-                });
-            });
-            
-            // Add subtle animations to service cards on scroll
-            const serviceCards = document.querySelectorAll('.service-card, .pricing-card');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            serviceCards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
-                observer.observe(card);
+                        
+                        // Scroll to thank you message
+                        const thankYou = document.createElement('div');
+                        thankYou.innerHTML = '<p style="color: var(--success-color); font-weight: bold; text-align: center; margin-top: 1rem;">Merci pour votre message ! Je vous répondrai dans les plus brefs délais.</p>';
+                        form.appendChild(thankYou);
+                        thankYou.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Remove after 5 seconds
+                        setTimeout(() => thankYou.remove(), 5000);
+                    }, 1500);
+                } else {
+                    throw new Error('Erreur réseau');
+                }
+            }).catch(error => {
+                submitBtn.textContent = 'Erreur - Réessayer';
+                submitBtn.style.backgroundColor = 'var(--accent-color)';
+                setTimeout(() => {
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.style.backgroundColor = '';
+                    submitBtn.disabled = false;
+                }, 2000);
+                
+                alert('Une erreur est survenue. Vous pouvez m\'appeler directement au 07.84.52.99.22');
             });
         });
         
+        // Add subtle animations to service cards on scroll
+        const serviceCards = document.querySelectorAll('.service-card, .pricing-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        serviceCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
         // Ebook download count
         // Initialize counter from localStorage or use your starting value (1243)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get stored downloads or use initial value
-            let downloads = localStorage.getItem('ebookDownloads');
-            if (!downloads) downloads = 0; // Your starting number
-            
-            // Display the current count
-            document.getElementById('download-count').textContent = 
-                parseInt(downloads).toLocaleString();
-        });
+        let downloads = localStorage.getItem('ebookDownloads');
+        if (!downloads) downloads = 0; // Your starting number
+        
+        // Display the current count
+        const downloadCountElement = document.getElementById('download-count');
+        if (downloadCountElement) {
+            downloadCountElement.textContent = parseInt(downloads).toLocaleString();
+        }
 
-        function downloadEbook() {
-            // 1. Get current count
-            let currentCount = localStorage.getItem('ebookDownloads') || 0;
-            currentCount = parseInt(currentCount) + 1;
-            
-            // 2. Update storage and display
-            localStorage.setItem('ebookDownloads', currentCount);
-            document.getElementById('download-count').textContent = 
-                currentCount.toLocaleString();
-            
-            // 3. Track in GA4
-            if (typeof gtag === 'function') {
-                gtag('event', 'download', {
-                    'event_category': 'ebook',
-                    'event_label': 'senior_tech_guide_v1'
-                });
-            }
-            
-            // 4. Start download
-            const link = document.createElement('a');
-            link.href = 'path/to/your-ebook.pdf';
-            link.download = 'Guide-Technologie-Seniors-Izumi.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // 5. Optional: Add confetti
-            if (typeof confetti === 'function') {
-                confetti({ particleCount: 100, spread: 70 });
-            }
+        // Initialize Google Translate
+        loadGoogleTranslate();
+
+        // Set up language switcher events
+        document.querySelector('.selected-language').addEventListener('click', toggleLanguageMenu);
+        document.addEventListener('click', function() {
+            const menu = document.getElementById('languageMenu');
+            if (menu) menu.classList.remove('show');
+        });
+        document.getElementById('languageMenu')?.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+
+    function downloadEbook() {
+        // 1. Get current count
+        let currentCount = localStorage.getItem('ebookDownloads') || 0;
+        currentCount = parseInt(currentCount) + 1;
+        
+        // 2. Update storage and display
+        localStorage.setItem('ebookDownloads', currentCount);
+        document.getElementById('download-count').textContent = 
+            currentCount.toLocaleString();
+        
+        // 3. Track in GA4
+        if (typeof gtag === 'function') {
+            gtag('event', 'download', {
+                'event_category': 'ebook',
+                'event_label': 'senior_tech_guide_v1'
+            });
         }
         
-        // Google Translate Functions
-        var googleTranslateInit = false;
-        var googleTranslateLoaded = false;
-        var translateElement; // To hold the TranslateElement instance
-
-        function loadGoogleTranslate() {
-            if (googleTranslateInit) return;
-
-            googleTranslateInit = true;
-
-            // Check if already loaded
-            if (window.google && google.translate) {
-                googleTranslateLoaded = true;
-                initGoogleTranslate();
-                return;
-            }
-
-            const script = document.createElement('script');
-            script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-            script.async = true;
-            script.onerror = function() {
-                console.error('Failed to load Google Translate script');
-                googleTranslateLoaded = false;
-            };
-            document.body.appendChild(script);
+        // 4. Start download
+        const link = document.createElement('a');
+        link.href = 'path/to/your-ebook.pdf';
+        link.download = 'Guide-Technologie-Seniors-Izumi.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // 5. Optional: Add confetti
+        if (typeof confetti === 'function') {
+            confetti({ particleCount: 100, spread: 70 });
         }
+    }
+    
+    // Google Translate Functions
+    var googleTranslateInit = false;
+    var googleTranslateLoaded = false;
+    var translateElement;
 
-        function googleTranslateElementInit() {
-            if (!window.google || !google.translate) {
-                console.error('Google Translate API not available');
-                return;
-            }
+    function loadGoogleTranslate() {
+        if (googleTranslateInit) return;
+        googleTranslateInit = true;
 
+        if (window.google && google.translate) {
             googleTranslateLoaded = true;
             initGoogleTranslate();
+            return;
         }
 
-        function initGoogleTranslate() {
-            try {
-                translateElement = new google.translate.TranslateElement({
-                    pageLanguage: 'fr',
-                    includedLanguages: 'en,nl',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                    autoDisplay: false
-                }, 'google_translate_element');
+        const script = document.createElement('script');
+        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        script.async = true;
+        script.onerror = function() {
+            console.error('Failed to load Google Translate script');
+            googleTranslateLoaded = false;
+        };
+        document.body.appendChild(script);
+    }
 
-                // Wait a bit longer initially before checking
-                setTimeout(() => {
-                    const checkInterval = setInterval(() => {
-                        const select = document.querySelector('.goog-te-combo');
-                        if (select) {
-                            clearInterval(checkInterval);
-                            console.log('Google Translate elements created.');
-                            const savedLang = localStorage.getItem('preferredLanguage');
-                            if (savedLang && savedLang !== 'fr') {
-                                changeLanguage(savedLang);
-                            }
-                        } else {
-                            console.warn('Google Translate elements not yet created...');
-                        }
-                    }, 500); // Check every 500ms
-                }, 1500); // Initial delay of 1.5 seconds
-
-            } catch (e) {
-                console.error('Error initializing Google Translate:', e);
-            }
+    function googleTranslateElementInit() {
+        if (!window.google || !google.translate) {
+            console.error('Google Translate API not available');
+            return;
         }
+        googleTranslateLoaded = true;
+        initGoogleTranslate();
+    }
 
-        function changeLanguage(lang) {
-                updateFlag(lang);
-                localStorage.setItem('preferredLanguage', lang);
-    
+    function initGoogleTranslate() {
+        try {
+            translateElement = new google.translate.TranslateElement({
+                pageLanguage: 'fr',
+                includedLanguages: 'en,nl',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+
+            const checkInterval = setInterval(() => {
                 const select = document.querySelector('.goog-te-combo');
-    
                 if (select) {
-                    try {
-                        select.value = lang;
-                        const event = new Event('change', { bubbles: true, cancelable: true });
-                        select.dispatchEvent(event);
-                        console.log('Language changed to', lang);
-                    } catch (e) {
-                        console.error('Error changing language:', e);
+                    clearInterval(checkInterval);
+                    console.log('Google Translate elements created.');
+                    const savedLang = localStorage.getItem('preferredLanguage');
+                    if (savedLang && savedLang !== 'fr') {
+                        changeLanguage(savedLang);
                     }
-                } else {
-                    console.warn('Google Translate dropdown still not found when trying to change language.');
-                    // As a last resort, maybe try reloading the page?
-                    // window.location.reload();
                 }
-            }
+            }, 500);
 
-            observer.observe(document.body, { childList: true, subtree: true });
+        } catch (e) {
+            console.error('Error initializing Google Translate:', e);
+        }
+    }
 
-            // Optional timeout if the observer doesn't find the element in a while
-            setTimeout(() => {
-                observer.disconnect();
-                console.warn('Google Translate dropdown not found via MutationObserver.');
-                // Fallback?
-            }, 10000); // 10 seconds
+    function changeLanguage(lang) {
+        if (!googleTranslateLoaded) {
+            loadGoogleTranslate();
+            return;
         }
 
         updateFlag(lang);
@@ -1360,49 +1337,46 @@
                 console.log('Language changed to', lang);
             } catch (e) {
                 console.error('Error changing language:', e);
+                setTimeout(() => {
+                    window.location.reload();
+                }, 500);
             }
         } else {
-            console.warn('Google Translate dropdown not found when trying to change language.');
-            // Fallback - you might want to reconsider this if the dropdown is consistently appearing
-            // Perhaps a more aggressive retry or a page reload?
-            // window.location.reload();
-        }
-
-        function updateFlag(lang) {
-            const flagImg = document.getElementById('current-flag');
-            if (!flagImg) return;
-
-            const flags = {
-                'fr': { src: 'https://flagcdn.com/w20/fr.png', alt: 'French' },
-                'en': { src: 'https://flagcdn.com/w20/gb.png', alt: 'English' },
-                'nl': { src: 'https://flagcdn.com/w20/nl.png', alt: 'Dutch' }
-            };
-
-            if (flags[lang]) {
-                flagImg.src = flags[lang].src;
-                flagImg.alt = flags[lang].alt;
-            }
-        }
-
-        function toggleLanguageMenu(event) {
-            event.stopPropagation();
-            const menu = document.getElementById('languageMenu');
-            if (menu) menu.classList.toggle('show');
-        }
-
-        // Initialize on DOM ready
-        document.addEventListener('DOMContentLoaded', function() {
+            console.warn('Google Translate dropdown not found, trying to initialize...');
             loadGoogleTranslate();
+            
+            setTimeout(() => {
+                const select = document.querySelector('.goog-te-combo');
+                if (select) {
+                    select.value = lang;
+                    const event = new Event('change', { bubbles: true, cancelable: true });
+                    select.dispatchEvent(event);
+                }
+            }, 1000);
+        }
+    }
 
-            document.addEventListener('click', function() {
-                const menu = document.getElementById('languageMenu');
-                if (menu) menu.classList.remove('show');
-            });
+    function updateFlag(lang) {
+        const flagImg = document.getElementById('current-flag');
+        if (!flagImg) return;
 
-            document.getElementById('languageMenu')?.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-        });
-    </script>
+        const flags = {
+            'fr': { src: 'https://flagcdn.com/w20/fr.png', alt: 'French' },
+            'en': { src: 'https://flagcdn.com/w20/gb.png', alt: 'English' },
+            'nl': { src: 'https://flagcdn.com/w20/nl.png', alt: 'Dutch' }
+        };
+
+        if (flags[lang]) {
+            flagImg.src = flags[lang].src;
+            flagImg.alt = flags[lang].alt;
+        }
+    }
+
+    function toggleLanguageMenu(event) {
+        event.stopPropagation();
+        const menu = document.getElementById('languageMenu');
+        if (menu) menu.classList.toggle('show');
+    }
+</script>
 </body>
 </html>
