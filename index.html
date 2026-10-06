@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Izumi - Assistance technologique personnalisée pour séniors. Tarifs transparents avec des exemples concrets comme l'installation d'Alexa ou de caméras.">
+    <meta name="description" content="Izumi - Assistance technologique à domicile à Pau pour séniors et personnes en difficulté avec le numérique. Tarifs clairs, patience et pédagogie. Déplacement gratuit dans Pau.">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-19L0T4KVNY"></script>
@@ -11,78 +11,92 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-19L0T4KVNY');
-        gtag('config', 'AW-17121569602');
+      gtag('config', 'AW-17121569602');
     </script>
     <!-- Event snippet for Contact conversion page -->
     <script>
       gtag('event', 'conversion', {'send_to': 'AW-17121569602/HzeiCJnWws4aEMLWmeQ_'});
     </script>
 
-    <title>Izumi | Assistance Technologique pour Séniors - Tarifs Clairs</title>
+    <title>Izumi | Assistance Technologique à Domicile à Pau - Séniors & Débutants</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%233498db'/><path d='M30,40 L50,60 L70,40' stroke='white' stroke-width='8' fill='none'/><circle cx='50' cy='35' r='10' fill='white'/></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%232c7fb8'/><path d='M30,40 L50,60 L70,40' stroke='white' stroke-width='8' fill='none'/><circle cx='50' cy='35' r='10' fill='white'/></svg>">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary-color: #3498db;
-            --primary-dark: #2980b9;
+            --primary-color: #2c7fb8;
+            --primary-dark: #1f5f8b;
             --secondary-color: #2c3e50;
             --accent-color: #e74c3c;
-            --success-color: #2ecc71;
-            --warning-color: #f39c12;
-            --light-gray: #f8f9fa;
-            --medium-gray: #e9ecef;
-            --dark-gray: #495057;
-            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --border-radius: 8px;
+            --success-color: #27ae60;
+            --warning-color: #e67e22;
+            --light-gray: #f7f9fb;
+            --medium-gray: #e3e8ed;
+            --dark-gray: #4a5568;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --border-radius: 10px;
         }
         
-        /* Base Styles */
+        /* ===== BASE ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Open Sans', sans-serif;
-            line-height: 1.7;
+            font-size: 18px;
+            line-height: 1.8;
             color: var(--secondary-color);
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
             background-color: var(--light-gray);
-            top: 0 !important; /* Fix for Google Translate banner */
+            top: 0 !important;
         }
         
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             margin-top: 0;
+            line-height: 1.3;
         }
         
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.4rem;
+            margin-bottom: 0.6rem;
         }
         
         h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--primary-dark);
             margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--medium-gray);
+            padding-bottom: 0.6rem;
+            border-bottom: 3px solid var(--medium-gray);
         }
         
         h3 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--primary-color);
+            margin-bottom: 0.8rem;
         }
         
         p {
             margin-bottom: 1.2rem;
+        }
+        
+        ul {
+            padding-left: 1.4rem;
+        }
+        
+        li {
+            margin-bottom: 0.6rem;
         }
         
         a {
@@ -93,48 +107,164 @@
         
         a:hover {
             color: var(--primary-dark);
+            text-decoration: underline;
         }
         
-        /* Layout */
+        /* ===== LAYOUT ===== */
         .container {
             background-color: white;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
-            padding: 2.5rem;
+            padding: 3rem;
             margin: 2rem auto;
         }
         
-        /* Header */
+        /* ===== HEADER ===== */
         .header {
             text-align: center;
-            padding: 2rem 0;
-            margin-bottom: 1rem;
+            padding: 1rem 0 2rem;
         }
         
         .logo {
             width: 100px;
             height: 100px;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .header h1 {
+            color: var(--secondary-color);
         }
         
         .tagline {
             color: var(--dark-gray);
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             margin-top: 0.5rem;
-            font-weight: 500;
+            font-weight: 600;
         }
         
-        /* Highlight Box */
+        .location-badge {
+            display: inline-block;
+            background: #e8f4fc;
+            color: var(--primary-dark);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+        
+        /* ===== HIGHLIGHT BOX ===== */
         .highlight {
-            background-color: #e8f4fc;
-            padding: 1.5rem;
+            background-color: #eef7fd;
+            padding: 2rem;
             border-radius: var(--border-radius);
-            margin: 2rem 0;
-            border-left: 4px solid var(--primary-color);
+            margin: 2.5rem 0;
+            border-left: 5px solid var(--primary-color);
             font-size: 1.1rem;
         }
         
-        /* Services */
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 1rem 0;
+        }
+        
+        .highlight li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+        
+        /* ===== AUDIENCE SECTION ===== */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin: 2rem 0;
+        }
+        
+        .audience-card {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid var(--medium-gray);
+        }
+        
+        .audience-card .icon {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+        
+        .audience-card h4 {
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .audience-card p {
+            font-size: 1rem;
+            margin-bottom: 0;
+            color: var(--dark-gray);
+        }
+        
+        /* ===== STEPS ===== */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            counter-reset: step;
+        }
+        
+        .step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            padding-top: 2.5rem;
+        }
+        
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .step h4 {
+            text-align: center;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .step p {
+            text-align: center;
+            font-size: 0.98rem;
+            margin-bottom: 0;
+            color: var(--dark-gray);
+        }
+        
+        /* ===== SERVICES ===== */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -144,43 +274,62 @@
         
         .service-card {
             background: white;
-            padding: 1.5rem;
+            padding: 1.8rem;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
-            border-top: 3px solid var(--primary-color);
+            border-top: 4px solid var(--primary-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.1);
         }
         
-        /* Service Examples */
+        .service-card h3 {
+            font-size: 1.3rem;
+        }
+        
+        .service-card ul {
+            padding-left: 1.2rem;
+            margin-bottom: 0;
+        }
+        
+        .service-card li {
+            font-size: 1rem;
+        }
+        
+        /* ===== SERVICE EXAMPLES ===== */
         .service-examples {
             margin: 3rem 0;
-            background: white;
-            padding: 2rem;
+            background: var(--light-gray);
+            padding: 2.5rem;
             border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
         }
         
         .example-category {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .example-category:last-child {
+            margin-bottom: 0;
         }
         
         .example-category h3 {
-            color: var(--primary-color);
+            color: var(--primary-dark);
             border-bottom: 2px solid var(--medium-gray);
             padding-bottom: 0.5rem;
             margin-bottom: 1rem;
+            font-size: 1.35rem;
         }
         
         .example-item {
             display: flex;
             justify-content: space-between;
-            padding: 0.8rem 0;
+            align-items: center;
+            padding: 0.9rem 0;
             border-bottom: 1px dashed var(--medium-gray);
+            gap: 1rem;
         }
         
         .example-item:last-child {
@@ -189,25 +338,28 @@
         
         .example-name {
             font-weight: 600;
+            font-size: 1rem;
         }
         
         .example-price {
-            background: var(--light-gray);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 600;
+            background: white;
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            font-weight: 700;
             white-space: nowrap;
-            margin-left: 1rem;
+            color: var(--primary-dark);
+            font-size: 1.05rem;
+            border: 1px solid var(--medium-gray);
         }
         
-        /* Pricing Section */
+        /* ===== PRICING ===== */
         .pricing-section {
             margin: 3rem 0;
         }
         
         .pricing-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -218,25 +370,26 @@
             box-shadow: var(--box-shadow);
             overflow: hidden;
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         
         .pricing-card.highlight {
-            border: 2px solid var(--primary-color);
+            border: 3px solid var(--primary-color);
             position: relative;
-            overflow: hidden;
         }
         
         .pricing-card.highlight::after {
-            content: "Populaire";
+            content: "Le plus choisi";
             position: absolute;
             top: 15px;
-            right: -30px;
+            right: -35px;
             background: var(--primary-color);
             color: white;
-            padding: 0.2rem 2rem;
+            padding: 0.3rem 2.5rem;
             transform: rotate(45deg);
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
         }
         
         .pricing-card:hover {
@@ -246,64 +399,65 @@
         .pricing-header {
             background: var(--primary-color);
             color: white;
-            padding: 1.5rem;
+            padding: 1.8rem;
             text-align: center;
         }
         
         .pricing-title {
             font-size: 1.4rem;
             margin: 0;
+            color: white;
         }
         
         .pricing-price {
-            font-size: 2rem;
+            font-size: 2.4rem;
             font-weight: 700;
-            margin: 0.5rem 0;
+            margin: 0.5rem 0 0;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .pricing-duration {
             font-size: 1rem;
-            opacity: 0.9;
+            opacity: 0.95;
         }
         
         .pricing-features {
-            padding: 1.5rem;
+            padding: 1.8rem;
+            flex-grow: 1;
         }
         
         .pricing-features ul {
-            padding-left: 1.2rem;
+            padding-left: 1.3rem;
             margin: 0;
         }
         
         .pricing-features li {
-            margin-bottom: 0.8rem;
-            position: relative;
-            left: 5px;
+            margin-bottom: 0.9rem;
+            font-size: 1rem;
         }
         
         .pricing-notes {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--dark-gray);
-            margin-top: 1.5rem;
-            padding: 1rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
             background: var(--light-gray);
             border-radius: var(--border-radius);
+            border-left: 5px solid var(--warning-color);
         }
         
-        .pricing-cta {
-            text-align: center;
-            margin-top: 2rem;
+        .pricing-notes p:last-child {
+            margin-bottom: 0;
         }
         
-        /* CTA Section - Updated with white text enforcement */
+        /* ===== CTA ===== */
         .cta {
             text-align: center;
             background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: white;
-            padding: 2rem;
+            padding: 3rem 2rem;
             border-radius: var(--border-radius);
             margin: 3rem 0;
-            font-weight: 600;
             box-shadow: var(--box-shadow);
             position: relative;
             overflow: hidden;
@@ -333,42 +487,43 @@
         
         .cta p {
             font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
         
-        /* CTA-specific contact items with white text */
         .cta .contact-info {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1.2rem;
             margin-top: 1rem;
         }
         
-        .cta .contact-item,
-        .cta .contact-item[href^="tel:"],
-        .cta .contact-item[href^="mailto:"] {
+        .cta .contact-item {
             color: white !important;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
+            gap: 0.6rem;
+            background: rgba(255,255,255,0.22);
+            padding: 0.9rem 1.6rem;
             border-radius: 50px;
             transition: background-color 0.3s ease;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
         
         .cta .contact-item:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.35);
+            text-decoration: none;
+            color: white;
         }
         
-        /* Payment Note */
+        /* ===== PAYMENT NOTE ===== */
         .payment-nature {
-            background: #f8f4e8;
-            border-left: 4px solid var(--warning-color);
-            padding: 1.5rem;
+            background: #fdf6e9;
+            border-left: 5px solid var(--warning-color);
+            padding: 1.8rem;
             margin: 2.5rem 0;
             display: flex;
             align-items: center;
@@ -376,7 +531,7 @@
         }
         
         .payment-icon {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-right: 1.5rem;
             color: var(--warning-color);
         }
@@ -385,30 +540,30 @@
             margin-bottom: 0;
         }
         
-        .payment-nature em {
-            font-style: italic;
-            color: var(--dark-gray);
-        }
-        
-        /* Signature Quote */
+        /* ===== SIGNATURE QUOTE ===== */
         .signature-quote {
             text-align: right;
             margin-top: 3rem;
             font-family: 'Georgia', serif;
             font-style: italic;
             color: var(--dark-gray);
-            position: relative;
         }
         
         .signature-quote blockquote {
             border-right: 4px solid var(--primary-color);
             padding-right: 1.5rem;
+            margin: 0;
+            font-size: 1.1rem;
         }
         
-        /* Contact Form */
+        .signature-quote p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* ===== CONTACT FORM ===== */
         .contact-form {
             background: white;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             margin: 3rem 0;
@@ -421,23 +576,26 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--secondary-color);
+            font-size: 1.05rem;
         }
         
         .form-control {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid var(--medium-gray);
+            padding: 1rem;
+            border: 2px solid var(--medium-gray);
             border-radius: var(--border-radius);
             font-family: 'Open Sans', sans-serif;
+            font-size: 1.05rem;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
         }
         
         .form-control:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            box-shadow: 0 0 0 4px rgba(44, 127, 184, 0.15);
         }
         
         textarea.form-control {
@@ -449,12 +607,13 @@
             background: var(--primary-color);
             color: white;
             border: none;
-            padding: 0.8rem 2rem;
+            padding: 1.1rem 2.5rem;
             border-radius: var(--border-radius);
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            font-weight: 700;
             transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
         }
         
         .submit-btn:hover {
@@ -466,9 +625,9 @@
             transform: translateY(0);
         }
         
-        /* Google Translate Widget Styling */
+        /* ===== GOOGLE TRANSLATE ===== */
         .goog-te-combo {
-            padding: 6px 10px !important;
+            padding: 8px 12px !important;
             border-radius: 4px !important;
             border: 1px solid var(--primary-color) !important;
             font-family: 'Open Sans', sans-serif !important;
@@ -476,18 +635,16 @@
             cursor: pointer;
         }
         
-        /* Hide Google branding */
         .goog-te-gadget-icon, .goog-te-banner-frame {
             display: none !important;
         }
         
-        /* Fix for language list positioning */
         .goog-te-menu-frame {
             max-width: 100% !important;
             width: 200px !important;
         }
         
-        /* Compact Flag Language Selector */
+        /* Compact Language Switcher */
         .language-switcher {
             position: fixed;
             top: 20px;
@@ -496,13 +653,14 @@
         }
         
         .selected-language {
-            width: 30px;
-            height: 30px;
+            width: 36px;
+            height: 36px;
             cursor: pointer;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
+            background: white;
         }
         
         .selected-language:hover {
@@ -519,12 +677,12 @@
             display: none;
             position: absolute;
             right: 0;
-            top: 40px;
+            top: 46px;
             background: white;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
             overflow: hidden;
-            min-width: 120px;
+            min-width: 150px;
         }
         
         .language-menu.show {
@@ -532,12 +690,12 @@
         }
         
         .language-menu div {
-            padding: 8px 12px;
+            padding: 10px 14px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 15px;
         }
         
         .language-menu div:hover {
@@ -545,32 +703,26 @@
         }
         
         .language-menu img {
-            width: 20px;
-            height: 15px;
+            width: 22px;
+            height: 16px;
             object-fit: cover;
         }
         
-        /* Hide the Google Translate dropdown */
-           #google_translate_element {
-                visibility: hidden !important;
-                position: absolute !important;
-                top: -9999px !important;
-                left: -9999px !important;
-                width: 1px !important;
-                height: 1px !important;
-                overflow: hidden !important;
-            }
+        #google_translate_element {
+            visibility: hidden !important;
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+            width: 1px !important;
+            height: 1px !important;
+            overflow: hidden !important;
+        }
         
-        /* Hide Google Translate banner */
         .goog-te-banner-frame.skiptranslate {
             display: none !important;
         }
         
-        body {
-            top: 0 !important;
-        }
-        
-        /* Footer */
+        /* ===== FOOTER ===== */
         .footer {
             margin-top: 3rem;
             padding-top: 2rem;
@@ -612,7 +764,7 @@
             gap: 0.5rem;
             color: var(--secondary-color);
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 50px;
             transition: all 0.3s ease;
         }
@@ -620,6 +772,7 @@
         .social-link:hover {
             background: var(--medium-gray);
             color: var(--primary-color);
+            text-decoration: none;
         }
         
         .social-icon {
@@ -629,11 +782,11 @@
         
         .copyright {
             margin-top: 2rem;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--dark-gray);
         }
         
-        /* Video Section */
+        /* ===== VIDEO ===== */
         .video-container {
             margin: 3rem 0;
             text-align: center;
@@ -641,7 +794,7 @@
         
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             max-width: 800px;
@@ -658,13 +811,13 @@
             height: 100%;
         }
         
-        /* Ebook Section */
+        /* ===== EBOOK ===== */
         .ebook-section {
-            background: #f8f9fa;
+            background: var(--light-gray);
             padding: 2.5rem;
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             margin: 3rem 0;
-            border-left: 4px solid #3498db;
+            border-left: 5px solid var(--primary-color);
         }
         
         .ebook-container {
@@ -675,36 +828,47 @@
         
         .ebook-cover {
             width: 200px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            border-radius: 6px;
         }
         
-        /* Ebook download count button */
         .fun-btn {
-          background: #3498db;
-          color: white;
-          border: none;
-          padding: 12px 24px;
-          border-radius: 50px;
-          font-size: 1.1rem;
-          cursor: pointer;
-          transition: all 0.3s;
-          box-shadow: 0 4px 0 #2980b9;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px 26px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 0 var(--primary-dark);
+            text-decoration: none;
+            display: inline-block;
         }
         
         .fun-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 0 #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 var(--primary-dark);
+            color: white;
+            text-decoration: none;
         }
         
         .fun-btn:active {
-          transform: translateY(1px);
-          box-shadow: 0 2px 0 #2980b9;
+            transform: translateY(1px);
+            box-shadow: 0 2px 0 var(--primary-dark);
         }
         
-        /* Responsive Adjustments */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
+            body {
+                font-size: 17px;
+                padding: 0 14px;
+            }
+            
             .container {
                 padding: 1.5rem;
+                margin: 1rem auto;
             }
             
             h1 {
@@ -715,22 +879,22 @@
                 font-size: 1.5rem;
             }
             
-            .services, .pricing-cards {
+            h3 {
+                font-size: 1.25rem;
+            }
+            
+            .services, .pricing-cards, .audience-grid, .steps {
                 grid-template-columns: 1fr;
             }
             
             .ebook-container {
                 flex-direction: column;
+                text-align: center;
             }
             
-            .ebook-form input {
-                width: 100%;
-            }
-            
-            /* CTA mobile adjustments */
             .cta .contact-info {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
             }
             
             .cta .contact-item {
@@ -738,52 +902,32 @@
                 justify-content: center;
             }
             
-            .contact-item svg {
-                width: 1em;
-                height: 1em;
-                flex-shrink: 0;
-            }
-            
             .example-item {
                 flex-direction: column;
-                gap: 0.3rem;
+                align-items: flex-start;
+                gap: 0.4rem;
             }
             
             .example-price {
-                margin-left: 0;
                 align-self: flex-end;
             }
             
-            .video-container {
-                margin: 2rem 0;
-            }  
-            
-            /* Footer contact items */
             .footer .contact-info {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .footer .contact-item {
-                justify-content: center;
-            }
-            
-            /* Language switcher mobile */
             .language-switcher {
                 top: 10px;
                 right: 10px;
             }
             
-            /* Google Translate Mobile Fixes */
-            /* Google Translate Mobile Fixes */
             .goog-te-banner-frame.skiptranslate {
                 position: fixed !important;
                 bottom: 0 !important;
                 width: 100% !important;
                 left: 0 !important;
                 z-index: 99999 !important;
-                margin: 0 !important;
-                padding: 0 !important;
                 background: white !important;
                 box-shadow: 0 -2px 5px rgba(0,0,0,0.1) !important;
             }
@@ -808,37 +952,19 @@
                 border-radius: 4px !important;
             }
             
-            /* Hide all unnecessary Google elements */
-            .goog-te-gadget-icon, 
-            .goog-te-gadget-simple img,
-            .goog-te-gadget .goog-te-combo {
-                display: none !important;
-            }
-            
-            /* Ensure page content isn't hidden by fixed toolbar */
             body {
                 margin-bottom: 50px !important;
             }
-            
-            /* Extra small mobile devices */
-            @media (max-width: 360px) {
-                .goog-te-banner {
-                    flex-direction: column !important;
-                    gap: 6px !important;
-                }
-                .goog-te-button {
-                    width: 100% !important;
-                }
-            }
-            
-            /* Hide Google branding */
-            .goog-te-gadget-icon, 
-            .goog-te-gadget-simple img {
-                display: none !important;
-            }
+        }
         
-        body {
-            margin-bottom: 50px; /* Prevents footer content from being hidden behind the fixed widget */
+        @media (max-width: 360px) {
+            .goog-te-banner {
+                flex-direction: column !important;
+                gap: 6px !important;
+            }
+            .goog-te-button {
+                width: 100% !important;
+            }
         }
     </style>
 </head>
@@ -849,86 +975,137 @@
     <!-- Language Switcher -->
     <div class="language-switcher">
         <div class="selected-language">
-            <img src="https://flagcdn.com/w20/fr.png" alt="French" id="current-flag">
+            <img src="https://flagcdn.com/w20/fr.png" alt="Français" id="current-flag">
         </div>
         <div class="language-menu" id="languageMenu">
-            <div data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="French"> Français</div>
+            <div data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="Français"> Français</div>
             <div data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</div>
-            <div data-lang="nl"><img src="https://flagcdn.com/w20/nl.png" alt="Dutch"> Nederlands</div>
+            <div data-lang="nl"><img src="https://flagcdn.com/w20/nl.png" alt="Nederlands"> Nederlands</div>
         </div>
     </div>
+    
     <div class="container">
-        <!-- Header -->
+        <!-- ===== HEADER ===== -->
         <header class="header">
             <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <rect x="20" y="30" width="60" height="40" rx="5" fill="none" stroke="var(--primary-color)" stroke-width="3"/>
-                <circle cx="50" cy="50" r="15" fill="none" stroke="var(--accent-color)" stroke-width="3"/>
-                <path d="M35,65 Q50,75 65,65" fill="none" stroke="var(--success-color)" stroke-width="3"/>
+                <rect x="20" y="30" width="60" height="40" rx="5" fill="none" stroke="#2c7fb8" stroke-width="3"/>
+                <circle cx="50" cy="50" r="15" fill="none" stroke="#e74c3c" stroke-width="3"/>
+                <path d="M35,65 Q50,75 65,65" fill="none" stroke="#27ae60" stroke-width="3"/>
             </svg>
-            <h1>Assistance Technologique pour Séniors</h1>
-            <p class="tagline">Expertise humaine au service de la connexion intergénérationnelle</p>
+            <h1>Assistance technologique à domicile</h1>
+            <p class="tagline">Pour les séniors et toute personne qui n'est pas à l'aise avec la technologie</p>
+            <span class="location-badge">📍 Pau et alentours</span>
         </header>
 
-        <!-- Introduction -->
+        <!-- ===== INTRODUCTION ===== -->
         <div class="highlight">
-            <p><strong>Vos proches souhaitent vieillir chez eux en toute autonomie, mais les technologies les freinent ?</strong></p>
+            <p><strong>Vous ou un proche avez besoin d'aide avec un téléphone, une tablette ou un ordinateur ?</strong></p>
             
-            <p>Je les aide à :</p>
-            <ul style="list-style-type: none; padding-left: 0;">
-                <li>🏠 <strong>Maintenir leur indépendance</strong> avec des outils adaptés (alertes, domotique, téléassistance)</li>
-                <li>👨👩👧👦 <strong>Rester connectés à la famille</strong> via appels vidéo et partage de photos</li>
-                <li>🛡️ <strong>Éviter les dangers numériques</strong> (arnaques, erreurs techniques)</li>
-                <li>📱 <strong>Maîtriser leurs appareils</strong> sans dépendre des aidants familiaux</li>
+            <p>Je me déplace chez vous, à Pau, et je vous aide avec <strong>patience et simplicité</strong>. Pas de jargon, pas de jugement. Juste des explications claires et adaptées à votre rythme.</p>
+            
+            <p>Je peux vous aider à :</p>
+            <ul>
+                <li>📱 <strong>Utiliser votre téléphone ou tablette</strong> sans stress</li>
+                <li>👨‍👩‍👧 <strong>Garder le contact avec vos proches</strong> (appels vidéo, photos, messages)</li>
+                <li>🛡️ <strong>Vous protéger des arnaques</strong> et des dangers d'Internet</li>
+                <li>🏠 <strong>Rester autonome chez vous</strong> avec des outils simples (domotique, téléassistance)</li>
             </ul>
             
-            <p><em>"La technologie devrait faciliter leur quotidien, pas le compliquer"</em></p>
+            <p><em>« La technologie doit vous faciliter la vie, pas la compliquer. »</em></p>
         </div>
-        
-        <!-- Services -->
-        <h2>Mes Services</h2>
+
+        <!-- ===== POUR QUI ===== -->
+        <h2>Pour qui ?</h2>
+        <div class="audience-grid">
+            <div class="audience-card">
+                <span class="icon">👵</span>
+                <h4>Les séniors</h4>
+                <p>Qui veulent rester autonomes et connectés à leurs proches, sans dépendre de quelqu'un.</p>
+            </div>
+            <div class="audience-card">
+                <span class="icon">🤔</span>
+                <h4>Les débutants</h4>
+                <p>Qui ne sont pas à l'aise avec la technologie, quel que soit leur âge.</p>
+            </div>
+            <div class="audience-card">
+                <span class="icon">👨‍👩‍👧</span>
+                <h4>Les familles</h4>
+                <p>Qui souhaitent aider un proche à distance, en toute confiance.</p>
+            </div>
+            <div class="audience-card">
+                <span class="icon">🤝</span>
+                <h4>Les aidants</h4>
+                <p>Qui cherchent une solution fiable et bienveillante pour leurs parents.</p>
+            </div>
+        </div>
+
+        <!-- ===== COMMENT ÇA MARCHE ===== -->
+        <h2>Comment ça marche ?</h2>
+        <div class="steps">
+            <div class="step">
+                <h4>Vous me contactez</h4>
+                <p>Par téléphone ou par le formulaire. On discute de votre besoin.</p>
+            </div>
+            <div class="step">
+                <h4>On fixe un rendez-vous</h4>
+                <p>À votre domicile à Pau, ou en visio si vous préférez.</p>
+            </div>
+            <div class="step">
+                <h4>Je vous aide</h4>
+                <p>Je prends le temps de vous expliquer, sans jargon et sans stress.</p>
+            </div>
+            <div class="step">
+                <h4>Vous gardez le contact</h4>
+                <p>Un souci plus tard ? Un appel, un message, je suis là.</p>
+            </div>
+        </div>
+
+        <!-- ===== SERVICES ===== -->
+        <h2>Mes services</h2>
         <div class="services">
             <div class="service-card">
-                <h3>Installation & Configuration</h3>
+                <h3>🔧 Installation & Configuration</h3>
                 <ul>
                     <li>Smartphones, tablettes et ordinateurs</li>
-                    <li>Objets connectés (assistants vocaux, caméras de surveillance)</li>
-                    <li>Configuration d'appels vidéo (WhatsApp, FaceTime, Zoom)</li>
-                    <li>Mise en place de messageries électroniques</li>
+                    <li>Assistants vocaux (Alexa, Google Home)</li>
+                    <li>Caméras de surveillance, sonnettes vidéo</li>
+                    <li>Appels vidéo (WhatsApp, FaceTime, Zoom)</li>
+                    <li>Messagerie électronique</li>
                 </ul>
             </div>
             <div class="service-card">
-                <h3>Formation Personnalisée</h3>
+                <h3>📚 Formation personnalisée</h3>
                 <ul>
-                    <li>Gestion des messages et partage de photos</li>
-                    <li>Utilisation des réseaux sociaux adaptée</li>
-                    <li>Conseils technologiques sur mesure</li>
-                    <li>Création de guides personnalisés</li>
+                    <li>Messages et partage de photos</li>
+                    <li>Réseaux sociaux adaptés</li>
+                    <li>Conseils sur mesure</li>
+                    <li>Guides écrits personnalisés</li>
                 </ul>
             </div>
             <div class="service-card">
-                <h3>Sécurité & Assistance Continue</h3>
+                <h3>🛡️ Sécurité & Assistance continue</h3>
                 <ul>
-                    <li>Protection contre les arnaques en ligne</li>
-                    <li>Sécurisation des données personnelles</li>
-                    <li>Maintenance préventive mensuelle</li>
-                    <li>Assistance à distance disponible</li>
+                    <li>Protection contre les arnaques</li>
+                    <li>Sécurisation des données</li>
+                    <li>Maintenance préventive</li>
+                    <li>Assistance à distance</li>
                 </ul>
             </div>
         </div>
-        
-        <!-- Service Examples -->
+
+        <!-- ===== SERVICE EXAMPLES ===== -->
         <div class="service-examples">
-            <h2>Services et Tarifs à la Carte</h2>
-            <p>Des prix fixes et transparents pour les besoins les plus courants :</p>
+            <h2>Services et tarifs à la carte</h2>
+            <p>Des prix fixes et transparents pour les besoins les plus courants. Aucun frais caché.</p>
             
             <div class="example-category">
                 <h3>📱 Smartphones & Tablettes</h3>
                 <div class="example-item">
-                    <span class="example-name">Configuration d'un nouveau smartphone (transfert de contacts, photos, etc.)</span>
+                    <span class="example-name">Configuration d'un nouveau smartphone (transfert de contacts, photos…)</span>
                     <span class="example-price">35€</span>
                 </div>
                 <div class="example-item">
-                    <span class="example-name">Apprendre à utiliser WhatsApp (installation + formation de base)</span>
+                    <span class="example-name">Apprendre à utiliser WhatsApp (installation + formation)</span>
                     <span class="example-price">30€</span>
                 </div>
                 <div class="example-item">
@@ -942,9 +1119,9 @@
             </div>
             
             <div class="example-category">
-                <h3>🏡 Maison Connectée</h3>
+                <h3>🏡 Maison connectée</h3>
                 <div class="example-item">
-                    <span class="example-name">Installation et configuration d'Amazon Alexa/Google Home</span>
+                    <span class="example-name">Installation et configuration d'Amazon Alexa / Google Home</span>
                     <span class="example-price">40€</span>
                 </div>
                 <div class="example-item">
@@ -956,7 +1133,7 @@
                     <span class="example-price">40€</span>
                 </div>
                 <div class="example-item">
-                    <span class="example-name">Connexion d'appareils domotiques (thermostats, etc.)</span>
+                    <span class="example-name">Connexion d'appareils domotiques (thermostats…)</span>
                     <span class="example-price">35€</span>
                 </div>
             </div>
@@ -972,38 +1149,38 @@
                     <span class="example-price">30€</span>
                 </div>
                 <div class="example-item">
-                    <span class="example-name">Configuration d'appels vidéo (Skype/Zoom)</span>
+                    <span class="example-name">Configuration d'appels vidéo (Skype / Zoom)</span>
                     <span class="example-price">25€</span>
                 </div>
                 <div class="example-item">
-                    <span class="example-name">Récupération de photos/messages perdus</span>
+                    <span class="example-name">Récupération de photos ou messages perdus</span>
                     <span class="example-price">35€</span>
                 </div>
             </div>
             
             <div class="pricing-notes" style="margin-top: 2rem;">
-                <p><strong>Tarifs adaptés :</strong> Réduction de 10% pour les plus de 70 ans. Forfaits famille disponibles.</p>
-                <p><strong>Durée :</strong> La plupart de ces services prennent entre 1h et 1h30. Aucun supplément si cela prend plus de temps.</p>
-                <p><strong>Déplacement :</strong> Gratuit dans un rayon de 15km autour de Artigat, puis 0,50€/km supplémentaire.</p>
+                <p><strong>Réduction de 10 %</strong> pour les plus de 70 ans. Forfaits famille disponibles.</p>
+                <p><strong>Durée :</strong> la plupart de ces services prennent entre 1h et 1h30. Aucun supplément si cela prend plus de temps.</p>
+                <p><strong>Déplacement :</strong> gratuit dans un rayon de 10 km autour du centre-ville de Pau, puis 0,50 €/km supplémentaire.</p>
             </div>
         </div>
 
-        <!-- Pricing Section -->
+        <!-- ===== PRICING ===== -->
         <div class="pricing-section">
-            <h2>Forfaits d'Accompagnement</h2>
-            <p>Pour un soutien régulier, ces options offrent le meilleur rapport qualité-prix :</p>
+            <h2>Forfaits d'accompagnement</h2>
+            <p>Pour un soutien régulier, ces formules offrent le meilleur rapport qualité-prix.</p>
             
             <div class="pricing-cards">
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3 class="pricing-title">À la Carte</h3>
+                        <h3 class="pricing-title">À la carte</h3>
                         <div class="pricing-price">30€</div>
                         <div class="pricing-duration">/ séance (1h)</div>
                     </div>
                     <div class="pricing-features">
                         <ul>
                             <li>Payez seulement ce dont vous avez besoin</li>
-                            <li>Parfait pour les problèmes ponctuels</li>
+                            <li>Parfait pour les besoins ponctuels</li>
                             <li>À domicile ou en visio</li>
                             <li>Horaires flexibles</li>
                         </ul>
@@ -1020,7 +1197,7 @@
                         <ul>
                             <li>2 séances de 1h incluses</li>
                             <li>Accès téléphonique illimité</li>
-                            <li>Réduction de 20% sur services supplémentaires</li>
+                            <li>−20 % sur les services supplémentaires</li>
                             <li>Vérification de sécurité mensuelle</li>
                             <li>Idéal pour un accompagnement régulier</li>
                         </ul>
@@ -1035,79 +1212,78 @@
                     </div>
                     <div class="pricing-features">
                         <ul>
-                            <li>4 séances de 1h utilisables par plusieurs personnes</li>
+                            <li>4 séances de 1h, utilisables par plusieurs personnes</li>
                             <li>Jusqu'à 3 membres de la famille</li>
                             <li>Assistance prioritaire</li>
                             <li>Intervention à domicile incluse</li>
-                            <li>Économisez jusqu'à 40%</li>
+                            <li>Économisez jusqu'à 40 %</li>
                         </ul>
                     </div>
                 </div>
             </div>
             
             <div class="pricing-notes">
-                <p><strong>Engagement flexible :</strong> Tous les forfaits sont sans engagement et peuvent être annulés à tout moment.</p>
-                <p><strong>Paiement en nature :</strong> J'accepte des paiements sous forme de produits locaux (miel, confitures, légumes).</p>
+                <p><strong>Engagement flexible :</strong> tous les forfaits sont sans engagement et peuvent être annulés à tout moment.</p>
+                <p><strong>Paiement en nature :</strong> j'accepte aussi les paiements sous forme de produits locaux (miel, confitures, légumes…).</p>
             </div>
         </div>
 
-        <!-- About Me -->
-        <h2>Mon Expertise</h2>
+        <!-- ===== ABOUT ===== -->
+        <h2>Mon expertise</h2>
         <p><strong>🛰️ → ❤️ Ingénieur reconverti dans l'accompagnement technologique humain</strong></p>
-        <p>Fort d'une formation d'ingénieur dans le secteur spatial et d'une passion pour les relations intergénérationnelles, mon accompagnement allie compétences techniques et pédagogie bienveillante, avec toujours :</p>
+        <p>Fort d'une formation d'ingénieur dans le secteur spatial et d'une passion pour les relations intergénérationnelles, mon accompagnement allie compétences techniques et pédagogie bienveillante. Avec toujours :</p>
         <ul>
-            <li>Une patience et une écoute active</li>
+            <li>De la patience et une écoute active</li>
             <li>Des explications claires et adaptées</li>
             <li>Un suivi personnalisé</li>
             <li>Une attention particulière à la sécurité</li>
         </ul>
 
-        <!-- E-book section -->
+        <!-- ===== EBOOK ===== -->
         <section class="ebook-section">
-            <h2>Guide Offert : La Technologie pour l'Autonomie des Séniors</h2>
+            <h2>Guide offert : la technologie pour l'autonomie des séniors</h2>
             <div class="ebook-container">
-                <img src="apprendre-techno.jpeg" alt="Couverture du livre 'Technologie et Autonomie'" class="ebook-cover">
+                <img src="apprendre-techno.jpeg" alt="Couverture du guide Technologie et Autonomie" class="ebook-cover">
                 <div class="ebook-content">
                     <p><strong>Téléchargez gratuitement mon guide complet (65 pages) :</strong></p>
                     <ul>
-                        <li>✅ Choisir le bon smartphone/tablette adapté à l'âge</li>
+                        <li>✅ Choisir le bon smartphone ou la bonne tablette</li>
                         <li>✅ Protéger vos parents des arnaques en ligne</li>
-                        <li>✅ Mes comparatifs d'appareils (Doro, LiNote, Facilotab...)</li>
-                        <li>✅ Des exercices pratiques pour évaluer leurs besoins</li>
-                        <li>⏱️ <strong>Temps de lecture</strong> : ~45 minutes (5-8 minutes par chapitre)</li>
+                        <li>✅ Mes comparatifs d'appareils (Doro, LiNote, Facilotab…)</li>
+                        <li>✅ Des exercices pratiques pour évaluer les besoins</li>
+                        <li>⏱️ <strong>Temps de lecture :</strong> ~45 minutes (5–8 min par chapitre)</li>
                     </ul>
                     <div class="download-buttons" style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                        <a href="https://drive.google.com/file/d/1mVhV44d64Zx5EgbWQ1k_iIHXVekIR_zZ/view?usp=drive_link" target="_blank" class="fun-btn" style="background-color: #e74c3c;">
+                        <a href="https://drive.google.com/file/d/1mVhV44d64Zx5EgbWQ1k_iIHXVekIR_zZ/view?usp=drive_link" target="_blank" class="fun-btn" style="background-color: #e74c3c; box-shadow: 0 4px 0 #c0392b;">
                             Télécharger PDF 📄
                         </a>
-                        <a href="https://drive.google.com/file/d/1Vd66_NGqslOtONaHaHRzr_LNmWhep6iV/view?usp=sharing" target="_blank" class="fun-btn" style="background-color: #2ecc71;">
+                        <a href="https://drive.google.com/file/d/1Vd66_NGqslOtONaHaHRzr_LNmWhep6iV/view?usp=sharing" target="_blank" class="fun-btn" style="background-color: #27ae60; box-shadow: 0 4px 0 #1e8449;">
                             Télécharger EPUB 📱
                         </a>
                     </div>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    <p style="margin-top: 1rem; font-size: 0.95rem; color: #666;">
                         <strong>Choisissez votre format préféré :</strong><br>
-                        • <strong>PDF</strong> (1.4MB) : idéal pour l'impression et lecture sur ordinateur<br>
-                        • <strong>EPUB</strong> (2.5MB) : format adapté pour les liseuses et applications de lecture
+                        • <strong>PDF</strong> (1,4 Mo) : idéal pour l'impression et la lecture sur ordinateur<br>
+                        • <strong>EPUB</strong> (2,5 Mo) : adapté aux liseuses et applications de lecture
                     </p>
                 </div>
             </div>
         </section>
 
-        
-        <!-- CTA Section -->
+        <!-- ===== CTA ===== -->
         <div class="cta">
             <div class="cta-content">
                 <h2>Première consultation gratuite</h2>
-                <p>Discutons des besoins spécifiques de vos proches sans engagement</p>
+                <p>Discutons des besoins de vos proches, sans engagement.</p>
                 <div class="contact-info">
                     <a href="tel:0784529922" class="contact-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
                         <span>07.84.52.99.22</span>
                     </a>
                     <a href="mailto:aidetechsenior@gmail.com?subject=Demande%20d'assistance%20technologique&body=Bonjour%20Izumi,%0D%0A%0D%0AJe%20vous%20contacte%20au%20sujet%20de...%0D%0A%0D%0ANom%20du%20bénéficiaire%20:%0D%0A%0D%0AÂge%20du%20bénéficiaire%20:%0D%0A%0D%0AAppareil(s)%20concerné(s)%20:%0D%0A%0D%0AProblème%20rencontré%20:%0D%0A%0D%0AMerci%20!" class="contact-item">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
@@ -1117,7 +1293,7 @@
             </div>
         </div>
         
-        <!-- Contact Form -->
+        <!-- ===== CONTACT FORM ===== -->
         <div class="contact-form">
             <h2>Contactez-moi</h2>
             <form id="techAidForm" action="https://formspree.io/f/xvgaryyv" method="POST">
@@ -1134,57 +1310,58 @@
                     <input type="tel" id="phone" name="phone" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="service">Service intéressé</label>
+                    <label for="service">Service souhaité</label>
                     <select id="service" name="service" class="form-control">
                         <option value="">-- Sélectionnez --</option>
-                        <option value="installation">Installation/Configuration</option>
-                        <option value="learning">Formation Personnalisée</option>
+                        <option value="installation">Installation / Configuration</option>
+                        <option value="learning">Formation personnalisée</option>
                         <option value="security">Sécurité & Maintenance</option>
                         <option value="other">Autre demande</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="message">Décrivez votre besoin *</label>
-                    <textarea id="message" name="message" rows="5" class="form-control" required placeholder="Exemple : Ma mère a besoin d'aide pour utiliser WhatsApp sur son nouvel iPhone..."></textarea>
+                    <textarea id="message" name="message" rows="5" class="form-control" required placeholder="Exemple : Ma mère a besoin d'aide pour utiliser WhatsApp sur son nouvel iPhone…"></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Envoyer ma demande</button>
             </form>
         </div>
         
-        <!-- Payment Note -->
+        <!-- ===== PAYMENT NOTE ===== -->
         <div class="payment-nature">
             <div class="payment-icon">🍯</div>
-            <p>Dans une démarche d'échange intergénérationnel, j'accepte avec plaisir les paiements alternatifs <em>(produits du jardin, artisanat, savoir-faire partagé)</em> en complément ou remplacement du paiement traditionnel.</p>
+            <p>Dans une démarche d'échange intergénérationnel, j'accepte avec plaisir les paiements alternatifs <em>(produits du jardin, artisanat, savoir-faire partagé)</em> en complément ou en remplacement du paiement traditionnel.</p>
         </div>
 
-        <!-- Signature Quote -->
+        <!-- ===== SIGNATURE QUOTE ===== -->
         <div class="signature-quote">
             <blockquote>
-                <p>«&nbsp;La technologie ne remplace pas le lien humain, elle doit le renforcer.&nbsp;»</p>
-                <p>«&nbsp;Grâce à la technologie, vos proches restent indépendants… et vous, tranquilles.»&nbsp;»</p>
+                <p>« La technologie ne remplace pas le lien humain, elle doit le renforcer. »</p>
+                <p>« Grâce à la technologie, vos proches restent indépendants… et vous, tranquilles. »</p>
             </blockquote>
         </div>
         
-        <!-- New Video Section -->
+        <!-- ===== VIDEO ===== -->
         <div class="video-container">
             <h2>Faites ma connaissance en vidéo</h2>
             <div class="video-wrapper">
                 <iframe width="560" height="315" 
                         src="https://www.youtube.com/embed/riTSbrdyyO0" 
-                        title="Présentation d'Izumi Bérat - Assistance Technologique pour Séniors" 
+                        title="Présentation d'Izumi Bérat - Assistance technologique pour séniors" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen></iframe>
             </div>
-            <p>Découvrez mon approche bienveillante de l'assistance technologique</p>
+            <p>Découvrez mon approche bienveillante de l'assistance technologique.</p>
         </div>
         
-        <!-- Footer -->
+        <!-- ===== FOOTER ===== -->
         <div class="footer">
             <div>
                 <h3>Coordonnées</h3>
                 <p>Izumi Bérat<br>
-                Assistance Technologique pour Séniors</p>
+                Assistance technologique à domicile<br>
+                <strong>Pau (64000) et alentours</strong></p>
                 
                 <div class="contact-info">
                     <div class="contact-item">
@@ -1194,7 +1371,7 @@
                         <span>07.84.52.99.22</span>
                     </div>
                     <div class="contact-item">
-                        <a href="mailto:aidetechsenior@gmail.com?subject=Demande%20d'assistance%20technologique&body=Bonjour%20Izumi,%0D%0A%0D%0AJe%20vous%20contacte%20au%20sujet%20de...%0D%0A%0D%0ANom%20du%20bénéficiaire%20:%0D%0A%0D%0AÂge%20du%20bénéficiaire%20:%0D%0A%0D%0AAppareil(s)%20concerné(s)%20:%0D%0A%0D%0AProblème%20rencontré%20:%0D%0A%0D%0AMerci%20!" class="contact-item">
+                        <a href="mailto:aidetechsenior@gmail.com?subject=Demande%20d'assistance%20technologique&body=Bonjour%20Izumi,%0D%0A%0D%0AJe%20vous%20contacte%20au%20sujet%20de...%0D%0A%0D%0ANom%20du%20bénéficiaire%20:%0D%0A%0D%0AÂge%20du%20bénéficiaire%20:%0D%0A%0D%0AAppareil(s)%20concerné(s)%20:%0D%0A%0D%0AProblème%20rencontré%20:%0D%0A%0D%0AMerci%20!" class="contact-item" style="color: var(--secondary-color);">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
@@ -1203,18 +1380,19 @@
                         </a>
                     </div>
                     <div class="contact-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    </svg>
-                    <span>SIRET: 888 957 834 00029</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        <span>SIRET : 888 957 834 00029</span>
                     </div>
                 </div>
-                <!-- New section for other business service -->
-                <div style="margin: 2rem 0; padding: 1.5rem; background: var(--light-gray); border-radius: var(--border-radius); border-left: 4px solid var(--primary-color);">
-                    <h4 style="margin-bottom: 0.5rem; color: var(--secondary-color);">Découvrez également mon service pour les entreprises :</h4>
-                    <p style="margin-bottom: 1rem; font-size: 1rem;">Solutions IA sur mesure pour automatiser vos processus métier et booster votre productivité</p>
-                    <a href="https://izutech.fr" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 0.5rem 1rem; border-radius: var(--border-radius); text-decoration: none; font-weight: 600; transition: background-color 0.3s ease;">
-                        <span>IzuTech - Solutions IA pour entreprises</span>
+                
+                <!-- Other business service -->
+                <div style="margin: 2rem 0; padding: 1.5rem; background: var(--light-gray); border-radius: var(--border-radius); border-left: 4px solid var(--primary-color); text-align: left;">
+                    <h4 style="margin-bottom: 0.5rem; color: var(--secondary-color);">Découvrez aussi mon service pour les entreprises</h4>
+                    <p style="margin-bottom: 1rem; font-size: 1rem;">Solutions IA sur mesure pour automatiser vos processus métier et booster votre productivité.</p>
+                    <a href="https://izutech.fr" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-color); color: white; padding: 0.6rem 1.2rem; border-radius: var(--border-radius); text-decoration: none; font-weight: 600; transition: background-color 0.3s ease;">
+                        <span>IzuTech – Solutions IA pour entreprises</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                             <polyline points="15 3 21 3 21 9"></polyline>
@@ -1222,6 +1400,7 @@
                         </svg>
                     </a>
                 </div>
+                
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/izumi-bérat-a08a8425/" class="social-link" target="_blank" aria-label="Profil LinkedIn">
                         <svg class="social-icon" viewBox="0 0 24 24" fill="#0077B5">
@@ -1230,10 +1409,11 @@
                         <span>LinkedIn</span>
                     </a>
                 </div>
-                <p class="copyright">© 2025 Izumi Bérat - Tous droits réservés</p>
+                <p class="copyright">© 2025 Izumi Bérat – Tous droits réservés</p>
             </div>
         </div>
     </div>
+    
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('techAidForm');
@@ -1241,10 +1421,9 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Show loading state
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.textContent = 'Envoi en cours…';
             submitBtn.disabled = true;
             
             fetch(form.action, {
@@ -1255,31 +1434,27 @@
                 }
             }).then(response => {
                 if (response.ok) {
-                    // Success message with animation
                     submitBtn.textContent = '✓ Message envoyé';
                     submitBtn.style.backgroundColor = 'var(--success-color)';
                     
-                    // Reset form after delay
                     setTimeout(() => {
                         form.reset();
                         submitBtn.textContent = originalBtnText;
                         submitBtn.style.backgroundColor = '';
                         submitBtn.disabled = false;
                         
-                        // Scroll to thank you message
                         const thankYou = document.createElement('div');
                         thankYou.innerHTML = '<p style="color: var(--success-color); font-weight: bold; text-align: center; margin-top: 1rem;">Merci pour votre message ! Je vous répondrai dans les plus brefs délais.</p>';
                         form.appendChild(thankYou);
                         thankYou.scrollIntoView({ behavior: 'smooth' });
                         
-                        // Remove after 5 seconds
                         setTimeout(() => thankYou.remove(), 5000);
                     }, 1500);
                 } else {
                     throw new Error('Erreur réseau');
                 }
             }).catch(error => {
-                submitBtn.textContent = 'Erreur - Réessayer';
+                submitBtn.textContent = 'Erreur – Réessayer';
                 submitBtn.style.backgroundColor = 'var(--accent-color)';
                 setTimeout(() => {
                     submitBtn.textContent = originalBtnText;
@@ -1291,8 +1466,8 @@
             });
         });
         
-        // Add subtle animations to service cards on scroll
-        const serviceCards = document.querySelectorAll('.service-card, .pricing-card');
+        // Animations on scroll
+        const serviceCards = document.querySelectorAll('.service-card, .pricing-card, .audience-card, .step');
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1306,36 +1481,23 @@
         serviceCards.forEach((card, index) => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
-            card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+            card.style.transition = `opacity 0.5s ease ${index * 0.08}s, transform 0.5s ease ${index * 0.08}s`;
             observer.observe(card);
         });
-
-        // Ebook download count
-        // Initialize counter from localStorage or use your starting value (1243)
-        let downloads = localStorage.getItem('ebookDownloads');
-        if (!downloads) downloads = 0; // Your starting number
-        
-        // Display the current count
-        const downloadCountElement = document.getElementById('download-count');
-        if (downloadCountElement) {
-            downloadCountElement.textContent = parseInt(downloads).toLocaleString();
-        }
 
         // Initialize Google Translate
         loadGoogleTranslate();
 
-        // Set up language switcher events
+        // Language switcher events
         const selectedLanguage = document.querySelector('.selected-language');
         const languageMenu = document.getElementById('languageMenu');
         
         if (selectedLanguage && languageMenu) {
-            // Toggle menu when clicking the flag
             selectedLanguage.addEventListener('click', function(e) {
                 e.stopPropagation();
                 languageMenu.classList.toggle('show');
             });
 
-            // Handle language selection
             document.querySelectorAll('#languageMenu div').forEach(option => {
                 option.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -1348,12 +1510,10 @@
                 });
             });
 
-            // Close menu when clicking elsewhere
             document.addEventListener('click', function() {
                 languageMenu.classList.remove('show');
             });
 
-            // Prevent menu from closing when clicking inside it
             languageMenu.addEventListener('click', function(e) {
                 e.stopPropagation();
             });
@@ -1403,14 +1563,12 @@
                 autoDisplay: false
             }, 'google_translate_element');
     
-            // Check for the select element periodically with a maximum of 5 attempts
             const maxAttempts = 5;
             const checkInterval = setInterval(() => {
                 const select = document.querySelector('.goog-te-combo');
                 if (select || ++languageChangeAttempts >= maxAttempts) {
                     clearInterval(checkInterval);
                     if (select) {
-                        console.log('Google Translate elements created.');
                         const savedLang = localStorage.getItem('preferredLanguage');
                         if (savedLang && savedLang !== 'fr') {
                             changeLanguage(savedLang);
@@ -1435,7 +1593,6 @@
             return;
         }
     
-        // Method 1: Try using the Google Translate dropdown
         const select = document.querySelector('.goog-te-combo');
         if (select) {
             try {
@@ -1448,13 +1605,10 @@
             }
         }
     
-        // Method 2: Fallback - use Google Translate cookie method
-        console.log('Using cookie fallback for language change');
         const expiryDate = new Date();
         expiryDate.setFullYear(expiryDate.getFullYear() + 1);
         document.cookie = `googtrans=/fr/${lang}; expires=${expiryDate.toUTCString()}; path=/`;
         
-        // Reload the page to apply translation
         setTimeout(() => {
             window.location.reload();
         }, 100);
@@ -1465,9 +1619,9 @@
         if (!flagImg) return;
     
         const flags = {
-            'fr': { src: 'https://flagcdn.com/w20/fr.png', alt: 'French' },
+            'fr': { src: 'https://flagcdn.com/w20/fr.png', alt: 'Français' },
             'en': { src: 'https://flagcdn.com/w20/gb.png', alt: 'English' },
-            'nl': { src: 'https://flagcdn.com/w20/nl.png', alt: 'Dutch' }
+            'nl': { src: 'https://flagcdn.com/w20/nl.png', alt: 'Nederlands' }
         };
     
         if (flags[lang]) {
