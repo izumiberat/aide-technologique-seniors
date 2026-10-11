@@ -4,20 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Izumi - Assistance technologique à domicile à Pau pour séniors et personnes en difficulté avec le numérique. Tarifs clairs, patience et pédagogie. Déplacement gratuit dans Pau.">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-19L0T4KVNY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-19L0T4KVNY');
-      gtag('config', 'AW-17121569602');
-    </script>
-    <!-- Event snippet for Contact conversion page -->
-    <script>
-      gtag('event', 'conversion', {'send_to': 'AW-17121569602/HzeiCJnWws4aEMLWmeQ_'});
-    </script>
 
     <title>Izumi | Assistance Technologique à Domicile à Pau - Séniors & Débutants</title>
     
@@ -153,6 +139,55 @@
             margin-top: 1rem;
         }
         
+        .hero-contact {
+            display: grid;
+            justify-items: center;
+            gap: 0.9rem;
+            margin-top: 1.75rem;
+        }
+        .hero-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+        .hero-name {
+            margin: 0;
+            line-height: 1.5;
+            color: var(--dark-gray);
+        }
+        .hero-name strong {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+        .call-btn {
+            display: inline-block;
+            background: var(--primary-dark);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-decoration: none;
+            padding: 0.9rem 1.6rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 0 #15435f;
+            max-width: 100%;
+        }
+        .call-btn:hover, .call-btn:focus-visible { background: var(--primary-color); }
+        .call-btn:focus-visible { outline: 3px solid var(--warning-color); outline-offset: 3px; }
+        .hero-sub {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--dark-gray);
+        }
+        .hero-sub a { color: var(--primary-dark); font-weight: 700; }
+        @media (max-width: 400px) {
+            .call-btn { font-size: 1.1rem; padding: 0.85rem 1.1rem; }
+        }
+
         /* ===== HIGHLIGHT BOX ===== */
         .highlight {
             background-color: #eef7fd;
@@ -653,8 +688,14 @@
         }
         
         .selected-language {
-            width: 36px;
-            height: 36px;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--primary-dark);
             cursor: pointer;
             border-radius: 50%;
             overflow: hidden;
@@ -675,6 +716,7 @@
         
         .language-menu {
             display: none;
+            color: var(--secondary-color);
             position: absolute;
             right: 0;
             top: 46px;
@@ -682,7 +724,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 16px rgba(0,0,0,0.15);
             overflow: hidden;
-            min-width: 150px;
+            min-width: 230px;
         }
         
         .language-menu.show {
@@ -975,12 +1017,11 @@
     <!-- Language Switcher -->
     <div class="language-switcher">
         <div class="selected-language">
-            <img src="https://flagcdn.com/w20/fr.png" alt="Français" id="current-flag">
+            <span id="current-flag" aria-label="Langue : Français">FR</span>
         </div>
         <div class="language-menu" id="languageMenu">
-            <div data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="Français"> Français</div>
-            <div data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</div>
-            <div data-lang="nl"><img src="https://flagcdn.com/w20/nl.png" alt="Nederlands"> Nederlands</div>
+            <div data-lang="fr">Français</div>
+            <div data-lang="en">English (traduction automatique)</div>
         </div>
     </div>
     
@@ -995,6 +1036,12 @@
             <h1>Assistance technologique à domicile</h1>
             <p class="tagline">Pour les séniors et toute personne qui n'est pas à l'aise avec la technologie</p>
             <span class="location-badge">📍 Pau et alentours</span>
+            <div class="hero-contact">
+                <img src="izumi-berat.jpg" alt="Portrait d'Izumi Bérat" class="hero-photo" width="120" height="120">
+                <p class="hero-name"><strong>Izumi Bérat</strong><br>Ingénieur, habitant de Pau.<br>Je parle français, anglais et japonais.</p>
+                <a href="tel:+33784529922" class="call-btn">📞 Appelez-moi : 07 84 52 99 22</a>
+                <p class="hero-sub">Première rencontre gratuite, sans engagement. Ou <a href="#contact">écrivez-moi</a>.</p>
+            </div>
         </header>
 
         <!-- ===== INTRODUCTION ===== -->
@@ -1216,7 +1263,7 @@
                             <li>Jusqu'à 3 membres de la famille</li>
                             <li>Assistance prioritaire</li>
                             <li>Intervention à domicile incluse</li>
-                            <li>Économisez jusqu'à 40 %</li>
+                            <li>Un seul forfait pour toute la famille</li>
                         </ul>
                     </div>
                 </div>
@@ -1243,7 +1290,7 @@
         <section class="ebook-section">
             <h2>Guide offert : la technologie pour l'autonomie des séniors</h2>
             <div class="ebook-container">
-                <img src="apprendre-techno.jpeg" alt="Couverture du guide Technologie et Autonomie" class="ebook-cover">
+                <img src="apprendre-techno.jpeg" alt="Couverture du guide Technologie et Autonomie" class="ebook-cover" width="600" height="600" loading="lazy">
                 <div class="ebook-content">
                     <p><strong>Téléchargez gratuitement mon guide complet (65 pages) :</strong></p>
                     <ul>
@@ -1254,10 +1301,10 @@
                         <li>⏱️ <strong>Temps de lecture :</strong> ~45 minutes (5–8 min par chapitre)</li>
                     </ul>
                     <div class="download-buttons" style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                        <a href="https://drive.google.com/file/d/1mVhV44d64Zx5EgbWQ1k_iIHXVekIR_zZ/view?usp=drive_link" target="_blank" class="fun-btn" style="background-color: #e74c3c; box-shadow: 0 4px 0 #c0392b;">
+                        <a href="https://drive.google.com/uc?export=download&amp;id=1mVhV44d64Zx5EgbWQ1k_iIHXVekIR_zZ" target="_blank" class="fun-btn" style="background-color: #e74c3c; box-shadow: 0 4px 0 #c0392b;">
                             Télécharger PDF 📄
                         </a>
-                        <a href="https://drive.google.com/file/d/1Vd66_NGqslOtONaHaHRzr_LNmWhep6iV/view?usp=sharing" target="_blank" class="fun-btn" style="background-color: #27ae60; box-shadow: 0 4px 0 #1e8449;">
+                        <a href="https://drive.google.com/uc?export=download&amp;id=1Vd66_NGqslOtONaHaHRzr_LNmWhep6iV" target="_blank" class="fun-btn" style="background-color: #27ae60; box-shadow: 0 4px 0 #1e8449;">
                             Télécharger EPUB 📱
                         </a>
                     </div>
@@ -1276,11 +1323,11 @@
                 <h2>Première consultation gratuite</h2>
                 <p>Discutons des besoins de vos proches, sans engagement.</p>
                 <div class="contact-info">
-                    <a href="tel:0784529922" class="contact-item">
+                    <a href="tel:+33784529922" class="contact-item">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
-                        <span>07.84.52.99.22</span>
+                        <span>07 84 52 99 22</span>
                     </a>
                     <a href="mailto:contact@izutech.fr?subject=Demande%20d'assistance%20technologique&body=Bonjour%20Izumi,%0D%0A%0D%0AJe%20vous%20contacte%20au%20sujet%20de...%0D%0A%0D%0ANom%20du%20bénéficiaire%20:%0D%0A%0D%0AÂge%20du%20bénéficiaire%20:%0D%0A%0D%0AAppareil(s)%20concerné(s)%20:%0D%0A%0D%0AProblème%20rencontré%20:%0D%0A%0D%0AMerci%20!" class="contact-item">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1294,7 +1341,7 @@
         </div>
         
         <!-- ===== CONTACT FORM ===== -->
-        <div class="contact-form">
+        <div class="contact-form" id="contact">
             <h2>Contactez-moi</h2>
             <form id="techAidForm" action="https://formspree.io/f/xvgaryyv" method="POST">
                 <div class="form-group">
@@ -1346,10 +1393,11 @@
             <h2>Faites ma connaissance en vidéo</h2>
             <div class="video-wrapper">
                 <iframe width="560" height="315" 
-                        src="https://www.youtube.com/embed/riTSbrdyyO0" 
+                        src="https://www.youtube-nocookie.com/embed/riTSbrdyyO0" 
                         title="Présentation d'Izumi Bérat - Assistance technologique pour séniors" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        loading="lazy"
                         allowfullscreen></iframe>
             </div>
             <p>Découvrez mon approche bienveillante de l'assistance technologique.</p>
@@ -1368,7 +1416,7 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
-                        <span>07.84.52.99.22</span>
+                        <span>07 84 52 99 22</span>
                     </div>
                     <div class="contact-item">
                         <a href="mailto:contact@izutech.fr?subject=Demande%20d'assistance%20technologique&body=Bonjour%20Izumi,%0D%0A%0D%0AJe%20vous%20contacte%20au%20sujet%20de...%0D%0A%0D%0ANom%20du%20bénéficiaire%20:%0D%0A%0D%0AÂge%20du%20bénéficiaire%20:%0D%0A%0D%0AAppareil(s)%20concerné(s)%20:%0D%0A%0D%0AProblème%20rencontré%20:%0D%0A%0D%0AMerci%20!" class="contact-item" style="color: var(--secondary-color);">
@@ -1409,7 +1457,7 @@
                         <span>LinkedIn</span>
                     </a>
                 </div>
-                <p class="copyright">© 2025 Izumi Bérat – Tous droits réservés</p>
+                <p class="copyright">© 2026 Izumi Bérat – Tous droits réservés · <a href="mentions-legales.html">Mentions légales et confidentialité</a></p>
             </div>
         </div>
     </div>
@@ -1462,31 +1510,23 @@
                     submitBtn.disabled = false;
                 }, 2000);
                 
-                alert('Une erreur est survenue. Vous pouvez m\'appeler directement au 07.84.52.99.22');
-            });
-        });
-        
-        // Animations on scroll
-        const serviceCards = document.querySelectorAll('.service-card, .pricing-card, .audience-card, .step');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                let errorMsg = form.querySelector('.form-error');
+                if (!errorMsg) {
+                    errorMsg = document.createElement('p');
+                    errorMsg.className = 'form-error';
+                    errorMsg.setAttribute('role', 'alert');
+                    errorMsg.style.cssText = 'color: var(--accent-color); font-weight: 700; text-align: center; margin-top: 1rem;';
+                    form.appendChild(errorMsg);
                 }
+                errorMsg.textContent = 'L\'envoi n\'a pas fonctionné. Appelez-moi directement au 07 84 52 99 22.';
             });
-        }, { threshold: 0.1 });
-        
-        serviceCards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = `opacity 0.5s ease ${index * 0.08}s, transform 0.5s ease ${index * 0.08}s`;
-            observer.observe(card);
         });
+        
 
-        // Initialize Google Translate
-        loadGoogleTranslate();
+        // Google Translate loads only if the visitor asked for English
+        var savedLang = null;
+        try { savedLang = localStorage.getItem('preferredLanguage'); } catch (e) {}
+        if (savedLang === 'en') { updateFlag('en'); loadGoogleTranslate(); }
 
         // Language switcher events
         const selectedLanguage = document.querySelector('.selected-language');
@@ -1502,7 +1542,7 @@
                 option.addEventListener('click', function(e) {
                     e.stopPropagation();
                     const lang = this.getAttribute('data-lang') || 
-                                 this.textContent.match(/fr|en|nl/i)?.[0].toLowerCase();
+                                 this.textContent.match(/fr|en/i)?.[0].toLowerCase();
                     if (lang) {
                         changeLanguage(lang);
                         languageMenu.classList.remove('show');
@@ -1558,7 +1598,7 @@
         try {
             new google.translate.TranslateElement({
                 pageLanguage: 'fr',
-                includedLanguages: 'en,nl',
+                includedLanguages: 'en',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
                 autoDisplay: false
             }, 'google_translate_element');
@@ -1569,7 +1609,8 @@
                 if (select || ++languageChangeAttempts >= maxAttempts) {
                     clearInterval(checkInterval);
                     if (select) {
-                        const savedLang = localStorage.getItem('preferredLanguage');
+                        let savedLang = null;
+                        try { savedLang = localStorage.getItem('preferredLanguage'); } catch (e) {}
                         if (savedLang && savedLang !== 'fr') {
                             changeLanguage(savedLang);
                         }
@@ -1586,8 +1627,13 @@
         if (!lang) return;
         
         updateFlag(lang);
-        localStorage.setItem('preferredLanguage', lang);
-    
+        try { localStorage.setItem('preferredLanguage', lang); } catch (e) {}
+
+        if (lang === 'fr' && !googleTranslateLoaded) {
+            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+            return;
+        }
+
         if (!googleTranslateLoaded) {
             loadGoogleTranslate();
             return;
@@ -1615,19 +1661,10 @@
     }
     
     function updateFlag(lang) {
-        const flagImg = document.getElementById('current-flag');
-        if (!flagImg) return;
-    
-        const flags = {
-            'fr': { src: 'https://flagcdn.com/w20/fr.png', alt: 'Français' },
-            'en': { src: 'https://flagcdn.com/w20/gb.png', alt: 'English' },
-            'nl': { src: 'https://flagcdn.com/w20/nl.png', alt: 'Nederlands' }
-        };
-    
-        if (flags[lang]) {
-            flagImg.src = flags[lang].src;
-            flagImg.alt = flags[lang].alt;
-        }
+        const label = document.getElementById('current-flag');
+        if (!label) return;
+        label.textContent = lang === 'en' ? 'EN' : 'FR';
+        label.setAttribute('aria-label', lang === 'en' ? 'Language: English' : 'Langue : Français');
     }
 </script>
 
