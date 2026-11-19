@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sécuriser son ordinateur Windows : le guide pas à pas | Izumi Bérat, Pau</title>
+<meta name="description" content="Les étapes simples pour protéger un ordinateur portable Windows : Sécurité Windows, un seul antivirus, code au démarrage, wifi de la box, téléphone et WhatsApp. Expliqué sans jargon.">
+<link rel="canonical" href="https://seniors.izutech.fr/securiser-ordinateur-windows.html">
+<style>
+  :root { --primary: #1f5f8b; --text: #2c3e50; --muted: #4a5568; --line: #e3e8ed; --bg: #f7f9fb; --note: #eef5fa; --warn: #fdf3e7; --warn-line: #e3a35a; }
+  body { font-family: "Open Sans", "Segoe UI", system-ui, sans-serif; font-size: 18px; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 0 16px; }
+  main { max-width: 760px; margin: 2rem auto 3rem; background: #fff; border-radius: 10px; padding: clamp(1.25rem, 4vw, 2.5rem); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  h1, h2, h3 { font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; line-height: 1.3; }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 { font-size: 1.35rem; color: var(--primary); margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.25rem; }
+  a { color: var(--primary); }
+  li { margin-bottom: 0.5rem; }
+  .back { display: inline-block; margin-bottom: 1.25rem; font-weight: 700; }
+  .updated { color: var(--muted); font-size: 1rem; }
+  .intro { font-size: 1.1rem; }
+  .toc { background: var(--note); border-radius: 8px; padding: 1rem 1.25rem; }
+  .toc ol { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+  .why { background: var(--note); border-left: 4px solid var(--primary); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .warn { background: var(--warn); border-left: 4px solid var(--warn-line); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .keep { font-weight: 600; }
+  .offer { background: var(--note); border-radius: 10px; padding: 1.25rem 1.5rem; margin-top: 2.5rem; }
+  .offer h2 { border-top: none; margin-top: 0; padding-top: 0; }
+  .call-btn { display: inline-block; background: var(--primary); color: #fff; text-decoration: none; font-weight: 700; padding: 0.7rem 1.2rem; border-radius: 8px; margin: 0.25rem 0.5rem 0.25rem 0; }
+  dl { margin: 0; border-top: 1px solid var(--line); }
+  dl > div { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 0.25rem 1.25rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+  dt { font-weight: 700; }
+  dd { margin: 0; }
+  footer { max-width: 760px; margin: 0 auto 2rem; color: var(--muted); font-size: 0.95rem; text-align: center; }
+  @media (max-width: 560px) { dl > div { grid-template-columns: 1fr; } }
+  @media print { body { background: #fff; padding: 0; } main { box-shadow: none; margin: 0; } .back, .offer .call-btn { display: none; } }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="./">← Retour à l'accueil</a>
+  <h1>Sécuriser son ordinateur portable Windows, pas à pas</h1>
+  <p class="updated">Pour Windows 11 · Mis à jour en novembre 2026</p>
+
+  <p class="intro">On me demande souvent : « Qu'est-ce que je dois faire pour que mon ordinateur soit protégé ? » Bonne nouvelle : Windows contient déjà presque tout ce qu'il faut. Il suffit de vérifier quelques réglages, une bonne fois pour toutes. Voici les étapes que je fais avec mes clients, expliquées simplement.</p>
+  <p>Prenez votre temps : vous pouvez faire une partie aujourd'hui et le reste un autre jour. Rien de ce qui est décrit ici ne risque d'abîmer votre ordinateur.</p>
+
+  <nav class="toc" aria-label="Sommaire">
+    <strong>Au programme</strong>
+    <ol>
+      <li><a href="#securite-windows">Vérifier Sécurité Windows</a></li>
+      <li><a href="#un-seul-antivirus">Garder un seul antivirus</a></li>
+      <li><a href="#defender">Vérifier que Microsoft Defender est en marche</a></li>
+      <li><a href="#hors-ligne">Faire une analyse « hors ligne » en cas de doute</a></li>
+      <li><a href="#code-demarrage">Un code au démarrage de l'ordinateur</a></li>
+      <li><a href="#wifi">Un wifi bien protégé à la maison</a></li>
+      <li><a href="#telephone">Le téléphone et WhatsApp</a></li>
+      <li><a href="#retenir">Les bons réflexes à retenir</a></li>
+    </ol>
+  </nav>
+
+  <h3>À avoir sous la main</h3>
+  <ul>
+    <li>Le mot de passe de votre ordinateur, si vous en avez un.</li>
+    <li>L'étiquette collée sous votre box internet (on y lit la clé du wifi).</li>
+    <li>Un papier et un crayon pour noter vos nouveaux codes.</li>
+  </ul>
+
+  <!-- ===== 1 ===== -->
+  <h2 id="securite-windows">1. Vérifier Sécurité Windows</h2>
+  <p>Tapez <strong>« Sécurité Windows »</strong> dans la barre de recherche, en bas de l'écran, et ouvrez-la. C'est le tableau de bord de la protection de votre ordinateur.</p>
+  <ol>
+    <li><strong>Les sites et programmes dangereux.</strong> Cliquez sur <strong>Contrôle des applications et du navigateur</strong>, puis sur le lien bleu <strong>Paramètres de protection fondée sur la réputation</strong>. Mettez tous les interrupteurs sur <strong>Activé</strong> (faites défiler la page jusqu'en bas). Windows vous préviendra avant d'ouvrir un site ou un programme connu pour être dangereux.</li>
+    <li><strong>Le pare-feu.</strong> Revenez à l'accueil avec la flèche ← en haut à gauche, puis cliquez sur <strong>Pare-feu et protection du réseau</strong>. Les trois réseaux doivent avoir une coche verte. Il n'y a rien à changer. Le pare-feu, c'est comme le gardien d'un immeuble : vous sortez librement, mais il ne laisse pas entrer les visiteurs que vous n'avez pas invités.</li>
+    <li><strong>Une protection en plus (facultatif).</strong> Dans <strong>Sécurité des appareils</strong> › <strong>Détails de l'isolation du noyau</strong>, activez <strong>Intégrité de la mémoire</strong>, puis redémarrez si Windows le demande. Si Windows refuse, c'est souvent à cause d'un vieil appareil (une imprimante, par exemple). Ce n'est pas grave : les autres protections suffisent.</li>
+    <li><strong>Les mises à jour.</strong> Fermez Sécurité Windows et ouvrez <strong>Paramètres</strong> (touche Windows + I). Allez dans <strong>Windows Update</strong> › <strong>Options avancées</strong> et activez « Recevoir les mises à jour pour d'autres produits Microsoft ». Les mises à jour bouchent les failles de sécurité dès qu'elles sont découvertes.</li>
+  </ol>
+  <div class="warn"><strong>Vous avez encore Windows 10 ?</strong> Depuis octobre 2025, Microsoft ne publie plus de mises à jour de sécurité gratuites pour Windows 10. Selon l'âge de votre ordinateur, il est possible de passer à Windows 11. On peut regarder ensemble ce qui est le plus simple pour vous.</div>
+
+  <!-- ===== 2 ===== -->
+  <h2 id="un-seul-antivirus">2. Garder un seul antivirus</h2>
+  <div class="why"><strong>Pourquoi ?</strong> Windows contient déjà un antivirus gratuit et efficace : <strong>Microsoft Defender</strong>. Beaucoup d'ordinateurs ont en plus un antivirus « gratuit » installé à l'achat ou par erreur (Avira, Avast, AVG, McAfee en essai…). Deux antivirus en même temps ralentissent l'ordinateur et affichent beaucoup de messages, souvent pour vous vendre une version payante. Un seul suffit.</div>
+  <ol>
+    <li>Ouvrez <strong>Paramètres</strong>, puis <strong>Applications</strong> › <strong>Applications installées</strong>.</li>
+    <li>Dans la case de recherche, tapez le nom de l'autre antivirus.</li>
+    <li>Sur chaque ligne qui porte son nom : cliquez sur les trois points <strong>…</strong> › <strong>Désinstaller</strong>. Certains antivirus installent plusieurs morceaux (VPN, gestionnaire de mots de passe…) : retirez-les tous.</li>
+    <li>Dans votre navigateur (Edge ou Chrome), ouvrez le menu › <strong>Extensions</strong> et retirez l'extension de cet antivirus, s'il y en a une.</li>
+    <li><strong>Redémarrez</strong> l'ordinateur. Microsoft Defender reprend la main tout seul.</li>
+  </ol>
+  <p>Si vous avez payé un antivirus et qu'il est à jour, vous pouvez bien sûr le garder. L'important est de ne pas en avoir deux.</p>
+
+  <!-- ===== 3 ===== -->
+  <h2 id="defender">3. Vérifier que Microsoft Defender est en marche</h2>
+  <ol>
+    <li>Rouvrez <strong>Sécurité Windows</strong> › <strong>Protection contre les virus et menaces</strong>. Il doit être écrit « Antivirus Microsoft Defender ».</li>
+    <li>Cliquez sur <strong>Gérer les paramètres</strong> et vérifiez que ces quatre interrupteurs sont sur <strong>Activé</strong> :
+      <ul>
+        <li><strong>Protection en temps réel</strong> : Defender surveille en permanence ce que vous ouvrez et téléchargez.</li>
+        <li><strong>Protection dans le cloud</strong> : il consulte la liste des menaces les plus récentes, mise à jour en continu.</li>
+        <li><strong>Envoi automatique d'échantillons</strong> : un fichier suspect est envoyé à Microsoft pour analyse. Windows vous demande toujours avant d'envoyer un fichier qui pourrait être personnel.</li>
+        <li><strong>Protection contre les falsifications</strong> : empêche un programme malveillant d'éteindre Defender en cachette.</li>
+      </ul>
+    </li>
+    <li>Lancez une <strong>Analyse rapide</strong> (quelques minutes).</li>
+  </ol>
+  <p>Vous verrez peut-être un message jaune sur la « Protection contre les ransomware » qui propose de configurer OneDrive. Vous pouvez cliquer sur <strong>Ignorer</strong> pour l'instant : c'est une question de sauvegarde de vos fichiers, un vrai sujet, qui mérite qu'on le regarde tranquillement à part.</p>
+
+  <!-- ===== 4 ===== -->
+  <h2 id="hors-ligne">4. En cas de doute : l'analyse « hors ligne »</h2>
+  <div class="why"><strong>Pourquoi ?</strong> Si vous avez installé un programme douteux (un « convertisseur PDF gratuit », un faux nettoyeur…), ou si l'ordinateur se comporte bizarrement, cette analyse redémarre l'ordinateur et le vérifie <em>avant</em> que Windows ne se lance. Un programme malveillant ne peut donc pas se cacher pendant qu'on le cherche.</div>
+  <ol>
+    <li>Enregistrez votre travail et fermez vos documents : l'ordinateur va redémarrer.</li>
+    <li>Ouvrez <strong>Sécurité Windows</strong> › <strong>Protection contre les virus et menaces</strong> › <strong>Options d'analyse</strong>.</li>
+    <li>Choisissez <strong>Analyse Microsoft Defender hors ligne</strong>, puis <strong>Analyser maintenant</strong>.</li>
+    <li>L'analyse dure une quinzaine de minutes, puis Windows redémarre normalement.</li>
+  </ol>
+  <p>Si Defender a trouvé quelque chose, il le met en quarantaine. Par précaution, changez ensuite les mots de passe des sites importants (banque, boîte mail, achats en ligne), de préférence depuis un autre appareil.</p>
+
+  <!-- ===== 5 ===== -->
+  <h2 id="code-demarrage">5. Un code au démarrage de l'ordinateur</h2>
+  <div class="why"><strong>Pourquoi ?</strong> Beaucoup d'ordinateurs s'ouvrent directement, sans rien demander. Toute personne qui l'allume (ou qui le volerait) arrive alors sur vos e-mails, vos documents et les mots de passe enregistrés dans le navigateur. Un code au démarrage ferme cette porte.</div>
+  <p>Le plus simple est un <strong>code PIN</strong> de 4 à 6 chiffres (Windows l'appelle « code confidentiel »). Il est plus rapide à taper qu'un mot de passe et ne fonctionne que sur cet ordinateur.</p>
+  <ol>
+    <li>Ouvrez <strong>Paramètres</strong> › <strong>Comptes</strong> › <strong>Options de connexion</strong>.</li>
+    <li>Cliquez sur <strong>Code confidentiel (Windows Hello)</strong>, puis <strong>Configurer</strong>.</li>
+    <li>Windows demande d'abord le mot de passe actuel du compte. S'il n'en demande aucun, c'est que le compte n'en a pas : cliquez d'abord sur <strong>Mot de passe</strong> › <strong>Ajouter</strong>, puis revenez ici.</li>
+    <li>Choisissez un code. Évitez 1234, 0000 et les dates de naissance de la famille.</li>
+    <li>Notez-le sur un papier rangé à la maison, mais pas collé sur l'ordinateur.</li>
+  </ol>
+  <p>Toujours dans <strong>Options de connexion</strong>, à la question « Si vous vous êtes absenté, quand Windows doit-il vous demander de vous reconnecter ? », choisissez <strong>Lorsque le PC sort de la veille</strong>.</p>
+  <p><strong>Pour tester :</strong> appuyez sur <strong>touche Windows + L</strong>. L'écran se verrouille, et votre code le rouvre. C'est aussi le bon réflexe quand vous vous éloignez de l'ordinateur.</p>
+
+  <!-- ===== 6 ===== -->
+  <h2 id="wifi">6. Un wifi bien protégé à la maison</h2>
+  <div class="why"><strong>Pourquoi ?</strong> Le wifi passe dans l'air. La box le « chiffre », c'est-à-dire qu'elle le brouille pour que seuls vos appareils puissent le lire. Certaines box acceptent encore une ancienne façon de brouiller (appelée TKIP), que des personnes malintentionnées savent contourner. Si votre iPhone affiche <strong>« Sécurité faible »</strong> sous le nom de votre wifi, c'est souvent ça : c'est un réglage de la box à changer, pas le téléphone.</div>
+  <ol>
+    <li>Sur un ordinateur connecté à votre wifi, ouvrez le navigateur et tapez dans la barre d'adresse, tout en haut, l'adresse de votre box. Elle figure dans le livret de votre fournisseur. Chez Orange (Livebox), c'est <strong>192.168.1.1</strong>.</li>
+    <li>Connectez-vous. Le mot de passe est indiqué dans le livret ou sur l'étiquette de la box (sur une Livebox, ce sont en général les 8 premiers caractères de la clé de sécurité).</li>
+    <li>Cherchez la page <strong>Wifi</strong> (parfois « Wifi avancé »), puis le réglage <strong>Mode de sécurité</strong> ou <strong>Chiffrement</strong>.</li>
+    <li>Choisissez <strong>WPA2</strong> avec <strong>AES</strong> (ou WPA3 si votre box le propose et que tous vos appareils sont récents). Évitez tout ce qui contient « TKIP », « mixte », « WEP » ou « aucune ».</li>
+    <li>Ne changez ni le nom du wifi ni la clé : vos appareils se reconnecteront tout seuls.</li>
+    <li>Enregistrez. Le wifi se coupe environ une minute, puis revient : c'est normal.</li>
+  </ol>
+  <div class="warn"><strong>Attention :</strong> sur la page de la box, ne cliquez jamais sur « mot de passe oublié ». La box propose alors de revenir à ses réglages d'usine, ce qui oblige à tout reconnecter. Si le mot de passe ne marche pas, arrêtez-vous là : votre wifi continue de fonctionner comme avant.</div>
+  <p>Si un appareil très ancien ne se reconnecte plus, on peut remettre l'ancien réglage le temps de trouver une solution pour lui.</p>
+
+  <!-- ===== 7 ===== -->
+  <h2 id="telephone">7. Le téléphone et WhatsApp</h2>
+  <p>Le téléphone contient autant de choses importantes que l'ordinateur : vos messages, vos photos, votre boîte mail, et c'est souvent lui qui reçoit les codes de la banque. Quelques réglages suffisent.</p>
+
+  <h3>Sur un iPhone (application Réglages)</h3>
+  <ul>
+    <li><strong>Mises à jour</strong> : Général › Mise à jour logicielle › Mises à jour automatiques : activez tout.</li>
+    <li><strong>Code de déverrouillage</strong> : Face ID et code (ou Touch ID et code). Un code à 6 chiffres, pas 123456 ni une date de naissance.</li>
+    <li><strong>Verrouillage automatique</strong> : Luminosité et affichage › Verrouillage automatique : 1 ou 2 minutes.</li>
+    <li><strong>Protection en cas de vol</strong> : Face ID et code › Protection en cas de vol de l'appareil. Même si un voleur connaît votre code, il ne pourra pas changer vos mots de passe hors de chez vous. Elle nécessite que « Localiser » soit activé : cette fonction ne partage votre position avec personne, elle sert seulement à vous permettre de retrouver ou d'effacer votre téléphone. C'est vous qui choisissez.</li>
+    <li><strong>Qui voit quoi</strong> : Confidentialité et sécurité › Contrôle de sécurité. L'iPhone vous montre qui voit votre position ou vos photos, et vous pouvez tout arrêter d'un geste.</li>
+    <li><strong>Sites frauduleux</strong> : Apps › Safari › Avertissement de site frauduleux : activé.</li>
+  </ul>
+  <p>Sur un téléphone Android, les mêmes réglages existent avec des noms un peu différents selon la marque.</p>
+
+  <h3>Dans WhatsApp (Vous ou Réglages, en bas à droite)</h3>
+  <ul>
+    <li><strong>Validation en deux étapes</strong> : Compte › Validation en deux étapes › Activer. Choisissez un code à 6 chiffres (différent de celui du téléphone) et notez-le. Sans ce code, personne ne peut installer votre WhatsApp sur un autre téléphone, même avec votre numéro.</li>
+    <li><strong>Appareils connectés</strong> : vérifiez qu'il n'y a que vos ordinateurs ou tablettes. Si vous en voyez un inconnu, touchez-le puis <strong>Déconnexion</strong>.</li>
+    <li><strong>Groupes</strong> : Confidentialité › Groupes › <strong>Mes contacts</strong>. Cela évite d'être ajouté dans des groupes d'inconnus, souvent des arnaques.</li>
+    <li><strong>Appels d'inconnus</strong> : Confidentialité › Appels › <strong>Mettre en silence les appels inconnus</strong>.</li>
+  </ul>
+  <div class="warn"><strong>La règle d'or :</strong> ne donnez jamais à personne un code reçu par SMS, même à un « ami » qui écrit sur WhatsApp qu'il vous l'a envoyé par erreur. C'est l'arnaque la plus courante pour voler un compte. Dans le doute, appelez la personne.</div>
+
+  <!-- ===== RETENIR ===== -->
+  <h2 id="retenir">8. Les bons réflexes à retenir</h2>
+  <ul>
+    <li class="keep">Le petit bouclier en bas à droite de l'écran : vert, tout va bien. Jaune ou rouge, cliquez dessus et Windows vous dit quoi faire.</li>
+    <li class="keep">Un message qui vous demande de payer pour « nettoyer » ou « débloquer » votre ordinateur est une arnaque : fermez-le, n'appelez aucun numéro affiché.</li>
+    <li class="keep">Un mail ou un SMS qui réclame votre mot de passe ou vous presse de cliquer : ne cliquez pas, et demandez à un proche.</li>
+    <li class="keep">Touche Windows + L quand vous vous éloignez de l'ordinateur.</li>
+    <li class="keep">Un mot de passe différent pour chaque site important, et la validation en deux étapes sur votre boîte mail.</li>
+    <li class="keep">Vos photos et papiers importants méritent une sauvegarde (OneDrive ou disque externe), pour ne rien perdre en cas de panne.</li>
+  </ul>
+
+  <h3>Petit lexique</h3>
+  <dl>
+    <div><dt>Antivirus</dt><dd>Programme qui repère et bloque les logiciels malveillants. Un seul suffit.</dd></div>
+    <div><dt>Pare-feu</dt><dd>Filtre qui empêche les connexions non autorisées vers votre ordinateur.</dd></div>
+    <div><dt>Mise à jour</dt><dd>Correction envoyée par Microsoft ou Apple, souvent pour boucher une faille de sécurité.</dd></div>
+    <div><dt>Chiffrement</dt><dd>Brouillage des informations pour que seuls ceux qui ont la clé puissent les lire.</dd></div>
+    <div><dt>WPA2 / AES</dt><dd>La protection actuelle du wifi. TKIP est une ancienne protection, déconseillée.</dd></div>
+    <div><dt>Code PIN (Windows Hello)</dt><dd>Code qui ouvre votre session, valable uniquement sur cet ordinateur.</dd></div>
+    <div><dt>Validation en deux étapes</dt><dd>Connexion qui demande le mot de passe plus un code reçu sur le téléphone.</dd></div>
+    <div><dt>Analyse hors ligne</dt><dd>Vérification de l'ordinateur faite avant que Windows ne démarre.</dd></div>
+  </dl>
+
+  <!-- ===== OFFRE ===== -->
+  <section class="offer">
+    <h2>Vous préférez le faire à deux ?</h2>
+    <p>Ce guide est fait pour que vous puissiez avancer seul, à votre rythme. Si une étape vous bloque, ou si vous préférez que quelqu'un soit à côté de vous, je viens chez vous, à Pau et alentours. C'est vous qui faites les manipulations, je vous guide : c'est la meilleure façon de retenir.</p>
+    <p>La sécurisation d'un ordinateur est à <strong>30 €</strong>, et une séance d'une heure aussi. Réduction de 10 % pour les plus de 70 ans. <a href="./#tarifs">Voir tous les tarifs</a>.</p>
+    <p>
+      <a href="tel:+33784529922" class="call-btn">📞 07 84 52 99 22</a>
+      <a href="./#contact" class="call-btn">✉️ M'écrire</a>
+    </p>
+    <p>Première rencontre gratuite, sans engagement.</p>
+  </section>
+</main>
+<footer>
+  <p>© 2026 Izumi Bérat · <a href="./">Assistance technologique à domicile, Pau</a> · <a href="mentions-legales.html">Mentions légales</a></p>
+  <p>Ce guide peut être imprimé et partagé librement pour un usage personnel.</p>
+</footer>
+</body>
+</html>
