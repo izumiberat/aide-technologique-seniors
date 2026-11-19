@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sécuriser son ordinateur Windows : le guide pas à pas | Izumi Bérat, Pau</title>
-<meta name="description" content="Les étapes simples pour protéger un ordinateur portable Windows : Sécurité Windows, un seul antivirus, code au démarrage, wifi de la box, téléphone et WhatsApp. Expliqué sans jargon.">
+<meta name="description" content="Les étapes simples pour protéger un ordinateur portable Windows : Sécurité Windows, un seul antivirus, code au démarrage, wifi et box, sauvegardes automatiques, téléphone et WhatsApp. Expliqué sans jargon.">
 <link rel="canonical" href="https://seniors.izutech.fr/securiser-ordinateur-windows.html">
 <style>
   :root { --primary: #1f5f8b; --text: #2c3e50; --muted: #4a5568; --line: #e3e8ed; --bg: #f7f9fb; --note: #eef5fa; --warn: #fdf3e7; --warn-line: #e3a35a; }
@@ -40,11 +40,11 @@
 <main>
   <a class="back" href="./">← Retour à l'accueil</a>
   <h1>Sécuriser son ordinateur portable Windows, pas à pas</h1>
-  <p class="updated">Pour Windows 11 · Mis à jour en novembre 2026</p>
+  <p class="updated">Pour Windows 11 · Mis à jour le 19 novembre 2026</p>
 
   <p class="intro">On me demande souvent : « Qu'est-ce que je dois faire pour que mon ordinateur soit protégé ? » Bonne nouvelle : Windows contient déjà presque tout ce qu'il faut. Il suffit de vérifier quelques réglages, une bonne fois pour toutes. Voici les étapes que je fais avec mes clients, expliquées simplement.</p>
   <p>Prenez votre temps : vous pouvez faire une partie aujourd'hui et le reste un autre jour. Rien de ce qui est décrit ici ne risque d'abîmer votre ordinateur.</p>
-  <p><strong>Par où commencer ?</strong> Les étapes 1 à 3 sont les plus importantes (environ 30 minutes en tout). Les suivantes peuvent attendre. Si une étape vous paraît compliquée, passez à la suivante : vous y reviendrez plus tard, ou on la fera ensemble.</p>
+  <p><strong>Par où commencer ?</strong> Les étapes 1 à 3 sont les plus importantes (environ 30 minutes en tout), avec la sauvegarde (étape 8) si vous ne l'avez pas encore. Les autres peuvent attendre. Si une étape vous paraît compliquée, passez à la suivante : vous y reviendrez plus tard, ou on la fera ensemble.</p>
 
   <nav class="toc" aria-label="Sommaire">
     <strong>Au programme</strong>
@@ -54,8 +54,9 @@
       <li><a href="#defender">Vérifier que Microsoft Defender est en marche</a></li>
       <li><a href="#hors-ligne">Faire une analyse « hors ligne » en cas de doute</a></li>
       <li><a href="#code-demarrage">Un code au démarrage de l'ordinateur</a></li>
-      <li><a href="#wifi">Un wifi bien protégé à la maison</a></li>
+      <li><a href="#wifi">Un wifi et une box bien protégés</a></li>
       <li><a href="#telephone">Le téléphone et WhatsApp</a></li>
+      <li><a href="#sauvegarde">Sauvegarder vos fichiers automatiquement</a></li>
       <li><a href="#retenir">Les bons réflexes à retenir</a></li>
     </ol>
   </nav>
@@ -106,7 +107,7 @@
     </li>
     <li>Lancez une <strong>Analyse rapide</strong> (quelques minutes).</li>
   </ol>
-  <p>Vous verrez peut-être un message jaune sur la « Protection contre les ransomware » (des logiciels qui prennent vos fichiers en otage) qui propose de configurer OneDrive. Vous pouvez cliquer sur <strong>Ignorer</strong> pour l'instant : c'est une question de sauvegarde de vos fichiers, un vrai sujet, qui mérite qu'on le regarde tranquillement à part.</p>
+  <p>Vous verrez peut-être un message jaune sur la « Protection contre les ransomware » (des logiciels qui prennent vos fichiers en otage) qui propose de configurer OneDrive. Vous pouvez cliquer sur <strong>Ignorer</strong> pour l'instant : c'est une question de sauvegarde de vos fichiers, expliquée tranquillement à <a href="#sauvegarde">l'étape 8</a>.</p>
 
   <!-- ===== 4 ===== -->
   <h2 id="hors-ligne">4. En cas de doute : l'analyse « hors ligne »</h2>
@@ -134,7 +135,7 @@
   <p><strong>Pour tester :</strong> appuyez sur <strong>touche Windows + L</strong>. L'écran se verrouille, et votre code le rouvre. C'est aussi le bon réflexe quand vous vous éloignez de l'ordinateur.</p>
 
   <!-- ===== 6 ===== -->
-  <h2 id="wifi">6. Un wifi bien protégé à la maison</h2>
+  <h2 id="wifi">6. Un wifi et une box bien protégés</h2>
   <p><em>C'est l'étape la plus technique de ce guide. Si vous hésitez, gardez-la pour une visite : votre wifi continue de marcher en attendant.</em></p>
   <div class="why"><strong>Pourquoi ?</strong> Le wifi passe dans l'air. La box le « chiffre », c'est-à-dire qu'elle le brouille pour que seuls vos appareils puissent le lire. Certaines box acceptent encore une ancienne façon de brouiller (appelée TKIP), que des personnes malintentionnées savent contourner. Si votre iPhone affiche <strong>« Sécurité faible »</strong> sous le nom de votre wifi, c'est souvent ça : c'est un réglage de la box à changer, pas le téléphone.</div>
   <ol>
@@ -147,6 +148,15 @@
   </ol>
   <div class="warn"><strong>Attention :</strong> sur la page de la box, ne cliquez jamais sur « mot de passe oublié ». La box propose alors de revenir à ses réglages d'usine, ce qui oblige à tout reconnecter. Si le mot de passe ne marche pas, arrêtez-vous là : votre wifi continue de fonctionner comme avant.</div>
   <p>Si un appareil très ancien ne se reconnecte plus, on peut remettre l'ancien réglage le temps de trouver une solution pour lui.</p>
+
+  <h3>Pendant que vous êtes sur la page de la box</h3>
+  <ul>
+    <li><strong>Qui est connecté chez vous ?</strong> Cherchez la page qui liste les <strong>appareils connectés</strong> (souvent « Mon réseau » ou « Équipements »). Vous devez reconnaître chaque appareil : ordinateur, téléphones, télévision, imprimante… Si un appareil inconnu apparaît, le plus simple est de changer la clé du wifi : seuls ceux qui la connaissent pourront se reconnecter (il faudra la retaper sur chacun de vos appareils).</li>
+    <li><strong>Le wifi invités.</strong> Beaucoup de box proposent un wifi « invités ». Activez-le pour les visiteurs : ils ont internet, mais n'ont pas accès à vos appareils, et vous n'avez pas à donner votre clé principale.</li>
+    <li><strong>Le bouton WPS.</strong> Il permet de connecter un appareil sans taper la clé. Si vous ne vous en servez jamais, vous pouvez le désactiver dans les réglages wifi : c'est une porte d'entrée de moins.</li>
+    <li><strong>Les mises à jour de la box</strong> se font en général toutes seules, la nuit, par votre fournisseur. Laissez simplement la box allumée.</li>
+    <li>Terminez en cliquant sur <strong>Se déconnecter</strong> en haut de la page de la box.</li>
+  </ul>
 
   <!-- ===== 7 ===== -->
   <h2 id="telephone">7. Le téléphone et WhatsApp</h2>
@@ -172,15 +182,40 @@
   </ul>
   <div class="warn"><strong>La règle d'or :</strong> ne donnez jamais à personne un code reçu par SMS, même à un « ami » qui écrit sur WhatsApp qu'il vous l'a envoyé par erreur. C'est l'arnaque la plus courante pour voler un compte. Dans le doute, appelez la personne.</div>
 
+  <!-- ===== 8 ===== -->
+  <h2 id="sauvegarde">8. Sauvegarder vos fichiers automatiquement</h2>
+  <div class="why"><strong>Pourquoi ?</strong> Un ordinateur peut tomber en panne, être volé, ou être bloqué par un virus. Vos photos et vos papiers, eux, ne se remplacent pas. Une sauvegarde automatique en fait une copie régulière, sans que vous ayez à y penser.</div>
+
+  <h3>La solution intégrée à Windows : l'Historique des fichiers</h3>
+  <p>Windows sait copier tout seul vos dossiers (Documents, Images, Bureau, Musique, Vidéos) sur un disque externe ou un boîtier de sauvegarde, toutes les heures, en gardant les anciennes versions de vos fichiers.</p>
+  <ol>
+    <li>Branchez votre disque externe ou vérifiez que votre boîtier de sauvegarde est allumé.</li>
+    <li>Dans la barre de recherche, tapez <strong>« Historique des fichiers »</strong> et ouvrez-le (il s'ouvre dans le Panneau de configuration).</li>
+    <li>Si votre disque apparaît, cliquez sur <strong>Activer</strong>. S'il n'apparaît pas, cliquez sur <strong>Sélectionner un lecteur</strong> à gauche et choisissez-le. Pour un boîtier relié à la box plutôt qu'à l'ordinateur, cliquez sur <strong>Ajouter un emplacement réseau</strong>.</li>
+    <li>Dans <strong>Paramètres avancés</strong>, vous pouvez garder « Toutes les heures » et « Pour toujours » (ou « Jusqu'à ce que de l'espace soit nécessaire »).</li>
+    <li>Laissez la première sauvegarde se terminer : elle peut prendre un moment. Les suivantes sont rapides.</li>
+  </ol>
+  <p><strong>Pour vérifier que ça marche</strong>, faites un essai une fois : dans le même écran, cliquez sur <strong>Restaurer des fichiers personnels</strong> et retrouvez une photo. Une sauvegarde qu'on n'a jamais essayée est une sauvegarde dont on n'est pas sûr.</p>
+
+  <h3>Vous avez un boîtier « RAID » ?</h3>
+  <p>Un boîtier RAID contient deux disques qui gardent la même copie. Si l'un tombe en panne, l'autre prend le relais : c'est une bonne protection contre la panne d'un disque. Mais ce n'est pas une sauvegarde complète : si un fichier est effacé par erreur ou abîmé par un virus, il l'est sur les deux disques à la fois. Et en cas de vol ou d'incendie, ordinateur et boîtier disparaissent ensemble. D'où les deux conseils suivants.</p>
+
+  <h3>Deux précautions qui font toute la différence</h3>
+  <ul>
+    <li><strong>Gardez des anciennes versions.</strong> L'Historique des fichiers le fait déjà. Si votre boîtier est relié à la box, regardez aussi dans ses réglages s'il propose des « instantanés » ou un « historique des versions », et activez-les. Ainsi, même si un virus abîme vos fichiers, vous pouvez revenir à la version de la veille.</li>
+    <li><strong>Une copie ailleurs qu'à la maison.</strong> Pour vos fichiers les plus précieux (photos de famille, papiers importants), gardez une deuxième copie hors de chez vous : dans OneDrive (5 Go gratuits avec un compte Microsoft, davantage avec un abonnement), ou sur un petit disque que vous mettez à jour une fois par mois et que vous rangez chez un proche.</li>
+  </ul>
+  <p>Si votre disque de sauvegarde se branche sur l'ordinateur par un câble, ne le laissez pas branché en permanence : branchez-le une fois par semaine, le temps que la sauvegarde se fasse. Un disque débranché est à l'abri d'un virus.</p>
+
   <!-- ===== RETENIR ===== -->
-  <h2 id="retenir">8. Les bons réflexes à retenir</h2>
+  <h2 id="retenir">9. Les bons réflexes à retenir</h2>
   <ul>
     <li class="keep">Le petit bouclier en bas à droite de l'écran : vert, tout va bien. Jaune ou rouge, cliquez dessus et Windows vous dit quoi faire.</li>
     <li class="keep">Un message qui vous demande de payer pour « nettoyer » ou « débloquer » votre ordinateur est une arnaque : fermez-le, n'appelez aucun numéro affiché.</li>
     <li class="keep">Un mail ou un SMS qui réclame votre mot de passe ou vous presse de cliquer : ne cliquez pas, et demandez à un proche.</li>
     <li class="keep">Touche Windows + L quand vous vous éloignez de l'ordinateur.</li>
     <li class="keep">Un mot de passe différent pour chaque site important, et la validation en deux étapes sur votre boîte mail.</li>
-    <li class="keep">Vos photos et papiers importants méritent une sauvegarde (OneDrive ou disque externe), pour ne rien perdre en cas de panne.</li>
+    <li class="keep">Une sauvegarde automatique, des anciennes versions, et une copie de vos fichiers précieux hors de la maison.</li>
   </ul>
 
   <h3>Petit lexique</h3>
