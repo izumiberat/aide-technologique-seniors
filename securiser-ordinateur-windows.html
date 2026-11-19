@@ -44,6 +44,7 @@
 
   <p class="intro">On me demande souvent : « Qu'est-ce que je dois faire pour que mon ordinateur soit protégé ? » Bonne nouvelle : Windows contient déjà presque tout ce qu'il faut. Il suffit de vérifier quelques réglages, une bonne fois pour toutes. Voici les étapes que je fais avec mes clients, expliquées simplement.</p>
   <p>Prenez votre temps : vous pouvez faire une partie aujourd'hui et le reste un autre jour. Rien de ce qui est décrit ici ne risque d'abîmer votre ordinateur.</p>
+  <p><strong>Par où commencer ?</strong> Les étapes 1 à 3 sont les plus importantes (environ 30 minutes en tout). Les suivantes peuvent attendre. Si une étape vous paraît compliquée, passez à la suivante : vous y reviendrez plus tard, ou on la fera ensemble.</p>
 
   <nav class="toc" aria-label="Sommaire">
     <strong>Au programme</strong>
@@ -65,14 +66,16 @@
     <li>L'étiquette collée sous votre box internet (on y lit la clé du wifi).</li>
     <li>Un papier et un crayon pour noter vos nouveaux codes.</li>
   </ul>
+  <p><strong>Deux repères utiles :</strong> la <strong>barre de recherche</strong> est la case « Rechercher » en bas de l'écran, à côté du logo Windows (si vous ne la voyez pas, cliquez sur le logo Windows, puis tapez directement). La <strong>touche Windows</strong> est la touche du clavier qui porte ce même logo, en bas à gauche, entre Ctrl et Alt.</p>
 
   <!-- ===== 1 ===== -->
   <h2 id="securite-windows">1. Vérifier Sécurité Windows</h2>
   <p>Tapez <strong>« Sécurité Windows »</strong> dans la barre de recherche, en bas de l'écran, et ouvrez-la. C'est le tableau de bord de la protection de votre ordinateur.</p>
+  <p>Si certains réglages sont grisés (on ne peut pas cliquer dessus), c'est souvent qu'un autre antivirus est installé : faites d'abord l'étape 2, puis revenez ici.</p>
   <ol>
     <li><strong>Les sites et programmes dangereux.</strong> Cliquez sur <strong>Contrôle des applications et du navigateur</strong>, puis sur le lien bleu <strong>Paramètres de protection fondée sur la réputation</strong>. Mettez tous les interrupteurs sur <strong>Activé</strong> (faites défiler la page jusqu'en bas). Windows vous préviendra avant d'ouvrir un site ou un programme connu pour être dangereux.</li>
     <li><strong>Le pare-feu.</strong> Revenez à l'accueil avec la flèche ← en haut à gauche, puis cliquez sur <strong>Pare-feu et protection du réseau</strong>. Les trois réseaux doivent avoir une coche verte. Il n'y a rien à changer. Le pare-feu, c'est comme le gardien d'un immeuble : vous sortez librement, mais il ne laisse pas entrer les visiteurs que vous n'avez pas invités.</li>
-    <li><strong>Une protection en plus (facultatif).</strong> Dans <strong>Sécurité des appareils</strong> › <strong>Détails de l'isolation du noyau</strong>, activez <strong>Intégrité de la mémoire</strong>, puis redémarrez si Windows le demande. Si Windows refuse, c'est souvent à cause d'un vieil appareil (une imprimante, par exemple). Ce n'est pas grave : les autres protections suffisent.</li>
+    <li><strong>Une protection en plus (facultatif, vous pouvez sauter ce point).</strong> Revenez à l'accueil, puis allez dans <strong>Sécurité des appareils</strong> › <strong>Détails de l'isolation du noyau</strong>, activez <strong>Intégrité de la mémoire</strong>, puis redémarrez si Windows le demande. Si Windows refuse, c'est souvent à cause d'un vieil appareil (une imprimante, par exemple). Ce n'est pas grave : les autres protections suffisent.</li>
     <li><strong>Les mises à jour.</strong> Fermez Sécurité Windows et ouvrez <strong>Paramètres</strong> (touche Windows + I). Allez dans <strong>Windows Update</strong> › <strong>Options avancées</strong> et activez « Recevoir les mises à jour pour d'autres produits Microsoft ». Les mises à jour bouchent les failles de sécurité dès qu'elles sont découvertes.</li>
   </ol>
   <div class="warn"><strong>Vous avez encore Windows 10 ?</strong> Depuis octobre 2025, Microsoft ne publie plus de mises à jour de sécurité gratuites pour Windows 10. Selon l'âge de votre ordinateur, il est possible de passer à Windows 11. On peut regarder ensemble ce qui est le plus simple pour vous.</div>
@@ -82,9 +85,9 @@
   <div class="why"><strong>Pourquoi ?</strong> Windows contient déjà un antivirus gratuit et efficace : <strong>Microsoft Defender</strong>. Beaucoup d'ordinateurs ont en plus un antivirus « gratuit », installé à l'achat ou avec un autre programme téléchargé. Deux antivirus en même temps ralentissent l'ordinateur et affichent beaucoup de messages, souvent pour vous vendre une version payante. Un seul suffit.</div>
   <ol>
     <li>Ouvrez <strong>Paramètres</strong>, puis <strong>Applications</strong> › <strong>Applications installées</strong>.</li>
-    <li>Dans la case de recherche, tapez le nom de l'autre antivirus.</li>
-    <li>Sur chaque ligne qui porte son nom : cliquez sur les trois points <strong>…</strong> › <strong>Désinstaller</strong>. Certains antivirus installent plusieurs morceaux (VPN, gestionnaire de mots de passe…) : retirez-les tous.</li>
-    <li>Dans votre navigateur (Edge ou Chrome), ouvrez le menu › <strong>Extensions</strong> et retirez l'extension de cet antivirus, s'il y en a une.</li>
+    <li>Dans la case de recherche, tapez le nom de l'autre antivirus. Vous ne le connaissez pas ? Dans Sécurité Windows › <strong>Protection contre les virus et menaces</strong>, Windows affiche le nom de l'antivirus qui est actif. Vous pouvez aussi taper simplement « antivirus » ou « security » et regarder ce qui apparaît.</li>
+    <li>Sur chaque ligne qui porte son nom : cliquez sur les trois points <strong>…</strong> › <strong>Désinstaller</strong>. Suivez les écrans de désinstallation jusqu'au bout : ils essaient souvent de vous faire changer d'avis, répondez que vous voulez bien désinstaller. Certains antivirus installent plusieurs morceaux qui portent le même nom de marque : retirez-les tous.</li>
+    <li>Dans votre navigateur (Edge ou Chrome), ouvrez le menu (les trois points en haut à droite) › <strong>Extensions</strong>. Les extensions sont de petits modules ajoutés au navigateur. Si l'une porte le nom de cet antivirus, cliquez sur <strong>Supprimer</strong>.</li>
     <li><strong>Redémarrez</strong> l'ordinateur. Microsoft Defender reprend la main tout seul.</li>
   </ol>
   <p>Si vous avez payé un antivirus et qu'il est à jour, vous pouvez bien sûr le garder. L'important est de ne pas en avoir deux.</p>
@@ -96,14 +99,14 @@
     <li>Cliquez sur <strong>Gérer les paramètres</strong> et vérifiez que ces quatre interrupteurs sont sur <strong>Activé</strong> :
       <ul>
         <li><strong>Protection en temps réel</strong> : Defender surveille en permanence ce que vous ouvrez et téléchargez.</li>
-        <li><strong>Protection dans le cloud</strong> : il consulte la liste des menaces les plus récentes, mise à jour en continu.</li>
+        <li><strong>Protection dans le cloud</strong> : il consulte sur internet la liste des menaces les plus récentes, mise à jour en continu.</li>
         <li><strong>Envoi automatique d'échantillons</strong> : un fichier suspect est envoyé à Microsoft pour analyse. Windows vous demande toujours avant d'envoyer un fichier qui pourrait être personnel.</li>
         <li><strong>Protection contre les falsifications</strong> : empêche un programme malveillant d'éteindre Defender en cachette.</li>
       </ul>
     </li>
     <li>Lancez une <strong>Analyse rapide</strong> (quelques minutes).</li>
   </ol>
-  <p>Vous verrez peut-être un message jaune sur la « Protection contre les ransomware » qui propose de configurer OneDrive. Vous pouvez cliquer sur <strong>Ignorer</strong> pour l'instant : c'est une question de sauvegarde de vos fichiers, un vrai sujet, qui mérite qu'on le regarde tranquillement à part.</p>
+  <p>Vous verrez peut-être un message jaune sur la « Protection contre les ransomware » (des logiciels qui prennent vos fichiers en otage) qui propose de configurer OneDrive. Vous pouvez cliquer sur <strong>Ignorer</strong> pour l'instant : c'est une question de sauvegarde de vos fichiers, un vrai sujet, qui mérite qu'on le regarde tranquillement à part.</p>
 
   <!-- ===== 4 ===== -->
   <h2 id="hors-ligne">4. En cas de doute : l'analyse « hors ligne »</h2>
@@ -132,9 +135,10 @@
 
   <!-- ===== 6 ===== -->
   <h2 id="wifi">6. Un wifi bien protégé à la maison</h2>
+  <p><em>C'est l'étape la plus technique de ce guide. Si vous hésitez, gardez-la pour une visite : votre wifi continue de marcher en attendant.</em></p>
   <div class="why"><strong>Pourquoi ?</strong> Le wifi passe dans l'air. La box le « chiffre », c'est-à-dire qu'elle le brouille pour que seuls vos appareils puissent le lire. Certaines box acceptent encore une ancienne façon de brouiller (appelée TKIP), que des personnes malintentionnées savent contourner. Si votre iPhone affiche <strong>« Sécurité faible »</strong> sous le nom de votre wifi, c'est souvent ça : c'est un réglage de la box à changer, pas le téléphone.</div>
   <ol>
-    <li>Sur un ordinateur connecté à votre wifi, ouvrez le navigateur et tapez dans la barre d'adresse, tout en haut, l'adresse de votre box. Elle figure dans le livret de votre fournisseur. Chez Orange (Livebox), c'est <strong>192.168.1.1</strong>.</li>
+    <li>Sur un ordinateur connecté à votre wifi, ouvrez le navigateur et tapez l'adresse de votre box dans la barre d'adresse, tout en haut de la fenêtre (là où s'affiche l'adresse des sites, pas dans la case de recherche de Google), puis appuyez sur Entrée. Elle figure dans le livret de votre fournisseur. Chez Orange (Livebox), c'est <strong>192.168.1.1</strong>.</li>
     <li>Connectez-vous. Le mot de passe est indiqué dans le livret ou sur l'étiquette de la box (sur une Livebox, ce sont en général les 8 premiers caractères de la clé de sécurité).</li>
     <li>Cherchez la page <strong>Wifi</strong> (parfois « Wifi avancé »), puis le réglage <strong>Mode de sécurité</strong> ou <strong>Chiffrement</strong>.</li>
     <li>Choisissez <strong>WPA2</strong> avec <strong>AES</strong> (ou WPA3 si votre box le propose et que tous vos appareils sont récents). Évitez tout ce qui contient « TKIP », « mixte », « WEP » ou « aucune ».</li>
