@@ -185,7 +185,7 @@
         }
         .hero-sub a { color: var(--primary-dark); font-weight: 700; }
         @media (max-width: 400px) {
-            .call-btn { font-size: 1.1rem; padding: 0.85rem 1.1rem; }
+            .call-btn { font-size: 1.05rem; padding: 0.85rem 1rem; white-space: nowrap; }
         }
 
         /* ===== HIGHLIGHT BOX ===== */
@@ -216,7 +216,7 @@
         /* ===== AUDIENCE SECTION ===== */
         .audience-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 1.2rem;
             margin: 2rem 0;
         }
@@ -394,7 +394,7 @@
         
         .pricing-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -409,13 +409,13 @@
             flex-direction: column;
         }
         
-        .pricing-card.highlight {
+        .pricing-card.featured {
             border: 3px solid var(--primary-color);
             position: relative;
         }
         
-        .pricing-card.highlight::after {
-            content: "Le plus choisi";
+        .pricing-card.featured::after {
+            content: "Recommandé";
             position: absolute;
             top: 15px;
             right: -35px;
@@ -577,7 +577,7 @@
         
         /* ===== SIGNATURE QUOTE ===== */
         .signature-quote {
-            text-align: right;
+            text-align: left;
             margin-top: 3rem;
             font-family: 'Georgia', serif;
             font-style: italic;
@@ -585,8 +585,8 @@
         }
         
         .signature-quote blockquote {
-            border-right: 4px solid var(--primary-color);
-            padding-right: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
             margin: 0;
             font-size: 1.1rem;
         }
@@ -865,6 +865,8 @@
         .guide-card .guide-link { font-weight: 700; color: var(--primary-color); }
 
         /* ===== EBOOK ===== */
+        .ebook-list { list-style: none; padding-left: 0; }
+        .ebook-list li { margin-bottom: 0.5rem; }
         .ebook-section {
             background: var(--light-gray);
             padding: 2.5rem;
@@ -881,6 +883,9 @@
         
         .ebook-cover {
             width: 200px;
+            height: auto;
+            flex: none;
+            align-self: flex-start;
             box-shadow: 0 4px 12px rgba(0,0,0,0.12);
             border-radius: 6px;
         }
@@ -912,6 +917,18 @@
             box-shadow: 0 2px 0 var(--primary-dark);
         }
         
+        *, *::before, *::after { box-sizing: border-box; }
+        img { max-width: 100%; }
+        /* ===== BARRE D'APPEL MOBILE ===== */
+        .mobile-cta { display: none; }
+        @media (max-width: 768px) {
+            .mobile-cta { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; background: #fff; box-shadow: 0 -2px 10px rgba(0,0,0,0.12); padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom)); gap: 0.5rem; }
+            .mobile-cta a { flex: 1; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.05rem; padding: 0.75rem 0.5rem; border-radius: 50px; text-decoration: none; }
+            .mobile-cta a:first-child { background: var(--primary-dark); color: #fff; }
+            .mobile-cta a:last-child { background: #eef7fd; color: var(--primary-dark); border: 2px solid var(--primary-color); }
+            html body { padding-bottom: 5rem; }
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             body {
@@ -942,8 +959,10 @@
             
             .ebook-container {
                 flex-direction: column;
-                text-align: center;
             }
+            .ebook-cover { width: 60%; max-width: 220px; align-self: center; }
+            .ebook-section { padding: 1.5rem; }
+            .download-buttons .fun-btn { flex: 1 1 100%; text-align: center; }
             
             .cta .contact-info {
                 flex-direction: column;
@@ -956,13 +975,13 @@
             }
             
             .example-item {
-                flex-direction: column;
                 align-items: flex-start;
-                gap: 0.4rem;
+                gap: 0.75rem;
             }
             
             .example-price {
-                align-self: flex-end;
+                flex: none;
+                white-space: nowrap;
             }
             
             .footer .contact-info {
@@ -1161,19 +1180,19 @@
                 <h3>📱 Smartphones & Tablettes</h3>
                 <div class="example-item">
                     <span class="example-name">Configuration d'un nouveau smartphone (transfert de contacts, photos…)</span>
-                    <span class="example-price">35€</span>
+                    <span class="example-price">35 €</span>
                 </div>
                 <div class="example-item">
                     <span class="example-name">Apprendre à utiliser WhatsApp (installation + formation)</span>
-                    <span class="example-price">30€</span>
+                    <span class="example-price">30 €</span>
                 </div>
                 <div class="example-item">
                     <span class="example-name">Création et sécurisation d'un compte email</span>
-                    <span class="example-price">25€</span>
+                    <span class="example-price">25 €</span>
                 </div>
                 <div class="example-item">
                     <span class="example-name">Sauvegarde des photos sur le cloud</span>
-                    <span class="example-price">25€</span>
+                    <span class="example-price">25 €</span>
                 </div>
             </div>
             
@@ -1181,19 +1200,19 @@
                 <h3>🏡 Maison connectée</h3>
                 <div class="example-item">
                     <span class="example-name">Installation et configuration d'Amazon Alexa / Google Home</span>
-                    <span class="example-price">40€</span>
+                    <span class="example-price">40 €</span>
                 </div>
                 <div class="example-item">
                     <span class="example-name">Mise en place d'une caméra de surveillance (1 appareil)</span>
-                    <span class="example-price">45€</span>
+                    <span class="example-price">45 €</span>
                 </div>
                 <div class="example-item">
                     <span class="example-name">Configuration d'une sonnette vidéo (type Ring)</span>
-                    <span class="example-price">40€</span>
+                    <span class="example-price">40 €</span>
                 </div>
                 <div class="example-item">
                     <span class="example-name">Connexion d'appareils domotiques (thermostats…)</span>
-                    <span class="example-price">35€</span>
+                    <span class="example-price">35 €</span>
                 </div>
             </div>
             
@@ -1201,19 +1220,19 @@
                 <h3>💻 Ordinateurs & Sécurité</h3>
                 <div class="example-item">
                     <span class="example-name">Nettoyage et optimisation d'un ordinateur lent</span>
-                    <span class="example-price">40€</span>
+                    <span class="example-price">40 €</span>
                 </div>
                 <div class="example-item">
-                    <span class="example-name">Installation d'un antivirus et sécurisation</span>
-                    <span class="example-price">30€</span>
+                    <span class="example-name">Sécurisation de l'ordinateur (protection, mises à jour, mots de passe)</span>
+                    <span class="example-price">30 €</span>
                 </div>
                 <div class="example-item">
-                    <span class="example-name">Configuration d'appels vidéo (Skype / Zoom)</span>
-                    <span class="example-price">25€</span>
+                    <span class="example-name">Configuration d'appels vidéo (WhatsApp, FaceTime, Zoom)</span>
+                    <span class="example-price">25 €</span>
                 </div>
                 <div class="example-item">
                     <span class="example-name">Récupération de photos ou messages perdus</span>
-                    <span class="example-price">35€</span>
+                    <span class="example-price">35 €</span>
                 </div>
                 <p style="margin-top: 0.75rem;">Envie d'essayer seul d'abord ? <a href="securiser-ordinateur-windows.html">Mon guide pour sécuriser un ordinateur Windows</a> explique chaque étape simplement.</p>
             </div>
@@ -1234,7 +1253,7 @@
                 <div class="pricing-card">
                     <div class="pricing-header">
                         <h3 class="pricing-title">À la carte</h3>
-                        <div class="pricing-price">30€</div>
+                        <div class="pricing-price">30 €</div>
                         <div class="pricing-duration">/ séance (1h)</div>
                     </div>
                     <div class="pricing-features">
@@ -1247,10 +1266,10 @@
                     </div>
                 </div>
                 
-                <div class="pricing-card highlight">
+                <div class="pricing-card featured">
                     <div class="pricing-header" style="background: var(--primary-dark)">
                         <h3 class="pricing-title">Forfait Sérénité</h3>
-                        <div class="pricing-price">75€</div>
+                        <div class="pricing-price">75 €</div>
                         <div class="pricing-duration">/ mois</div>
                     </div>
                     <div class="pricing-features">
@@ -1267,7 +1286,7 @@
                 <div class="pricing-card">
                     <div class="pricing-header" style="background: var(--secondary-color)">
                         <h3 class="pricing-title">Forfait Famille</h3>
-                        <div class="pricing-price">120€</div>
+                        <div class="pricing-price">120 €</div>
                         <div class="pricing-duration">/ mois</div>
                     </div>
                     <div class="pricing-features">
@@ -1284,7 +1303,7 @@
             
             <div class="pricing-notes">
                 <p><strong>Engagement flexible :</strong> tous les forfaits sont sans engagement et peuvent être annulés à tout moment.</p>
-                <p><strong>Paiement en nature :</strong> j'accepte aussi les paiements sous forme de produits locaux (miel, confitures, légumes…).</p>
+                <p><strong>Paiement en nature :</strong> dans un esprit d'échange entre générations, j'accepte aussi, en complément ou à la place, des produits locaux (miel, confitures, légumes du jardin…) ou un savoir-faire partagé.</p>
             </div>
         </div>
 
@@ -1325,12 +1344,12 @@
 
         <!-- ===== EBOOK ===== -->
         <section class="ebook-section">
-            <h2>Guide offert : la technologie pour l'autonomie des séniors</h2>
+            <h2>Guide offert : aider ses parents à maîtriser la technologie</h2>
             <div class="ebook-container">
-                <img src="apprendre-techno.jpeg" alt="Couverture du guide Technologie et Autonomie" class="ebook-cover" width="600" height="600" loading="lazy">
+                <img src="guides/couverture-guide.jpg" alt="Couverture du guide « Aider ses parents à maîtriser la technologie »" class="ebook-cover" width="400" height="600" loading="lazy">
                 <div class="ebook-content">
                     <p><strong>Téléchargez gratuitement mon guide complet (73 pages, édition revue et mise à jour en novembre 2026) :</strong></p>
-                    <ul>
+                    <ul class="ebook-list">
                         <li>✅ Choisir le bon smartphone ou la bonne tablette</li>
                         <li>✅ Protéger vos parents des arnaques en ligne</li>
                         <li>✅ Les familles d'appareils à regarder, avec des fourchettes de prix</li>
@@ -1383,15 +1402,15 @@
             <form id="techAidForm" action="https://formspree.io/f/xvgaryyv" method="POST">
                 <div class="form-group">
                     <label for="name">Nom complet *</label>
-                    <input type="text" id="name" name="name" class="form-control" required>
+                    <input type="text" id="name" name="name" class="form-control" autocomplete="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" class="form-control" autocomplete="email" inputmode="email" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Téléphone</label>
-                    <input type="tel" id="phone" name="phone" class="form-control">
+                    <input type="tel" id="phone" name="phone" class="form-control" autocomplete="tel">
                 </div>
                 <div class="form-group">
                     <label for="service">Service souhaité</label>
@@ -1411,12 +1430,6 @@
             </form>
         </div>
         
-        <!-- ===== PAYMENT NOTE ===== -->
-        <div class="payment-nature">
-            <div class="payment-icon">🍯</div>
-            <p>Dans une démarche d'échange intergénérationnel, j'accepte avec plaisir les paiements alternatifs <em>(produits du jardin, artisanat, savoir-faire partagé)</em> en complément ou en remplacement du paiement traditionnel.</p>
-        </div>
-
         <!-- ===== SIGNATURE QUOTE ===== -->
         <div class="signature-quote">
             <blockquote>
@@ -1449,12 +1462,12 @@
                 <strong>Pau (64000) et alentours</strong></p>
                 
                 <div class="contact-info">
-                    <div class="contact-item">
+                    <a href="tel:+33784529922" class="contact-item" style="color: var(--secondary-color);">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                         </svg>
                         <span>07 84 52 99 22</span>
-                    </div>
+                    </a>
                     <div class="contact-item">
                         <a href="mailto:contact@izutech.fr?subject=Demande%20d'assistance%20technologique&body=Bonjour%20Izumi,%0D%0A%0D%0AJe%20vous%20contacte%20au%20sujet%20de...%0D%0A%0D%0ANom%20du%20bénéficiaire%20:%0D%0A%0D%0AÂge%20du%20bénéficiaire%20:%0D%0A%0D%0AAppareil(s)%20concerné(s)%20:%0D%0A%0D%0AProblème%20rencontré%20:%0D%0A%0D%0AMerci%20!" class="contact-item" style="color: var(--secondary-color);">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1705,5 +1718,10 @@
     }
 </script>
 
+    <!-- Barre d'appel fixe (téléphones) -->
+    <nav class="mobile-cta" aria-label="Me contacter">
+        <a href="tel:+33784529922">📞 Appeler</a>
+        <a href="#contact">✉️ Écrire</a>
+    </nav>
 </body>
 </html>
