@@ -28,6 +28,8 @@ Ensemble, construisons une société numérique plus inclusive et plus douce.
 
 — Izumi
 
+> **Besoin d’une réponse rapide ?** Ce livre se lit d’un bout à l’autre, mais vous pouvez aussi partir de votre situation (arnaque, virus, choix d’une tablette, téléassistance…). Le guide interactif vous oriente en deux clics vers les bons conseils et le bon chapitre : **https://seniors.izutech.fr/par-ou-commencer.html**
+
 # Chapitre 1 : Pourquoi la technologie est essentielle pour vos parents âgés
 
 ## Introduction
@@ -1543,6 +1545,8 @@ Avec ces stratégies, vous pouvez désormais :
 - **Créer** de nouveaux moments de complicité intergénérationnelle
 
 Pour toute question ou partage d’expérience, écrivez-moi à **contact@izutech.fr**.
+
+Pour une réponse rapide à une situation précise, utilisez le guide interactif : **https://seniors.izutech.fr/par-ou-commencer.html**.
 
 Retrouvez des guides pratiques gratuits (sécuriser un ordinateur Windows, que faire après un virus) et mon offre d’aide à domicile sur **https://seniors.izutech.fr**.
 

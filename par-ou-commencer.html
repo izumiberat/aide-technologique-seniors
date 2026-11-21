@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Par où commencer ? Le bon conseil selon votre besoin | Izumi Bérat, Pau</title>
+<meta name="description" content="Arnaque, virus, choix d'une tablette, appels vidéo, téléassistance, aides gratuites : choisissez votre situation et trouvez tout de suite les conseils utiles, expliqués sans jargon.">
+<link rel="canonical" href="https://seniors.izutech.fr/par-ou-commencer.html">
+<style>
+  :root { --primary: #1f5f8b; --text: #2c3e50; --muted: #4a5568; --line: #e3e8ed; --bg: #f7f9fb; --note: #eef5fa; --warn: #fdf3e7; --warn-line: #e3a35a; --urgent: #fbeaea; --urgent-line: #c0392b; }
+  body { font-family: "Open Sans", "Segoe UI", system-ui, sans-serif; font-size: 18px; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 0 16px; }
+  main { max-width: 760px; margin: 2rem auto 3rem; background: #fff; border-radius: 10px; padding: clamp(1.25rem, 4vw, 2.5rem); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  h1, h2, h3 { font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; line-height: 1.3; }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 { font-size: 1.35rem; color: var(--primary); margin-top: 0; }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.25rem; }
+  a { color: var(--primary); }
+  li { margin-bottom: 0.5rem; }
+  .back { display: inline-block; margin-bottom: 1.25rem; font-weight: 700; }
+  .intro { font-size: 1.1rem; }
+  .question { font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; font-size: 1.25rem; font-weight: 700; margin: 1.75rem 0 0.75rem; }
+  .choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 0.75rem; }
+  .choice { display: flex; gap: 0.75rem; align-items: flex-start; text-align: left; font: inherit; font-size: 1.02rem; line-height: 1.45; color: var(--text); background: #fff; border: 2px solid var(--line); border-radius: 10px; padding: 0.9rem 1rem; cursor: pointer; text-decoration: none; transition: border-color 0.15s ease, background 0.15s ease; }
+  .choice:hover, .choice:focus-visible { border-color: var(--primary); background: var(--note); outline: none; text-decoration: none; }
+  .choice .ico { font-size: 1.6rem; line-height: 1; flex: none; }
+  .choice strong { display: block; }
+  .choice small { color: var(--muted); font-size: 0.92rem; }
+  .answer { border-top: 1px solid var(--line); padding-top: 1.5rem; margin-top: 2rem; }
+  .why { background: var(--note); border-left: 4px solid var(--primary); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .warn { background: var(--warn); border-left: 4px solid var(--warn-line); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .urgent { background: var(--urgent); border-left: 4px solid var(--urgent-line); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .more { background: var(--bg); border-radius: 8px; padding: 0.75rem 1.25rem; margin-top: 1.25rem; }
+  .more ul { margin: 0.25rem 0 0; padding-left: 1.25rem; }
+  .tools { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+  .btn { display: inline-block; font: inherit; font-weight: 700; background: #fff; color: var(--primary); border: 2px solid var(--primary); padding: 0.55rem 1.1rem; border-radius: 8px; cursor: pointer; text-decoration: none; }
+  .btn:hover, .btn:focus-visible { background: var(--note); text-decoration: none; }
+  .offer { background: var(--note); border-radius: 10px; padding: 1.25rem 1.5rem; margin-top: 2.5rem; }
+  .offer h2 { margin-top: 0; }
+  .call-btn { display: inline-block; background: var(--primary); color: #fff; text-decoration: none; font-weight: 700; padding: 0.7rem 1.2rem; border-radius: 8px; margin: 0.25rem 0.5rem 0.25rem 0; }
+  .js .answer, .js #niveau, .js #arnaque-q, .js .nojs-list { display: none; }
+  .js .answer.active, .js #niveau.active, .js #arnaque-q.active { display: block; }
+  .js #choix.hidden { display: none; }
+  footer { max-width: 760px; margin: 0 auto 2rem; color: var(--muted); font-size: 0.95rem; text-align: center; }
+  @media print { body { background: #fff; padding: 0; } main { box-shadow: none; margin: 0; } .back, .tools, .offer .call-btn, #choix, #niveau, #arnaque-q { display: none !important; } }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<main>
+  <a class="back" href="./#guides">← Retour à l'accueil</a>
+  <h1>Par où commencer ?</h1>
+  <p class="intro">Choisissez ce qui vous amène, pour vous ou pour un proche. Vous trouverez tout de suite les premiers gestes utiles, expliqués simplement, et où aller plus loin si besoin.</p>
+
+  <!-- ===== Étape 1 : le besoin ===== -->
+  <section id="choix" aria-labelledby="q1">
+    <p class="question" id="q1">Qu'est-ce qui vous amène ?</p>
+    <div class="choices">
+      <a class="choice" href="#arnaque" data-go="arnaque-q"><span class="ico" aria-hidden="true">🚨</span><span><strong>Un appel ou un message suspect</strong><small>Faux conseiller, faux colis, « Mamie, j'ai un problème »…</small></span></a>
+      <a class="choice" href="#virus" data-go="virus"><span class="ico" aria-hidden="true">🦠</span><span><strong>Un virus ou un programme douteux</strong><small>Sur un ordinateur Windows</small></span></a>
+      <a class="choice" href="#securiser" data-go="securiser"><span class="ico" aria-hidden="true">🔒</span><span><strong>Sécuriser un ordinateur</strong><small>Réglages de base, Wi-Fi, mots de passe</small></span></a>
+      <a class="choice" href="#photos" data-go="photos"><span class="ico" aria-hidden="true">🖼️</span><span><strong>Ne pas perdre ses photos</strong><small>Sauvegarde simple et automatique</small></span></a>
+      <a class="choice" href="#famille" data-go="famille"><span class="ico" aria-hidden="true">👨‍👩‍👧</span><span><strong>Garder le contact avec la famille</strong><small>Appels vidéo, photos des petits-enfants</small></span></a>
+      <a class="choice" href="#appareil" data-go="niveau"><span class="ico" aria-hidden="true">📱</span><span><strong>Choisir un téléphone ou une tablette</strong><small>Selon l'aisance de la personne</small></span></a>
+      <a class="choice" href="#sante" data-go="sante"><span class="ico" aria-hidden="true">💊</span><span><strong>Santé au quotidien</strong><small>Rendez-vous, médicaments, téléconsultation</small></span></a>
+      <a class="choice" href="#chute" data-go="chute"><span class="ico" aria-hidden="true">🆘</span><span><strong>Vivre seul en sécurité</strong><small>Risque de chute, téléassistance</small></span></a>
+      <a class="choice" href="#apprendre" data-go="apprendre"><span class="ico" aria-hidden="true">🤝</span><span><strong>Un proche qui a du mal ou refuse</strong><small>Comment l'accompagner sans le brusquer</small></span></a>
+      <a class="choice" href="#aides" data-go="aides"><span class="ico" aria-hidden="true">🏛️</span><span><strong>De l'aide gratuite près de chez soi</strong><small>Ateliers, conseillers numériques</small></span></a>
+      <a class="choice" href="#protection" data-go="protection"><span class="ico" aria-hidden="true">⚖️</span><span><strong>Un parent qui ne peut plus tout gérer</strong><small>Habilitation familiale, curatelle, tutelle</small></span></a>
+    </div>
+  </section>
+
+  <!-- ===== Questions complémentaires ===== -->
+  <section id="arnaque-q" aria-labelledby="q2a">
+    <p class="question" id="q2a">Avez-vous donné quelque chose ?</p>
+    <p>De l'argent, un code reçu par SMS, un numéro de carte, un mot de passe, ou laissé quelqu'un « prendre la main » sur l'ordinateur ?</p>
+    <div class="choices">
+      <a class="choice" href="#arnaque-oui" data-go="arnaque-oui"><span class="ico" aria-hidden="true">⚠️</span><span><strong>Oui, ou je ne suis pas sûr</strong><small>Il faut agir vite</small></span></a>
+      <a class="choice" href="#arnaque-non" data-go="arnaque-non"><span class="ico" aria-hidden="true">✋</span><span><strong>Non, j'ai juste un doute</strong><small>Je veux savoir comment réagir</small></span></a>
+    </div>
+  </section>
+
+  <section id="niveau" aria-labelledby="q2b">
+    <p class="question" id="q2b">Pour qui est l'appareil ?</p>
+    <div class="choices">
+      <a class="choice" href="#appareil-debutant" data-go="appareil-debutant"><span class="ico" aria-hidden="true">🌱</span><span><strong>Quelqu'un qui débute</strong><small>N'a jamais eu de smartphone</small></span></a>
+      <a class="choice" href="#appareil-fragile" data-go="appareil-fragile"><span class="ico" aria-hidden="true">👓</span><span><strong>Quelqu'un de très âgé ou fragile</strong><small>Vue, mains, mémoire</small></span></a>
+      <a class="choice" href="#appareil-aise" data-go="appareil-aise"><span class="ico" aria-hidden="true">👍</span><span><strong>Quelqu'un d'assez à l'aise</strong><small>Veut WhatsApp, photos, internet</small></span></a>
+    </div>
+  </section>
+
+  <!-- ===== Réponses ===== -->
+  <nav class="nojs-list" aria-label="Toutes les situations">
+    <p>Toutes les situations :
+      <a href="#arnaque-oui">arnaque (vous avez donné quelque chose)</a> ·
+      <a href="#arnaque-non">arnaque (simple doute)</a> ·
+      <a href="#virus">virus</a> · <a href="#securiser">sécuriser un ordinateur</a> · <a href="#photos">photos</a> ·
+      <a href="#famille">famille</a> · <a href="#appareil-debutant">appareil pour débutant</a> ·
+      <a href="#appareil-fragile">appareil pour personne fragile</a> · <a href="#appareil-aise">appareil pour personne à l'aise</a> ·
+      <a href="#sante">santé</a> · <a href="#chute">sécurité à la maison</a> · <a href="#apprendre">accompagner un proche</a> ·
+      <a href="#aides">aides gratuites</a> · <a href="#protection">protection juridique</a></p>
+  </nav>
+
+  <section class="answer" id="arnaque-oui">
+    <h2>Vous avez peut-être été piégé : voici quoi faire, dans l'ordre</h2>
+    <div class="urgent"><strong>Ne restez pas seul avec ça.</strong> Ces arnaques sont très bien faites et touchent tout le monde. Plus on agit vite, plus on limite les dégâts.</div>
+    <ol>
+      <li><strong>Appelez votre banque tout de suite</strong>, avec le numéro inscrit au dos de votre carte ou sur vos relevés (jamais un numéro reçu par message ou donné par l'appelant). Demandez l'opposition sur la carte et signalez les opérations que vous ne reconnaissez pas.</li>
+      <li><strong>Si quelqu'un a « pris la main » sur votre ordinateur</strong> : éteignez-le, puis suivez <a href="apres-un-virus.html">mon guide « Après un virus »</a> avant de vous reconnecter à vos comptes.</li>
+      <li><strong>Si vous avez donné un mot de passe ou un code reçu par SMS</strong> : changez le mot de passe de votre boîte mail, puis de votre banque, depuis un autre appareil si possible (<a href="apres-un-virus.html#mots-de-passe">comment faire</a>).</li>
+      <li><strong>Faites-vous aider</strong> : le <strong>17Cyber</strong> (17cyber.gouv.fr) et <strong>cybermalveillance.gouv.fr</strong> vous guident selon votre situation, et expliquent comment porter plainte.</li>
+      <li><strong>Prévenez un proche</strong>, pour ne pas rester seul et éviter qu'il soit visé à son tour.</li>
+    </ol>
+  </section>
+
+  <section class="answer" id="arnaque-non">
+    <h2>Un doute sur un appel ou un message : les bons réflexes</h2>
+    <ol>
+      <li><strong>Raccrochez, ou ne répondez pas.</strong> Votre banque, Microsoft, la police ou les impôts ne vous demandent jamais un code, un mot de passe ou un virement par téléphone ou par message.</li>
+      <li><strong>Rappelez vous-même</strong> l'organisme ou la personne, avec le numéro que vous connaissez déjà (au dos de la carte, dans votre répertoire). Un « petit-enfant en difficulté » ? Appelez-le directement sur son numéro habituel.</li>
+      <li><strong>Ne cliquez pas sur le lien</strong> d'un SMS ou d'un e-mail inattendu (colis, amende, compte bloqué). Tapez plutôt l'adresse du site vous-même.</li>
+      <li><strong>Signalez</strong> : transférez les SMS frauduleux au <strong>33700</strong> (gratuit), et les sites ou e-mails douteux sur <strong>internet-signalement.gouv.fr</strong> (PHAROS).</li>
+      <li><strong>Moins d'appels indésirables</strong> : inscrivez le numéro sur <strong>bloctel.gouv.fr</strong> (gratuit) et activez le filtre d'appels du téléphone (« Masquer les appels inconnus » sur iPhone, « Identification de l'appelant et spam » sur Android).</li>
+    </ol>
+    <div class="why"><strong>Une phrase à coller sur le frigo :</strong> « Un code reçu par SMS ne se donne jamais, à personne. »</div>
+    <div class="more"><strong>Pour aller plus loin</strong><ul><li><a href="guides/aider-ses-parents-technologie.pdf#page=28">Le chapitre 6 du guide offert</a> : sécurité en ligne et arnaques courantes.</li></ul></div>
+  </section>
+
+  <section class="answer" id="virus">
+    <h2>Un virus ou un programme douteux sur l'ordinateur</h2>
+    <p>Pas de panique : c'est courant, et ça se répare. Si Microsoft Defender a trouvé quelque chose, il l'a généralement déjà mis à l'écart.</p>
+    <ol>
+      <li>Lancez une <strong>analyse hors ligne</strong> de Microsoft Defender (<a href="securiser-ordinateur-windows.html#hors-ligne">les étapes</a>).</li>
+      <li>Vérifiez les <strong>programmes installés</strong> et le <strong>navigateur</strong>, sans rien supprimer que vous ne connaissez pas.</li>
+      <li>Changez vos <strong>mots de passe importants</strong>, en commençant par la boîte mail.</li>
+    </ol>
+    <div class="more"><strong>Le guide complet, pas à pas</strong><ul><li><a href="apres-un-virus.html">Après un virus : les vérifications à faire</a></li></ul></div>
+  </section>
+
+  <section class="answer" id="securiser">
+    <h2>Sécuriser un ordinateur Windows</h2>
+    <p>Pas besoin d'acheter un antivirus : Windows 11 est bien protégé s'il est bien réglé. Les points les plus utiles :</p>
+    <ul>
+      <li><strong>Un seul antivirus</strong> : Microsoft Defender, déjà inclus. Deux antivirus se gênent.</li>
+      <li><strong>Les mises à jour</strong> automatiques, laissées activées.</li>
+      <li><strong>Un code au démarrage</strong> de l'ordinateur et un <strong>Wi-Fi protégé</strong>.</li>
+      <li><strong>La validation en deux étapes</strong> sur la boîte mail et la banque.</li>
+      <li><strong>Une sauvegarde</strong> automatique des documents et des photos.</li>
+    </ul>
+    <div class="more"><strong>Le guide complet, pas à pas</strong><ul><li><a href="securiser-ordinateur-windows.html">Sécuriser son ordinateur Windows</a> (10 étapes, sans jargon)</li></ul></div>
+  </section>
+
+  <section class="answer" id="photos">
+    <h2>Ne pas perdre ses photos et ses documents</h2>
+    <ol>
+      <li><strong>La règle simple</strong> : vos photos doivent exister à deux endroits. Si elles ne sont que sur le téléphone ou l'ordinateur, elles peuvent disparaître avec lui.</li>
+      <li><strong>Le plus facile</strong> : une sauvegarde en ligne automatique. Sur iPhone, Photos iCloud. Sur Android, Google Photos. Sur un ordinateur Windows, OneDrive ou Google Drive.</li>
+      <li><strong>En plus, si vous le souhaitez</strong> : un disque dur externe, branché une fois par mois.</li>
+      <li><strong>Vérifiez une fois</strong> que ça marche : ouvrez une photo sauvegardée depuis un autre appareil.</li>
+    </ol>
+    <div class="more"><strong>Les étapes détaillées</strong><ul><li><a href="securiser-ordinateur-windows.html#sauvegarde">Sauvegarder son ordinateur</a>, dont <a href="securiser-ordinateur-windows.html#en-ligne">la sauvegarde en ligne avec OneDrive ou Google Drive</a></li></ul></div>
+  </section>
+
+  <section class="answer" id="famille">
+    <h2>Garder le contact avec la famille</h2>
+    <ol>
+      <li><strong>Choisissez une seule application</strong>, celle que la famille utilise déjà : le plus souvent <strong>WhatsApp</strong> (messages, photos, appels vidéo, jusqu'à 32 personnes), ou <strong>FaceTime</strong> si tout le monde a un iPhone ou un iPad.</li>
+      <li><strong>Installez-la ensemble</strong> et ajoutez les contacts de la famille, avec leur photo : on appelle plus facilement quelqu'un que l'on reconnaît.</li>
+      <li><strong>Créez un groupe familial</strong> où les petits-enfants envoient des photos. C'est souvent ce qui donne envie de s'y mettre.</li>
+      <li><strong>Un rendez-vous fixe</strong> (par exemple un appel vidéo le dimanche) installe l'habitude en douceur.</li>
+    </ol>
+    <div class="why"><strong>Astuce :</strong> mettez l'icône de l'application en grand sur le premier écran, et retirez les autres de cet écran.</div>
+    <div class="more"><strong>Pour aller plus loin</strong><ul><li><a href="guides/aider-ses-parents-technologie.pdf#page=24">Le chapitre 5 du guide offert</a> : outils de communication et réunion familiale en vidéo.</li></ul></div>
+  </section>
+
+  <section class="answer" id="appareil-debutant">
+    <h2>Un premier appareil pour quelqu'un qui débute</h2>
+    <ul>
+      <li><strong>Smartphone senior</strong> (par exemple la gamme Doro, environ 150 à 250 €) : grandes touches et icônes, son fort, bouton d'urgence.</li>
+      <li><strong>Ou un smartphone classique en « mode simplifié »</strong> (environ 150 à 250 € en Android d'entrée de gamme) : utile s'il faut WhatsApp plus tard.</li>
+      <li><strong>Commencez par une seule chose</strong> : appeler et répondre. Le reste viendra après.</li>
+    </ul>
+    <div class="warn"><strong>Avant d'acheter :</strong> faites essayer en magasin. La lisibilité de l'écran et la taille des touches comptent plus que les fonctions.</div>
+    <div class="more"><strong>Pour aller plus loin</strong><ul><li><a href="guides/aider-ses-parents-technologie.pdf#page=15">Le chapitre 3 du guide offert</a> : guide d'achat par profil.</li></ul></div>
+  </section>
+
+  <section class="answer" id="appareil-fragile">
+    <h2>Un appareil pour une personne très âgée ou fragile</h2>
+    <ul>
+      <li><strong>Téléphone à clapet à grosses touches</strong> (environ 60 à 120 €) : simple, solide, avec un bouton d'urgence qui prévient des proches.</li>
+      <li><strong>Tablette simplifiée sur abonnement</strong> (par exemple LiNote) : elle répond toute seule aux appels vidéo de la famille et affiche les photos envoyées par les proches. Rien à manipuler.</li>
+      <li><strong>Si le risque de chute vous inquiète</strong>, regardez aussi la <a href="#chute" data-go="chute">téléassistance</a>.</li>
+    </ul>
+    <div class="more"><strong>Pour aller plus loin</strong><ul><li><a href="guides/aider-ses-parents-technologie.pdf#page=15">Le chapitre 3 du guide offert</a> : guide d'achat par profil.</li></ul></div>
+  </section>
+
+  <section class="answer" id="appareil-aise">
+    <h2>Un appareil pour quelqu'un d'assez à l'aise</h2>
+    <ul>
+      <li><strong>iPhone reconditionné</strong> (à partir d'environ 250 €) : très simple, FaceTime, taille du texte et zoom réglables. Le mode « Accès assisté » peut réduire l'écran à l'essentiel.</li>
+      <li><strong>Smartphone Android d'entrée de gamme</strong> (environ 150 à 250 €) : bon rapport qualité-prix, avec un « mode simplifié » dans les réglages.</li>
+      <li><strong>Tablette</strong> (iPad d'entrée de gamme, environ 400 à 500 €) : le grand écran est idéal pour les appels vidéo et les photos.</li>
+    </ul>
+    <div class="why"><strong>Bon à savoir :</strong> un appareil reconditionné avec garantie coûte nettement moins cher qu'un neuf, et fonctionne très bien.</div>
+    <div class="more"><strong>Pour aller plus loin</strong><ul><li><a href="guides/aider-ses-parents-technologie.pdf#page=15">Le chapitre 3 du guide offert</a> : guide d'achat par profil.</li></ul></div>
+  </section>
+
+  <section class="answer" id="sante">
+    <h2>La santé au quotidien</h2>
+    <ul>
+      <li><strong>Rendez-vous médicaux</strong> : Doctolib. Vous pouvez ajouter votre parent comme « proche » dans votre propre compte et gérer ses rendez-vous à distance.</li>
+      <li><strong>Médicaments</strong> : rappels avec l'application Santé de l'iPhone ou une application gratuite comme MyTherapy. Pour plus de simplicité, un pilulier connecté prévient les proches en cas d'oubli.</li>
+      <li><strong>Téléconsultation</strong> : utile pour un renouvellement ou un petit souci. Faites un appel vidéo d'essai avant le premier rendez-vous.</li>
+    </ul>
+    <div class="why"><strong>Le bon ordre :</strong> commencez par un seul outil, testez-le deux semaines, puis ajoutez-en un autre si besoin.</div>
+    <div class="more"><strong>Pour aller plus loin</strong><ul><li><a href="guides/aider-ses-parents-technologie.pdf#page=39">Le chapitre 8 du guide offert</a> : technologie pour la santé et le bien-être.</li></ul></div>
+  </section>
+
+  <section class="answer" id="chute">
+    <h2>Vivre seul chez soi, en sécurité</h2>
+    <ul>
+      <li><strong>Téléassistance classique</strong> : un médaillon ou un bracelet avec un bouton, relié à une centrale d'écoute 24 h/24. Environ 20 à 25 € par mois.</li>
+      <li><strong>Détecteur de chute automatique</strong> : prévient même si la personne ne peut pas appuyer. Environ 25 à 35 € par mois.</li>
+      <li><strong>Sans abonnement</strong> : un téléphone avec bouton SOS ou une montre avec détection de chute, qui préviennent directement des proches (mais pas une centrale).</li>
+    </ul>
+    <div class="why"><strong>Les aides :</strong> un <strong>crédit d'impôt de 50 %</strong> sur l'abonnement de téléassistance (dans le cadre des services à la personne), et l'<strong>APA</strong> peut en couvrir une partie. Le département ou la mutuelle proposent parfois des offres : renseignez-vous auprès de la mairie ou du point d'information local pour les personnes âgées.</div>
+    <div class="warn"><strong>Avant de signer :</strong> lisez les conditions de résiliation (préavis, durée minimale), en particulier en cas de déménagement ou d'entrée en établissement.</div>
+    <div class="more"><strong>Pour aller plus loin</strong><ul><li><a href="guides/aider-ses-parents-technologie.pdf#page=43">Le chapitre 9 du guide offert</a> : comparer les 6 types de téléassistance.</li></ul></div>
+  </section>
+
+  <section class="answer" id="apprendre">
+    <h2>Accompagner un proche qui a du mal, ou qui refuse</h2>
+    <ol>
+      <li><strong>Partez de ce qui lui manque</strong>, pas de l'appareil : « Tu aimerais voir les photos des petits plus souvent ? » donne plus envie que « Tu devrais avoir un smartphone ».</li>
+      <li><strong>Une seule chose par semaine.</strong> Semaine 1 : allumer et éteindre. Semaine 2 : appeler. Semaine 3 : envoyer une photo.</li>
+      <li><strong>La méthode 3-2-1</strong> : vous montrez 3 fois, vous guidez 2 fois, la personne essaie seule 1 fois.</li>
+      <li><strong>Laissez-lui les mains</strong> sur l'appareil, et notez les étapes sur une fiche, en gros caractères.</li>
+      <li><strong>En cas de blocage</strong> : on fait une pause, on refait quelque chose qu'elle sait déjà faire, et on reprend un autre jour.</li>
+    </ol>
+    <div class="why"><strong>À éviter :</strong> « C'est facile ! ». Préférez « Je comprends, au début c'est déroutant pour tout le monde. »</div>
+    <div class="more"><strong>Pour aller plus loin</strong><ul><li><a href="guides/aider-ses-parents-technologie.pdf#page=34">Le chapitre 7 du guide offert</a> : accompagner l'apprentissage.</li><li><a href="guides/aider-ses-parents-technologie.pdf#page=47">Le chapitre 10</a> : gérer les résistances et les frustrations.</li></ul></div>
+  </section>
+
+  <section class="answer" id="aides">
+    <h2>De l'aide gratuite près de chez soi</h2>
+    <ul>
+      <li><strong>Conseillers numériques et espaces France Services</strong> : des personnes formées, gratuites, pour apprendre à utiliser un téléphone ou un ordinateur, ou faire une démarche en ligne. La carte des lieux est sur <strong>societenumerique.gouv.fr</strong>. Votre mairie ou votre médiathèque peut aussi vous orienter.</li>
+      <li><strong>Les Bons Clics</strong> (lesbonsclics.fr) : des tutoriels gratuits et simples pour débuter.</li>
+      <li><strong>Emmaüs Connect</strong> (emmaus-connect.org) : accompagnement et appareils reconditionnés à prix solidaire.</li>
+    </ul>
+    <div class="more"><strong>Pour aller plus loin</strong><ul><li><a href="guides/aider-ses-parents-technologie.pdf#page=55">Le chapitre 12 du guide offert</a> : ressources utiles en France.</li></ul></div>
+  </section>
+
+  <section class="answer" id="protection">
+    <h2>Un parent qui ne peut plus tout gérer seul</h2>
+    <p>Il existe plusieurs mesures, de la plus légère à la plus protectrice. On choisit toujours la moins contraignante possible.</p>
+    <ul>
+      <li><strong>Mandat de protection future</strong> : la personne choisit elle-même, à l'avance, qui s'occupera d'elle. Il faut le faire tant qu'elle peut encore décider.</li>
+      <li><strong>Habilitation familiale</strong> : un proche (enfant, conjoint, frère ou sœur…) est autorisé par le juge à agir pour elle. Souvent la solution la plus simple quand la famille s'entend bien.</li>
+      <li><strong>Curatelle et tutelle</strong> : décidées par le juge des contentieux de la protection, pour une aide plus large.</li>
+    </ul>
+    <div class="warn"><strong>Ces repères sont généraux.</strong> Pour votre situation, renseignez-vous sur <strong>service-public.fr</strong> ou auprès d'un notaire. En cas de maltraitance d'une personne âgée, appelez le <strong>3977</strong>.</div>
+    <div class="more"><strong>Pour aller plus loin</strong><ul><li><a href="guides/aider-ses-parents-technologie.pdf#page=65">L'annexe juridique du guide offert</a> : comparatif des mesures et démarches en 5 étapes.</li></ul></div>
+  </section>
+
+  <div class="tools" id="tools">
+    <button type="button" class="btn" id="restart" hidden>← Choisir une autre situation</button>
+    <a class="btn" href="guides/aider-ses-parents-technologie.pdf" download>📄 Le guide complet offert (PDF)</a>
+  </div>
+
+  <!-- ===== OFFRE ===== -->
+  <section class="offer">
+    <h2>Vous préférez qu'on le fasse ensemble ?</h2>
+    <p>Je viens chez vous, à Pau et alentours, pour régler ce qui vous préoccupe et vous expliquer chaque étape, à votre rythme.</p>
+    <p>Une séance d'une heure est à <strong>30 €</strong>. Réduction de 10 % pour les plus de 70 ans. <a href="./#tarifs">Voir tous les tarifs</a>.</p>
+    <p>
+      <a href="tel:+33784529922" class="call-btn">📞 07 84 52 99 22</a>
+      <a href="./#contact" class="call-btn">✉️ M'écrire</a>
+    </p>
+    <p>Première rencontre gratuite, sans engagement.</p>
+  </section>
+</main>
+<footer>
+  <p>© 2026 Izumi Bérat · <a href="./">Assistance technologique à domicile, Pau</a> · <a href="./#guides">Tous mes guides</a> · <a href="mentions-legales.html">Mentions légales</a></p>
+</footer>
+<script>
+(function () {
+  var choix = document.getElementById('choix');
+  var restart = document.getElementById('restart');
+  var steps = ['arnaque-q', 'niveau'];
+  var alias = { arnaque: 'arnaque-q', appareil: 'niveau' };
+
+  function show(id, push) {
+    id = alias[id] || id;
+    var target = id && document.getElementById(id);
+    document.querySelectorAll('.answer.active, #niveau.active, #arnaque-q.active').forEach(function (el) { el.classList.remove('active'); });
+    if (!target || target === choix) {
+      choix.classList.remove('hidden');
+      restart.hidden = true;
+      if (push) history.pushState(null, '', location.pathname);
+      return;
+    }
+    choix.classList.add('hidden');
+    target.classList.add('active');
+    restart.hidden = false;
+    if (push) history.pushState(null, '', '#' + id);
+    var h = target.querySelector('h2, .question');
+    if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-go]');
+    if (!a) return;
+    e.preventDefault();
+    show(a.getAttribute('data-go'), true);
+  });
+  restart.addEventListener('click', function () { show(null, true); choix.scrollIntoView({ behavior: 'smooth' }); });
+  window.addEventListener('popstate', function () { show(location.hash.slice(1), false); });
+  show(location.hash.slice(1), false);
+})();
+</script>
+</body>
+</html>
