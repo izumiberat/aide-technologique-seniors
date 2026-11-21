@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ウイルスのあとに確認すること | 山口 泉 (Izumi Bérat)・ポー</title>
+<meta name="description" content="ウイルス対策ソフトが悪いプログラムを見つけた、あやしいソフトを入れてしまった。そんなときの確認を順番に：スキャン、プログラム、ブラウザー、パスワード、メール。">
+<link rel="canonical" href="https://seniors.izutech.fr/ja/after-a-virus.html">
+<link rel="alternate" hreflang="fr" href="https://seniors.izutech.fr/apres-un-virus.html">
+<link rel="alternate" hreflang="en" href="https://seniors.izutech.fr/en/after-a-virus.html">
+<link rel="alternate" hreflang="ja" href="https://seniors.izutech.fr/ja/after-a-virus.html">
+<link rel="alternate" hreflang="x-default" href="https://seniors.izutech.fr/apres-un-virus.html">
+<style>
+  :root { --primary: #1f5f8b; --text: #2c3e50; --muted: #4a5568; --line: #e3e8ed; --bg: #f7f9fb; --note: #eef5fa; --warn: #fdf3e7; --warn-line: #e3a35a; }
+  body { font-family: "Open Sans", "Segoe UI", system-ui, sans-serif; font-size: 18px; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 0 16px; }
+  main { max-width: 760px; margin: 2rem auto 3rem; background: #fff; border-radius: 10px; padding: clamp(1.25rem, 4vw, 2.5rem); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  h1, h2, h3 { font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; line-height: 1.3; }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 { font-size: 1.35rem; color: var(--primary); margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.25rem; }
+  a { color: var(--primary); }
+  li { margin-bottom: 0.5rem; }
+  .back { display: inline-block; margin-bottom: 1rem; padding: 0.5rem 0; font-weight: 700; }
+  .updated { color: var(--muted); font-size: 1rem; }
+  .intro { font-size: 1.1rem; }
+  .toc { background: var(--note); border-radius: 8px; padding: 1rem 1.25rem; }
+  .toc ol { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+  .why { background: var(--note); border-left: 4px solid var(--primary); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .warn { background: var(--warn); border-left: 4px solid var(--warn-line); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .keep { font-weight: 600; }
+  .offer { background: var(--note); border-radius: 10px; padding: 1.25rem 1.5rem; margin-top: 2.5rem; }
+  .offer h2 { border-top: none; margin-top: 0; padding-top: 0; }
+  .call-btn { display: inline-block; background: var(--primary); color: #fff; text-decoration: none; font-weight: 700; padding: 0.7rem 1.2rem; border-radius: 8px; margin: 0.25rem 0.5rem 0.25rem 0; }
+  dl { margin: 0; border-top: 1px solid var(--line); }
+  dl > div { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 0.25rem 1.25rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+  dt { font-weight: 700; }
+  dd { margin: 0; }
+  .to-toc { position: fixed; right: 16px; bottom: 16px; background: var(--primary); color: #fff; font-weight: 700; text-decoration: none; padding: 0.6rem 1rem; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .to-toc:hover, .to-toc:focus-visible { background: #174a6d; }
+  @media print { .to-toc { display: none; } }
+  footer { max-width: 760px; margin: 0 auto 2rem; color: var(--muted); font-size: 0.95rem; text-align: center; }
+  @media (max-width: 560px) { dl > div { grid-template-columns: 1fr; } }
+  @media print { body { background: #fff; padding: 0; } main { box-shadow: none; margin: 0; } .back, .offer .call-btn { display: none; } }
+  .lang-switch { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.25rem; margin: 0 0 0.5rem; font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; font-size: 1rem; }
+  .lang-switch a { padding: 0.4rem 0.7rem; border-radius: 50px; text-decoration: none; font-weight: 600; }
+  .lang-switch a:hover, .lang-switch a:focus-visible { background: var(--note); }
+  .lang-switch a[aria-current="page"] { background: var(--primary); color: #fff; }
+  .lang-note { font-size: 1rem; color: var(--muted); font-style: italic; }
+  @media print { .lang-switch { display: none; } } /*ls*/
+  :lang(ja) body { font-family: "Open Sans", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif; line-height: 1.85; }
+  :lang(ja) h1, :lang(ja) h2, :lang(ja) h3, :lang(ja) .question { font-family: "Montserrat", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif; line-height: 1.45; word-break: auto-phrase; text-wrap: balance; }
+</style>
+</head>
+<body>
+<main>
+  <nav class="lang-switch" aria-label="Langue / Language / 言語">
+    <a href="../apres-un-virus.html" hreflang="fr" lang="fr">Français</a>
+    <a href="../en/after-a-virus.html" hreflang="en" lang="en">English</a>
+    <a href="after-a-virus.html" hreflang="ja" lang="ja" aria-current="page">日本語</a>
+  </nav>
+  <a class="back" href="./#guides">← ホームページに戻る</a>
+  <h1>ウイルスのあとに確認すること</h1>
+  <p class="updated">Windows 11 向け · 2026年11月21日更新</p>
+
+  <p class="intro">Microsoft Defender が「脅威」を見つけたと知らせてきましたか？ それとも、インターネットで見つけた「無料の PDF 変換ソフト」や「お掃除ソフト」「高速化ソフト」などを入れてしまい、心配になっていますか？ あわてなくて大丈夫です。よくあることで、ちゃんと直せます。こういうときにお客さまと一緒に行う確認を、順番にまとめました。</p>
+  <p>このガイドは、基本の設定を説明した<a href="secure-windows-computer.html">「Windows パソコンを安全にする手順」</a>の続きです。まだ見ていない方は、このあとにそちらも行ってください。同じことが起きるのを防げます。</p>
+  <p class="lang-note">このガイドのメニュー名は日本語版 Windows のものです。Windows がフランス語の場合は<a href="../apres-un-virus.html" hreflang="fr" lang="fr">フランス語版のガイド</a>を、英語の場合は<a href="../en/after-a-virus.html" hreflang="en" lang="en">英語版</a>をご覧ください。</p>
+
+  <nav class="toc" id="sommaire" aria-label="目次">
+    <strong>これからやること</strong>
+    <ol>
+      <li><a href="#analyse">フル スキャンをする</a></li>
+      <li><a href="#programmes">インストールされているプログラムを確認する</a></li>
+      <li><a href="#navigateur">ブラウザーを確認する</a></li>
+      <li><a href="#mots-de-passe">大切なパスワードを変える</a></li>
+      <li><a href="#boite-mail">メールを確認する</a></li>
+      <li><a href="#banque">銀行の情報を入力してしまった場合</a></li>
+      <li><a href="#eviter">もう起きないように</a></li>
+    </ol>
+  </nav>
+
+  <div class="why"><strong>知っておくと安心：</strong>Defender が何かを見つけると、「隔離」します。つまり、閉じこめて何もできないようにします。危険はもう取り除かれています。このあとの確認は、何も残っていないことを確かめ、念のためアカウントを守るためのものです。</div>
+
+  <!-- ===== 1 ===== -->
+  <h2 id="analyse">1. フル スキャンをする</h2>
+  <p>まず Microsoft Defender の<strong>オフライン スキャン</strong>を行います。Windows が起動する前にパソコンを調べるので、悪いプログラムが隠れられません。手順は<a href="secure-windows-computer.html#hors-ligne">最初のガイド（手順 4）</a>にあります。15分ほどかかります。</p>
+  <p>次に、<strong>Windows セキュリティ</strong> › <strong>ウイルスと脅威の防止</strong> › <strong>保護の履歴</strong>を開きます。Defender が何を見つけ、どう処理したかがわかります。「検疫済み」または「削除済み」なら、もう大丈夫です。</p>
+
+  <!-- ===== 2 ===== -->
+  <h2 id="programmes">2. インストールされているプログラムを確認する</h2>
+  <div class="warn"><strong>大切：</strong>この手順では、見て紙に書きとめるだけにして、知らないものは削除しないでください。見慣れない名前の多くはふつうのもので、Windows やパソコン、プリンターのメーカーが入れたものです。迷ったら、削除する前に信頼できる人に聞いてください。</div>
+  <ol>
+    <li><strong>インストールされているプログラム。</strong><strong>設定</strong>（Windows キー + I） › <strong>アプリ</strong> › <strong>インストールされているアプリ</strong>を開きます。上で<strong>インストール日</strong>の順に並べ替えると、新しいものが先に表示されます。あやしいプログラムはもうないはずです。まだあれば、<strong>…</strong> › <strong>アンインストール</strong>。ほかにも、見覚えのない最近の名前があれば書きとめます。</li>
+    <li><strong>起動時に動くプログラム。</strong>同じ<strong>アプリ</strong>の中の<strong>スタートアップ</strong>をクリックします。パソコンと一緒に起動するプログラムの一覧です。見覚えのないものを書きとめます。知らないプログラムのスイッチはオフにしてかまいません。削除されるわけではなく、自動で起動しなくなるだけです。</li>
+    <li><strong>「遠隔操作」のプログラムは？</strong> 技術者（Microsoft、銀行、プロバイダー）を名乗る人から電話があり、「画面を見るため」のプログラムを入れさせられた場合は、そのプログラムをアンインストールし、手順 4〜6 をよく読んでください。Microsoft も銀行も、そのような電話は決してしません。</li>
+  </ol>
+
+  <!-- ===== 3 ===== -->
+  <h2 id="navigateur">3. ブラウザーを確認する</h2>
+  <p>偽のソフトは、広告を出したり検索をのぞいたりするために、ブラウザー（Edge や Chrome）にも入りこむことがよくあります。</p>
+  <ol>
+    <li><strong>拡張機能</strong>（ブラウザーに追加される小さな部品）。Edge：右上の<strong>…</strong>メニュー › <strong>拡張機能</strong> › <strong>拡張機能の管理</strong>。Chrome：<strong>⋮</strong>メニュー › <strong>拡張機能</strong> › <strong>拡張機能を管理</strong>。自分で追加していないものは削除します。一覧が空なら、とてもよい状態です。</li>
+    <li><strong>検索エンジン。</strong>Edge：<strong>…</strong>メニュー › <strong>設定</strong> › <strong>プライバシー、検索、サービス</strong>、いちばん下の<strong>アドレス バーと検索</strong>。Chrome：<strong>⋮</strong>メニュー › <strong>設定</strong> › <strong>検索エンジン</strong>。よく知られた検索エンジン（Bing、Google、Qwant など）が表示されているはずです。偽のソフトがこの設定を自分のものに変えていることがあります。</li>
+    <li><strong>最初に開くページ。</strong>ブラウザーを開いたときに知らないページが出る場合は、同じ設定の<strong>[スタート]、[ホーム]、および [新規] タブ</strong>（または「起動時」）で変えます。</li>
+  </ol>
+
+  <!-- ===== 4 ===== -->
+  <h2 id="mots-de-passe">4. 大切なパスワードを変える</h2>
+  <div class="why"><strong>なぜ？</strong> 悪いプログラムの中には、キーボードで入力した内容を記録するものがあります。プログラムが入っていたあいだに、このパソコンで大切なサイトにログインした場合は、そのパスワードを変えたほうが安心です。</div>
+  <ol>
+    <li>このパソコンがきれいだと確かめられるまでは、できれば<strong>別の機器から</strong>（スマートフォンや別のパソコン）行います。</li>
+    <li><strong>この順番で：</strong>まず<strong>メール</strong>（ほかのすべてのアカウントを取り戻すのに使うため）、次に<strong>銀行</strong>、次に<strong>ネットショッピング</strong>のサイト、最後にそのほか。</li>
+    <li><strong>サイトごとに別のパスワードを。</strong>全部を覚えずにすむコツは<a href="secure-windows-computer.html#comptes">最初のガイド（手順 9）</a>にあります。</li>
+  </ol>
+
+  <!-- ===== 5 ===== -->
+  <h2 id="boite-mail">5. メールを確認する</h2>
+  <p>あなたのパスワードを手に入れた人が、パスワードを変えたあともメールを読み続けられるように、メールの中に「抜け道」を残していることがあります。正確な名前はメールのサービス（Gmail、Outlook、Orange、Yahoo など）によって違います。<strong>設定</strong>（歯車のマークが多いです）の中を探してください。</p>
+  <ol>
+    <li><strong>自動転送</strong>（「転送」「メールボックス」「アカウント」などの項目）：知らないアドレスへの転送がオンになっていないこと。</li>
+    <li><strong>フィルターやルール</strong>：自分で作っていないルールがないこと（たとえば、一部のメールを見えないうちに削除したり移動したりするルール）。</li>
+    <li><strong>再設定用の情報</strong>（アカウントの「セキュリティ」）：電話番号と予備のアドレスが自分のものであること。</li>
+    <li><strong>接続中の機器</strong>：多くのメールサービスで、機器や最近のログインの一覧が見られます。知らないものがあれば<strong>すべての機器からログアウト</strong>を選び、自分の機器でログインし直します。</li>
+    <li>まだの場合は、<a href="secure-windows-computer.html#comptes">最初のガイド</a>で説明している<strong>2段階認証</strong>をオンにします。</li>
+  </ol>
+
+  <!-- ===== 6 ===== -->
+  <h2 id="banque">6. 銀行の情報を入力してしまった場合</h2>
+  <p>あやしいサイトでカード番号を入力してしまった場合や、銀行のサイトを開いているあいだに偽の技術者に画面を見られた可能性がある場合は：</p>
+  <ul>
+    <li><strong>すぐに銀行に電話してください</strong>。カードや明細書に書いてある番号を使います（メッセージで届いた番号は使わないでください）。カードを止め、口座を見守ってもらえます。</li>
+    <li>最近の明細を確認し、身に覚えのない取引があれば知らせます。</li>
+    <li>フランスでは、公式サイト <strong lang="fr">cybermalveillance.gouv.fr</strong>（フランス語）で、状況に合わせた対処法や、必要な場合の被害届の出し方が説明されています。</li>
+  </ul>
+
+  <!-- ===== 7 ===== -->
+  <h2 id="eviter">7. もう起きないように</h2>
+  <ul>
+    <li class="keep">プログラムは<strong>Microsoft Store</strong>かメーカーの公式サイトからだけダウンロードし、広告からは決してダウンロードしない。</li>
+    <li class="keep">変換・お掃除・高速化をうたう「無料」のプログラムには気をつける。Windows は PDF を（Edge で）開けますし、パソコンの手入れも自分でしてくれます。</li>
+    <li class="keep">自分で何かをインストールしているわけではないのに「このアプリがデバイスに変更を加えることを許可しますか？」と聞かれたら、<strong>いいえ</strong>を選ぶ。</li>
+    <li class="keep">きちんとした会社が、パソコンを「直す」ために電話してくることはありません。電話を切りましょう。</li>
+    <li class="keep"><a href="secure-windows-computer.html">「Windows パソコンを安全にする手順」</a>を行う。きちんと設定したパソコンと最新のバックアップが、いちばんの守りです。</li>
+  </ul>
+
+  <!-- ===== OFFRE ===== -->
+  <section class="offer">
+    <h2>心配なときは一緒に見ましょう</h2>
+    <p>見覚えのない名前を書きとめた場合や、まだ不安な場合は、ポーとその周辺のご自宅にうかがいます。一緒に落ち着いて一覧を見直し、それぞれの手順で何をしているのか説明します。</p>
+    <p>1時間のサポートは<strong>30 €</strong>です。70歳以上の方は10%引き。<a href="./#tarifs">料金をすべて見る</a>。</p>
+    <p>
+      <a href="tel:+33784529922" class="call-btn">📞 +33 7 84 52 99 22</a>
+      <a href="./#contact" class="call-btn">✉️ メッセージを送る</a>
+    </p>
+    <p>初回の相談は無料、契約の義務はありません。</p>
+  </section>
+</main>
+<a class="to-toc" href="#sommaire">↑ 目次</a>
+<footer>
+  <p>© 2026 山口 泉 (Izumi Bérat) · <a href="./">ポーの出張パソコンサポート</a> · <a href="./#guides">ガイド一覧</a> · <a href="where-to-start.html">どこから始める？</a> · <a href="../mentions-legales.html" hreflang="fr">法的情報（フランス語）</a></p>
+  <p>このガイドは、個人での利用に限り自由に印刷・共有できます。</p>
+</footer>
+</body>
+</html>

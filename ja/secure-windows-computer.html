@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windows パソコンを安全にする手順 | 山口 泉 (Izumi Bérat)・ポー</title>
+<meta name="description" content="ウイルス対策、Microsoft Defender、起動時の PIN、Wi-Fi、スマートフォン、WhatsApp、バックアップ、パスワード。Windows 11 パソコンを安全にする手順を、専門用語なしで説明します。">
+<link rel="canonical" href="https://seniors.izutech.fr/ja/secure-windows-computer.html">
+<link rel="alternate" hreflang="fr" href="https://seniors.izutech.fr/securiser-ordinateur-windows.html">
+<link rel="alternate" hreflang="en" href="https://seniors.izutech.fr/en/secure-windows-computer.html">
+<link rel="alternate" hreflang="ja" href="https://seniors.izutech.fr/ja/secure-windows-computer.html">
+<link rel="alternate" hreflang="x-default" href="https://seniors.izutech.fr/securiser-ordinateur-windows.html">
+<style>
+  :root { --primary: #1f5f8b; --text: #2c3e50; --muted: #4a5568; --line: #e3e8ed; --bg: #f7f9fb; --note: #eef5fa; --warn: #fdf3e7; --warn-line: #e3a35a; }
+  body { font-family: "Open Sans", "Segoe UI", system-ui, sans-serif; font-size: 18px; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 0 16px; }
+  main { max-width: 760px; margin: 2rem auto 3rem; background: #fff; border-radius: 10px; padding: clamp(1.25rem, 4vw, 2.5rem); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  h1, h2, h3 { font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; line-height: 1.3; }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 { font-size: 1.35rem; color: var(--primary); margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.25rem; }
+  a { color: var(--primary); }
+  li { margin-bottom: 0.5rem; }
+  .back { display: inline-block; margin-bottom: 1rem; padding: 0.5rem 0; font-weight: 700; }
+  .updated { color: var(--muted); font-size: 1rem; }
+  .intro { font-size: 1.1rem; }
+  .toc { background: var(--note); border-radius: 8px; padding: 1rem 1.25rem; }
+  .toc ol { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+  .why { background: var(--note); border-left: 4px solid var(--primary); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .warn { background: var(--warn); border-left: 4px solid var(--warn-line); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .keep { font-weight: 600; }
+  .offer { background: var(--note); border-radius: 10px; padding: 1.25rem 1.5rem; margin-top: 2.5rem; }
+  .offer h2 { border-top: none; margin-top: 0; padding-top: 0; }
+  .call-btn { display: inline-block; background: var(--primary); color: #fff; text-decoration: none; font-weight: 700; padding: 0.7rem 1.2rem; border-radius: 8px; margin: 0.25rem 0.5rem 0.25rem 0; }
+  dl { margin: 0; border-top: 1px solid var(--line); }
+  dl > div { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 0.25rem 1.25rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+  dt { font-weight: 700; }
+  dd { margin: 0; }
+  .to-toc { position: fixed; right: 16px; bottom: 16px; background: var(--primary); color: #fff; font-weight: 700; text-decoration: none; padding: 0.6rem 1rem; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .to-toc:hover, .to-toc:focus-visible { background: #174a6d; }
+  @media print { .to-toc { display: none; } }
+  footer { max-width: 760px; margin: 0 auto 2rem; color: var(--muted); font-size: 0.95rem; text-align: center; }
+  @media (max-width: 560px) { dl > div { grid-template-columns: 1fr; } }
+  @media print { body { background: #fff; padding: 0; } main { box-shadow: none; margin: 0; } .back, .offer .call-btn { display: none; } }
+  .lang-switch { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.25rem; margin: 0 0 0.5rem; font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; font-size: 1rem; }
+  .lang-switch a { padding: 0.4rem 0.7rem; border-radius: 50px; text-decoration: none; font-weight: 600; }
+  .lang-switch a:hover, .lang-switch a:focus-visible { background: var(--note); }
+  .lang-switch a[aria-current="page"] { background: var(--primary); color: #fff; }
+  .lang-note { font-size: 1rem; color: var(--muted); font-style: italic; }
+  @media print { .lang-switch { display: none; } } /*ls*/
+  :lang(ja) body { font-family: "Open Sans", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif; line-height: 1.85; }
+  :lang(ja) h1, :lang(ja) h2, :lang(ja) h3, :lang(ja) .question { font-family: "Montserrat", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif; line-height: 1.45; word-break: auto-phrase; text-wrap: balance; }
+</style>
+</head>
+<body>
+<main>
+  <nav class="lang-switch" aria-label="Langue / Language / 言語">
+    <a href="../securiser-ordinateur-windows.html" hreflang="fr" lang="fr">Français</a>
+    <a href="../en/secure-windows-computer.html" hreflang="en" lang="en">English</a>
+    <a href="secure-windows-computer.html" hreflang="ja" lang="ja" aria-current="page">日本語</a>
+  </nav>
+  <a class="back" href="./#guides">← ホームページに戻る</a>
+  <h1>Windows パソコンを安全にする手順</h1>
+  <p class="updated">Windows 11 向け · 2026年11月19日更新</p>
+
+  <p class="intro">「パソコンを守るには何をすればいいの？」とよく聞かれます。うれしいことに、必要なものはほとんど Windows に最初から入っています。いくつかの設定を一度確認するだけで大丈夫です。お客さまと一緒に行っている手順を、わかりやすくまとめました。</p>
+  <p>あわてずに進めてください。今日は一部だけ、残りは別の日でもかまいません。ここに書いてあることでパソコンが壊れることはありません。</p>
+  <p><strong>どこから始める？</strong> いちばん大切なのは手順 1〜3（全部で30分ほど）と、まだバックアップがない場合は手順 8 です。ほかは後回しでかまいません。難しそうな手順は飛ばして次へ進んでください。あとで戻ってきても、一緒にやってもかまいません。</p>
+  <p class="lang-note">このガイドのメニュー名は日本語版 Windows のものです。Windows がフランス語の場合は<a href="../securiser-ordinateur-windows.html" hreflang="fr" lang="fr">フランス語版のガイド</a>を、英語の場合は<a href="../en/secure-windows-computer.html" hreflang="en" lang="en">英語版</a>をご覧ください。</p>
+
+  <nav class="toc" id="sommaire" aria-label="目次">
+    <strong>これからやること</strong>
+    <ol>
+      <li><a href="#securite-windows">「Windows セキュリティ」を確認する</a></li>
+      <li><a href="#un-seul-antivirus">ウイルス対策ソフトは1つだけに</a></li>
+      <li><a href="#defender">Microsoft Defender が動いているか確認する</a></li>
+      <li><a href="#hors-ligne">心配なときは「オフライン スキャン」</a></li>
+      <li><a href="#code-demarrage">起動時に PIN を設定する</a></li>
+      <li><a href="#wifi">Wi-Fi とルーターをしっかり守る</a></li>
+      <li><a href="#telephone">スマートフォンと WhatsApp</a></li>
+      <li><a href="#sauvegarde">ファイルを自動でバックアップする</a></li>
+      <li><a href="#comptes">メールとパスワードを守る</a></li>
+      <li><a href="#retenir">覚えておきたい習慣</a></li>
+    </ol>
+  </nav>
+
+  <h3>用意しておくもの</h3>
+  <ul>
+    <li>パソコンのパスワード（設定している場合）。</li>
+    <li>インターネットのルーターの裏に貼ってあるラベル（Wi-Fi のキーが書いてあります）。</li>
+    <li>新しいコードを書きとめる紙とペン。</li>
+  </ul>
+  <p><strong>覚えておくと便利な2つ：</strong><strong>検索バー</strong>は、画面の下、Windows のマークの横にある「検索」の欄です（見当たらない場合は Windows のマークをクリックして、そのまま文字を入力します）。<strong>Windows キー</strong>は、キーボードの左下、Ctrl と Alt の間にある同じマークのキーです。</p>
+
+  <!-- ===== 1 ===== -->
+  <h2 id="securite-windows">1.「Windows セキュリティ」を確認する</h2>
+  <p>画面下の検索バーに<strong>「Windows セキュリティ」</strong>と入力して開きます。パソコンの守りを一覧できる画面です。</p>
+  <p>灰色でクリックできない設定がある場合は、別のウイルス対策ソフトが入っていることが多いです。先に手順 2 を行ってから戻ってきてください。</p>
+  <ol>
+    <li><strong>危険なサイトやプログラム。</strong><strong>アプリとブラウザー コントロール</strong>をクリックし、青いリンク<strong>評価ベースの保護の設定</strong>を開きます。スイッチをすべて<strong>オン</strong>にします（ページのいちばん下までスクロールしてください）。危険とわかっているサイトやプログラムを開く前に、Windows が知らせてくれます。</li>
+    <li><strong>ファイアウォール。</strong>左上の ← で最初の画面に戻り、<strong>ファイアウォールとネットワーク保護</strong>をクリックします。3つのネットワークすべてに緑のチェックがついていれば大丈夫で、変えるところはありません。ファイアウォールはマンションの管理人のようなものです。住人は自由に出入りできますが、招かれていない人は入れません。</li>
+    <li><strong>もう一段の守り（任意、飛ばしてもかまいません）。</strong>最初の画面に戻り、<strong>デバイス セキュリティ</strong> › <strong>コア分離の詳細</strong>で<strong>メモリ整合性</strong>をオンにし、求められたら再起動します。Windows がオンにできない場合は、古い機器（プリンターなど）が原因のことが多いです。心配はいりません。ほかの守りで十分です。</li>
+    <li><strong>更新。</strong>Windows セキュリティを閉じて<strong>設定</strong>を開きます（Windows キー + I）。<strong>Windows Update</strong> › <strong>詳細オプション</strong>で「その他の Microsoft 製品の更新プログラムを受け取る」をオンにします。更新は、見つかったセキュリティの穴をすぐにふさいでくれます。</li>
+  </ol>
+  <div class="warn"><strong>まだ Windows 10 ですか？</strong> 2025年10月から、Windows 10 の無料のセキュリティ更新は終了しています。パソコンの古さによっては Windows 11 に移れる場合があります。いちばん簡単な方法を一緒に考えましょう。</div>
+
+  <!-- ===== 2 ===== -->
+  <h2 id="un-seul-antivirus">2. ウイルス対策ソフトは1つだけに</h2>
+  <div class="why"><strong>なぜ？</strong> Windows には無料でしっかりしたウイルス対策ソフト<strong>Microsoft Defender</strong>が最初から入っています。ところが多くのパソコンには、購入時やほかのソフトのダウンロードと一緒に入った「無料」のウイルス対策ソフトもあります。2つ同時に動くとパソコンが遅くなり、有料版を売るための通知がたくさん出ます。1つで十分です。</div>
+  <ol>
+    <li><strong>設定</strong>を開き、<strong>アプリ</strong> › <strong>インストールされているアプリ</strong>を開きます。</li>
+    <li>検索欄に、もう1つのウイルス対策ソフトの名前を入力します。名前がわからない場合は、Windows セキュリティ › <strong>ウイルスと脅威の防止</strong>に、動いているソフトの名前が表示されます。「antivirus」や「セキュリティ」と入力してみるのも手です。</li>
+    <li>その名前の行ごとに、右の<strong>…</strong> › <strong>アンインストール</strong>をクリックします。アンインストールの画面は最後まで進めてください。引き止めようとする画面が出ることが多いので、アンインストールすることをはっきり選びます。同じブランド名で複数の部品が入っている場合は、すべて削除します。</li>
+    <li>ブラウザー（Edge または Chrome）で、右上の点が3つのメニュー › <strong>拡張機能</strong>を開きます。拡張機能はブラウザーに追加される小さな部品です。そのウイルス対策ソフトの名前のものがあれば<strong>削除</strong>します。</li>
+    <li>パソコンを<strong>再起動</strong>します。Microsoft Defender が自動で引き継ぎます。</li>
+  </ol>
+  <p>お金を払ったウイルス対策ソフトで、更新も続いているなら、そのまま使ってかまいません。大切なのは2つ入れないことです。</p>
+
+  <!-- ===== 3 ===== -->
+  <h2 id="defender">3. Microsoft Defender が動いているか確認する</h2>
+  <ol>
+    <li>もう一度<strong>Windows セキュリティ</strong> › <strong>ウイルスと脅威の防止</strong>を開きます。「Microsoft Defender ウイルス対策」と表示されていれば大丈夫です。</li>
+    <li><strong>設定の管理</strong>をクリックし、次の4つのスイッチが<strong>オン</strong>になっているか確認します。
+      <ul>
+        <li><strong>リアルタイム保護</strong>：開いたりダウンロードしたりするものを Defender が常に見張ります。</li>
+        <li><strong>クラウド提供の保護</strong>：最新の脅威の一覧をインターネットで確認します。一覧は常に更新されています。</li>
+        <li><strong>サンプルの自動送信</strong>：あやしいファイルを Microsoft に送って調べてもらいます。個人的な内容かもしれないファイルを送る前には、必ず確認があります。</li>
+        <li><strong>改ざん防止</strong>：悪いプログラムがこっそり Defender を止めるのを防ぎます。</li>
+      </ul>
+    </li>
+    <li><strong>クイック スキャン</strong>を実行します（数分で終わります）。</li>
+  </ol>
+  <p>「ランサムウェア防止」（ファイルを人質にとるプログラムへの対策）について、OneDrive の設定をすすめる黄色い表示が出ることがあります。今は<strong>無視</strong>をクリックしてかまいません。ファイルのバックアップの話で、<a href="#sauvegarde">手順 8</a> で落ち着いて説明します。</p>
+
+  <!-- ===== 4 ===== -->
+  <h2 id="hors-ligne">4. 心配なときは「オフライン スキャン」</h2>
+  <div class="why"><strong>なぜ？</strong> あやしいプログラム（「無料の PDF 変換ソフト」や偽のお掃除ソフトなど）を入れてしまったときや、パソコンの様子がおかしいときに使います。このスキャンはパソコンを再起動し、Windows が起動する<em>前に</em>調べます。そのため、悪いプログラムが隠れることができません。</div>
+  <ol>
+    <li>作業を保存し、開いている書類を閉じます。パソコンが再起動します。</li>
+    <li><strong>Windows セキュリティ</strong> › <strong>ウイルスと脅威の防止</strong> › <strong>スキャンのオプション</strong>を開きます。</li>
+    <li><strong>Microsoft Defender オフライン スキャン</strong>を選び、<strong>今すぐスキャン</strong>をクリックします。</li>
+    <li>15分ほどでスキャンが終わり、Windows がふつうに起動します。</li>
+  </ol>
+  <p>Defender が何か見つけた場合は、隔離してくれます。そのあと（確認するプログラム、変えるパスワード、メールなど）は、ガイド<a href="after-a-virus.html">「ウイルスのあとに確認すること」</a>を見てください。</p>
+
+  <!-- ===== 5 ===== -->
+  <h2 id="code-demarrage">5. 起動時に PIN を設定する</h2>
+  <div class="why"><strong>なぜ？</strong> 何も聞かれずにすぐ開くパソコンがたくさんあります。そうすると、電源を入れた人（盗んだ人も）があなたのメールや書類、ブラウザーに保存したパスワードを見られてしまいます。起動時のコードで、その扉を閉めましょう。</div>
+  <p>いちばん簡単なのは4〜6桁の<strong>PIN</strong>です。パスワードより早く入力でき、このパソコンでしか使えません。</p>
+  <ol>
+    <li><strong>設定</strong> › <strong>アカウント</strong> › <strong>サインイン オプション</strong>を開きます。</li>
+    <li><strong>PIN (Windows Hello)</strong>をクリックし、<strong>セットアップ</strong>をクリックします。</li>
+    <li>最初に今のパスワードを聞かれます。聞かれない場合は、パスワードが設定されていません。先に<strong>パスワード</strong> › <strong>追加</strong>を行ってから戻ってきてください。</li>
+    <li>コードを決めます。1234、0000、家族の誕生日は避けましょう。</li>
+    <li>紙に書いて家に保管します。ただし、パソコンに貼らないでください。</li>
+  </ol>
+  <p>同じ<strong>サインイン オプション</strong>の「しばらく操作しなかった場合に、もう一度サインインを求めるタイミング」は、<strong>PC のスリープを解除する時間</strong>を選びます。</p>
+  <p><strong>試してみましょう：</strong><strong>Windows キー + L</strong> を押すと画面がロックされ、コードで開きます。パソコンから離れるときのよい習慣にもなります。</p>
+
+  <!-- ===== 6 ===== -->
+  <h2 id="wifi">6. Wi-Fi とルーターをしっかり守る</h2>
+  <p><em>このガイドでいちばん技術的な手順です。自信がなければ、訪問のときまでとっておいてください。それまでも Wi-Fi はふつうに使えます。</em></p>
+  <div class="why"><strong>なぜ？</strong> Wi-Fi は電波で空中を飛んでいます。ルーターはそれを「暗号化」、つまり自分の機器だけが読めるように混ぜています。ところが、古い混ぜ方（TKIP と呼ばれます）をまだ受け付けるルーターがあり、悪意のある人はそれを破る方法を知っています。iPhone で Wi-Fi の名前の下に<strong>「セキュリティ保護が弱い」</strong>と出る場合、たいていこれが原因です。直すのはスマートフォンではなく、ルーターの設定です。</div>
+  <ol>
+    <li>Wi-Fi につながっているパソコンでブラウザーを開き、ウィンドウのいちばん上のアドレス欄（Google の検索欄ではなく、サイトのアドレスが表示される場所）にルーターのアドレスを入力して Enter を押します。アドレスはプロバイダーの説明書に書いてあります。フランスの Orange の Livebox なら <strong>192.168.1.1</strong> です。</li>
+    <li>ログインします。パスワードは説明書かルーターのラベルにあります（Livebox ではふつう、セキュリティキーの最初の8文字です）。</li>
+    <li><strong>Wi-Fi</strong> のページ（「Wi-Fi 詳細設定」などの場合もあります）を開き、<strong>セキュリティ モード</strong>または<strong>暗号化</strong>の設定を探します。</li>
+    <li><strong>WPA2</strong> と <strong>AES</strong> を選びます（ルーターに WPA3 があり、機器がすべて新しければ WPA3 でもかまいません）。「TKIP」「mixed（混在）」「WEP」「なし」と書いてあるものは避けます。</li>
+    <li>Wi-Fi の名前とキーは変えないでください。機器は自動でつながり直します。</li>
+    <li>保存します。Wi-Fi が1分ほど切れてから戻ります。これはふつうのことです。</li>
+  </ol>
+  <div class="warn"><strong>注意：</strong>ルーターのページでは「パスワードを忘れた」を絶対にクリックしないでください。ルーターが工場出荷時の状態に戻そうとし、すべてをつなぎ直すことになります。パスワードが通らなければ、そこでやめてください。Wi-Fi はこれまでどおり使えます。</div>
+  <p>とても古い機器がつながらなくなった場合は、その機器の解決策が見つかるまで、元の設定に戻すこともできます。</p>
+
+  <h3>ルーターのページを開いたついでに</h3>
+  <ul>
+    <li><strong>家で誰がつながっている？</strong> <strong>接続中の機器</strong>の一覧のページ（「マイネットワーク」「デバイス」などが多いです）を探します。パソコン、スマートフォン、テレビ、プリンター…すべて見覚えがあるはずです。知らない機器があれば、いちばん簡単なのは Wi-Fi のキーを変えることです。キーを知っている人だけがつなぎ直せます（自分の機器すべてでキーを入れ直す必要があります）。</li>
+    <li><strong>ゲスト用 Wi-Fi。</strong>多くのルーターに「ゲスト」用の Wi-Fi があります。来客用にオンにしておくと、インターネットは使えますが、あなたの機器には入れません。メインのキーを教える必要もありません。</li>
+    <li><strong>WPS ボタン。</strong>キーを入力せずに機器をつなげるボタンです。使っていなければ、Wi-Fi の設定でオフにできます。入口が1つ減ります。</li>
+    <li><strong>ルーターの更新</strong>はふつう、夜のうちにプロバイダーが自動で行います。ルーターの電源を入れたままにしておけば大丈夫です。</li>
+    <li>最後に、ルーターのページの上にある<strong>ログアウト</strong>をクリックします。</li>
+  </ul>
+
+  <!-- ===== 7 ===== -->
+  <h2 id="telephone">7. スマートフォンと WhatsApp</h2>
+  <p>スマートフォンにも、パソコンと同じくらい大切なものが入っています。メッセージ、写真、メール、そして銀行の確認コードを受け取るのもたいていスマートフォンです。いくつかの設定で十分です。</p>
+
+  <h3>iPhone の場合（「設定」アプリ）</h3>
+  <ul>
+    <li><strong>アップデート</strong>：一般 › ソフトウェアアップデート › 自動アップデート：すべてオンにします。</li>
+    <li><strong>パスコード</strong>：Face IDとパスコード（または Touch IDとパスコード）。6桁で、123456 や誕生日は避けます。</li>
+    <li><strong>自動ロック</strong>：画面表示と明るさ › 自動ロック：1分または2分。</li>
+    <li><strong>盗難デバイスの保護</strong>：Face IDとパスコード › 盗難デバイスの保護。泥棒がコードを知っていても、自宅以外の場所ではパスワードを変えられません。「探す」がオンになっている必要があります。これは誰かに居場所を知らせるものではなく、スマートフォンを探したり消去したりするためのものです。決めるのはあなたです。</li>
+    <li><strong>誰が何を見られるか</strong>：プライバシーとセキュリティ › 安全チェック。位置情報や写真を見られる人が表示され、まとめて止めることができます。</li>
+    <li><strong>詐欺サイト</strong>：アプリ › Safari › 詐欺Webサイトの警告：オン。</li>
+  </ul>
+  <p>Android のスマートフォンにも同じ設定があります。名前はメーカーによって少し違います。</p>
+
+  <h3>WhatsApp の場合（右下の「あなた」または「設定」）</h3>
+  <ul>
+    <li><strong>2段階認証</strong>：アカウント › 2段階認証 › 有効にする。6桁の PIN（スマートフォンのコードとは別のもの）を決めて、書きとめておきます。この PIN がなければ、あなたの番号を知っていても、誰もほかのスマートフォンにあなたの WhatsApp を入れられません。</li>
+    <li><strong>リンク済みデバイス</strong>：自分のパソコンやタブレットだけが表示されているか確認します。知らないものがあれば、タップして<strong>ログアウト</strong>します。</li>
+    <li><strong>グループ</strong>：プライバシー › グループ › <strong>連絡先</strong>。知らない人にグループに追加されるのを防ぎます。そうしたグループは詐欺であることが多いです。</li>
+    <li><strong>知らない人からの電話</strong>：プライバシー › 通話 › <strong>不明な発信者を消音</strong>。</li>
+  </ul>
+  <div class="warn"><strong>いちばん大切な決まり：</strong>SMS で届いたコードは、誰にも教えないでください。WhatsApp で「間違えて送ってしまった」と言ってくる「友だち」でも同じです。アカウントを乗っ取るいちばん多い手口です。迷ったら、その人に電話して確かめましょう。</div>
+
+  <!-- ===== 8 ===== -->
+  <h2 id="sauvegarde">8. ファイルを自動でバックアップする</h2>
+  <div class="why"><strong>なぜ？</strong> パソコンは故障したり、盗まれたり、ウイルスでロックされたりすることがあります。写真や書類は取り戻せません。自動バックアップなら、考えなくても定期的にコピーをとってくれます。</div>
+
+  <h3>Windows に入っている方法：ファイル履歴</h3>
+  <p>Windows は、フォルダー（ドキュメント、ピクチャ、デスクトップ、ミュージック、ビデオ）を外付けディスクやバックアップ用の機器に1時間ごとに自動でコピーし、ファイルの古い版も残してくれます。</p>
+  <ol>
+    <li>外付けディスクをつなぐか、バックアップ用の機器の電源が入っているか確認します。</li>
+    <li>検索バーに<strong>「ファイル履歴」</strong>と入力して開きます（コントロール パネルで開きます）。</li>
+    <li>ディスクが表示されたら<strong>オンにする</strong>をクリックします。表示されない場合は、左の<strong>ドライブの選択</strong>で選びます。パソコンではなくルーターにつながっている機器の場合は、<strong>ネットワークの場所の追加</strong>をクリックします。</li>
+    <li><strong>詳細設定</strong>では「1時間ごと」「無期限」（または「領域が足りなくなるまで」）のままでかまいません。</li>
+    <li>最初のバックアップが終わるまで待ちます。時間がかかることがありますが、2回目からは早く終わります。</li>
+  </ol>
+  <p><strong>ちゃんと動くか確かめるために</strong>、一度試してみましょう。同じ画面で<strong>個人用ファイルの復元</strong>をクリックし、写真を1枚探します。試したことのないバックアップは、本当に使えるかわかりません。</p>
+
+  <h3>「RAID」の機器をお持ちですか？</h3>
+  <p>RAID の機器には、同じ内容を保つディスクが2台入っています。1台が壊れても、もう1台が引き継ぐので、ディスクの故障には強いです。ただ、完全なバックアップではありません。間違って消したファイルやウイルスで壊れたファイルは、2台から同時に消えてしまいます。また、盗難や火事のときはパソコンと機器が一緒になくなります。そこで、次の2つのコツです。</p>
+
+  <h3>大きな違いを生む2つの備え</h3>
+  <ul>
+    <li><strong>古い版を残す。</strong>ファイル履歴はこれを自動で行います。ルーターにつながった機器の場合は、その設定で「スナップショット」や「バージョン履歴」を探してオンにします。ウイルスでファイルが壊れても、昨日の版に戻せます。</li>
+    <li><strong>家以外の場所にもコピーを。</strong>いちばん大切なファイル（家族の写真、大事な書類）は、家の外にもう1つコピーを置きましょう。インターネット上（OneDrive や Google Drive、<a href="#en-ligne">下を参照</a>）か、月に一度更新する小さなディスクを家族の家に預けるなどの方法があります。</li>
+  </ul>
+  <p>ケーブルでパソコンにつなぐバックアップ用ディスクは、つなぎっぱなしにしないでください。週に一度、バックアップが終わるまでつなぎます。外してあるディスクはウイルスに狙われません。</p>
+
+  <h3 id="en-ligne">インターネットにバックアップ：OneDrive または Google Drive</h3>
+  <p>家の外にコピーを置くいちばん簡単な方法です。パソコンがインターネットにつながっているあいだ、フォルダーが自動でコピーされます。どちらか<em>一方</em>を選び、同じフォルダーに両方は使わないでください。</p>
+
+  <p><strong>OneDrive の場合</strong>（Windows 11 に最初から入っています。Microsoft アカウントが必要です）：</p>
+  <ol>
+    <li>画面の右下、時計の近くにある小さな<strong>雲</strong>をクリックします（見当たらなければ、先に小さな矢印 ^ をクリック）。求められたら Microsoft アカウントでサインインします。</li>
+    <li>右上の<strong>歯車</strong>をクリックし、<strong>設定</strong>を開きます。</li>
+    <li><strong>同期とバックアップ</strong>の<strong>バックアップを管理</strong>をクリックします。</li>
+    <li>守りたいフォルダー（デスクトップ、ドキュメント、ピクチャ）を選び、<strong>バックアップを開始</strong>をクリックします。</li>
+  </ol>
+  <p>ファイルはパソコンの同じ場所に残ったまま、OneDrive にも入ります。ファイルの横の緑のチェックや雲のマークは、コピーが済んだしるしです。</p>
+
+  <p><strong>Google Drive の場合</strong>（Google アカウントが必要です。たとえば Gmail のアドレス）：</p>
+  <ol>
+    <li>「パソコン版 Google ドライブ」を検索し、Google の公式ページからダウンロードしてインストールします。</li>
+    <li>Google アカウントでログインします。</li>
+    <li>時計の近くにある Google ドライブのアイコンをクリックし、<strong>歯車</strong> › <strong>設定</strong>を開きます。</li>
+    <li><strong>マイパソコン</strong>で<strong>フォルダを追加</strong>をクリックし、たとえばドキュメントを選んで、<strong>Google ドライブと同期</strong>、<strong>完了</strong>をクリックします。ほかの大切なフォルダーも同じようにします。</li>
+  </ol>
+
+  <p><strong>どちらにも共通して知っておきたいこと：</strong></p>
+  <ul>
+    <li><strong>無料の容量には限りがあります</strong>：Microsoft は 5 GB、Google は 15 GB（メールと共有）です。書類には十分ですが、何年分もの写真には足りないことが多いです。それ以上は有料のプランが必要です。比べてから選び、まずはいちばん大切なファイルから始めましょう。</li>
+    <li><strong>パソコンで消したものはインターネット上でも消えます</strong>。ただし、OneDrive や Google Drive のサイトの<strong>ごみ箱</strong>から30日ほどは取り戻せます。</li>
+    <li>このコピーの安全はアカウントしだいです。よいパスワードと2段階認証で守りましょう（<a href="#comptes">手順 9</a> を参照）。</li>
+  </ul>
+
+  <!-- ===== 9 ===== -->
+  <h2 id="comptes">9. メールとパスワードを守る</h2>
+  <div class="why"><strong>なぜ？</strong> メールは、ほかのすべてのアカウントの鍵です。「パスワードを忘れた」のリンクが届くのはメールだからです。メールに入られると、ほとんどどこにでも入られてしまいます。だから、まず守るのはメールです。</div>
+  <ol>
+    <li><strong>メールの2段階認証をオンにする。</strong>パスワードに加えて、スマートフォンに届くコードが必要になります。ただし、新しい機器からログインするときだけです。アカウントの設定の「セキュリティ」で探します（Gmail、Outlook、Orange、Yahoo など、どこにもあります）。インターネットにバックアップしている場合は、Microsoft や Google のアカウントでも同じようにします。</li>
+    <li><strong>再設定用の情報を確認する</strong>：同じ場所で、電話番号と予備のメールアドレスが自分のもので、最新になっているか確認します。</li>
+    <li><strong>大切なサイトごとに別のパスワードを</strong>（メール、銀行、ネットショッピング）。1つのサイトでパスワードが盗まれても、ほかは守られます。</li>
+    <li><strong>全部を覚えなくてすむように</strong>、ブラウザー（Edge または Chrome）に強いパスワードを考えてもらい、保存してもらいましょう。自動で入力してくれます。起動時の PIN（<a href="#code-demarrage">手順 5</a>）でパソコンを守っていれば安全です。メールのパスワードだけは紙に書いて家に保管します。</li>
+  </ol>
+
+  <!-- ===== RETENIR ===== -->
+  <h2 id="retenir">10. 覚えておきたい習慣</h2>
+  <ul>
+    <li class="keep">画面右下の小さな盾のマーク：緑なら大丈夫。黄色や赤なら、クリックすると Windows がやることを教えてくれます。</li>
+    <li class="keep">パソコンを「掃除する」「ロックを解除する」ためにお金を払うよう求める表示は詐欺です。閉じて、表示された番号には電話しないでください。</li>
+    <li class="keep">パスワードを聞いてきたり、クリックを急がせたりするメールや SMS：クリックせず、身近な人に聞きましょう。</li>
+    <li class="keep">パソコンから離れるときは Windows キー + L。</li>
+    <li class="keep">大切なサイトごとに別のパスワード、そしてメールには2段階認証。</li>
+    <li class="keep">自動バックアップ、古い版、そして大切なファイルは家の外にもコピーを。</li>
+  </ul>
+
+  <h3>ミニ用語集</h3>
+  <dl>
+    <div><dt>ウイルス対策ソフト</dt><dd>悪いソフトを見つけて止めるプログラム。1つで十分です。</dd></div>
+    <div><dt>ファイアウォール</dt><dd>許可されていない接続をパソコンに入れない仕組み。</dd></div>
+    <div><dt>更新（アップデート）</dt><dd>Microsoft や Apple から届く修正。セキュリティの穴をふさぐものが多いです。</dd></div>
+    <div><dt>暗号化</dt><dd>鍵を持っている人だけが読めるように情報を混ぜること。</dd></div>
+    <div><dt>WPA2 / AES</dt><dd>今の Wi-Fi の守り方。TKIP は古い方法で、おすすめしません。</dd></div>
+    <div><dt>PIN (Windows Hello)</dt><dd>サインインのためのコード。このパソコンでだけ使えます。</dd></div>
+    <div><dt>2段階認証</dt><dd>パスワードに加えて、スマートフォンに届くコードを求めるログイン方法。</dd></div>
+    <div><dt>オフライン スキャン</dt><dd>Windows が起動する前に行うパソコンの検査。</dd></div>
+  </dl>
+
+  <!-- ===== OFFRE ===== -->
+  <section class="offer">
+    <h2>一緒にやりたい方へ</h2>
+    <p>このガイドは、ご自分のペースで進められるように作りました。途中でつまずいたときや、そばに誰かいてほしいときは、ポーとその周辺のご自宅にうかがいます。操作するのはあなた、私はそばで案内します。それがいちばん覚えられる方法です。</p>
+    <p>パソコンのセキュリティ設定は<strong>30 €</strong>で、1時間のサポートと同じ料金です。70歳以上の方は10%引き。<a href="./#tarifs">料金をすべて見る</a>。</p>
+    <p>
+      <a href="tel:+33784529922" class="call-btn">📞 +33 7 84 52 99 22</a>
+      <a href="./#contact" class="call-btn">✉️ メッセージを送る</a>
+    </p>
+    <p>初回の相談は無料、契約の義務はありません。</p>
+  </section>
+</main>
+<a class="to-toc" href="#sommaire">↑ 目次</a>
+<footer>
+  <p>© 2026 山口 泉 (Izumi Bérat) · <a href="./">ポーの出張パソコンサポート</a> · <a href="./#guides">ガイド一覧</a> · <a href="where-to-start.html">どこから始める？</a> · <a href="../mentions-legales.html" hreflang="fr">法的情報（フランス語）</a></p>
+  <p>このガイドは、個人での利用に限り自由に印刷・共有できます。</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After a virus: what to check | Izumi Bérat, Pau</title>
+<meta name="description" content="Your antivirus found a malicious program, or you installed dubious software? The checks to do, step by step: scan, programs, browser, passwords, mailbox. Explained without jargon.">
+<link rel="canonical" href="https://seniors.izutech.fr/en/after-a-virus.html">
+<link rel="alternate" hreflang="fr" href="https://seniors.izutech.fr/apres-un-virus.html">
+<link rel="alternate" hreflang="en" href="https://seniors.izutech.fr/en/after-a-virus.html">
+<link rel="alternate" hreflang="ja" href="https://seniors.izutech.fr/ja/after-a-virus.html">
+<link rel="alternate" hreflang="x-default" href="https://seniors.izutech.fr/apres-un-virus.html">
+<style>
+  :root { --primary: #1f5f8b; --text: #2c3e50; --muted: #4a5568; --line: #e3e8ed; --bg: #f7f9fb; --note: #eef5fa; --warn: #fdf3e7; --warn-line: #e3a35a; }
+  body { font-family: "Open Sans", "Segoe UI", system-ui, sans-serif; font-size: 18px; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 0 16px; }
+  main { max-width: 760px; margin: 2rem auto 3rem; background: #fff; border-radius: 10px; padding: clamp(1.25rem, 4vw, 2.5rem); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  h1, h2, h3 { font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; line-height: 1.3; }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 { font-size: 1.35rem; color: var(--primary); margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.25rem; }
+  a { color: var(--primary); }
+  li { margin-bottom: 0.5rem; }
+  .back { display: inline-block; margin-bottom: 1rem; padding: 0.5rem 0; font-weight: 700; }
+  .updated { color: var(--muted); font-size: 1rem; }
+  .intro { font-size: 1.1rem; }
+  .toc { background: var(--note); border-radius: 8px; padding: 1rem 1.25rem; }
+  .toc ol { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+  .why { background: var(--note); border-left: 4px solid var(--primary); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .warn { background: var(--warn); border-left: 4px solid var(--warn-line); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .keep { font-weight: 600; }
+  .offer { background: var(--note); border-radius: 10px; padding: 1.25rem 1.5rem; margin-top: 2.5rem; }
+  .offer h2 { border-top: none; margin-top: 0; padding-top: 0; }
+  .call-btn { display: inline-block; background: var(--primary); color: #fff; text-decoration: none; font-weight: 700; padding: 0.7rem 1.2rem; border-radius: 8px; margin: 0.25rem 0.5rem 0.25rem 0; }
+  dl { margin: 0; border-top: 1px solid var(--line); }
+  dl > div { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 0.25rem 1.25rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+  dt { font-weight: 700; }
+  dd { margin: 0; }
+  .to-toc { position: fixed; right: 16px; bottom: 16px; background: var(--primary); color: #fff; font-weight: 700; text-decoration: none; padding: 0.6rem 1rem; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .to-toc:hover, .to-toc:focus-visible { background: #174a6d; }
+  @media print { .to-toc { display: none; } }
+  footer { max-width: 760px; margin: 0 auto 2rem; color: var(--muted); font-size: 0.95rem; text-align: center; }
+  @media (max-width: 560px) { dl > div { grid-template-columns: 1fr; } }
+  @media print { body { background: #fff; padding: 0; } main { box-shadow: none; margin: 0; } .back, .offer .call-btn { display: none; } }
+  .lang-switch { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.25rem; margin: 0 0 0.5rem; font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; font-size: 1rem; }
+  .lang-switch a { padding: 0.4rem 0.7rem; border-radius: 50px; text-decoration: none; font-weight: 600; }
+  .lang-switch a:hover, .lang-switch a:focus-visible { background: var(--note); }
+  .lang-switch a[aria-current="page"] { background: var(--primary); color: #fff; }
+  .lang-note { font-size: 1rem; color: var(--muted); font-style: italic; }
+  @media print { .lang-switch { display: none; } } /*ls*/
+</style>
+</head>
+<body>
+<main>
+  <nav class="lang-switch" aria-label="Langue / Language / 言語">
+    <a href="../apres-un-virus.html" hreflang="fr" lang="fr">Français</a>
+    <a href="after-a-virus.html" hreflang="en" lang="en" aria-current="page">English</a>
+    <a href="../ja/after-a-virus.html" hreflang="ja" lang="ja">日本語</a>
+  </nav>
+  <a class="back" href="./#guides">← Back to the home page</a>
+  <h1>After a virus: what to check</h1>
+  <p class="updated">For Windows 11 · Updated 21 November 2026</p>
+
+  <p class="intro">Has Microsoft Defender warned you that it found a “threat”? Or did you install a program you no longer trust (a “free PDF converter”, a “cleaner” or a “speed booster” found online)? Don't panic: it's very common, and it can be fixed. Here are the checks I go through with my clients in this situation, in order.</p>
+  <p>This guide follows on from <a href="secure-windows-computer.html">my guide to securing your Windows computer</a>, which explains the basic settings. If you haven't followed it yet, do it afterwards: it stops this from happening again.</p>
+  <p class="lang-note">The menu names below are those of Windows in English. If your Windows is in French, see the <a href="../apres-un-virus.html" hreflang="fr" lang="fr">French version of this guide</a>.</p>
+
+  <nav class="toc" id="sommaire" aria-label="Contents">
+    <strong>What we'll do</strong>
+    <ol>
+      <li><a href="#analyse">Run a full scan</a></li>
+      <li><a href="#programmes">Check the installed programs</a></li>
+      <li><a href="#navigateur">Check the browser</a></li>
+      <li><a href="#mots-de-passe">Change your important passwords</a></li>
+      <li><a href="#boite-mail">Check your mailbox</a></li>
+      <li><a href="#banque">If you gave out bank details</a></li>
+      <li><a href="#eviter">So it doesn't happen again</a></li>
+    </ol>
+  </nav>
+
+  <div class="why"><strong>Good to know:</strong> when Defender finds something, it puts it in “quarantine”, meaning it locks it away so it can't do anything any more. So the danger has already been dealt with. The checks below are to make sure nothing is left, and to protect your accounts just in case.</div>
+
+  <!-- ===== 1 ===== -->
+  <h2 id="analyse">1. Run a full scan</h2>
+  <p>Start with Microsoft Defender's <strong>offline scan</strong>: it checks the computer before Windows starts, where a malicious program can't hide. The steps are explained in <a href="secure-windows-computer.html#hors-ligne">my first guide (step 4)</a>. Allow about fifteen minutes.</p>
+  <p>Then open <strong>Windows Security</strong> › <strong>Virus &amp; threat protection</strong> › <strong>Protection history</strong>. There you see what Defender found and what it did with it. “Quarantined” or “Removed”: it's dealt with.</p>
+
+  <!-- ===== 2 ===== -->
+  <h2 id="programmes">2. Check the installed programs</h2>
+  <div class="warn"><strong>Important:</strong> at this step, look and write things down on paper, but don't remove anything you don't know. Lots of strange names are normal: they come from Windows, or from the maker of the computer or the printer. If in doubt, ask someone you trust before removing anything.</div>
+  <ol>
+    <li><strong>Installed programs.</strong> Open <strong>Settings</strong> (Windows key + I) › <strong>Apps</strong> › <strong>Installed apps</strong>. At the top, choose to sort by <strong>Date installed</strong>: the most recent appear first. The dubious program should no longer be there. If you still see it: the three dots <strong>…</strong> › <strong>Uninstall</strong>. Write down any other recent names you don't recognise.</li>
+    <li><strong>Programs that start with the computer.</strong> Still in <strong>Apps</strong>, click <strong>Startup</strong>. This is the list of programs that switch on with the computer. Write down the ones you don't recognise. You can turn off the switch of a program you don't know: this doesn't remove it, it simply no longer starts by itself.</li>
+    <li><strong>A “remote access” program?</strong> If someone phoned you claiming to be a technician (Microsoft, your bank, your internet provider) and had you install a program to “see your screen”, uninstall that program and read steps 4 to 6 carefully. Neither Microsoft nor your bank ever calls like that.</li>
+  </ol>
+
+  <!-- ===== 3 ===== -->
+  <h2 id="navigateur">3. Check the browser</h2>
+  <p>Fake software often also installs itself in the browser (Edge or Chrome), to show adverts or spy on your searches.</p>
+  <ol>
+    <li><strong>Extensions</strong> (small add-ons to the browser). In Edge: the <strong>…</strong> menu at the top right › <strong>Extensions</strong> › <strong>Manage extensions</strong>. In Chrome: the <strong>⋮</strong> menu › <strong>Extensions</strong> › <strong>Manage Extensions</strong>. Remove any you didn't add yourself. If the list is empty, that's very good.</li>
+    <li><strong>The search engine.</strong> In Edge: <strong>…</strong> menu › <strong>Settings</strong> › <strong>Privacy, search, and services</strong>, then at the very bottom <strong>Address bar and search</strong>. In Chrome: <strong>⋮</strong> menu › <strong>Settings</strong> › <strong>Search engine</strong>. You should see a well-known engine there (Bing, Google, Qwant…). Fake software sometimes replaces this setting with its own.</li>
+    <li><strong>The start page.</strong> If an unknown page appears when you open the browser, change it in the same settings, under <strong>Start, home, and new tabs</strong> (or “On startup”).</li>
+  </ol>
+
+  <!-- ===== 4 ===== -->
+  <h2 id="mots-de-passe">4. Change your important passwords</h2>
+  <div class="why"><strong>Why?</strong> Some malicious programs record what you type on the keyboard. If you signed in to important sites from this computer while the program was there, it's best to change those passwords.</div>
+  <ol>
+    <li><strong>From another device</strong> if possible (your phone or another computer), until you're sure this one is clean.</li>
+    <li><strong>In this order:</strong> first your <strong>email</strong> (it's what lets you recover all your other accounts), then your <strong>bank</strong>, then <strong>online shopping</strong> sites, then the rest.</li>
+    <li><strong>A different password for each site.</strong> My tips for managing without remembering everything are in <a href="secure-windows-computer.html#comptes">my first guide (step 9)</a>.</li>
+  </ol>
+
+  <!-- ===== 5 ===== -->
+  <h2 id="boite-mail">5. Check your mailbox</h2>
+  <p>Someone who had your password may have left “doors” in your mailbox so they can keep reading your messages, even after the password is changed. The exact names depend on your email service (Gmail, Outlook, Orange, Yahoo…): look in the <strong>Settings</strong> (often a gear wheel).</p>
+  <ol>
+    <li><strong>Automatic forwarding</strong> (under “Forwarding”, “Mailboxes” or “Accounts”): no forwarding to an address you don't know should be turned on.</li>
+    <li><strong>Filters or rules</strong>: no rule you didn't create yourself (for example a rule that deletes or moves some messages without you seeing them).</li>
+    <li><strong>Recovery details</strong> (under your account's “Security”): the phone number and backup address must be yours.</li>
+    <li><strong>Connected devices</strong>: most email services show a list of devices or recent sign-ins. If you see one you don't know, choose <strong>Sign out everywhere</strong> (or “Sign out of all devices”), then sign back in on your own.</li>
+    <li>If you haven't already, turn on <strong>two-step verification</strong>, as explained in <a href="secure-windows-computer.html#comptes">my first guide</a>.</li>
+  </ol>
+
+  <!-- ===== 6 ===== -->
+  <h2 id="banque">6. If you gave out bank details</h2>
+  <p>If you typed your card number on a dubious website, or if a fake technician could see your screen while you were on your bank's website:</p>
+  <ul>
+    <li><strong>Call your bank straight away</strong>, using the number on your card or your statements (never a number received in a message). It can block the card and watch your account.</li>
+    <li>Look through your latest statements and report any transaction you don't recognise.</li>
+    <li>In France, the official website <strong lang="fr">cybermalveillance.gouv.fr</strong> (in French) explains what to do depending on your situation, and how to report it to the police if needed.</li>
+  </ul>
+
+  <!-- ===== 7 ===== -->
+  <h2 id="eviter">7. So it doesn't happen again</h2>
+  <ul>
+    <li class="keep">Only download programs from the <strong>Microsoft Store</strong> or the maker's official website, never from an advert.</li>
+    <li class="keep">Be wary of “free” programs promising to convert, clean or speed up: Windows can already open PDFs (in Edge) and look after the computer by itself.</li>
+    <li class="keep">When Windows asks “Do you want to allow this app to make changes to your device?” and you aren't installing something yourself, answer <strong>No</strong>.</li>
+    <li class="keep">No genuine company phones you to “fix” your computer. Hang up.</li>
+    <li class="keep">Follow <a href="secure-windows-computer.html">my guide to securing your Windows computer</a>: a well-configured computer and an up-to-date backup are the best protection.</li>
+  </ul>
+
+  <!-- ===== OFFRE ===== -->
+  <section class="offer">
+    <h2>Not sure? Let's look together</h2>
+    <p>If you wrote down names you don't recognise, or if you're still worried, I come to your home in Pau and the surrounding area. We go through your list together, calmly, and I explain what we're doing at each step.</p>
+    <p>A one-hour session costs <strong>€30</strong>. 10% off for people over 70. <a href="./#tarifs">See all prices</a>.</p>
+    <p>
+      <a href="tel:+33784529922" class="call-btn">📞 +33 7 84 52 99 22</a>
+      <a href="./#contact" class="call-btn">✉️ Write to me</a>
+    </p>
+    <p>First meeting free, no commitment.</p>
+  </section>
+</main>
+<a class="to-toc" href="#sommaire">↑ Contents</a>
+<footer>
+  <p>© 2026 Izumi Bérat · <a href="./">Tech help at home, Pau</a> · <a href="./#guides">All my guides</a> · <a href="where-to-start.html">Where to start?</a> · <a href="../mentions-legales.html" hreflang="fr">Legal notice (in French)</a></p>
+  <p>This guide may be printed and shared freely for personal use.</p>
+</footer>
+</body>
+</html>
