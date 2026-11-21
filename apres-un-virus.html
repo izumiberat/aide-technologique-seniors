@@ -16,7 +16,7 @@
   h3 { font-size: 1.1rem; margin: 1.5rem 0 0.25rem; }
   a { color: var(--primary); }
   li { margin-bottom: 0.5rem; }
-  .back { display: inline-block; margin-bottom: 1.25rem; font-weight: 700; }
+  .back { display: inline-block; margin-bottom: 1rem; padding: 0.5rem 0; font-weight: 700; }
   .updated { color: var(--muted); font-size: 1rem; }
   .intro { font-size: 1.1rem; }
   .toc { background: var(--note); border-radius: 8px; padding: 1rem 1.25rem; }
@@ -31,6 +31,9 @@
   dl > div { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 0.25rem 1.25rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
   dt { font-weight: 700; }
   dd { margin: 0; }
+  .to-toc { position: fixed; right: 16px; bottom: 16px; background: var(--primary); color: #fff; font-weight: 700; text-decoration: none; padding: 0.6rem 1rem; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .to-toc:hover, .to-toc:focus-visible { background: #174a6d; }
+  @media print { .to-toc { display: none; } }
   footer { max-width: 760px; margin: 0 auto 2rem; color: var(--muted); font-size: 0.95rem; text-align: center; }
   @media (max-width: 560px) { dl > div { grid-template-columns: 1fr; } }
   @media print { body { background: #fff; padding: 0; } main { box-shadow: none; margin: 0; } .back, .offer .call-btn { display: none; } }
@@ -45,7 +48,7 @@
   <p class="intro">Microsoft Defender vous a prévenu qu'il avait trouvé une « menace » ? Ou vous avez installé un programme qui ne vous inspire plus confiance (un « convertisseur PDF gratuit », un « nettoyeur » ou un « accélérateur » trouvé sur internet) ? Pas de panique : c'est très courant, et ça se répare. Voici les vérifications que je fais avec mes clients dans ce cas, dans l'ordre.</p>
   <p>Ce guide complète <a href="securiser-ordinateur-windows.html">mon guide pour sécuriser son ordinateur Windows</a>, qui explique les réglages de base. Si vous ne l'avez pas encore suivi, faites-le ensuite : il évite que cela se reproduise.</p>
 
-  <nav class="toc" aria-label="Sommaire">
+  <nav class="toc" id="sommaire" aria-label="Sommaire">
     <strong>Au programme</strong>
     <ol>
       <li><a href="#analyse">Lancer une analyse complète</a></li>
@@ -134,6 +137,7 @@
     <p>Première rencontre gratuite, sans engagement.</p>
   </section>
 </main>
+<a class="to-toc" href="#sommaire">↑ Sommaire</a>
 <footer>
   <p>© 2026 Izumi Bérat · <a href="./">Assistance technologique à domicile, Pau</a> · <a href="./#guides">Tous mes guides</a> · <a href="par-ou-commencer.html">Par où commencer ?</a> · <a href="mentions-legales.html">Mentions légales</a></p>
   <p>Ce guide peut être imprimé et partagé librement pour un usage personnel.</p>
