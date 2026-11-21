@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Securing your Windows laptop, step by step | Izumi Bérat, Pau</title>
+<meta name="description" content="Antivirus, Microsoft Defender, start-up PIN, Wi-Fi, phone, WhatsApp, backup and passwords: the steps to secure a Windows 11 computer, explained without jargon.">
+<link rel="canonical" href="https://seniors.izutech.fr/en/secure-windows-computer.html">
+<link rel="alternate" hreflang="fr" href="https://seniors.izutech.fr/securiser-ordinateur-windows.html">
+<link rel="alternate" hreflang="en" href="https://seniors.izutech.fr/en/secure-windows-computer.html">
+<link rel="alternate" hreflang="ja" href="https://seniors.izutech.fr/ja/secure-windows-computer.html">
+<link rel="alternate" hreflang="x-default" href="https://seniors.izutech.fr/securiser-ordinateur-windows.html">
+<style>
+  :root { --primary: #1f5f8b; --text: #2c3e50; --muted: #4a5568; --line: #e3e8ed; --bg: #f7f9fb; --note: #eef5fa; --warn: #fdf3e7; --warn-line: #e3a35a; }
+  body { font-family: "Open Sans", "Segoe UI", system-ui, sans-serif; font-size: 18px; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 0 16px; }
+  main { max-width: 760px; margin: 2rem auto 3rem; background: #fff; border-radius: 10px; padding: clamp(1.25rem, 4vw, 2.5rem); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  h1, h2, h3 { font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; line-height: 1.3; }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 { font-size: 1.35rem; color: var(--primary); margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.25rem; }
+  a { color: var(--primary); }
+  li { margin-bottom: 0.5rem; }
+  .back { display: inline-block; margin-bottom: 1rem; padding: 0.5rem 0; font-weight: 700; }
+  .updated { color: var(--muted); font-size: 1rem; }
+  .intro { font-size: 1.1rem; }
+  .toc { background: var(--note); border-radius: 8px; padding: 1rem 1.25rem; }
+  .toc ol { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+  .why { background: var(--note); border-left: 4px solid var(--primary); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .warn { background: var(--warn); border-left: 4px solid var(--warn-line); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .keep { font-weight: 600; }
+  .offer { background: var(--note); border-radius: 10px; padding: 1.25rem 1.5rem; margin-top: 2.5rem; }
+  .offer h2 { border-top: none; margin-top: 0; padding-top: 0; }
+  .call-btn { display: inline-block; background: var(--primary); color: #fff; text-decoration: none; font-weight: 700; padding: 0.7rem 1.2rem; border-radius: 8px; margin: 0.25rem 0.5rem 0.25rem 0; }
+  dl { margin: 0; border-top: 1px solid var(--line); }
+  dl > div { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 0.25rem 1.25rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+  dt { font-weight: 700; }
+  dd { margin: 0; }
+  .to-toc { position: fixed; right: 16px; bottom: 16px; background: var(--primary); color: #fff; font-weight: 700; text-decoration: none; padding: 0.6rem 1rem; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .to-toc:hover, .to-toc:focus-visible { background: #174a6d; }
+  @media print { .to-toc { display: none; } }
+  footer { max-width: 760px; margin: 0 auto 2rem; color: var(--muted); font-size: 0.95rem; text-align: center; }
+  @media (max-width: 560px) { dl > div { grid-template-columns: 1fr; } }
+  @media print { body { background: #fff; padding: 0; } main { box-shadow: none; margin: 0; } .back, .offer .call-btn { display: none; } }
+  .lang-switch { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.25rem; margin: 0 0 0.5rem; font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; font-size: 1rem; }
+  .lang-switch a { padding: 0.4rem 0.7rem; border-radius: 50px; text-decoration: none; font-weight: 600; }
+  .lang-switch a:hover, .lang-switch a:focus-visible { background: var(--note); }
+  .lang-switch a[aria-current="page"] { background: var(--primary); color: #fff; }
+  .lang-note { font-size: 1rem; color: var(--muted); font-style: italic; }
+  @media print { .lang-switch { display: none; } } /*ls*/
+</style>
+</head>
+<body>
+<main>
+  <nav class="lang-switch" aria-label="Langue / Language / 言語">
+    <a href="../securiser-ordinateur-windows.html" hreflang="fr" lang="fr">Français</a>
+    <a href="secure-windows-computer.html" hreflang="en" lang="en" aria-current="page">English</a>
+    <a href="../ja/secure-windows-computer.html" hreflang="ja" lang="ja">日本語</a>
+  </nav>
+  <a class="back" href="./#guides">← Back to the home page</a>
+  <h1>Securing your Windows laptop, step by step</h1>
+  <p class="updated">For Windows 11 · Updated 19 November 2026</p>
+
+  <p class="intro">People often ask me: “What do I need to do so my computer is protected?” Good news: Windows already contains almost everything you need. You just have to check a few settings, once and for all. Here are the steps I go through with my clients, explained simply.</p>
+  <p>Take your time: you can do part of it today and the rest another day. Nothing described here can damage your computer.</p>
+  <p><strong>Where to start?</strong> Steps 1 to 3 matter most (about 30 minutes in all), along with the backup (step 8) if you don't have one yet. The others can wait. If a step looks complicated, skip to the next one: you can come back to it later, or we can do it together.</p>
+  <p class="lang-note">The menu names below are those of Windows in English. If your Windows is in French, see the <a href="../securiser-ordinateur-windows.html" hreflang="fr" lang="fr">French version of this guide</a>.</p>
+
+  <nav class="toc" id="sommaire" aria-label="Contents">
+    <strong>What we'll do</strong>
+    <ol>
+      <li><a href="#securite-windows">Check Windows Security</a></li>
+      <li><a href="#un-seul-antivirus">Keep just one antivirus</a></li>
+      <li><a href="#defender">Check that Microsoft Defender is running</a></li>
+      <li><a href="#hors-ligne">Run an “offline” scan if in doubt</a></li>
+      <li><a href="#code-demarrage">A PIN when the computer starts</a></li>
+      <li><a href="#wifi">A well-protected Wi-Fi and router</a></li>
+      <li><a href="#telephone">Your phone and WhatsApp</a></li>
+      <li><a href="#sauvegarde">Back up your files automatically</a></li>
+      <li><a href="#comptes">Protect your email and your passwords</a></li>
+      <li><a href="#retenir">Good habits to remember</a></li>
+    </ol>
+  </nav>
+
+  <h3>Have these to hand</h3>
+  <ul>
+    <li>Your computer's password, if it has one.</li>
+    <li>The label stuck under your internet router (it shows the Wi-Fi key).</li>
+    <li>A pen and paper to write down your new codes.</li>
+  </ul>
+  <p><strong>Two useful landmarks:</strong> the <strong>search bar</strong> is the “Search” box at the bottom of the screen, next to the Windows logo (if you can't see it, click the Windows logo and just start typing). The <strong>Windows key</strong> is the key on your keyboard with that same logo, at the bottom left, between Ctrl and Alt.</p>
+
+  <!-- ===== 1 ===== -->
+  <h2 id="securite-windows">1. Check Windows Security</h2>
+  <p>Type <strong>“Windows Security”</strong> in the search bar at the bottom of the screen and open it. It's the dashboard for your computer's protection.</p>
+  <p>If some settings are greyed out (you can't click them), it's often because another antivirus is installed: do step 2 first, then come back here.</p>
+  <ol>
+    <li><strong>Dangerous websites and programs.</strong> Click <strong>App &amp; browser control</strong>, then the blue link <strong>Reputation-based protection settings</strong>. Turn all the switches <strong>On</strong> (scroll down to the bottom of the page). Windows will warn you before opening a website or program known to be dangerous.</li>
+    <li><strong>The firewall.</strong> Go back to the start page with the ← arrow at the top left, then click <strong>Firewall &amp; network protection</strong>. All three networks should have a green tick. There's nothing to change. A firewall is like the caretaker of a building: you come and go freely, but uninvited visitors can't get in.</li>
+    <li><strong>An extra layer of protection (optional, you can skip this).</strong> Go back to the start page, then <strong>Device security</strong> › <strong>Core isolation details</strong>, turn on <strong>Memory integrity</strong>, and restart if Windows asks. If Windows refuses, it's often because of an old device (a printer, for example). Don't worry: the other protections are enough.</li>
+    <li><strong>Updates.</strong> Close Windows Security and open <strong>Settings</strong> (Windows key + I). Go to <strong>Windows Update</strong> › <strong>Advanced options</strong> and turn on “Receive updates for other Microsoft products”. Updates close security holes as soon as they are discovered.</li>
+  </ol>
+  <div class="warn"><strong>Still on Windows 10?</strong> Since October 2025, Microsoft no longer releases free security updates for Windows 10. Depending on how old your computer is, it may be possible to move to Windows 11. We can look together at what is simplest for you.</div>
+
+  <!-- ===== 2 ===== -->
+  <h2 id="un-seul-antivirus">2. Keep just one antivirus</h2>
+  <div class="why"><strong>Why?</strong> Windows already includes a free and effective antivirus: <strong>Microsoft Defender</strong>. Many computers also have a “free” antivirus, installed when the computer was bought or bundled with another download. Two antiviruses at once slow the computer down and show lots of messages, often to sell you a paid version. One is enough.</div>
+  <ol>
+    <li>Open <strong>Settings</strong>, then <strong>Apps</strong> › <strong>Installed apps</strong>.</li>
+    <li>In the search box, type the name of the other antivirus. Don't know it? In Windows Security › <strong>Virus &amp; threat protection</strong>, Windows shows the name of the antivirus that is active. You can also simply type “antivirus” or “security” and see what comes up.</li>
+    <li>On each line with its name: click the three dots <strong>…</strong> › <strong>Uninstall</strong>. Follow the uninstall screens to the end: they often try to change your mind, so confirm that you do want to uninstall. Some antiviruses install several parts with the same brand name: remove them all.</li>
+    <li>In your browser (Edge or Chrome), open the menu (the three dots at the top right) › <strong>Extensions</strong>. Extensions are small add-ons to the browser. If one has the name of that antivirus, click <strong>Remove</strong>.</li>
+    <li><strong>Restart</strong> the computer. Microsoft Defender takes over by itself.</li>
+  </ol>
+  <p>If you paid for an antivirus and it is up to date, you can of course keep it. What matters is not having two.</p>
+
+  <!-- ===== 3 ===== -->
+  <h2 id="defender">3. Check that Microsoft Defender is running</h2>
+  <ol>
+    <li>Open <strong>Windows Security</strong> › <strong>Virus &amp; threat protection</strong> again. It should say “Microsoft Defender Antivirus”.</li>
+    <li>Click <strong>Manage settings</strong> and check that these four switches are <strong>On</strong>:
+      <ul>
+        <li><strong>Real-time protection</strong>: Defender constantly watches what you open and download.</li>
+        <li><strong>Cloud-delivered protection</strong>: it checks an online list of the latest threats, updated continuously.</li>
+        <li><strong>Automatic sample submission</strong>: a suspicious file is sent to Microsoft for analysis. Windows always asks you before sending a file that might be personal.</li>
+        <li><strong>Tamper Protection</strong>: stops a malicious program from secretly switching Defender off.</li>
+      </ul>
+    </li>
+    <li>Run a <strong>Quick scan</strong> (a few minutes).</li>
+  </ol>
+  <p>You may see a yellow message about “Ransomware protection” (programs that hold your files hostage) suggesting you set up OneDrive. You can click <strong>Dismiss</strong> for now: it's about backing up your files, explained calmly in <a href="#sauvegarde">step 8</a>.</p>
+
+  <!-- ===== 4 ===== -->
+  <h2 id="hors-ligne">4. If in doubt: the “offline” scan</h2>
+  <div class="why"><strong>Why?</strong> If you installed a dubious program (a “free PDF converter”, a fake cleaner…), or if the computer is behaving strangely, this scan restarts the computer and checks it <em>before</em> Windows starts. A malicious program therefore can't hide while it's being looked for.</div>
+  <ol>
+    <li>Save your work and close your documents: the computer will restart.</li>
+    <li>Open <strong>Windows Security</strong> › <strong>Virus &amp; threat protection</strong> › <strong>Scan options</strong>.</li>
+    <li>Choose <strong>Microsoft Defender Offline scan</strong>, then <strong>Scan now</strong>.</li>
+    <li>The scan takes about fifteen minutes, then Windows restarts normally.</li>
+  </ol>
+  <p>If Defender found something, it puts it in quarantine. For what to do next (programs to check, passwords to change, email), follow my guide <a href="after-a-virus.html">After a virus: what to check</a>.</p>
+
+  <!-- ===== 5 ===== -->
+  <h2 id="code-demarrage">5. A PIN when the computer starts</h2>
+  <div class="why"><strong>Why?</strong> Many computers open straight away, without asking for anything. Anyone who switches it on (or steals it) then gets into your emails, your documents and the passwords saved in the browser. A code at start-up closes that door.</div>
+  <p>The simplest is a <strong>PIN</strong> of 4 to 6 digits. It's quicker to type than a password and only works on this computer.</p>
+  <ol>
+    <li>Open <strong>Settings</strong> › <strong>Accounts</strong> › <strong>Sign-in options</strong>.</li>
+    <li>Click <strong>PIN (Windows Hello)</strong>, then <strong>Set up</strong>.</li>
+    <li>Windows first asks for the account's current password. If it doesn't ask for one, the account has none: first click <strong>Password</strong> › <strong>Add</strong>, then come back here.</li>
+    <li>Choose a code. Avoid 1234, 0000 and family birthdays.</li>
+    <li>Write it on a piece of paper kept at home, but not stuck to the computer.</li>
+  </ol>
+  <p>Still in <strong>Sign-in options</strong>, for “If you've been away, when should Windows require you to sign in again?”, choose <strong>When PC wakes up from sleep</strong>.</p>
+  <p><strong>To test it:</strong> press <strong>Windows key + L</strong>. The screen locks, and your code opens it again. It's also a good habit whenever you step away from the computer.</p>
+
+  <!-- ===== 6 ===== -->
+  <h2 id="wifi">6. A well-protected Wi-Fi and router</h2>
+  <p><em>This is the most technical step in this guide. If you're unsure, keep it for a visit: your Wi-Fi keeps working in the meantime.</em></p>
+  <div class="why"><strong>Why?</strong> Wi-Fi travels through the air. The router “encrypts” it, meaning it scrambles it so only your devices can read it. Some routers still accept an old way of scrambling (called TKIP) that people with bad intentions know how to get around. If your iPhone shows <strong>“Weak Security”</strong> under your Wi-Fi name, this is often why: it's a router setting to change, not the phone.</div>
+  <ol>
+    <li>On a computer connected to your Wi-Fi, open the browser and type your router's address in the address bar at the very top of the window (where website addresses appear, not in Google's search box), then press Enter. It's in your provider's booklet. For an Orange Livebox in France, it's <strong>192.168.1.1</strong>.</li>
+    <li>Log in. The password is in the booklet or on the router's label (on a Livebox, it's usually the first 8 characters of the security key).</li>
+    <li>Look for the <strong>Wi-Fi</strong> page (sometimes “Advanced Wi-Fi”), then the <strong>Security mode</strong> or <strong>Encryption</strong> setting.</li>
+    <li>Choose <strong>WPA2</strong> with <strong>AES</strong> (or WPA3 if your router offers it and all your devices are recent). Avoid anything containing “TKIP”, “mixed”, “WEP” or “none”.</li>
+    <li>Don't change the Wi-Fi name or the key: your devices will reconnect by themselves.</li>
+    <li>Save. The Wi-Fi drops for about a minute, then comes back: that's normal.</li>
+  </ol>
+  <div class="warn"><strong>Careful:</strong> on the router's page, never click “forgotten password”. The router then offers to go back to its factory settings, which means reconnecting everything. If the password doesn't work, stop there: your Wi-Fi keeps working as before.</div>
+  <p>If a very old device can no longer connect, we can put the old setting back while we find a solution for it.</p>
+
+  <h3>While you're on the router's page</h3>
+  <ul>
+    <li><strong>Who is connected at home?</strong> Look for the page listing <strong>connected devices</strong> (often “My network” or “Devices”). You should recognise every device: computer, phones, TV, printer… If an unknown device appears, the simplest fix is to change the Wi-Fi key: only those who know it will be able to reconnect (you'll need to type it again on each of your devices).</li>
+    <li><strong>Guest Wi-Fi.</strong> Many routers offer a “guest” Wi-Fi. Turn it on for visitors: they get internet, but no access to your devices, and you don't have to give out your main key.</li>
+    <li><strong>The WPS button.</strong> It lets you connect a device without typing the key. If you never use it, you can turn it off in the Wi-Fi settings: one less way in.</li>
+    <li><strong>Router updates</strong> usually happen by themselves, at night, from your provider. Simply leave the router on.</li>
+    <li>Finish by clicking <strong>Log out</strong> at the top of the router's page.</li>
+  </ul>
+
+  <!-- ===== 7 ===== -->
+  <h2 id="telephone">7. Your phone and WhatsApp</h2>
+  <p>Your phone holds as many important things as your computer: your messages, your photos, your email, and it's often the phone that receives your bank's codes. A few settings are enough.</p>
+
+  <h3>On an iPhone (Settings app)</h3>
+  <ul>
+    <li><strong>Updates</strong>: General › Software Update › Automatic Updates: turn everything on.</li>
+    <li><strong>Passcode</strong>: Face ID &amp; Passcode (or Touch ID &amp; Passcode). A 6-digit code, not 123456 or a birthday.</li>
+    <li><strong>Auto-Lock</strong>: Display &amp; Brightness › Auto-Lock: 1 or 2 minutes.</li>
+    <li><strong>Stolen Device Protection</strong>: Face ID &amp; Passcode › Stolen Device Protection. Even if a thief knows your code, they can't change your passwords away from home. It needs “Find My” to be on: this doesn't share your location with anyone, it only lets you find or erase your phone. You stay in control.</li>
+    <li><strong>Who sees what</strong>: Privacy &amp; Security › Safety Check. The iPhone shows you who can see your location or photos, and you can stop it all in one go.</li>
+    <li><strong>Fraudulent websites</strong>: Apps › Safari › Fraudulent Website Warning: on.</li>
+  </ul>
+  <p>On an Android phone, the same settings exist with slightly different names depending on the brand.</p>
+
+  <h3>In WhatsApp (You or Settings, bottom right)</h3>
+  <ul>
+    <li><strong>Two-step verification</strong>: Account › Two-step verification › Turn on. Choose a 6-digit PIN (different from your phone's) and write it down. Without this PIN, nobody can install your WhatsApp on another phone, even with your number.</li>
+    <li><strong>Linked devices</strong>: check that only your own computers or tablets are listed. If you see one you don't know, tap it, then <strong>Log out</strong>.</li>
+    <li><strong>Groups</strong>: Privacy › Groups › <strong>My contacts</strong>. This stops strangers adding you to groups, which are often scams.</li>
+    <li><strong>Calls from strangers</strong>: Privacy › Calls › <strong>Silence unknown callers</strong>.</li>
+  </ul>
+  <div class="warn"><strong>The golden rule:</strong> never give anyone a code you received by text message, even a “friend” who writes on WhatsApp saying they sent it to you by mistake. It's the most common scam for stealing an account. If in doubt, call the person.</div>
+
+  <!-- ===== 8 ===== -->
+  <h2 id="sauvegarde">8. Back up your files automatically</h2>
+  <div class="why"><strong>Why?</strong> A computer can break down, be stolen, or be locked by a virus. Your photos and papers can't be replaced. An automatic backup makes a regular copy without you having to think about it.</div>
+
+  <h3>The solution built into Windows: File History</h3>
+  <p>Windows can copy your folders (Documents, Pictures, Desktop, Music, Videos) by itself to an external drive or a backup box, every hour, keeping older versions of your files.</p>
+  <ol>
+    <li>Plug in your external drive, or check that your backup box is switched on.</li>
+    <li>In the search bar, type <strong>“File History”</strong> and open it (it opens in the Control Panel).</li>
+    <li>If your drive appears, click <strong>Turn on</strong>. If it doesn't, click <strong>Select drive</strong> on the left and choose it. For a box connected to the router rather than the computer, click <strong>Add network location</strong>.</li>
+    <li>In <strong>Advanced settings</strong>, you can keep “Every hour” and “Forever” (or “Until space is needed”).</li>
+    <li>Let the first backup finish: it can take a while. The following ones are quick.</li>
+  </ol>
+  <p><strong>To check it works</strong>, try it once: on the same screen, click <strong>Restore personal files</strong> and find a photo. A backup you've never tried is a backup you can't be sure of.</p>
+
+  <h3>Do you have a “RAID” box?</h3>
+  <p>A RAID box contains two disks that keep the same copy. If one fails, the other takes over: good protection against a disk failure. But it isn't a complete backup: if a file is deleted by mistake or damaged by a virus, it's gone from both disks at once. And in case of theft or fire, the computer and the box disappear together. Hence the two tips below.</p>
+
+  <h3>Two precautions that make all the difference</h3>
+  <ul>
+    <li><strong>Keep older versions.</strong> File History already does this. If your box is connected to the router, also check its settings for “snapshots” or “version history”, and turn them on. That way, even if a virus damages your files, you can go back to yesterday's version.</li>
+    <li><strong>A copy somewhere other than home.</strong> For your most precious files (family photos, important papers), keep a second copy away from home: online, with OneDrive or Google Drive (<a href="#en-ligne">see below</a>), or on a small drive you update once a month and keep at a relative's.</li>
+  </ul>
+  <p>If your backup drive plugs into the computer with a cable, don't leave it plugged in all the time: connect it once a week, long enough for the backup to run. An unplugged drive is safe from viruses.</p>
+
+  <h3 id="en-ligne">Backing up online: OneDrive or Google Drive</h3>
+  <p>It's the simplest way to have a copy away from home: your folders are copied to the internet automatically whenever the computer is connected. Choose one <em>or</em> the other, not both for the same folders.</p>
+
+  <p><strong>With OneDrive</strong> (already installed on Windows 11, you need a Microsoft account):</p>
+  <ol>
+    <li>At the bottom right of the screen, near the clock, click the small <strong>cloud</strong> (if you can't see it, first click the small arrow ^). If asked, sign in with your Microsoft account.</li>
+    <li>Click the <strong>gear wheel</strong> at the top right, then <strong>Settings</strong>.</li>
+    <li>Under <strong>Sync and back up</strong>, click <strong>Manage back up</strong>.</li>
+    <li>Choose the folders to protect (Desktop, Documents, Pictures), then <strong>Start backup</strong>.</li>
+  </ol>
+  <p>Your files stay in the same place on the computer, but they are now also in OneDrive. A small green tick or a cloud next to each file shows it has been copied.</p>
+
+  <p><strong>With Google Drive</strong> (you need a Google account, for example a Gmail address):</p>
+  <ol>
+    <li>Search for “Google Drive for desktop”, download it from Google's official page, then install it.</li>
+    <li>Sign in with your Google account.</li>
+    <li>Click the Google Drive icon near the clock, then the <strong>gear wheel</strong> › <strong>Preferences</strong>.</li>
+    <li>Under <strong>My Computer</strong>, click <strong>Add folder</strong>, choose for example Documents, then <strong>Sync with Google Drive</strong> and <strong>Done</strong>. Do the same for your other important folders.</li>
+  </ol>
+
+  <p><strong>Good to know for both:</strong></p>
+  <ul>
+    <li><strong>Free space is limited</strong>: 5 GB with Microsoft, 15 GB with Google (shared with your email). That's enough for papers, often too little for years of photos. Beyond that you need a paid subscription: compare before choosing, and start with your most precious files.</li>
+    <li><strong>What you delete on the computer is also deleted online</strong>, but can be recovered for about 30 days from the <strong>bin</strong> on the OneDrive or Google Drive website.</li>
+    <li>This copy is only as safe as your account: protect it with a good password and two-step verification (see <a href="#comptes">step 9</a>).</li>
+  </ul>
+
+  <!-- ===== 9 ===== -->
+  <h2 id="comptes">9. Your email and your passwords</h2>
+  <div class="why"><strong>Why?</strong> Your email is the key to all your other accounts: that's where “forgotten password” links arrive. Someone who gets into your email can then get in almost anywhere. So it's the first thing to protect.</div>
+  <ol>
+    <li><strong>Turn on two-step verification for your email.</strong> As well as the password, you'll need a code sent to your phone, but only when you sign in from a new device. Look for this setting in your account settings, under “Security” (Gmail, Outlook, Orange, Yahoo… all offer it). Do the same for your Microsoft or Google account if you back up online.</li>
+    <li><strong>Check your recovery details</strong>: in the same section, the phone number and backup email address must be yours and up to date.</li>
+    <li><strong>A different password for each important site</strong> (email, bank, online shopping). If one site has its passwords stolen, the others stay safe.</li>
+    <li><strong>So you don't have to remember everything</strong>, let your browser (Edge or Chrome) suggest and save strong passwords for you: it fills them in by itself. This is safe as long as the computer is protected by a start-up PIN (<a href="#code-demarrage">step 5</a>). Keep your email password on paper, at home.</li>
+  </ol>
+
+  <!-- ===== RETENIR ===== -->
+  <h2 id="retenir">10. Good habits to remember</h2>
+  <ul>
+    <li class="keep">The small shield at the bottom right of the screen: green, all is well. Yellow or red: click it and Windows tells you what to do.</li>
+    <li class="keep">A message asking you to pay to “clean” or “unlock” your computer is a scam: close it, and don't call any number it shows.</li>
+    <li class="keep">An email or text asking for your password or urging you to click: don't click, and ask someone close to you.</li>
+    <li class="keep">Windows key + L whenever you step away from the computer.</li>
+    <li class="keep">A different password for each important site, and two-step verification on your email.</li>
+    <li class="keep">An automatic backup, older versions, and a copy of your precious files away from home.</li>
+  </ul>
+
+  <h3>Mini glossary</h3>
+  <dl>
+    <div><dt>Antivirus</dt><dd>A program that spots and blocks malicious software. One is enough.</dd></div>
+    <div><dt>Firewall</dt><dd>A filter that blocks unauthorised connections to your computer.</dd></div>
+    <div><dt>Update</dt><dd>A fix sent by Microsoft or Apple, often to close a security hole.</dd></div>
+    <div><dt>Encryption</dt><dd>Scrambling information so only those with the key can read it.</dd></div>
+    <div><dt>WPA2 / AES</dt><dd>Today's Wi-Fi protection. TKIP is an old protection, not recommended.</dd></div>
+    <div><dt>PIN (Windows Hello)</dt><dd>A code that opens your session, valid only on this computer.</dd></div>
+    <div><dt>Two-step verification</dt><dd>A sign-in that asks for your password plus a code sent to your phone.</dd></div>
+    <div><dt>Offline scan</dt><dd>A check of the computer done before Windows starts.</dd></div>
+  </dl>
+
+  <!-- ===== OFFRE ===== -->
+  <section class="offer">
+    <h2>Rather do it together?</h2>
+    <p>This guide is designed so you can get on with it yourself, at your own pace. If a step stops you, or if you'd rather have someone beside you, I come to your home in Pau and the surrounding area. You do the steps, I guide you: it's the best way to remember.</p>
+    <p>Securing a computer costs <strong>€30</strong>, the same as a one-hour session. 10% off for people over 70. <a href="./#tarifs">See all prices</a>.</p>
+    <p>
+      <a href="tel:+33784529922" class="call-btn">📞 +33 7 84 52 99 22</a>
+      <a href="./#contact" class="call-btn">✉️ Write to me</a>
+    </p>
+    <p>First meeting free, no commitment.</p>
+  </section>
+</main>
+<a class="to-toc" href="#sommaire">↑ Contents</a>
+<footer>
+  <p>© 2026 Izumi Bérat · <a href="./">Tech help at home, Pau</a> · <a href="./#guides">All my guides</a> · <a href="where-to-start.html">Where to start?</a> · <a href="../mentions-legales.html" hreflang="fr">Legal notice (in French)</a></p>
+  <p>This guide may be printed and shared freely for personal use.</p>
+</footer>
+</body>
+</html>

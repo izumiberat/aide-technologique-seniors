@@ -6,6 +6,10 @@
 <title>Par où commencer ? Le bon conseil selon votre besoin | Izumi Bérat, Pau</title>
 <meta name="description" content="Arnaque, virus, choix d'une tablette, appels vidéo, téléassistance, aides gratuites : choisissez votre situation et trouvez tout de suite les conseils utiles, expliqués sans jargon.">
 <link rel="canonical" href="https://seniors.izutech.fr/par-ou-commencer.html">
+<link rel="alternate" hreflang="fr" href="https://seniors.izutech.fr/par-ou-commencer.html">
+<link rel="alternate" hreflang="en" href="https://seniors.izutech.fr/en/where-to-start.html">
+<link rel="alternate" hreflang="ja" href="https://seniors.izutech.fr/ja/where-to-start.html">
+<link rel="alternate" hreflang="x-default" href="https://seniors.izutech.fr/par-ou-commencer.html">
 <style>
   :root { --primary: #1f5f8b; --text: #2c3e50; --muted: #4a5568; --line: #e3e8ed; --bg: #f7f9fb; --note: #eef5fa; --warn: #fdf3e7; --warn-line: #e3a35a; --urgent: #fbeaea; --urgent-line: #c0392b; }
   body { font-family: "Open Sans", "Segoe UI", system-ui, sans-serif; font-size: 18px; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 0 16px; }
@@ -42,11 +46,22 @@
   .js #choix.hidden { display: none; }
   footer { max-width: 760px; margin: 0 auto 2rem; color: var(--muted); font-size: 0.95rem; text-align: center; }
   @media print { body { background: #fff; padding: 0; } main { box-shadow: none; margin: 0; } .back, .tools, .offer .call-btn, #choix, #niveau, #arnaque-q { display: none !important; } }
+  .lang-switch { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.25rem; margin: 0 0 0.5rem; font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; font-size: 1rem; }
+  .lang-switch a { padding: 0.4rem 0.7rem; border-radius: 50px; text-decoration: none; font-weight: 600; }
+  .lang-switch a:hover, .lang-switch a:focus-visible { background: var(--note); }
+  .lang-switch a[aria-current="page"] { background: var(--primary); color: #fff; }
+  .lang-note { font-size: 1rem; color: var(--muted); font-style: italic; }
+  @media print { .lang-switch { display: none; } } /*ls*/
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 <main>
+  <nav class="lang-switch" aria-label="Langue / Language / 言語">
+    <a href="par-ou-commencer.html" hreflang="fr" lang="fr" aria-current="page">Français</a>
+    <a href="en/where-to-start.html" hreflang="en" lang="en">English</a>
+    <a href="ja/where-to-start.html" hreflang="ja" lang="ja">日本語</a>
+  </nav>
   <a class="back" href="./#guides">← Retour à l'accueil</a>
   <h1>Par où commencer ?</h1>
   <p class="intro">Choisissez ce qui vous amène, pour vous ou pour un proche. Vous trouverez tout de suite les premiers gestes utiles, expliqués simplement, et où aller plus loin si besoin.</p>
