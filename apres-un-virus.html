@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Après un virus : les vérifications à faire | Izumi Bérat, Pau</title>
+<meta name="description" content="Votre antivirus a trouvé un programme malveillant, ou vous avez installé un logiciel douteux ? Les vérifications à faire, pas à pas : analyse, programmes, navigateur, mots de passe, boîte mail. Expliqué sans jargon.">
+<link rel="canonical" href="https://seniors.izutech.fr/apres-un-virus.html">
+<style>
+  :root { --primary: #1f5f8b; --text: #2c3e50; --muted: #4a5568; --line: #e3e8ed; --bg: #f7f9fb; --note: #eef5fa; --warn: #fdf3e7; --warn-line: #e3a35a; }
+  body { font-family: "Open Sans", "Segoe UI", system-ui, sans-serif; font-size: 18px; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 0 16px; }
+  main { max-width: 760px; margin: 2rem auto 3rem; background: #fff; border-radius: 10px; padding: clamp(1.25rem, 4vw, 2.5rem); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  h1, h2, h3 { font-family: "Montserrat", "Segoe UI", system-ui, sans-serif; line-height: 1.3; }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 { font-size: 1.35rem; color: var(--primary); margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.25rem; }
+  a { color: var(--primary); }
+  li { margin-bottom: 0.5rem; }
+  .back { display: inline-block; margin-bottom: 1.25rem; font-weight: 700; }
+  .updated { color: var(--muted); font-size: 1rem; }
+  .intro { font-size: 1.1rem; }
+  .toc { background: var(--note); border-radius: 8px; padding: 1rem 1.25rem; }
+  .toc ol { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+  .why { background: var(--note); border-left: 4px solid var(--primary); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .warn { background: var(--warn); border-left: 4px solid var(--warn-line); border-radius: 6px; padding: 0.75rem 1rem; margin: 1rem 0; }
+  .keep { font-weight: 600; }
+  .offer { background: var(--note); border-radius: 10px; padding: 1.25rem 1.5rem; margin-top: 2.5rem; }
+  .offer h2 { border-top: none; margin-top: 0; padding-top: 0; }
+  .call-btn { display: inline-block; background: var(--primary); color: #fff; text-decoration: none; font-weight: 700; padding: 0.7rem 1.2rem; border-radius: 8px; margin: 0.25rem 0.5rem 0.25rem 0; }
+  dl { margin: 0; border-top: 1px solid var(--line); }
+  dl > div { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 0.25rem 1.25rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+  dt { font-weight: 700; }
+  dd { margin: 0; }
+  footer { max-width: 760px; margin: 0 auto 2rem; color: var(--muted); font-size: 0.95rem; text-align: center; }
+  @media (max-width: 560px) { dl > div { grid-template-columns: 1fr; } }
+  @media print { body { background: #fff; padding: 0; } main { box-shadow: none; margin: 0; } .back, .offer .call-btn { display: none; } }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="./#guides">← Retour à l'accueil</a>
+  <h1>Après un virus : les vérifications à faire</h1>
+  <p class="updated">Pour Windows 11 · Mis à jour le 21 novembre 2026</p>
+
+  <p class="intro">Microsoft Defender vous a prévenu qu'il avait trouvé une « menace » ? Ou vous avez installé un programme qui ne vous inspire plus confiance (un « convertisseur PDF gratuit », un « nettoyeur » ou un « accélérateur » trouvé sur internet) ? Pas de panique : c'est très courant, et ça se répare. Voici les vérifications que je fais avec mes clients dans ce cas, dans l'ordre.</p>
+  <p>Ce guide complète <a href="securiser-ordinateur-windows.html">mon guide pour sécuriser son ordinateur Windows</a>, qui explique les réglages de base. Si vous ne l'avez pas encore suivi, faites-le ensuite : il évite que cela se reproduise.</p>
+
+  <nav class="toc" aria-label="Sommaire">
+    <strong>Au programme</strong>
+    <ol>
+      <li><a href="#analyse">Lancer une analyse complète</a></li>
+      <li><a href="#programmes">Vérifier les programmes installés</a></li>
+      <li><a href="#navigateur">Vérifier le navigateur</a></li>
+      <li><a href="#mots-de-passe">Changer vos mots de passe importants</a></li>
+      <li><a href="#boite-mail">Vérifier votre boîte mail</a></li>
+      <li><a href="#banque">Si vous avez donné des informations bancaires</a></li>
+      <li><a href="#eviter">Pour que ça ne recommence pas</a></li>
+    </ol>
+  </nav>
+
+  <div class="why"><strong>Bon à savoir :</strong> quand Defender trouve quelque chose, il le met en « quarantaine », c'est-à-dire qu'il l'enferme pour qu'il ne puisse plus rien faire. Le danger est donc déjà écarté. Les vérifications qui suivent servent à être sûr qu'il ne reste rien, et à protéger vos comptes au cas où.</div>
+
+  <!-- ===== 1 ===== -->
+  <h2 id="analyse">1. Lancer une analyse complète</h2>
+  <p>Commencez par l'<strong>analyse hors ligne</strong> de Microsoft Defender : elle vérifie l'ordinateur avant que Windows ne démarre, là où un programme malveillant ne peut pas se cacher. Les étapes sont expliquées dans <a href="securiser-ordinateur-windows.html#hors-ligne">mon premier guide (étape 4)</a>. Comptez une quinzaine de minutes.</p>
+  <p>Ensuite, ouvrez <strong>Sécurité Windows</strong> › <strong>Protection contre les virus et menaces</strong> › <strong>Historique de protection</strong>. Vous y voyez ce que Defender a trouvé et ce qu'il en a fait. « Mis en quarantaine » ou « Supprimé » : c'est réglé.</p>
+
+  <!-- ===== 2 ===== -->
+  <h2 id="programmes">2. Vérifier les programmes installés</h2>
+  <div class="warn"><strong>Important :</strong> à cette étape, regardez et notez sur un papier, mais ne supprimez rien que vous ne connaissez pas. Beaucoup de noms bizarres sont normaux : ils viennent de Windows, du fabricant de l'ordinateur ou de l'imprimante. En cas de doute, demandez à quelqu'un de confiance avant de supprimer.</div>
+  <ol>
+    <li><strong>Les programmes installés.</strong> Ouvrez <strong>Paramètres</strong> (touche Windows + I) › <strong>Applications</strong> › <strong>Applications installées</strong>. En haut, choisissez de trier par <strong>Date d'installation</strong> : les plus récents apparaissent en premier. Le programme douteux ne doit plus y être. Si vous le voyez encore : les trois points <strong>…</strong> › <strong>Désinstaller</strong>. Notez les autres noms récents que vous ne reconnaissez pas.</li>
+    <li><strong>Les programmes qui se lancent au démarrage.</strong> Toujours dans <strong>Applications</strong>, cliquez sur <strong>Démarrage</strong>. C'est la liste des programmes qui s'allument avec l'ordinateur. Notez ceux que vous ne reconnaissez pas. Vous pouvez éteindre l'interrupteur d'un programme que vous ne connaissez pas : cela ne le supprime pas, il ne se lance simplement plus tout seul.</li>
+    <li><strong>Un programme de « prise en main à distance » ?</strong> Si quelqu'un vous a appelé en se présentant comme un technicien (Microsoft, votre banque, votre fournisseur internet) et vous a fait installer un programme pour « voir votre écran », désinstallez ce programme, et lisez attentivement les étapes 4 à 6. Ni Microsoft ni votre banque n'appellent jamais de cette façon.</li>
+  </ol>
+
+  <!-- ===== 3 ===== -->
+  <h2 id="navigateur">3. Vérifier le navigateur</h2>
+  <p>Les faux logiciels s'installent souvent aussi dans le navigateur (Edge ou Chrome), pour afficher des publicités ou espionner vos recherches.</p>
+  <ol>
+    <li><strong>Les extensions</strong> (des petits modules ajoutés au navigateur). Dans Edge : menu <strong>…</strong> en haut à droite › <strong>Extensions</strong> › <strong>Gérer les extensions</strong>. Dans Chrome : menu <strong>⋮</strong> › <strong>Extensions</strong> › <strong>Gérer les extensions</strong>. Supprimez celles que vous n'avez pas ajoutées vous-même. Si la liste est vide, c'est très bien.</li>
+    <li><strong>Le moteur de recherche.</strong> Dans Edge : menu <strong>…</strong> › <strong>Paramètres</strong> › <strong>Confidentialité, recherche et services</strong>, tout en bas <strong>Barre d'adresse et recherche</strong>. Dans Chrome : menu <strong>⋮</strong> › <strong>Paramètres</strong> › <strong>Moteur de recherche</strong>. Vous devez y voir un moteur connu (Bing, Google, Qwant…). Les faux logiciels remplacent parfois ce réglage par le leur.</li>
+    <li><strong>La page d'accueil.</strong> Si, en ouvrant le navigateur, une page inconnue s'affiche, changez-la dans les mêmes paramètres, rubrique <strong>Démarrage</strong> (ou « Au démarrage »).</li>
+  </ol>
+
+  <!-- ===== 4 ===== -->
+  <h2 id="mots-de-passe">4. Changer vos mots de passe importants</h2>
+  <div class="why"><strong>Pourquoi ?</strong> Certains programmes malveillants relèvent ce que l'on tape au clavier. Si vous vous êtes connecté à des sites importants depuis cet ordinateur pendant que le programme était présent, mieux vaut changer ces mots de passe.</div>
+  <ol>
+    <li><strong>Depuis un autre appareil</strong> si possible (votre téléphone ou un autre ordinateur), tant que vous n'êtes pas sûr que celui-ci est propre.</li>
+    <li><strong>Dans cet ordre :</strong> d'abord votre <strong>boîte mail</strong> (c'est elle qui permet de récupérer tous les autres comptes), puis votre <strong>banque</strong>, puis les sites d'<strong>achat en ligne</strong>, puis les autres.</li>
+    <li><strong>Un mot de passe différent pour chaque site.</strong> Mes conseils pour s'en sortir sans tout retenir sont dans <a href="securiser-ordinateur-windows.html#comptes">mon premier guide (étape 9)</a>.</li>
+  </ol>
+
+  <!-- ===== 5 ===== -->
+  <h2 id="boite-mail">5. Vérifier votre boîte mail</h2>
+  <p>Quelqu'un qui a eu votre mot de passe peut avoir laissé des « portes » dans votre boîte mail pour continuer à lire vos messages, même après le changement de mot de passe. Les noms exacts varient selon votre messagerie (Gmail, Outlook, Orange, Yahoo…) : cherchez dans les <strong>Paramètres</strong> (souvent une roue dentée).</p>
+  <ol>
+    <li><strong>Le transfert automatique</strong> (rubrique « Transfert », « Boîtes aux lettres » ou « Comptes ») : aucun transfert vers une adresse que vous ne connaissez pas ne doit être activé.</li>
+    <li><strong>Les filtres ou règles</strong> : aucune règle que vous n'avez pas créée vous-même (par exemple une règle qui supprime ou déplace certains messages sans que vous les voyiez).</li>
+    <li><strong>Les moyens de récupération</strong> (rubrique « Sécurité » de votre compte) : le numéro de téléphone et l'adresse de secours doivent être les vôtres.</li>
+    <li><strong>Les appareils connectés</strong> : la plupart des messageries montrent la liste des appareils ou des connexions récentes. Si vous en voyez un inconnu, choisissez <strong>Se déconnecter partout</strong> (ou « Déconnecter tous les appareils »), puis reconnectez-vous sur les vôtres.</li>
+    <li>Si ce n'est pas déjà fait, activez la <strong>validation en deux étapes</strong>, comme expliqué dans <a href="securiser-ordinateur-windows.html#comptes">mon premier guide</a>.</li>
+  </ol>
+
+  <!-- ===== 6 ===== -->
+  <h2 id="banque">6. Si vous avez donné des informations bancaires</h2>
+  <p>Si vous avez tapé votre numéro de carte sur un site douteux, ou si un faux technicien a pu voir votre écran pendant que vous étiez sur le site de votre banque :</p>
+  <ul>
+    <li><strong>Appelez votre banque tout de suite</strong>, avec le numéro inscrit sur votre carte ou vos relevés (jamais un numéro reçu par message). Elle peut faire opposition et surveiller votre compte.</li>
+    <li>Regardez vos derniers relevés : signalez toute opération que vous ne reconnaissez pas.</li>
+    <li>Le site officiel <strong>cybermalveillance.gouv.fr</strong> explique quoi faire selon votre situation, et comment porter plainte si besoin.</li>
+  </ul>
+
+  <!-- ===== 7 ===== -->
+  <h2 id="eviter">7. Pour que ça ne recommence pas</h2>
+  <ul>
+    <li class="keep">Téléchargez vos programmes uniquement depuis le <strong>Microsoft Store</strong> ou le site officiel du fabricant, jamais depuis une publicité.</li>
+    <li class="keep">Méfiez-vous des programmes « gratuits » qui promettent de convertir, nettoyer ou accélérer : Windows sait déjà ouvrir les PDF (dans Edge) et entretenir l'ordinateur tout seul.</li>
+    <li class="keep">Quand Windows demande « Voulez-vous autoriser cette application à apporter des modifications ? » et que vous n'êtes pas en train d'installer quelque chose vous-même, répondez <strong>Non</strong>.</li>
+    <li class="keep">Personne de sérieux ne vous appelle pour « réparer » votre ordinateur. Raccrochez.</li>
+    <li class="keep">Suivez <a href="securiser-ordinateur-windows.html">mon guide pour sécuriser son ordinateur Windows</a> : un ordinateur bien réglé et une sauvegarde à jour, c'est la meilleure protection.</li>
+  </ul>
+
+  <!-- ===== OFFRE ===== -->
+  <section class="offer">
+    <h2>Un doute ? On regarde ensemble</h2>
+    <p>Si vous avez noté des noms que vous ne reconnaissez pas, ou si vous n'êtes pas rassuré, je viens chez vous, à Pau et alentours. On passe votre liste en revue ensemble, calmement, et je vous explique ce que l'on fait à chaque étape.</p>
+    <p>Une séance d'une heure est à <strong>30 €</strong>. Réduction de 10 % pour les plus de 70 ans. <a href="./#tarifs">Voir tous les tarifs</a>.</p>
+    <p>
+      <a href="tel:+33784529922" class="call-btn">📞 07 84 52 99 22</a>
+      <a href="./#contact" class="call-btn">✉️ M'écrire</a>
+    </p>
+    <p>Première rencontre gratuite, sans engagement.</p>
+  </section>
+</main>
+<footer>
+  <p>© 2026 Izumi Bérat · <a href="./">Assistance technologique à domicile, Pau</a> · <a href="./#guides">Tous mes guides</a> · <a href="mentions-legales.html">Mentions légales</a></p>
+  <p>Ce guide peut être imprimé et partagé librement pour un usage personnel.</p>
+</footer>
+</body>
+</html>

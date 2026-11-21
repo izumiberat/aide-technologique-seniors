@@ -853,6 +853,15 @@
             height: 100%;
         }
         
+        /* ===== GUIDES ===== */
+        .guides-section { margin: 3rem 0; }
+        .guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1rem; }
+        .guide-card { display: block; background: #fff; border: 1px solid #e3e8ed; border-left: 5px solid var(--primary-color); border-radius: var(--border-radius); padding: 1.25rem 1.5rem; text-decoration: none; color: inherit; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .guide-card:hover, .guide-card:focus-visible { box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
+        .guide-card h3 { margin: 0 0 0.5rem; color: var(--primary-color); }
+        .guide-card p { margin: 0 0 0.75rem; }
+        .guide-card .guide-link { font-weight: 700; color: var(--primary-color); }
+
         /* ===== EBOOK ===== */
         .ebook-section {
             background: var(--light-gray);
@@ -1137,7 +1146,7 @@
                     <li>Maintenance préventive</li>
                     <li>Assistance à distance</li>
                 </ul>
-                <p style="margin-top: 0.75rem;"><a href="securiser-ordinateur-windows.html">📖 Guide gratuit : sécuriser son ordinateur Windows, pas à pas</a></p>
+                <p style="margin-top: 0.75rem;"><a href="#guides">📖 Mes guides gratuits : sécuriser son ordinateur, que faire après un virus</a></p>
             </div>
         </div>
 
@@ -1288,6 +1297,24 @@
             <li>Une attention particulière à la sécurité</li>
         </ul>
         <p>Je sais aussi ce que trop d'écran fait au corps : en 2024, après des mois de travail sur ordinateur, mon corps s'était tellement bloqué que j'avais du mal à enfiler mes chaussettes. Depuis, je pratique chaque jour le yoga, la méditation et la course à pied. C'est pour ça que je tiens à une technologie qui reste à sa place : un outil qui vous facilite la vie, sans vous y enfermer.</p>
+
+        <!-- ===== GUIDES ===== -->
+        <section class="guides-section" id="guides">
+            <h2>Mes guides gratuits, pas à pas</h2>
+            <p>Des guides simples, sans jargon, à suivre seul à votre rythme ou à imprimer.</p>
+            <div class="guides-grid">
+                <a class="guide-card" href="securiser-ordinateur-windows.html">
+                    <h3>🛡️ Sécuriser son ordinateur Windows</h3>
+                    <p>Les réglages de base, une bonne fois pour toutes : Sécurité Windows, un seul antivirus, code au démarrage, wifi et box, sauvegardes, boîte mail, téléphone et WhatsApp.</p>
+                    <span class="guide-link">Lire le guide →</span>
+                </a>
+                <a class="guide-card" href="apres-un-virus.html">
+                    <h3>🧹 Après un virus : les vérifications à faire</h3>
+                    <p>L'antivirus a trouvé quelque chose, ou vous avez installé un programme douteux ? Les vérifications à faire, dans l'ordre, pour être rassuré.</p>
+                    <span class="guide-link">Lire le guide →</span>
+                </a>
+            </div>
+        </section>
 
         <!-- ===== EBOOK ===== -->
         <section class="ebook-section">
@@ -1460,7 +1487,7 @@
                         <span>LinkedIn</span>
                     </a>
                 </div>
-                <p class="copyright">© 2026 Izumi Bérat – Tous droits réservés · <a href="securiser-ordinateur-windows.html">Guide : sécuriser son ordinateur</a> · <a href="mentions-legales.html">Mentions légales et confidentialité</a></p>
+                <p class="copyright">© 2026 Izumi Bérat – Tous droits réservés · <a href="#guides">Guides gratuits</a> · <a href="mentions-legales.html">Mentions légales et confidentialité</a></p>
             </div>
         </div>
     </div>
