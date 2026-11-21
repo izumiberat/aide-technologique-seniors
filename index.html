@@ -919,6 +919,14 @@
         
         *, *::before, *::after { box-sizing: border-box; }
         img { max-width: 100%; }
+        /* ===== ASSOCIATION ===== */
+        .partner-section { margin: 3rem 0; }
+        .partner-card { background: #fff; border: 1px solid #e3e8ed; border-left: 5px solid var(--secondary-color); border-radius: var(--border-radius); padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .partner-card h3 { margin: 0 0 0.75rem; color: var(--secondary-color); }
+        .partner-contact { font-size: 1rem; color: var(--dark-gray); }
+        .partner-link { display: inline-block; margin-top: 0.25rem; font-weight: 700; color: var(--primary-dark); padding: 0.4rem 0; }
+        .partner-note { font-size: 1rem; color: var(--dark-gray); font-style: italic; margin-top: 1rem; }
+
         /* ===== BARRE D'APPEL MOBILE ===== */
         .mobile-cta { display: none; }
         @media (max-width: 768px) {
@@ -1371,6 +1379,19 @@
                     </p>
                 </div>
             </div>
+        </section>
+
+        <!-- ===== ASSOCIATION COUP DE CŒUR ===== -->
+        <section class="partner-section" aria-labelledby="coup-de-coeur">
+            <h2 id="coup-de-coeur">Une association que j'aime beaucoup à Pau</h2>
+            <div class="partner-card">
+                <h3>🏡 Presse Purée : la cohabitation intergénérationnelle</h3>
+                <p>Vous avez plus de 60 ans, une chambre libre, et vous aimeriez une présence à la maison ? L'association <strong>Presse Purée</strong> met en relation, depuis 2009, des séniors de Pau et du Béarn avec des jeunes de moins de 30 ans (étudiants, apprentis) qui cherchent un logement.</p>
+                <p>Le jeune paie un petit loyer et rend quelques services du quotidien (fermer les volets, sortir les poubelles, une course). Ce n'est ni une aide à domicile ni un soignant, mais une présence rassurante, et souvent une belle amitié. L'association choisit les binômes et les accompagne tout au long de l'année.</p>
+                <p class="partner-contact">📍 Centre social la Pépinière, 6 avenue Robert Schuman, Pau · 📞 <a href="tel:+33683516692">06 83 51 66 92</a> (sur rendez-vous le mardi et le vendredi)</p>
+                <a class="partner-link" href="https://pressepuree64.fr/" target="_blank" rel="noopener">Découvrir Presse Purée →</a>
+            </div>
+            <p class="partner-note">Je ne suis pas lié à cette association : je la recommande simplement parce qu'elle rapproche les générations, comme j'essaie de le faire avec la technologie.</p>
         </section>
 
         <!-- ===== CTA ===== -->
